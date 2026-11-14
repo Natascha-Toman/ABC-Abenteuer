@@ -1,104 +1,82 @@
 # 🦉 ABC-Abenteuer
 
-Ein spielerisches Lese- und Schreiblernprogramm für Kinder, die mit den **Augen steuern**
-(z. B. mit einer Tobii-Augensteuerung). Es lässt sich genauso mit Maus oder Touch bedienen.
-Das Kind schaut auf eine Kachel, ein Kreis füllt sich, und die Kachel ist ausgewählt.
-Eine Eule liest alle Aufgaben vor.
+**Spielerisch lesen und schreiben lernen – mit Augensteuerung, Maus oder Touch.**
 
-*Idee und Umsetzung: Natascha Toman, selbst UK-Nutzerin · umgesetzt mithilfe von KI*
+ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder. Es wurde besonders mit Blick auf die Bedienung per Augensteuerung entwickelt, funktioniert aber genauso mit Maus und Touchscreen. Die Eule begleitet die Kinder durch die Übungen.
 
----
+![Spielübersicht von ABC-Abenteuer mit den verschiedenen Lernspielen](bilder/spieluebersicht.jpg)
 
-## Was das Programm kann
+## 🎮 Was kann ABC-Abenteuer?
 
-- **11 Spiele** in drei Schwierigkeitsstufen: Buchstaben entdecken, Womit fängt es an?,
-  Hör genau!, Wörter lesen, Sätze lesen, Wörter schreiben, Silben klatschen, Silben-Puzzle,
-  Memory, Ballon-Jagd und Farben malen. Dazu ein **Sticker-Album** als Belohnung.
-- **Für die Augensteuerung gemacht:** große Kacheln, einstellbare Verweilzeit, „Magnet“ für
-  ungenaues Zielen, Lupe für die kleinen Knöpfe, Pause-Knopf für das Kind. Solange die Eule
-  vorliest, wird nichts ausgewählt.
-- **Klicks von TD Control werden gesperrt.** Betreuungspersonen können trotzdem jederzeit
-  mit der Maus klicken.
-- **Mitteil-Tafel** 💬 mit eigenen Einträgen, damit das Kind sich jederzeit mitteilen kann.
-- **Profile** für bis zu 12 Kinder, eigene Wörter, Sichern und Wiederherstellen.
-- **Kein Internet, keine Installation, keine Datenweitergabe.** Alle Daten bleiben auf dem Rechner.
+- **10 Lernspiele** rund um Buchstaben, Wörter, Sätze und Silben
+- **Drei Schwierigkeitsstufen** zum schrittweisen Üben
+- **Augensteuerung** mit einstellbarer Verweilzeit und großen Auswahlflächen
+- **Sprachausgabe** für Aufgaben und Rückmeldungen
+- **Mitteil-Tafel** für eigene Aussagen während des Spielens
+- **Kinderprofile** mit Lernfortschritt und Sticker-Album
+- **Sichern und Wiederherstellen** der gespeicherten Daten
+- **Offline nutzbar** – keine Internetverbindung erforderlich
 
-## Voraussetzungen
+## 📸 Einblicke ins Programm
 
-| | |
-|---|---|
-| Betriebssystem | Windows 10 oder 11, **64 Bit** |
-| Laufzeit | .NET Framework 4.8 und Microsoft Edge WebView2 Runtime (bei aktuellem Windows 10/11 schon vorhanden) |
-| Augensteuerung (optional) | Tobii-Augensteuerung, die mit dem Tobii Core SDK arbeitet, mit installierter Tobii-Software (z. B. Tobii Experience). Entwickelt und getestet mit einer **Tobii I-16**. |
-| Stimme | eine deutsche Windows-Stimme (Windows-Einstellungen → Zeit und Sprache → Sprache → Deutsch → Sprachpaket mit Sprachausgabe) |
+### 🔤 Buchstaben entdecken
+Buchstaben auswählen, kennenlernen und anhören.
 
-## Installation
+![Buchstabenübersicht mit großen auswählbaren Buchstaben](bilder/buchstaben.jpg)
 
-Keine Installation nötig, das Programm läuft direkt aus seinem Ordner.
+### 🍎 Womit fängt es an?
+Den Anfangsbuchstaben eines Wortes erkennen und auswählen.
 
-1. Rechts unter **Releases** die Datei `ABC-Abenteuer.zip` herunterladen.
-2. Vor dem Entpacken: Rechtsklick auf die ZIP-Datei → **Eigenschaften** → Haken bei
-   **„Zulassen“** → **OK**. Sonst zeigt Windows beim ersten Start die Warnung „Der Computer
-   wurde durch Windows geschützt“, weil das Programm nicht digital signiert ist. (Kommt sie
-   trotzdem: „Weitere Informationen“ → „Trotzdem ausführen“.)
-3. Die ZIP-Datei entpacken (Rechtsklick → „Alle extrahieren …“), z. B. in `Dokumente`.
-4. Im entpackten Ordner **`ABC-Abenteuer.exe`** (Eulen-Symbol) doppelklicken.
+![Anfangsbuchstaben-Aufgabe mit einem Nashorn und drei Antwortmöglichkeiten](bilder/anfangsbuchstaben.jpg)
 
-Den Ordner immer vollständig kopieren, also `ABC-Abenteuer.exe` zusammen mit dem Ordner
-`files`.
+### ✏️ Wörter schreiben
+Buchstaben in die richtige Reihenfolge bringen und Wörter zusammensetzen.
 
-## Benutzung
+![Wörter-schreiben-Spiel mit einer Ente und auswählbaren Buchstaben](bilder/woerter-schreiben.jpg)
 
-- Auf **„Los geht's!“** schauen oder klicken, im Menü ein Spiel auswählen.
-- **⚙ Einstellungen**: Verweilzeiten, Stimme, Profile, Mitteil-Tafel, Sichern.
-- **Beenden**: im Menü zweimal die Tür 🚪 auswählen oder <kbd>Alt</kbd>+<kbd>F4</kbd>.
+### 🧩 Silben-Puzzle
+Aus einzelnen Silben Schritt für Schritt ganze Wörter bilden.
 
-Die ausführliche Anleitung mit Bildern liegt als **`Anleitung.html`** im Programmordner. Sie
-lässt sich auch im Programm unter Einstellungen öffnen.
+![Silben-Puzzle mit dem Wort Nase](bilder/silben-puzzle.jpg)
 
-**Gespeicherte Daten** (Profile, Lernstand) liegen in `%LOCALAPPDATA%\ABC-Abenteuer\WebView2`,
-das Fehlerprotokoll in `%LOCALAPPDATA%\ABC-Abenteuer\protokoll.txt`.
+## 💬 Kommunikation bleibt möglich
 
-## Selbst bauen (für Entwicklerinnen und Entwickler)
+Über die **Mitteil-Tafel** können Kinder auch während eines Spiels etwas mitteilen. Die Schaltflächen lassen sich mit eigenen Aussagen belegen und über die Sprachausgabe wiedergeben.
 
-Benötigt: Windows 10/11, [.NET SDK](https://dotnet.microsoft.com/download) (6 oder neuer),
-Python 3 und PowerShell.
+![Mitteil-Tafel mit Aussagen wie Ja, Nein, Durst und Hunger](bilder/mitteil-tafel.jpg)
 
-```powershell
-git clone <Adresse dieses Repositorys>
-cd <Ordner des Repositorys>
-powershell -ExecutionPolicy Bypass -File erstellen.ps1
-```
+## 👀 Bedienung mit Augensteuerung
 
-`erstellen.ps1` baut beide Programme, holt die Pakete (WebView2, Tobii.Interaction) über
-NuGet und erzeugt daneben den Ordner `ABC-Lernprogramm` sowie `ABC-Abenteuer.zip`.
-Die Silben-Tondateien sind nicht im Repository. Beim ersten Bauen erzeugt das Skript sie
-mit der Windows-Stimme „Microsoft Katja“, die dafür installiert sein muss (deutsches
-Sprachpaket mit Sprachausgabe).
+Bei der Augensteuerung wird eine Schaltfläche durch längeres Anschauen ausgewählt. Die Verweilzeit und weitere Bedienungshilfen lassen sich individuell einstellen. Eine Augensteuerung ist **nicht erforderlich**: Auch Maus und Touch funktionieren.
 
-| Ordner/Datei | Inhalt |
-|---|---|
-| `web/` | Oberfläche: `index.html`, `app.js`, `style.css`, `data.js` (Wörter und Sätze), Schrift, Silben-Töne |
-| `ABC-Abenteuer/` | Hauptprogramm (C#, .NET Framework 4.8, WebView2, Tobii Core SDK) |
-| `Starter/` | kleines Start-Programm mit dem Eulen-Symbol |
-| `Anleitung-Vorlage.html`, `anleitung-bilder/` | Anleitung, wird zu `Anleitung.html` mit eingebetteten Bildern |
-| `erstellen-store.ps1`, `store/` | vorbereitet für eine spätere Veröffentlichung im Microsoft Store (MSIX-Paket, Kachelbilder, Screenshots, Einreich-Anleitung) |
-| `silben-erzeugen.py` | erzeugt die Silben-Tondateien aus `web/silben/lautschrift.txt` neu |
-| `lizenzen/` | Lizenztexte der Fremdkomponenten |
+![Einstellungen für Augensteuerung und Verweilzeit](bilder/einstellungen.jpg)
 
-Zum Testen ohne Augensteuerung kennt das Hauptprogramm die Schalter `--selftest`,
-`--fakegaze`, `--quittest` und `--evaljs` (siehe `ABC-Abenteuer/Program.cs`).
+## ⬇️ Download für Windows
 
-## Lizenz
+**[Zum Downloadbereich (Releases)](https://github.com/Natascha-Toman/ABC-Abenteuer/releases)**
 
-Eigener Quellcode: **MIT-Lizenz**, © 2026 Natascha Toman, siehe [`LICENSE`](LICENSE).
+Sobald eine Version zum Herunterladen bereitsteht:
 
-Datenschutz: [`DATENSCHUTZ.md`](DATENSCHUTZ.md). Das Programm sammelt keine Daten.
+1. Die ZIP-Datei unter **Releases** herunterladen.
+2. Die ZIP-Datei vollständig entpacken.
+3. Im entpackten Ordner `ABC-Abenteuer.exe` starten.
 
-Fremdkomponenten (WebView2, Tobii Core SDK, Schrift Andika, Silben-Tondateien) haben eigene
-Lizenzen, siehe [`THIRD-PARTY-LICENSES.md`](THIRD-PARTY-LICENSES.md). Die Tobii-Bibliotheken
-sind keine Open-Source-Software. Sie liegen nicht in diesem Repository, sondern werden beim
-Bauen von NuGet geladen.
+Eine klassische Installation ist nicht notwendig. Das Programm verwendet Microsoft WebView2; falls diese Komponente auf dem Windows-PC fehlt, muss sie gegebenenfalls nachinstalliert werden.
 
-„Tobii“ ist eine Marke der Tobii AB. Dieses Projekt ist privat und steht in keiner Verbindung
-zu Tobii oder Microsoft.
+> **Hinweis:** Der Downloadbereich enthält erst dann eine fertige Programmversion, wenn ein Release veröffentlicht wurde. Der grüne **Code**-Button auf GitHub lädt dagegen den Quellcode herunter.
+
+## 🔒 Datenschutz
+
+ABC-Abenteuer funktioniert offline. Kinderprofile, Einstellungen und Lernfortschritte werden lokal auf dem verwendeten Computer gespeichert; das Programm überträgt diese Daten nicht an einen Server.
+
+Weitere Informationen: [DATENSCHUTZ.md](DATENSCHUTZ.md)
+
+## 💡 Hintergrund
+
+ABC-Abenteuer ist eine Idee von **Natascha Toman**, die selbst Unterstützte Kommunikation und Augensteuerung nutzt. Ziel war ein Lernprogramm, das Kinder möglichst selbstständig bedienen können – unabhängig davon, ob sie ihre Augen, eine Maus oder einen Touchscreen verwenden.
+
+*Idee, Konzeption und Umsetzung: Natascha Toman – entwickelt mit Unterstützung von KI.*
+
+## 📄 Lizenz und Quellcode
+
+Der eigene Quellcode steht unter der [MIT-Lizenz](LICENSE). Für verwendete Fremdkomponenten gelten deren jeweilige Lizenzbedingungen; siehe [THIRD-PARTY-LICENSES.md](THIRD-PARTY-LICENSES.md).
