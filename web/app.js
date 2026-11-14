@@ -2275,6 +2275,7 @@ function bindSettings() {
   const sel = (id, key, num) => { const el = $(id); el.value = String(S[key]); el.onchange = () => { S[key] = num ? +el.value : el.value; saveS(); }; };
   const chk = (id, key, after) => { const el = $(id); el.checked = !!S[key]; el.onchange = () => { S[key] = el.checked; saveS(); if (after) after(); }; };
   chk("#setLens", "lens", () => { if (S.lens === false) setLens(false); });
+  chk("#setDwell", "dwell", () => { if (Native.eye) toast("👁 Die Tobii-Augensteuerung ist verbunden – sie wählt ohnehin durch Anschauen aus"); });
   chk("#setDot", "dot"); chk("#setHideCursor", "hideCursor"); chk("#setSpeechPause", "speechPause");
   const cl = $("#setEyeClickLock");
   cl.value = clickMode();

@@ -78,7 +78,8 @@ namespace AbcAbenteuer
         private const string Origin = "https://abc-abenteuer.local/";
         private readonly string[] args;
         private readonly WebView2 web = new WebView2 { Dock = DockStyle.Fill, DefaultBackgroundColor = Color.FromArgb(253, 246, 227) };
-        private Tobii.Interaction.Host eyeHost;
+        // bewusst ohne Tobii-Typ: fehlen die Tobii-Dateien, darf das Fenster trotzdem laden und schließen
+        private IDisposable eyeHost;
         private int gazeCount;
         private string eyeInfo = "nicht gestartet";
         private volatile bool webReady;
@@ -571,28 +572,7 @@ namespace AbcAbenteuer
         {
             try
             {
-                eyeHost = new Tobii.Interaction.Host();
-                var stream = eyeHost.Streams.CreateGazePointDataStream(Tobii.Interaction.Framework.GazePointDataMode.LightlyFiltered);
-                gazeStream = stream;
-                stream.GazePoint((x, y, ts) =>
-                {
-                    try
-                    {
-                        gazeCount++;
-                        if (double.IsNaN(x) || double.IsNaN(y) || double.IsInfinity(x) || double.IsInfinity(y)) return;
-                        var now = DateTime.UtcNow;
-                        if ((now - lastSend).TotalMilliseconds < 15) return;       // höchstens ~60 pro Sekunde
-                        lastSend = now;
-                        if (!webReady || !active) return;
-                        SafeInvoke(() => SendGaze(x, y));
-                    }
-                    catch (Exception ex) { if (eyeErrors++ < 5) Log.Error("Blickdaten", ex); }
-                });
-                eyeInfo = "verbunden";
-                eyeHost.States.GetEyeTrackingDeviceStatusAsync().ContinueWith(t =>
-                {
-                    try { eyeInfo = "Gerätestatus: " + t.Result.Value; } catch { }
-                });
+                ConnectTobii();
                 Log.Write(eyeTries > 0 ? "Augensteuerung verbunden (nach " + eyeTries + " Versuchen)" : "Augensteuerung verbunden");
                 eyeRetry?.Stop();
             }
@@ -617,6 +597,36 @@ namespace AbcAbenteuer
                     eyeRetry.Start();
                 }
             }
+        }
+
+        // Alle Zugriffe auf die Tobii-Bibliothek stehen NUR hier. Fehlt sie (Rechner ohne Tobii),
+        // scheitert erst der Aufruf dieser Methode – und das fängt StartEyeTracking ab.
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+        private void ConnectTobii()
+        {
+            var host = new Tobii.Interaction.Host();
+            eyeHost = host;
+            var stream = host.Streams.CreateGazePointDataStream(Tobii.Interaction.Framework.GazePointDataMode.LightlyFiltered);
+            gazeStream = stream;
+            stream.GazePoint((x, y, ts) =>
+            {
+                try
+                {
+                    gazeCount++;
+                    if (double.IsNaN(x) || double.IsNaN(y) || double.IsInfinity(x) || double.IsInfinity(y)) return;
+                    var now = DateTime.UtcNow;
+                    if ((now - lastSend).TotalMilliseconds < 15) return;       // höchstens ~60 pro Sekunde
+                    lastSend = now;
+                    if (!webReady || !active) return;
+                    SafeInvoke(() => SendGaze(x, y));
+                }
+                catch (Exception ex) { if (eyeErrors++ < 5) Log.Error("Blickdaten", ex); }
+            });
+            eyeInfo = "verbunden";
+            host.States.GetEyeTrackingDeviceStatusAsync().ContinueWith(t =>
+            {
+                try { eyeInfo = "Gerätestatus: " + t.Result.Value; } catch { }
+            });
         }
 
         // Blickpunkt (Bildschirm-Pixel) -> Anteil der Fensterfläche (0..1)

@@ -9,6 +9,7 @@
     <LangVersion>latest</LangVersion>
     <Product>ABC-Abenteuer</Product>
     <Version>2.3.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Authors>Natascha Toman</Authors>
     <Copyright>Idee und Umsetzung: Natascha Toman, selbst UK-Nutzerin (umgesetzt mithilfe von KI)</Copyright>
     <Description>ABC-Abenteuer – Lesen und Schreiben lernen mit Augensteuerung</Description>
