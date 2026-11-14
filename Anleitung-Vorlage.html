@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABC-Abenteuer – Anleitung</title>
+<style>
+  @font-face { font-family: "Andika"; src: url("../ABC-Lernprogramm/files/fonts/andika-400.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Andika"; src: url("../ABC-Lernprogramm/files/fonts/andika-700.woff2") format("woff2"); font-weight: 700; }
+  :root { --ink: #2b2d42; --soft: #6b6f86; --bg: #fdf6e3; --card: #fff; --blue: #2f6fd6; --green: #2e9e44; --orange: #e07b00; --line: #e8e2d0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 "Andika", "Segoe UI", sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.top { text-align: center; padding: 20px 0 10px; }
+  header.top .owl { font-size: 64px; line-height: 1; }
+  h1 { font-size: 40px; margin: 8px 0 4px; }
+  h1 span:nth-child(1) { color: #ef6f6c; } h1 span:nth-child(2) { color: #ff9f43; } h1 span:nth-child(3) { color: #3cb371; }
+  .sub { color: var(--soft); margin: 0; }
+  h2 { font-size: 28px; margin: 56px 0 12px; padding-bottom: 6px; border-bottom: 3px solid var(--line); }
+  h3 { font-size: 21px; margin: 32px 0 8px; }
+  p { margin: 8px 0; }
+  a { color: var(--blue); }
+  nav.toc { background: var(--card); border-radius: 16px; padding: 18px 24px; margin: 24px 0; box-shadow: 0 2px 0 rgba(0,0,0,.06); }
+  nav.toc ol { columns: 2; column-gap: 32px; margin: 6px 0 0; padding-left: 22px; }
+  nav.toc li { margin: 3px 0; break-inside: avoid; }
+  figure { margin: 14px 0 20px; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); background: #fff; }
+  figure.half img { max-width: 620px; }
+  figcaption { color: var(--soft); font-size: 15px; margin-top: 6px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid2 figure { margin: 0; }
+  .box { background: var(--card); border-radius: 14px; padding: 14px 18px; margin: 14px 0; border-left: 6px solid var(--blue); }
+  .box.tip { border-left-color: var(--green); }
+  .box.warn { border-left-color: var(--orange); }
+  .box b:first-child { display: block; margin-bottom: 2px; }
+  table { border-collapse: collapse; width: 100%; background: var(--card); border-radius: 12px; overflow: hidden; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+  th { background: #f4efe0; }
+  .k { display: inline-block; border: 1px solid #c9c3b0; border-bottom-width: 3px; border-radius: 6px; padding: 0 7px; font-size: 14px; background: #fff; }
+  .levels td:first-child { white-space: nowrap; }
+  ol.steps li { margin: 6px 0; }
+  code { background: #fff; border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; font-size: 15px; }
+  .folder { font-family: Consolas, monospace; font-size: 15px; background: #fff; border-radius: 12px; padding: 14px 18px; line-height: 1.7; white-space: pre; overflow-x: auto; }
+  @media (max-width: 700px) { nav.toc ol { columns: 1; } .grid2 { grid-template-columns: 1fr; } }
+  @media print {
+    body { background: #fff; font-size: 13px; }
+    main { padding: 0; max-width: none; }
+    h2 { break-before: page; margin-top: 0; }
+    h2#start { break-before: auto; }
+    figure, .box, table, .grid2 { break-inside: avoid; }
+    figure img { max-height: 340px; width: auto; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="owl">🦉</div>
+  <h1><span>A</span><span>B</span><span>C</span>-Abenteuer</h1>
+  <p class="sub">Lesen und Schreiben lernen mit Augensteuerung – Anleitung für Lehrkräfte und Eltern</p>
+  <p class="sub" style="font-size:14px">Version 2.3 · Stand 14.11.2026</p>
+</header>
+
+<nav class="toc">
+  <b>Inhalt</b>
+  <ol>
+    <li><a href="#start">Starten und Beenden</a></li>
+    <li><a href="#bedienung">Bedienung mit den Augen</a></li>
+    <li><a href="#menu">Das Menü</a></li>
+    <li><a href="#stufen">Die drei Stufen</a></li>
+    <li><a href="#spiele">Die Spiele</a></li>
+    <li><a href="#ablauf">Weiter-Knopf und Sticker</a></li>
+    <li><a href="#tafel">Die Mitteil-Tafel</a></li>
+    <li><a href="#einstellungen">Einstellungen und Profile</a></li>
+    <li><a href="#sprache">Stimme und Silben</a></li>
+    <li><a href="#woerter">Eigene Wörter</a></li>
+    <li><a href="#hilfe">Probleme und Lösungen</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ -->
+<h2 id="start">1. Starten und Beenden</h2>
+
+<p>Das Programm braucht <b>keine Installation und kein Internet</b>. Es ist ein eigenes Windows-Programm und arbeitet <b>direkt mit der Augensteuerung</b> des Tobii-Geräts zusammen.</p>
+
+<div class="folder">ABC-Abenteuer
+├─ ABC-Abenteuer.exe     ← 🦉 <b>hiermit starten</b>
+├─ Anleitung.html        ← diese Anleitung
+├─ files                 ← alles Weitere (nicht verändern)
+└─ lizenzen              ← Lizenzen der verwendeten Fremdteile</div>
+
+<ol class="steps">
+  <li>Doppelklick auf <b>„ABC-Abenteuer.exe“</b> (das Eulen-Symbol). Tipp: Rechtsklick → „Senden an“ → „Desktop (Verknüpfung erstellen)“, dann ist die Eule auch auf dem Desktop.</li>
+  <li>Beim allerersten Start zeigt Windows eventuell „Der Computer wurde durch Windows geschützt“: auf <b>„Weitere Informationen“</b> und dann <b>„Trotzdem ausführen“</b> klicken. Das kommt nur einmal.</li>
+  <li>Das Programm öffnet sich bildschirmfüllend. Auf <b>„Los geht's!“</b> schauen oder klicken – bzw. bei eingeschalteten Profilen auf das eigene Bild („Wer spielt?“).</li>
+  <li>Beenden: im Menü zweimal die Tür <b>🚪</b> auswählen (oder mit der Maus doppelklicken) und die Frage „Möchtest du das ABC-Abenteuer beenden?“ mit <b>Ja</b> beantworten. Alternativ <span class="k">Alt</span> + <span class="k">F4</span>.</li>
+</ol>
+
+<figure class="half"><img src="anleitung-bilder/start.jpg" alt="Startbildschirm mit der Eule und dem Knopf Los geht's"><figcaption>Der Startbildschirm.</figcaption></figure>
+
+<div class="box tip"><b>Ohne Augensteuerung</b> (z. B. am normalen PC) läuft das Programm genauso – dann wird mit Maus oder Touch bedient.</div>
+
+<p>Die Spielfläche passt sich automatisch an jede Bildschirmgröße an. Den Ordner <b>immer vollständig</b> kopieren – also <code>ABC-Abenteuer.exe</code> zusammen mit dem Ordner <code>files</code>. Der Ordner <code>files</code> darf umbenannt werden; die Eule findet das Programm trotzdem.</p>
+
+<!-- ============================================================ -->
+<h2 id="bedienung">2. Bedienung mit den Augen</h2>
+
+<p>Das Programm bekommt den Blick direkt von der Augensteuerung. <b>Das Kind muss nur auf eine Kachel schauen</b> – ein Kreis füllt sich, und nach der Verweilzeit ist die Kachel ausgewählt. Es muss weder einen Mauszeiger steuern noch klicken.</p>
+<figure><img src="anleitung-bilder/dwell.jpg" alt="Menü: die angeschaute Kachel ist blau umrandet, ein Kreis füllt sich"><figcaption>Die angeschaute Kachel leuchtet blau, in der Mitte füllt sich der Kreis. Ist er voll, wird ausgewählt.</figcaption></figure>
+<ul>
+  <li><b>Genaues Zielen ist nicht nötig:</b> Ein Blick knapp daneben oder in die Lücke zwischen zwei Kacheln zählt für die nächste Kachel („Magnet“). Kleines Augenzittern wird ausgeglichen.</li>
+  <li><b>Kurzes Wegschauen</b> setzt den Kreis nicht zurück.</li>
+  <li><b>Lupe für die Knöpfe oben:</b> Geht der Blick in die obere Leiste (🏠 💬 🔊 …), werden diese Knöpfe vergrößert und hell hinterlegt; die großen Kacheln darunter zählen in dem Moment nicht (im Menü werden sie zusätzlich etwas blasser, in den Spielen bleiben sie unverändert). So lassen sich auch die kleinen Knöpfe sicher treffen. Sobald der Blick wieder nach unten geht, verschwindet die Lupe. Bei Pause erscheint die Lupe nur, wenn der Blick wirklich auf ▶️ liegt – und vergrößert nur diesen Knopf. Abschaltbar in den Einstellungen.</li>
+  <li><b>Erst zuhören:</b> Solange die Eule in einer Übung die Aufgabe vorliest (und der Ton an ist), wird nichts ausgewählt – unten links steht dann „🔊 Erst zuhören …“. Im Menü, bei der Tür und beim Pause-Knopf gilt das nicht. Die Mitteil-Tafel funktioniert immer.</li>
+  <li><b>Ruhige Knöpfe:</b> In den Übungen sprechen die Knöpfe oben (🏠 💬 🔊 …) beim Anschauen nicht. Antwort-Kacheln werden – wo es die Lösung nicht verrät – beim Anschauen vorgelesen.</li>
+  <li><b>Kein Doppel-Auswählen:</b> Wer nach einer Auswahl einfach weiter auf dieselbe Stelle schaut, löst auf dem nächsten Bildschirm nicht sofort wieder etwas aus. Erst wenn der Blick weiterwandert, gilt wieder die normale Verweilzeit.</li>
+  <li><b>Nur im Vordergrund:</b> Ist das Programm minimiert oder ein anderes Fenster im Vordergrund, ruht die Augensteuerung. Sobald das Programm wieder vorne ist, geht es weiter.</li>
+  <li><b>Die Maus bleibt frei:</b> Der Mauszeiger ist sichtbar, und die Betreuungsperson kann dem Kind damit etwas zeigen. Solange die Augen erkannt werden, wählt nur der Blick aus (siehe unten).</li>
+</ul>
+
+<h3>Einrichten</h3>
+<ol class="steps">
+  <li>TD Control darf ganz normal weiterlaufen – seine Klicks werden über dem ABC-Abenteuer automatisch gesperrt (siehe unten).</li>
+  <li>Die <b>Verweilzeiten</b> unter „⚙ Einstellungen“ anpassen – getrennt für die <b>großen Kacheln</b> (Standard 1,8 Sekunden) und die <b>Knöpfe oben</b> 🏠 🔊 ⏸️ (Standard 1,2 Sekunden). Wird zu viel aus Versehen ausgewählt: länger einstellen.</li>
+  <li>Unten links steht „👁 Augensteuerung“. Die Augensteuerung ist immer aktiv – pausieren kann das Kind selbst mit ⏸️. In den Einstellungen steht, ob die Augen gerade erkannt werden.</li>
+</ol>
+<div class="box"><b>Zur Kontrolle:</b> Einstellungen → „Blickpunkt anzeigen“ blendet einen orangen Kreis dort ein, wo die Augensteuerung den Blick sieht. So lässt sich prüfen, ob die Kalibrierung passt.</div>
+
+<h3>Pause-Knopf ⏸️ – für das Kind</h3>
+<p>Oben links (im Menü und in jedem Spiel, links neben 🏠) gibt es den Knopf <b>⏸️</b>. Schaut das Kind ihn an, <b>pausiert die Augensteuerung</b>: Nichts wird mehr ausgewählt, das Kind kann sich in Ruhe umschauen. Unten in der Mitte erscheint „Pause – zum Weitermachen auf ▶️ schauen“, unten links steht „⏸ Augensteuerung pausiert“. Schaut es auf <b>▶️</b>, geht es weiter.</p>
+<figure class="half"><img src="anleitung-bilder/pause.jpg" alt="Menü mit gelbem Pause-Knopf und dem Hinweis unten in der Mitte"><figcaption>Pausiert: Der Knopf zeigt ▶️, unten steht der Hinweis.</figcaption></figure>
+
+<h3>Klicks von TD Control werden gesperrt – Betreuer können immer klicken</h3>
+<p>Ist die Augensteuerung aktiv, zählt für das Kind <b>nur der Blick</b>. Klicks, die TD Control (oder eine andere Software) auslöst, werden über dem ABC-Abenteuer verschluckt – so wird nie schneller oder doppelt ausgewählt, als die eingestellte Verweilzeit vorgibt. <b>Echte Klicks</b> der Betreuungsperson mit Maus, Touchpad oder Finger kommen dagegen <b>immer</b> an. Menüs von TD Control außerhalb des ABC-Abenteuers bleiben normal bedienbar.</p>
+<p>In den Einstellungen unter „Klicks während der Augensteuerung“ lässt sich das ändern: „nur Klicks von TD Control sperren“ (Standard), „alle Klicks sperren, solange Augen erkannt werden“, „alle Klicks immer sperren“ oder „alle Klicks erlauben“. Darunter zeigt der Status, wie viele Klicks gesperrt wurden.</p>
+
+<h3>Tasten</h3>
+<table>
+  <tr><th>Taste</th><th>Wirkung</th></tr>
+  <tr><td><span class="k">F8</span></td><td>Ton an / aus</td></tr>
+  <tr><td><span class="k">Alt</span> + <span class="k">F4</span></td><td>Programm beenden</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="menu">3. Das Menü</h2>
+
+<figure><img src="anleitung-bilder/menu.jpg" alt="Menü mit elf großen Kacheln"><figcaption>Das Menü: zehn Spiele und das Sticker-Album. Die Sterne zeigen, welche Stufen schon freigeschaltet sind.</figcaption></figure>
+<figure class="half"><img src="anleitung-bilder/quit.jpg" alt="Frage: Möchtest du das ABC-Abenteuer beenden? mit Ja und Nein"><figcaption>Beenden: erst zweimal die Tür, dann „Ja“.</figcaption></figure>
+
+<table>
+  <tr><th>Knopf</th><th>Bedeutung</th></tr>
+  <tr><td>💬</td><td><b>Mitteil-Tafel</b> – das Kind kann sich mitteilen (siehe <a href="#tafel">Kapitel 7</a>). Gibt es im Menü und in jedem Spiel.</td></tr>
+  <tr><td>🔊 / 🔇</td><td>Ton an / aus (bei „aus“ rot hinterlegt)</td></tr>
+  <tr><td>🦉 mit ↻</td><td>Die Eule liest die Aufgabe noch einmal vor</td></tr>
+  <tr><td>🏠</td><td>(im Spiel) zurück ins Menü</td></tr>
+  <tr><td>⏸️</td><td>Augensteuerung pausieren / ▶️ weitermachen</td></tr>
+  <tr><td>🚪</td><td>(im Menü) Programm beenden. Das kleine Schild „2×“ zeigt: <b>zweimal</b> auswählen (oder mit der Maus doppelklicken). Wer nach dem ersten Mal einfach weiter auf die Tür schaut, löst nach der Verweilzeit automatisch das zweite Mal aus. Die Ansage dazu unterbricht die Augensteuerung nicht. Danach kommt die Frage „Möchtest du das ABC-Abenteuer beenden?“ mit <b>Ja</b> und <b>Nein</b>.</td></tr>
+  <tr><td>⚙ Einstellungen</td><td>unten rechts, klein – nur für Erwachsene, nicht per Blick auswählbar</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="stufen">4. Die drei Stufen</h2>
+
+<figure class="half"><img src="anleitung-bilder/levels.jpg" alt="Stufenwahl mit drei Kacheln: Stufe 1 leicht, Stufe 2 mittel, Stufe 3 schwer"><figcaption>Sind mehrere Stufen frei, erscheint nach der Spielauswahl die Stufenwahl.</figcaption></figure>
+
+<p>Jedes Spiel (außer „Buchstaben entdecken“) hat drei Stufen: <b>⭐ leicht, ⭐⭐ mittel, ⭐⭐⭐ schwer</b>.</p>
+<ul>
+  <li><b>Freischalten:</b> Wer eine Stufe <b>dreimal mit höchstens 2 Fehlern</b> schafft, schaltet die nächste frei. Wie oft, lässt sich in den Einstellungen ändern (1–5 Runden).</li>
+  <li>In den Einstellungen kann man auch <b>alle Stufen sofort freischalten</b> oder die Freischaltungen zurücksetzen.</li>
+  <li>Oben im Spiel zeigen die Sterne links die Stufe, die Sterne daneben den Fortschritt in der Runde.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="spiele">5. Die Spiele</h2>
+
+<p>In allen Spielen spricht die Eule Emil die Aufgabe vor, lobt und hilft. Nach dem zweiten Fehler leuchtet die richtige Antwort auf. Wörter, die gerade dran waren, kommen erst wieder, wenn die anderen durch sind – auch über mehrere Tage.</p>
+
+<h3>🔤 Buchstaben entdecken</h3>
+<p>Freies Erkunden aller Buchstaben von A bis Z: Buchstabe antippen → großes Bild, Wort und Aussprache („M wie Maus“). Mit ➡️ kommt ein weiteres Bild zum gleichen Buchstaben. Bereits geübte Buchstaben sind gelb hinterlegt.</p>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/explore.jpg" alt="Buchstabenraster A bis Z"><figcaption>Alle Buchstaben</figcaption></figure>
+  <figure><img src="anleitung-bilder/explore2.jpg" alt="Großes M mit Maus-Bild und Wort MAUS"><figcaption>„M wie Maus“</figcaption></figure>
+</div>
+
+<h3>🍎 Womit fängt es an?</h3>
+<p>Anlaute erkennen – drei Aufgabenarten im Wechsel:</p>
+<ul>
+  <li><b>Bild → Anfangsbuchstabe:</b> „Womit fängt der Anker an?“</li>
+  <li><b>Buchstabe → Bild:</b> „Was fängt mit dem Buchstaben R an?“</li>
+  <li><b>Endlaut</b> (nur Stufe 3): „Hör genau auf das Ende! Womit hört das Auto auf?“</li>
+</ul>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/anlaut.jpg" alt="Anker-Bild, darunter ?NKER und die Buchstaben A, I, S"><figcaption>Bild → Anfangsbuchstabe</figcaption></figure>
+  <figure><img src="anleitung-bilder/letter2pic.jpg" alt="Buchstabe R mit drei Bildern"><figcaption>Buchstabe → passendes Bild</figcaption></figure>
+</div>
+<figure class="half"><img src="anleitung-bilder/endlaut.jpg" alt="Auto-Bild, darunter AUT? und vier Buchstaben"><figcaption>Stufe 3: Endlaut</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>2 Antworten</td></tr>
+  <tr><td>⭐⭐</td><td>3 Antworten</td></tr>
+  <tr><td>⭐⭐⭐</td><td>4 Antworten, ähnliche Buchstaben, zusätzlich Endlaute</td></tr>
+</table>
+
+<h3>👂 Hör genau!</h3>
+<p>Ein Buchstabe wird gesprochen („Wo ist der Buchstabe A? A wie Ameise.“), das Kind sucht ihn.</p>
+<figure class="half"><img src="anleitung-bilder/hear.jpg" alt="Bild mit Teddy und zwei Buchstaben"><figcaption>Stufe 1 mit Bildhilfe</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>2 Buchstaben, mit Bild</td></tr>
+  <tr><td>⭐⭐</td><td>3 Buchstaben, mit Bild</td></tr>
+  <tr><td>⭐⭐⭐</td><td>4 ähnliche Buchstaben, ohne Bild – nur hören</td></tr>
+</table>
+
+<h3>📖 Wörter lesen</h3>
+<p>Ein Wort lesen und das passende Bild finden – oder umgekehrt. Die Silben sind farbig markiert (abschaltbar).</p>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/read1.jpg" alt="Wort MOND mit zwei Bildern"><figcaption>Wort → Bild</figcaption></figure>
+  <figure><img src="anleitung-bilder/read2.jpg" alt="Tiger-Bild mit drei Wörtern"><figcaption>Bild → Wort (Silben farbig)</figcaption></figure>
+</div>
+<table class="levels">
+  <tr><td>⭐</td><td>kurze Wörter, 2 Bilder</td></tr>
+  <tr><td>⭐⭐</td><td>bis 6 Buchstaben, 3 Antworten, auch Bild → Wort</td></tr>
+  <tr><td>⭐⭐⭐</td><td>lange Wörter, 4 Antworten mit gleichem Anfangsbuchstaben</td></tr>
+</table>
+
+<h3>📜 Sätze lesen</h3>
+<p>Der nächste Schritt nach dem Wörterlesen: Ein kurzer Satz steht da – das Kind sucht das passende Bild. Die falschen Bilder unterscheiden sich jeweils nur in <b>einem</b> Wort vom Satz, deshalb muss der ganze Satz gelesen werden. Der Satz wird nicht vorgelesen; nach zwei Fehlern liest ihn die Eule vor. Ist das richtige Bild gefunden, spricht die Eule den Satz.</p>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/sent1.jpg" alt="Stufe 1: HASE UND RING mit zwei Bildern"><figcaption>Stufe 1: „Hase und Ring“</figcaption></figure>
+  <figure><img src="anleitung-bilder/sent2.jpg" alt="Stufe 2: Satz mit hat und drei Bildern"><figcaption>Stufe 2: „Der Bär hat eine Banane.“</figcaption></figure>
+</div>
+<figure class="half"><img src="anleitung-bilder/sent3.jpg" alt="Stufe 3: Satz mit Farbe und vier farbigen Bildern"><figcaption>Stufe 3: „Das T-Shirt ist rot.“</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>zwei Wörter: „Maus und Käse“ – 2 Bilder</td></tr>
+  <tr><td>⭐⭐</td><td>ganzer Satz: „Die Maus hat einen Käse.“ – 3 Bilder (anderes Tier oder anderes Ding)</td></tr>
+  <tr><td>⭐⭐⭐</td><td>Satz mit Farbe: „Der Fisch ist blau.“ – 4 Bilder (gleiches Bild in anderer Farbe, andere Bilder in gleicher Farbe)</td></tr>
+</table>
+
+<h3>✏️ Wörter schreiben</h3>
+<p>Das Wort Buchstabe für Buchstabe aus großen Kacheln zusammensetzen. Die Buchstaben werden so gemischt, dass <b>nie unpassende Wörter oder Abkürzungen</b> nebeneinander stehen.</p>
+<figure class="half"><img src="anleitung-bilder/write.jpg" alt="Eis-Bild, Lücken für E I S und vier Buchstabenkacheln"><figcaption>Die nächste Lücke ist orange unterstrichen.</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>kurze Wörter, mit Vorlage</td></tr>
+  <tr><td>⭐⭐</td><td>Vorlage nur als Hilfe</td></tr>
+  <tr><td>⭐⭐⭐</td><td>ohne Vorlage, längere Wörter</td></tr>
+</table>
+
+<h3>👏 Silben klatschen</h3>
+<p>Das Wort wird in Silben vorgesprochen, bei jeder Silbe klatscht es. Das Kind wählt die Anzahl der Silben. Danach erscheinen die Silben nacheinander.</p>
+<figure class="half"><img src="anleitung-bilder/syll.jpg" alt="Rakete mit dem Wort RAKETE und den Antworten 1, 2, 3"><figcaption>„Wie viele Silben hat die Rakete?“</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>Wörter mit 1–2 Silben</td></tr>
+  <tr><td>⭐⭐</td><td>bis 3 Silben</td></tr>
+  <tr><td>⭐⭐⭐</td><td>bis 4 Silben</td></tr>
+</table>
+
+<h3>🧩 Silben-Puzzle</h3>
+<p>Ein Bild wird gezeigt – das Kind legt das Wort aus großen <b>Silbensteinen</b> zusammen („Lege das Wort Roller“). Die Schrift passt sich an, damit auch lange Silben wie „SCHENK“ ganz in den Stein passen. Es wählt immer den Stein, der als Nächstes kommt. Gelegte Steine greifen in der Mitte wie Puzzleteile ineinander, jeder spricht seine Silbe; am Ende wird das ganze Wort in Silben vorgesprochen. Ein falscher Stein wackelt nur („Der kommt erst später“ bzw. „Der gehört nicht zu diesem Wort“); nach zwei Fehlern leuchtet der richtige Stein auf. Kommt eine Silbe doppelt vor (PA-PA-GEI), passt jeder der gleichen Steine.</p>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/puzzle1.jpg" alt="Roller-Bild, erster Stein ROL gelegt, in der nächsten Lücke steht blass LER"><figcaption>Stufe 1: zwei Silben, die Vorlage steht blass in den Lücken</figcaption></figure>
+  <figure><img src="anleitung-bilder/puzzle3.jpg" alt="Zauberer-Bild, ZAU und BE gelegt, unten weitere Steine"><figcaption>Stufe 3: längere Wörter, ähnliche falsche Steine, keine Vorlage</figcaption></figure>
+</div>
+<table class="levels">
+  <tr><td>⭐</td><td>Wörter mit 2 Silben, nur die passenden Steine, Vorlage in den Lücken</td></tr>
+  <tr><td>⭐⭐</td><td>2–3 Silben, 1 falscher Stein, Vorlage erst nach einem Fehler</td></tr>
+  <tr><td>⭐⭐⭐</td><td>3–4 Silben, 2 ähnliche falsche Steine (gleicher Anfangsbuchstabe), keine Vorlage</td></tr>
+</table>
+
+<h3>🃏 Memory</h3>
+<p>Karten aufdecken und Paare finden: Buchstabe + passendes Bild.</p>
+<figure class="half"><img src="anleitung-bilder/memory.jpg" alt="Memory mit sechs Karten, eine aufgedeckt"><figcaption>Stufe 1 mit 6 Karten</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>3 Paare, Buchstabe + Bild</td></tr>
+  <tr><td>⭐⭐</td><td>4 Paare</td></tr>
+  <tr><td>⭐⭐⭐</td><td>6 Paare, Wort + Bild</td></tr>
+</table>
+
+<h3>🎈 Ballon-Jagd</h3>
+<p>Ballons steigen auf – alle Ballons mit dem gesuchten Buchstaben platzen lassen. Ein Ballon lässt sich erst anwählen, sobald sein <b>Buchstabe ganz zu sehen</b> ist. Gleiche Buchstaben fliegen nie direkt nebeneinander. Das Tempo ist in den Einstellungen einstellbar.</p>
+<figure class="half"><img src="anleitung-bilder/balloon.jpg" alt="Ballons mit Buchstaben vor blauem Himmel"><figcaption>„Lass alle I-Ballons platzen!“</figcaption></figure>
+<table class="levels">
+  <tr><td>⭐</td><td>gemächlich</td></tr>
+  <tr><td>⭐⭐</td><td>mittel</td></tr>
+  <tr><td>⭐⭐⭐</td><td>schneller, ähnliche Buchstaben</td></tr>
+</table>
+
+<h3>🎨 Farben malen</h3>
+<p>Farbwörter lesen – mehrere Aufgabenarten im Wechsel, 20 Ausmalbilder:</p>
+<ul>
+  <li><b>Ausmalen:</b> Farbwort lesen, Farbtopf wählen → das Bild wird ausgemalt.</li>
+  <li><b>Bild finden:</b> Welches Bild hat diese Farbe?</li>
+  <li><b>Wort finden:</b> Zum bunten Bild das passende Farbwort lesen.</li>
+  <li><b>Farben mischen</b> (Stufe 3): Zwei Farbtöpfe wählen – die Schüssel zeigt, was herauskommt (z. B. Blau + Gelb = Grün). Auch ein falscher Versuch zeigt die entstandene Farbe.</li>
+</ul>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/paint.jpg" alt="Wort ORANGE, Apfel wird orange ausgemalt"><figcaption>Ausmalen</figcaption></figure>
+  <figure><img src="anleitung-bilder/pick.jpg" alt="Wort GRAU mit drei bunten Bildern"><figcaption>Bild finden</figcaption></figure>
+  <figure><img src="anleitung-bilder/word.jpg" alt="Schwarzes Herz mit drei Farbwörtern"><figcaption>Wort finden</figcaption></figure>
+  <figure><img src="anleitung-bilder/mix.jpg" alt="Wort ROSA, Fisch, Schüssel und fünf Farbtöpfe"><figcaption>Farben mischen</figcaption></figure>
+</div>
+<table class="levels">
+  <tr><td>⭐</td><td>Wort wird vorgelesen, 2 Antworten</td></tr>
+  <tr><td>⭐⭐</td><td>selbst lesen, 3 Antworten</td></tr>
+  <tr><td>⭐⭐⭐</td><td>Farben mischen und ähnliche Wörter (GRÜN/GRAU, BLAU/BRAUN)</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="ablauf">6. Weiter-Knopf und Sticker</h2>
+
+<p>Nach einer richtigen Antwort geht es normalerweise automatisch weiter. In den Einstellungen kann man stattdessen den <b>„Weiter“-Knopf</b> wählen: Dann bleibt das Ergebnis stehen, bis das Kind auf ➡️ Weiter schaut (am Ende 🏁 Fertig).</p>
+<figure class="half"><img src="anleitung-bilder/next.jpg" alt="Richtige Antwort grün markiert, rechts der Weiter-Knopf"><figcaption>Die richtige Antwort bleibt stehen, rechts der Weiter-Knopf.</figcaption></figure>
+
+<p>Nach jeder Runde gibt es einen <b>Sticker</b> für das Album („🏆 Meine Sticker“). Passen nicht mehr alle Sticker auf eine Seite, erscheinen rechts zwei große Knöpfe <b>▲ ▼</b> zum Blättern. Danach: Nochmal, nächste Stufe (wenn freigeschaltet) oder zurück ins Menü.</p>
+<figure class="half"><img src="anleitung-bilder/reward.jpg" alt="Belohnung mit Sticker und drei Knöpfen"><figcaption>Belohnung am Ende einer Runde</figcaption></figure>
+
+<!-- ============================================================ -->
+<h2 id="tafel">7. Die Mitteil-Tafel 💬</h2>
+
+<p>Über 💬 (im Menü und in jedem Spiel) kann sich das Kind jederzeit mitteilen. Das Gewählte wird laut ausgesprochen und groß oben angezeigt. Die laufende Übung verstummt sofort und wartet, bis die Tafel geschlossen ist.</p>
+<figure><img src="anleitung-bilder/talk.jpg" alt="Mitteil-Tafel mit elf Feldern, Durst ist ausgewählt"><figcaption>„Ich habe Durst.“ – die Tafel spricht <b>immer</b>, auch wenn der Ton der Spiele aus ist.</figcaption></figure>
+<p><b>Felder hinzufügen:</b> Einstellungen → „💬 Mitteil-Tafel“ → <b>„➕ Feld hinzufügen“</b> – Bild wählen, Beschriftung und den gesprochenen Satz eintragen (bis zu 12 Felder).</p>
+<p><b>Felder ändern oder löschen:</b> im Textfeld darunter, eine Zeile pro Feld: <code>Bild ; Beschriftung ; Satz</code>, z. B. <code>🍎 ; Apfel ; Ich möchte einen Apfel.</code>, dann „Tafel übernehmen“. Eigene Bilder: <code>[schaukel]</code>, <code>[mieder_an]</code>, <code>[mieder_aus]</code>.</p>
+
+<!-- ============================================================ -->
+<h2 id="einstellungen">8. Einstellungen und Profile</h2>
+
+<p>Im Menü unten rechts: <b>„⚙ Einstellungen (Erwachsene)“</b> – mit Maus oder Touch bedienen. Die Einstellungen beginnen immer ganz oben. Meldungen (z. B. „Tafel übernommen“) erscheinen oben im Einstellungsfenster. Oben gibt es „📖 Anleitung“ (öffnet diese Anleitung), „💾 Speichern“ (<span class="k">Strg</span> + <span class="k">Enter</span>) und „✖ Beenden“ (<span class="k">Esc</span>, speichert ebenfalls). Alles wird auf diesem Gerät gespeichert.</p>
+<div class="grid2">
+  <figure><img src="anleitung-bilder/settings.jpg" alt="Einstellungen: oben Speichern und Beenden, Bereich Bedienung"><figcaption>Oben: Speichern / Beenden und die Bedienung</figcaption></figure>
+  <figure><img src="anleitung-bilder/settings2.jpg" alt="Einstellungen: Aufgaben und Stufen"><figcaption>Aufgaben, Stufen und Lernstand</figcaption></figure>
+</div>
+
+<table>
+  <tr><th>Bereich</th><th>Einstellung</th><th>Erklärung</th></tr>
+  <tr><td>👤 Profile</td><td>Profile für mehrere Kinder</td><td>optional – siehe <a href="#profile">„Profile für mehrere Kinder“</a></td></tr>
+  <tr><td rowspan="9">👁 Augensteuerung & Bedienung</td><td>Status der Augensteuerung</td><td>zeigt, ob die Augen gerade erkannt werden, ob pausiert ist oder ob das Programm im Hintergrund ruht (die Augensteuerung selbst ist immer aktiv)</td></tr>
+  <tr><td>Klicks während der Augensteuerung</td><td>Standard: nur Klicks von TD Control sperren – Betreuer können immer klicken. Alternativ: alle Klicks sperren, solange Augen erkannt werden / immer / alle erlauben</td></tr>
+  <tr><td>Verweilzeit große Kacheln</td><td>Wie lange das Kind auf eine Kachel schauen muss (0,4–4 Sekunden, Standard 1,8)</td></tr>
+  <tr><td>Verweilzeit Knöpfe oben</td><td>für 🏠 🔊 ⏸️ 🦉↻ 💬 🚪 (0,4–4 Sekunden, Standard 1,2)</td></tr>
+  <tr><td>Nicht auswählen, solange die Eule vorliest</td><td>verhindert, dass schon während der Aufgabe geantwortet wird (nur bei Ton an)</td></tr>
+  <tr><td>Lupe für die Knöpfe oben</td><td>vergrößert die Knöpfe oben, sobald der Blick nach oben geht (Standard: an)</td></tr>
+  <tr><td>Blickpunkt anzeigen</td><td>oranger Kreis an der Blickposition – zum Prüfen der Kalibrierung</td></tr>
+  <tr><td>Mauszeiger ausblenden</td><td>Zeiger unsichtbar (Standard: sichtbar, damit die Betreuung zeigen kann)</td></tr>
+  <tr><td>Ohne Grafikbeschleunigung starten</td><td>nur falls das Bild flackert; wirkt beim nächsten Start</td></tr>
+  <tr><td rowspan="6">🔊 Ton & Sprache</td><td>Ton aus</td><td>Spiele stumm (auch über 🔊 oder <span class="k">F8</span>)</td></tr>
+  <tr><td>Lautstärke</td><td>10–100 % – gilt für Eule, Silben und Geräusche (die Mitteil-Tafel spricht ebenfalls in dieser Lautstärke)</td></tr>
+  <tr><td>Stimme</td><td>🔊 = Stimmen der Windows-Sprachausgabe (z. B. des Tobii-Geräts), außerdem „Microsoft Katja“ u. a. – <b>keine</b> „Multilingual“-Stimme</td></tr>
+  <tr><td>Sprechtempo</td><td>Langsamer oder schneller sprechen</td></tr>
+  <tr><td>Antworten beim Anschauen vorlesen</td><td>Kacheln werden beim Anschauen vorgelesen (wo es die Lösung nicht verrät)</td></tr>
+  <tr><td>Geräusche</td><td>Jubel, Plopp, Klatschen</td></tr>
+  <tr><td rowspan="8">🎯 Aufgaben & Stufen</td><td>Nach der Lösung</td><td>automatisch weiter oder „Weiter“-Knopf</td></tr>
+  <tr><td>Ballon-Tempo</td><td>sehr langsam, langsam, normal, schnell</td></tr>
+  <tr><td>Aufgaben pro Runde</td><td>3 bis 10 Aufgaben bis zum Sticker</td></tr>
+  <tr><td>Schrift</td><td>GROSSBUCHSTABEN, Groß und klein oder nur klein</td></tr>
+  <tr><td>Silben farbig</td><td>Silben beim Lesen abwechselnd einfärben</td></tr>
+  <tr><td>Runden bis zur nächsten Stufe</td><td>wie oft eine Stufe mit höchstens 2 Fehlern geschafft werden muss (1–5, Standard 3)</td></tr>
+  <tr><td>Alle Stufen freischalten</td><td>alle Stufen sofort verfügbar</td></tr>
+  <tr><td>Freischaltungen zurücksetzen</td><td>alle Spiele wieder auf Stufe 1</td></tr>
+  <tr><td>🔤 Buchstaben</td><td>Welche Buchstaben geübt werden</td><td>Mit den Buchstaben beginnen, die im Unterricht eingeführt sind (z. B. M, A, L, I, O, S, E), und neue dazunehmen. Kennt das Kind erst wenige, kommen auch Wörter mit einem neuen Buchstaben dazu.</td></tr>
+  <tr><td>💬 Mitteil-Tafel</td><td>Felder bearbeiten</td><td>siehe <a href="#tafel">Kapitel 7</a></td></tr>
+  <tr><td>📊 Lernstand</td><td>Übersicht</td><td>Welche Buchstaben sicher sind und welche noch nicht. Schwierige Buchstaben kommen automatisch häufiger dran. Lernstand und Sticker lassen sich zurücksetzen.</td></tr>
+</table>
+
+<h3 id="profile">Profile für mehrere Kinder (optional)</h3>
+<p>Nutzen mehrere Kinder das Programm, bekommt jedes Kind ein eigenes Profil. <b>Jedes Profil speichert automatisch</b> seine Einstellungen (z. B. Verweilzeiten, Stimme, geübte Buchstaben), den Lernstand, die freigeschalteten Stufen, die Sticker und die Mitteil-Tafel.</p>
+<ol class="steps">
+  <li>Einstellungen → „👤 Profile“ → <b>„Profile für mehrere Kinder verwenden“</b> anhaken.</li>
+  <li><b>„➕ Neues Profil“</b> – Namen eingeben und ein Bild wählen (siehe <a href="#eingabe">Eingaben</a>). Das neue Profil übernimmt die Einstellungen des aktuellen Profils; Lernstand, Stufen und Sticker beginnen leer.</li>
+  <li>Mit „Umbenennen“ lassen sich Name und Bild (ein Emoji) ändern, mit „Wechseln“ das Profil wechseln, mit „Löschen“ ein Profil samt Daten entfernen.</li>
+</ol>
+<p>Sind Profile eingeschaltet, zeigt der <b>Startbildschirm „Wer spielt?“</b> mit einer Kachel pro Kind – das Kind wählt sich selbst per Blick aus. Im Menü begrüßt die Eule das Kind mit Namen („Was möchtest du spielen, Lena?“).</p>
+<figure class="half"><img src="anleitung-bilder/profiles.jpg" alt="Startbildschirm: Wer spielt? mit drei Kindern"><figcaption>Startbildschirm mit Profilen</figcaption></figure>
+<p><b>Wie viele Profile?</b> Bis zu <b>12</b>. Bis 5 Kinder erscheinen am Startbildschirm große Kacheln in einer Reihe; ab 6 Kindern zwei Reihen mit etwas kleineren Kacheln.</p>
+<p>Wer Profile wieder ausschaltet, arbeitet mit dem gerade aktiven Profil weiter; die anderen Profile bleiben gespeichert.</p>
+
+<h3 id="eingabe">Eingaben: Bildschirmtastatur und Emoji-Auswahl</h3>
+<p>Beim Anlegen oder Ändern eines Profils und beim Hinzufügen eines Feldes zur Mitteil-Tafel öffnet sich ein Eingabefenster:</p>
+<ul>
+  <li>Die <b>Bildschirmtastatur</b> von Windows öffnet sich automatisch, sobald ein Feld angetippt wird. Das Eingabe- bzw. Einstellungsfenster rückt dann nach oben, und die Tastatur <b>dockt direkt darunter an</b> – sie überdeckt nichts. Die angeklickte Zeile bleibt sichtbar. Schließen lässt sie sich mit ihrem eigenen ✕ oder mit „⌨ Bildschirmtastatur ein/aus“; beim Übernehmen oder Abbrechen schließt sie sich von selbst.</li>
+  <li>Beim Feld <b>„Bild“</b> öffnet sich zusätzlich die <b>Windows-Emoji-Auswahl</b>. Sie lässt sich jederzeit auch selbst öffnen: <span class="k">Windows-Taste</span> + <span class="k">.</span> (Punkt). Darunter gibt es außerdem eine Auswahl häufiger Bilder zum Antippen.</li>
+  <li><span class="k">Enter</span> übernimmt, <span class="k">Esc</span> bricht ab.</li>
+</ul>
+<p>Das ABC-Abenteuer ist ein Windows-Programm – auf iPad/iPhone (iOS) läuft es nicht.</p>
+
+<h3 id="sicherung">Sichern, Wiederherstellen und alles löschen</h3>
+<p>Unter Einstellungen → <b>„💾 Sichern &amp; Wiederherstellen“</b>:</p>
+<ul>
+  <li><b>„💾 Sicherung speichern …“</b> speichert alle Profile mit Lernstand, Stufen, Stickern, Einstellungen und Mitteil-Tafel in <b>eine Datei</b> (z. B. in „Dokumente“ oder auf einen USB-Stick). So geht nichts verloren, und alles lässt sich auf ein anderes Gerät mitnehmen.</li>
+  <li><b>„📂 Sicherung laden …“</b> holt eine solche Datei zurück. <b>Achtung:</b> Alle jetzigen Daten werden dabei durch die Sicherung ersetzt – das Programm fragt vorher nach.</li>
+  <li><b>„🗑 Alle Kinderprofile und Daten löschen …“</b> entfernt alles vollständig (mit zweifacher Rückfrage). Einzelne Profile lassen sich unter „👤 Profile“ mit „Löschen“ entfernen – jedes außer dem gerade aktiven.</li>
+</ul>
+<p>Kann das Programm nicht speichern (z. B. weil der Speicher voll oder gesperrt ist), erscheint ein deutlicher Hinweis – oben in den Einstellungen und kurz im Bild.</p>
+
+<div class="box"><b>Wichtig beim Wechsel auf ein anderes Gerät:</b> Einstellungen, Lernstand und Sticker werden pro Gerät (und Windows-Benutzer) gespeichert. Auf einem neuen Gerät die Einstellungen einmal neu vornehmen – oder eine <a href="#sicherung">Sicherung</a> mitnehmen und dort laden.</div>
+
+<!-- ============================================================ -->
+<h2 id="sprache">9. Stimme und Silben</h2>
+<ul>
+  <li><b>Stimme:</b> Unter Einstellungen → „Stimme“ stehen oben (mit 🔊) die Stimmen der <b>Windows-Sprachausgabe</b> – auf Tobii-Geräten sind das z. B. die mitgelieferten Acapela-Stimmen, sofern sie für Windows freigegeben sind. Darunter folgen die übrigen Windows-Stimmen wie „Microsoft Katja“. Mit „Test“ probehören.</li>
+  <li><b>Keine „Mehrsprachig/Multilingual“-Stimme wählen</b> – sie liest kurze Silben oft englisch.</li>
+  <li><b>Silben:</b> Die Silben aller mitgelieferten Wörter sind als fertige Tondateien dabei (Ordner <code>files/silben</code>). Sie klingen deshalb immer richtig, auch ohne Internet: „La-ma“, „Me-lo-ne“, „Af-fe“.</li>
+  <li><b>Einzelne Buchstaben</b> werden in Sätzen gesprochen („Das ist der Buchstabe L.“), damit sie eindeutig klingen.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="woerter">10. Eigene Wörter</h2>
+<p>Die Wörter stehen in der Datei <code>files/data.js</code> (mit dem Windows-Editor öffnen). Eine Zeile ergänzen, zum Beispiel:</p>
+<p><code>{ w: "Mond", g: "der", e: "🌙", s: "Mond", lg: true },</code></p>
+<table>
+  <tr><th>Feld</th><th>Bedeutung</th></tr>
+  <tr><td><code>w</code></td><td>das Wort</td></tr>
+  <tr><td><code>g</code></td><td>Artikel: der, die oder das</td></tr>
+  <tr><td><code>e</code></td><td>das Bild (ein Emoji)</td></tr>
+  <tr><td><code>s</code></td><td>die Silben, mit Bindestrich getrennt, z. B. <code>"Ba-na-ne"</code></td></tr>
+  <tr><td><code>lg</code></td><td><code>true</code>, wenn das Wort lautgetreu ist (gut zum Schreiben)</td></tr>
+  <tr><td><code>sp</code></td><td>(optional) Aussprache der Silben, falls sie falsch klingt</td></tr>
+</table>
+<div class="box warn"><b>Bitte beachten:</b> Nur eindeutige Bilder wählen (ein Boot könnte auch ein Schiff sein). Für selbst ergänzte Wörter gibt es keine Silben-Tondateien – deren Silben liest die normale Sprachausgabe vor.</div>
+
+<!-- ============================================================ -->
+<h2 id="hilfe">11. Probleme und Lösungen</h2>
+<table>
+  <tr><th>Problem</th><th>Lösung</th></tr>
+  <tr><td>Das Bild flackert oder Knöpfe werden falsch angezeigt</td><td>Einstellungen → „Ohne Grafikbeschleunigung starten“ anhaken, Programm schließen und neu starten.</td></tr>
+  <tr><td>Anschauen wählt nichts aus</td><td>Einstellungen → „Augensteuerung“: Steht dort „nicht gefunden“, läuft die Tobii-Software nicht. Steht „gerade keine Augen erkannt“: Sitzposition prüfen. Steht „ruht“: Das Programm ist nicht im Vordergrund – einmal ins Programm tippen oder klicken. Steht unten links „⏸ Augensteuerung pausiert“: auf ▶️ schauen.</td></tr>
+  <tr><td>Meldung „WebView2 fehlt“</td><td>Die Anzeige-Komponente von Microsoft fehlt (sehr selten). Die Meldung bietet den kostenlosen Download an.</td></tr>
+  <tr><td>Kein Ton</td><td>Lautsprecher oben prüfen (🔇 = Ton aus); <span class="k">F8</span>; Lautstärke von Windows prüfen.</td></tr>
+  <tr><td>Es wird zu schnell oder doppelt ausgewählt</td><td>In den Einstellungen nachsehen, ob bei „Klicks gesperrt“ etwas gezählt wird. Steht dort 0, obwohl TD Control klickt: bei „Klicks während der Augensteuerung“ „alle Klicks sperren, solange Augen erkannt werden“ wählen – oder die Klick-Funktion von TD Control pausieren.</td></tr>
+  <tr><td>Die Tobii-Stimme fehlt in der Liste</td><td>Nur Stimmen, die für die Windows-Sprachausgabe freigegeben sind, können verwendet werden. Manche Stimmen sind nur für TD Snap/Communicator lizenziert.</td></tr>
+  <tr><td>Es wird zu viel aus Versehen ausgewählt</td><td>Verweilzeiten in den Einstellungen verlängern oder den Pause-Knopf ⏸️ nutzen.</td></tr>
+  <tr><td>Die Einstellungen sind weg</td><td>Sie werden pro Gerät gespeichert – auf einem neuen Gerät neu einstellen.</td></tr>
+  <tr><td>Die Stimme klingt komisch oder englisch</td><td>In den Einstellungen eine Stimme <b>ohne</b> „Multilingual“ wählen, am besten „Katja“.</td></tr>
+  <tr><td>Nach einem Update sieht etwas alt aus</td><td>Programm ganz schließen und neu starten.</td></tr>
+  <tr><td>Etwas funktioniert nicht wie erwartet</td><td>Das Programm schreibt Fehler in ein Protokoll: <code>%LOCALAPPDATA%\ABC-Abenteuer\protokoll.txt</code> (in die Adresszeile des Windows-Explorers eingeben). Diese Datei hilft bei der Fehlersuche.</td></tr>
+</table>
+
+<p style="margin-top:56px;padding-top:14px;border-top:3px solid var(--line);color:var(--soft);text-align:center">🦉 ABC-Abenteuer, Version 2.3 (Stand 14.11.2026) – Idee und Umsetzung: <b>Natascha Toman</b>, selbst UK-Nutzerin. Umgesetzt mithilfe von KI.</p>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+ABC-Abenteuer – Quellcode
+=========================
+
+Hier wird das Programm BEARBEITET. Der Ordner ..\ABC-Lernprogramm ist das FERTIGE
+Programm und wird automatisch erzeugt – dort bitte nichts von Hand ändern.
+
+  web\                     Oberfläche: index.html, app.js, style.css, data.js,
+                           fonts\ (Schrift), silben\ (Silben-Tondateien)
+  ABC-Abenteuer\           Hauptprogramm (C#, .NET Framework 4.8, WebView2, Tobii Core SDK)
+  Starter\                 Start-Symbol mit der Eule (C#)
+  Blicktest\               Testprogramm für die Augensteuerung
+  Anleitung-Vorlage.html   Anleitung (Text), Bilder in anleitung-bilder\
+  anleitung-einbetten.py   macht daraus ..\ABC-Lernprogramm\Anleitung.html (Bilder eingebettet)
+  erstellen.ps1            baut alles und erzeugt ..\ABC-Lernprogramm und ..\ABC-Abenteuer.zip
+  silben-erzeugen.py       erzeugt web\silben\*.wav neu aus web\silben\lautschrift.txt
+                           (Windows-Stimme "Microsoft Katja" nötig)
+  lizenzen\, THIRD-PARTY-LICENSES.md   Lizenzen der Fremdkomponenten
+  README.md, .gitignore    für die Veröffentlichung auf GitHub
+
+Fertiges Programm erstellen:
+  powershell -ExecutionPolicy Bypass -File erstellen.ps1
+
+Versionsnummer bei größeren Änderungen erhöhen:
+  web\app.js (APP_VERSION, APP_DATE), Anleitung-Vorlage.html (oben und Schlusszeile),
+  <Version> in ABC-Abenteuer\ABC-Abenteuer.csproj und Starter\Starter.csproj.
+
+Fehlerprotokoll des laufenden Programms:  %LOCALAPPDATA%\ABC-Abenteuer\protokoll.txt
+Gespeicherte Daten (Profile, Lernstand):  %LOCALAPPDATA%\ABC-Abenteuer\WebView2

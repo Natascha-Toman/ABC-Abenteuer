@@ -1,0 +1,33 @@
+# Build-Ausgaben (Visual Studio / dotnet)
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+packages/
+
+# Vom Programm oder von Tests erzeugt
+selbsttest.txt
+protokoll*.txt
+Blicktest-Ergebnis.txt
+*.log
+
+# Temporäre Dateien
+*.tmp
+*.bak
+*~
+~$*
+__pycache__/
+*.pyc
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Testprogramm für die Augenkamera: nutzt zusätzlich das Tobii Pro SDK
+# (eigene, eingeschränkte Lizenz) – nicht Teil des Lernprogramms.
+Blicktest/
+
+# Silben-Tondateien: mit Windows-Stimme erzeugt, nicht im Quellcode-Archiv.
+# erstellen.ps1 erzeugt sie beim Bauen automatisch (silben-erzeugen.py).
+web/silben/*.wav
