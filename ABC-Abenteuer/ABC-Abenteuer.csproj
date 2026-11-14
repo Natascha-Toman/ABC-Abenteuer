@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ABC-Abenteuer</AssemblyName>
+    <RootNamespace>AbcAbenteuer</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>eule.ico</ApplicationIcon>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <Product>ABC-Abenteuer</Product>
+    <Version>2.3.0</Version>
+    <Authors>Natascha Toman</Authors>
+    <Copyright>Idee und Umsetzung: Natascha Toman, selbst UK-Nutzerin (umgesetzt mithilfe von KI)</Copyright>
+    <Description>ABC-Abenteuer – Lesen und Schreiben lernen mit Augensteuerung</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2792.45" />
+    <PackageReference Include="Tobii.Interaction" Version="0.7.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <!-- 64-Bit-Version der Tobii-Bibliothek verwenden -->
+  <Target Name="CopyEyeX64" AfterTargets="Build">
+    <Copy SourceFiles="$(NuGetPackageRoot)tobii.interaction/0.7.3/build/x64/Tobii.EyeX.Client.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+</Project>

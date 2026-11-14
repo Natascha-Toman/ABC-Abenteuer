@@ -1,0 +1,8 @@
+# Identität des Store-Pakets – die Werte stehen im Partner Center unter
+#   Apps und Spiele → ABC-Abenteuer → Produktverwaltung → Produktidentität
+# und müssen GENAU so übernommen werden (Groß-/Kleinschreibung beachten).
+# Solange hier PLATZHALTER steht, baut erstellen-store.ps1 nur ein Testpaket.
+
+IDENTITY_NAME = PLATZHALTER.ABC-Abenteuer
+PUBLISHER = CN=PLATZHALTER
+PUBLISHER_DISPLAY_NAME = Natascha Toman

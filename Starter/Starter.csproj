@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>ABC-Abenteuer</AssemblyName>
+    <RootNamespace>AbcStarter</RootNamespace>
+    <ApplicationIcon>eule.ico</ApplicationIcon>
+    <LangVersion>latest</LangVersion>
+    <Product>ABC-Abenteuer</Product>
+    <Version>2.3.0</Version>
+    <Authors>Natascha Toman</Authors>
+    <Copyright>Idee und Umsetzung: Natascha Toman, selbst UK-Nutzerin (umgesetzt mithilfe von KI)</Copyright>
+    <Description>ABC-Abenteuer – Lesen und Schreiben lernen mit Augensteuerung</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

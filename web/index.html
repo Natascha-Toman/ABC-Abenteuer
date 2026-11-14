@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABC-Abenteuer</title>
+<!-- Sicherheitsrichtlinie: nur eigene Dateien, keine fremden Skripte, keine Verbindungen nach außen -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Feste Bildfläche (1920 × 1080), wird passend auf jeden Bildschirm skaliert -->
+<div id="app">
+
+<!-- Startbildschirm -->
+<section id="start" class="screen active">
+  <div class="mascot-big">🦉</div>
+  <h1><span>A</span><span>B</span><span>C</span>-Abenteuer</h1>
+  <div id="btnStart" class="gaze">Los geht's!</div>
+  <div id="startProfiles" style="display:none"></div>
+  <div class="version" id="startVersion"></div>
+</section>
+
+<!-- Menü -->
+<section id="menu" class="screen">
+  <div class="topbar">
+    <div class="topbtn gaze pausebtn" data-nosay="1" title="Augensteuerung pausieren">⏸️</div>
+    <div class="topbtn gaze talkbtn" id="btnMenuTalk" data-say="Ich möchte etwas sagen">💬</div>
+    <div class="title">Was möchtest du spielen? 🦉</div>
+    <div class="topbtn gaze mutebtn" data-say="Ton" title="Ton an/aus">🔊</div>
+    <div class="topbtn gaze saybtn" id="btnMenuSay" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
+    <div class="topbtn gaze" id="btnQuit" data-nosay="1" title="Programm beenden (zweimal auswählen)">🚪</div>
+  </div>
+  <div class="grid" id="menuGrid"></div>
+  <div class="adminbar">
+    <button class="adminbtn" id="btnFullscreen">⛶ Vollbild</button>
+    <button class="adminbtn" id="btnSettings">⚙ Einstellungen (Erwachsene)</button>
+  </div>
+</section>
+
+<!-- Spiel -->
+<section id="game" class="screen">
+  <div class="topbar">
+    <div class="topbtn gaze pausebtn" data-nosay="1" title="Augensteuerung pausieren">⏸️</div>
+    <div class="topbtn gaze" id="btnHome" data-say="Zurück zum Menü">🏠</div>
+    <div class="progress" id="progress"></div>
+    <div class="topbtn gaze talkbtn" data-say="Ich möchte etwas sagen">💬</div>
+    <div class="topbtn gaze mutebtn" data-say="Ton" title="Ton an/aus">🔊</div>
+    <div class="topbtn gaze saybtn" id="btnRepeat" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
+  </div>
+  <div class="stage" id="stage"></div>
+</section>
+
+<!-- Sticker-Album -->
+<section id="album" class="screen">
+  <div class="topbar">
+    <div class="topbtn gaze pausebtn" data-nosay="1" title="Augensteuerung pausieren">⏸️</div>
+    <div class="topbtn gaze" id="btnAlbumHome" data-say="Zurück zum Menü">🏠</div>
+    <div class="title">Mein Sticker-Album</div>
+    <div class="topbtn gaze mutebtn" data-say="Ton" title="Ton an/aus">🔊</div>
+    <div class="topbtn gaze saybtn" id="btnAlbumSay" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
+  </div>
+  <div class="albumwrap">
+    <div class="stickers" id="stickers"></div>
+    <div class="scrollbtns">
+      <div class="gaze" id="stkUp" data-say="nach oben">▲</div>
+      <div class="gaze" id="stkDown" data-say="nach unten">▼</div>
+    </div>
+  </div>
+</section>
+
+<!-- Entdecken: Detailansicht -->
+<div id="explore">
+  <div class="row">
+    <div class="bigletter" id="exLetter"></div>
+    <div class="bigpic" id="exPic"></div>
+  </div>
+  <div class="bigword" id="exWord"></div>
+  <div class="btns">
+    <div class="gaze saybtn" id="exAgain" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
+    <div class="gaze" id="exNext" data-say="Noch ein Bild">➡️</div>
+    <div class="gaze" id="exBack" data-say="Fertig">✅</div>
+  </div>
+</div>
+
+<!-- Belohnung -->
+<div id="reward">
+  <div class="sticker" id="rewardSticker">⭐</div>
+  <div class="msg" id="rewardMsg"></div>
+  <div class="btns">
+    <div class="gaze" id="rewAgain" data-say="Nochmal spielen"><span class="ico">🔁</span>Nochmal</div>
+    <div class="gaze" id="rewNext" data-say="Nächste Stufe"><span class="ico" id="rewNextStars">⭐⭐</span>Nächste Stufe</div>
+    <div class="gaze" id="rewMenu" data-say="Zum Menü"><span class="ico">🏠</span>Menü</div>
+  </div>
+</div>
+
+<!-- Beenden: Ja/Nein-Abfrage -->
+<div id="quitAsk">
+  <div class="sticker">🚪</div>
+  <div class="msg">Möchtest du das ABC-Abenteuer beenden?</div>
+  <div class="btns">
+    <div class="gaze" id="quitYes" data-say="Ja"><span class="ico">✅</span>Ja</div>
+    <div class="gaze" id="quitNo" data-say="Nein"><span class="ico">❌</span>Nein</div>
+  </div>
+</div>
+
+<!-- Mitteil-Tafel -->
+<div id="talk">
+  <div class="topbar">
+    <div class="topbtn gaze" id="talkBack" data-say="Zurück">⬅️</div>
+    <div class="title" id="talkSaid">Ich möchte sagen …</div>
+    <div class="topbtn gaze saybtn" id="talkRepeat" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
+  </div>
+  <div class="talkgrid" id="talkGrid"></div>
+</div>
+
+<canvas id="confetti" width="1920" height="1080"></canvas>
+<div id="toast"></div>
+<div class="badge" id="badgeOff">👁</div>
+<div class="badge" id="badgeMouse">🖱 Maus erkannt – Auswahl pausiert</div>
+</div>
+
+<div id="gazeDot"></div>
+
+<!-- Einstellungen (nicht skaliert, für Erwachsene) -->
+<div id="settings">
+  <!-- Eingabe-Dialog (Profil, Mitteil-Tafel) -->
+  <div id="dlg">
+    <div class="dlgbox">
+      <h3 id="dlgTitle"></h3>
+      <div id="dlgFields"></div>
+      <div class="note" id="dlgHint"></div>
+      <div class="dlgbtns">
+        <button id="dlgKb" type="button">⌨ Bildschirmtastatur ein/aus</button>
+        <span style="flex:1"></span>
+        <button id="dlgCancel" type="button">Abbrechen</button>
+        <button id="dlgOk" class="primary" type="button">Übernehmen</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <!-- Knöpfe oben (bleiben beim Scrollen sichtbar, nie hinter der Taskleiste) -->
+    <div class="actions">
+      <h2 style="margin:0 auto 0 0">⚙ Einstellungen</h2>
+      <span class="note" id="savedNote"></span>
+      <button id="btnManual">📖 Anleitung</button>
+      <button class="primary" id="btnSaveSettings">💾 Speichern <small>(Strg+Enter)</small></button>
+      <button id="btnCloseSettings">✖ Beenden <small>(Esc)</small></button>
+    </div>
+    <div class="note" id="storageWarn" style="display:none;color:#b3261e;font-weight:700"></div>
+    <div class="note">Diese Seite ist für Lehrkräfte / Eltern gedacht und wird mit Maus oder Touch bedient. Alles wird automatisch auf diesem Gerät gespeichert.</div>
+
+    <h3>👤 Profile (optional)</h3>
+    <label><span>Profile für mehrere Kinder verwenden</span><input type="checkbox" id="setProfilesOn"></label>
+    <div id="profileArea">
+      <div class="note">Jedes Profil hat eigene Einstellungen, Lernstand, Stufen, Sticker und Mitteil-Tafel – alles wird automatisch gespeichert. Am Startbildschirm wählt das Kind sein Profil („Wer spielt?“). Bis zu 12 Profile; bis 5 Kinder erscheinen am Startbildschirm große Kacheln in einer Reihe.</div>
+      <div id="profileList"></div>
+      <p><button id="btnAddProfile">➕ Neues Profil</button></p>
+    </div>
+
+    <h3>👁 Augensteuerung & Bedienung</h3>
+    <div class="nativeonly">
+      <div class="note"><b>Augensteuerung:</b> <b id="eyeStatus">–</b><br>Das Kind schaut eine Kachel an, ein Kreis füllt sich, die Kachel wird ausgewählt – ohne Mauszeiger und ohne Klick. Pausieren kann das Kind selbst mit ⏸️. Ist das Programm minimiert oder ein anderes Fenster im Vordergrund, ruht die Augensteuerung automatisch. Die Maus wählt nur per Klick aus, so kann man dem Kind damit etwas zeigen.</div>
+      <label><span>Klicks während der Augensteuerung</span><select id="setEyeClickLock">
+        <option value="td">nur Klicks von TD Control sperren – Betreuer können immer klicken (Standard)</option>
+        <option value="eyes">alle Klicks sperren, solange Augen erkannt werden</option>
+        <option value="always">alle Klicks immer sperren – nur der Blick wählt aus</option>
+        <option value="off">alle Klicks erlauben</option></select></label>
+      <div class="note">Klicks, die TD Control per Software auslöst, werden über dem ABC-Abenteuer verschluckt; echte Klicks mit Maus, Touchpad oder Finger kommen immer an. TD-Control-Menüs außerhalb bleiben bedienbar.</div>
+    </div>
+    <label><span>Verweilzeit große Kacheln: <b id="valDwellBig"></b></span><input type="range" id="setDwellBigMs" min="400" max="4000" step="100"></label>
+    <label><span>Verweilzeit Knöpfe oben (🏠 🔊 ⏸️ …): <b id="valDwell"></b></span><input type="range" id="setDwellMs" min="400" max="4000" step="100"></label>
+    <label><span>Nicht auswählen, solange die Eule eine Aufgabe vorliest (nur wenn der Ton an ist)</span><input type="checkbox" id="setSpeechPause"></label>
+    <label><span>Lupe für die Knöpfe oben (vergrößert sie, sobald der Blick nach oben geht)</span><input type="checkbox" id="setLens"></label>
+    <label><span>Blickpunkt anzeigen (oranger Kreis – zum Prüfen der Kalibrierung)</span><input type="checkbox" id="setDot"></label>
+    <label><span>Mauszeiger ausblenden</span><input type="checkbox" id="setHideCursor"></label>
+
+    <div class="nativeonly">
+      <label><span>Ohne Grafikbeschleunigung starten (nur falls das Bild flackert – wirkt beim nächsten Start)</span><input type="checkbox" id="setNoGpu"></label>
+    </div>
+
+    <h3>🔊 Ton & Sprache</h3>
+    <label><span>Ton aus (Spiele stumm)</span><input type="checkbox" id="setMuted"></label>
+    <label><span>Lautstärke: <b id="valVolume"></b></span><input type="range" id="setVolume" min="10" max="100" step="5"></label>
+    <div class="note">Schnell umschalten: Lautsprecher 🔊/🔇 oben im Menü und im Spiel, oder Taste <b>F8</b>. Die Mitteil-Tafel 💬 spricht immer – auch wenn der Ton aus ist.</div>
+    <label><span>Stimme</span><select id="setVoice"></select> <button id="btnTestVoice">Test</button></label>
+    <div class="note">🔊 = Stimmen der Windows-Sprachausgabe (z. B. die Stimmen des Tobii-Geräts, sofern für Windows freigegeben).
+    Keine „Multilingual“-Stimme wählen. Die Silben (Silben klatschen, „Hör mal“) kommen immer aus eigenen Tondateien.</div>
+    <label><span>Sprechtempo: <b id="valRate"></b></span><input type="range" id="setRate" min="0.5" max="1.3" step="0.05"></label>
+    <label><span>Antworten beim Anschauen vorlesen</span><input type="checkbox" id="setHoverSay"></label>
+    <label><span>Geräusche (Jubel, Plopp …)</span><input type="checkbox" id="setSfx"></label>
+
+    <h3>🎯 Aufgaben & Stufen</h3>
+    <label><span>Nach der Lösung</span><select id="setManualNext"><option value="0">automatisch weiter</option><option value="1">„Weiter“-Knopf anklicken</option></select></label>
+    <div class="note">Mit „Weiter“-Knopf bleibt das Ergebnis stehen, bis das Kind (oder Sie) auf ➡️ Weiter klickt.</div>
+    <label><span>Ballon-Tempo</span><select id="setBalloonSpeed"><option value="0.4">sehr langsam</option><option value="0.65">langsam</option><option value="1">normal</option><option value="1.4">schnell</option></select></label>
+    <label><span>Aufgaben pro Runde (bis zum Sticker)</span><select id="setRound"><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></label>
+    <label><span>Schrift</span><select id="setCase"><option value="upper">GROSSBUCHSTABEN</option><option value="mixed">Groß und klein (Maus)</option><option value="lower">nur klein (maus)</option></select></label>
+    <label><span>Silben farbig markieren (beim Lesen)</span><input type="checkbox" id="setSylColor"></label>
+    <label><span>Alle Stufen sofort freischalten</span><input type="checkbox" id="setAllLevels"></label>
+    <label><span>Runden bis zur nächsten Stufe</span><select id="setUnlock"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+    <div class="note">Wer eine Stufe so oft mit höchstens 2 Fehlern schafft, schaltet die nächste Stufe frei (⭐ → ⭐⭐ → ⭐⭐⭐). Standard: 3.</div>
+    <div id="levelInfo"></div>
+    <p><button id="btnResetLevels">Freischaltungen zurücksetzen</button></p>
+
+    <h3>🔤 Buchstaben, die geübt werden</h3>
+    <div class="letters" id="setLetters"></div>
+    <div class="note">Mindestens 2 Buchstaben auswählen. Neue Buchstaben einfach dazunehmen, sobald sie im Unterricht eingeführt wurden.</div>
+
+    <h3>💬 Mitteil-Tafel</h3>
+    <div class="note">Eine Zeile pro Feld: <b>Bild ; Beschriftung ; Satz, der gesprochen wird</b>. Als Bild ein Emoji (z. B. 🍎) oder <b>[schaukel]</b>. Bis zu 12 Felder.</div>
+    <textarea id="setTalk" rows="12" style="width:100%;font-size:16px;font-family:inherit"></textarea>
+    <p><button id="btnTalkAdd">➕ Feld hinzufügen</button> <button id="btnTalkSave">Tafel übernehmen</button> <button id="btnTalkReset">Standard wiederherstellen</button></p>
+
+    <h3>📊 Lernstand</h3>
+    <div id="stats"></div>
+    <p><button id="btnResetStats">Lernstand zurücksetzen</button> <button id="btnResetStickers">Sticker-Album leeren</button></p>
+
+    <h3>💾 Sichern &amp; Wiederherstellen</h3>
+    <div class="note">Speichert alle Profile mit Lernstand, Stufen, Stickern, Einstellungen und Mitteil-Tafel in eine Datei (z. B. auf einen USB-Stick) – zum Aufbewahren oder um alles auf ein anderes Gerät mitzunehmen.</div>
+    <p><button id="btnBackup">💾 Sicherung speichern …</button> <button id="btnRestore">📂 Sicherung laden …</button></p>
+    <div class="note">Beim Laden werden alle jetzigen Daten durch die Sicherung ersetzt.</div>
+    <p><button id="btnDeleteAll" class="danger">🗑 Alle Kinderprofile und Daten löschen …</button></p>
+
+  
+    <h3>ℹ️ Über das ABC-Abenteuer</h3>
+    <div class="note"><b id="setVersion"></b><br><b>Idee und Umsetzung:</b> Natascha Toman, selbst UK-Nutzerin<br>Umgesetzt mithilfe von KI.</div>
+</div>
+</div>
+
+<script src="data.js"></script>
+<script src="silben/silben.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vorlage für das Microsoft-Store-Paket. Die Platzhalter {{...}} füllt erstellen-store.ps1
+     aus store\store-identitaet.txt (Werte aus dem Partner Center) und der Programmversion. -->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity Name="{{IDENTITY_NAME}}" Publisher="{{PUBLISHER}}" Version="{{VERSION}}" ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>ABC-Abenteuer</DisplayName>
+    <PublisherDisplayName>{{PUBLISHER_DISPLAY_NAME}}</PublisherDisplayName>
+    <Logo>Bilder\StoreLogo.png</Logo>
+    <Description>Lese- und Schreiblernprogramm für Kinder mit Augensteuerung</Description>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="de-DE" />
+  </Resources>
+
+  <Applications>
+    <Application Id="ABCAbenteuer" Executable="files\ABC-Abenteuer.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="ABC-Abenteuer"
+        Description="Lese- und Schreiblernprogramm für Kinder mit Augensteuerung"
+        BackgroundColor="transparent"
+        Square150x150Logo="Bilder\Square150x150Logo.png"
+        Square44x44Logo="Bilder\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Bilder\Wide310x150Logo.png" Square310x310Logo="Bilder\Square310x310Logo.png" ShortName="ABC-Abenteuer" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- Klassisches Windows-Programm (WinForms): Tobii-Augensteuerung, Sprachausgabe,
+         Bildschirmtastatur und Sperre der TD-Control-Klicks brauchen vollen Zugriff. -->
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
