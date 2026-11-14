@@ -34,16 +34,13 @@ Eine Eule liest alle Aufgaben vor.
 
 ## Installation
 
-**Empfohlen: Microsoft Store.** Im Microsoft Store nach „ABC-Abenteuer“ suchen und
-installieren. Die Store-Version ist von Microsoft geprüft und signiert, es erscheint keine
-Sicherheitswarnung, und Updates kommen automatisch.
+Keine Installation nötig, das Programm läuft direkt aus seinem Ordner.
 
-**Alternativ als ZIP (ohne Installation):**
-
-1. Unter **Releases** die Datei `ABC-Abenteuer.zip` herunterladen.
+1. Rechts unter **Releases** die Datei `ABC-Abenteuer.zip` herunterladen.
 2. Vor dem Entpacken: Rechtsklick auf die ZIP-Datei → **Eigenschaften** → Haken bei
    **„Zulassen“** → **OK**. Sonst zeigt Windows beim ersten Start die Warnung „Der Computer
-   wurde durch Windows geschützt“, weil die ZIP-Version nicht digital signiert ist.
+   wurde durch Windows geschützt“, weil das Programm nicht digital signiert ist. (Kommt sie
+   trotzdem: „Weitere Informationen“ → „Trotzdem ausführen“.)
 3. Die ZIP-Datei entpacken (Rechtsklick → „Alle extrahieren …“), z. B. in `Dokumente`.
 4. Im entpackten Ordner **`ABC-Abenteuer.exe`** (Eulen-Symbol) doppelklicken.
 
@@ -85,7 +82,7 @@ Sprachpaket mit Sprachausgabe).
 | `ABC-Abenteuer/` | Hauptprogramm (C#, .NET Framework 4.8, WebView2, Tobii Core SDK) |
 | `Starter/` | kleines Start-Programm mit dem Eulen-Symbol |
 | `Anleitung-Vorlage.html`, `anleitung-bilder/` | Anleitung, wird zu `Anleitung.html` mit eingebetteten Bildern |
-| `erstellen-store.ps1`, `store/` | Paket für den Microsoft Store (MSIX), Kachelbilder, Screenshots, Einreich-Anleitung |
+| `erstellen-store.ps1`, `store/` | vorbereitet für eine spätere Veröffentlichung im Microsoft Store (MSIX-Paket, Kachelbilder, Screenshots, Einreich-Anleitung) |
 | `silben-erzeugen.py` | erzeugt die Silben-Tondateien aus `web/silben/lautschrift.txt` neu |
 | `lizenzen/` | Lizenztexte der Fremdkomponenten |
 
