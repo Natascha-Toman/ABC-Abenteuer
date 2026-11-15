@@ -26,6 +26,8 @@ Programm und wird automatisch erzeugt – dort bitte nichts von Hand ändern.
 Fertiges Programm erstellen:
   powershell -ExecutionPolicy Bypass -File erstellen.ps1
 
+Jede neue Version in CHANGELOG.md eintragen (neueste oben). Die Datei liegt auch im fertigen Programm.
+
 Versionsnummer bei größeren Änderungen erhöhen:
   web\app.js (APP_VERSION, APP_DATE), Anleitung-Vorlage.html (oben und Schlusszeile),
   <Version> in ABC-Abenteuer\ABC-Abenteuer.csproj und Starter\Starter.csproj.

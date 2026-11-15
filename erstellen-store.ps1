@@ -43,7 +43,7 @@ New-Item -ItemType Directory $layout | Out-Null
 robocopy (Join-Path $prog "files") (Join-Path $layout "files") /E /NFL /NDL /NJH /NJS /NP /XF selbsttest.txt | Out-Null
 if ($LASTEXITCODE -ge 8) { throw "Kopieren fehlgeschlagen" }
 robocopy (Join-Path $prog "lizenzen") (Join-Path $layout "lizenzen") /E /NFL /NDL /NJH /NJS /NP | Out-Null
-foreach ($f in "Anleitung.html", "THIRD-PARTY-LICENSES.md", "LICENSE") { Copy-Item (Join-Path $prog $f) $layout }
+foreach ($f in "Anleitung.html", "THIRD-PARTY-LICENSES.md", "LICENSE", "CHANGELOG.md") { Copy-Item (Join-Path $prog $f) $layout }
 New-Item -ItemType Directory (Join-Path $layout "Bilder") | Out-Null
 Copy-Item (Join-Path $src "store\Bilder\*Logo.png") (Join-Path $layout "Bilder")
 

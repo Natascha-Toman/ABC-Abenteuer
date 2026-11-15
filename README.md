@@ -65,6 +65,10 @@ Eine klassische Installation ist nicht notwendig. Das Programm verwendet Microso
 
 > **Hinweis:** Der Downloadbereich enthält erst dann eine fertige Programmversion, wenn ein Release veröffentlicht wurde. Der grüne **Code**-Button auf GitHub lädt dagegen den Quellcode herunter.
 
+## 📝 Änderungen
+
+Was sich in welcher Version geändert hat, steht im [Änderungsprotokoll (CHANGELOG.md)](CHANGELOG.md).
+
 ## 🔒 Datenschutz
 
 ABC-Abenteuer funktioniert offline. Kinderprofile, Einstellungen und Lernfortschritte werden lokal auf dem verwendeten Computer gespeichert; das Programm überträgt diese Daten nicht an einen Server.

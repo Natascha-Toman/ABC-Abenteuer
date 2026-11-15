@@ -45,7 +45,7 @@ Copy-Item (Join-Path $src "Starter\bin\Release\net48\ABC-Abenteuer.exe") (Join-P
 # Lizenzhinweise gehören zum weitergegebenen Programm
 robocopy (Join-Path $src "lizenzen") (Join-Path $target "lizenzen") /MIR /NFL /NDL /NJH /NJS /NP | Out-Null
 if ($LASTEXITCODE -ge 8) { throw "Kopieren der Lizenztexte fehlgeschlagen" }
-foreach ($f in "THIRD-PARTY-LICENSES.md", "LICENSE") {
+foreach ($f in "THIRD-PARTY-LICENSES.md", "LICENSE", "CHANGELOG.md") {
     if (Test-Path (Join-Path $src $f)) { Copy-Item (Join-Path $src $f) $target -Force }
 }
 
