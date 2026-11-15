@@ -10,8 +10,6 @@ ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder. Es wurde besonders m
 
 **Kostenlos · Für Windows · Keine klassische Installation erforderlich**
 
-ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder, das mit Augensteuerung, Maus oder Touchscreen bedient werden kann.
-
 **So startest du das Programm:**
 
 1. Lade die Windows-ZIP-Datei unter dem Link oben herunter.
