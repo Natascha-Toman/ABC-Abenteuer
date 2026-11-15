@@ -20,8 +20,6 @@ ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder, das mit Augensteueru
 
 > **Wichtig:** Lade unter „Assets“ die fertige Windows-ZIP-Datei herunter, nicht den automatisch angebotenen Quellcode („Source code“).
 
-![Spielübersicht von ABC-Abenteuer mit den verschiedenen Lernspielen](bilder/spieluebersicht.jpg)
-
 ## 🎮 Was kann ABC-Abenteuer?
 
 - **10 Lernspiele** rund um Buchstaben, Wörter, Sätze und Silben
@@ -32,6 +30,8 @@ ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder, das mit Augensteueru
 - **Kinderprofile** mit Lernfortschritt und Sticker-Album
 - **Sichern und Wiederherstellen** der gespeicherten Daten
 - **Offline nutzbar** – keine Internetverbindung erforderlich
+
+![Spielübersicht von ABC-Abenteuer mit den verschiedenen Lernspielen](bilder/spieluebersicht.jpg)
 
 ## 📸 Einblicke ins Programm
 
