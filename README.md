@@ -4,6 +4,22 @@
 
 ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder. Es wurde besonders mit Blick auf die Bedienung per Augensteuerung entwickelt, funktioniert aber genauso mit Maus und Touchscreen. Die Eule begleitet die Kinder durch die Übungen.
 
+## ⬇️ ABC-Abenteuer 2.5 herunterladen
+
+### [🦉 Jetzt ABC-Abenteuer 2.5 für Windows herunterladen](https://github.com/Natascha-Toman/ABC-Abenteuer/releases/tag/v2.5.0)
+
+**Kostenlos · Für Windows · Keine klassische Installation erforderlich**
+
+ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder, das mit Augensteuerung, Maus oder Touchscreen bedient werden kann.
+
+**So startest du das Programm:**
+
+1. Lade die Windows-ZIP-Datei unter dem Link oben herunter.
+2. Entpacke die ZIP-Datei vollständig.
+3. Starte `ABC-Abenteuer.exe`.
+
+> **Wichtig:** Lade unter „Assets“ die fertige Windows-ZIP-Datei herunter, nicht den automatisch angebotenen Quellcode („Source code“).
+
 ![Spielübersicht von ABC-Abenteuer mit den verschiedenen Lernspielen](bilder/spieluebersicht.jpg)
 
 ## 🎮 Was kann ABC-Abenteuer?
@@ -50,20 +66,6 @@ Aus einzelnen Silben Schritt für Schritt ganze Wörter bilden.
 Bei der Augensteuerung wird eine Schaltfläche durch längeres Anschauen ausgewählt. Die Verweilzeit und weitere Bedienungshilfen lassen sich individuell einstellen. Eine Augensteuerung ist **nicht erforderlich**: Auch Maus und Touch funktionieren.
 
 ![Einstellungen für Augensteuerung und Verweilzeit](bilder/einstellungen.jpg)
-
-## ⬇️ Download für Windows
-
-**[Zum Downloadbereich (Releases)](https://github.com/Natascha-Toman/ABC-Abenteuer/releases)**
-
-Sobald eine Version zum Herunterladen bereitsteht:
-
-1. Die ZIP-Datei unter **Releases** herunterladen.
-2. Die ZIP-Datei vollständig entpacken.
-3. Im entpackten Ordner `ABC-Abenteuer.exe` starten.
-
-Eine klassische Installation ist nicht notwendig. Das Programm verwendet Microsoft WebView2; falls diese Komponente auf dem Windows-PC fehlt, muss sie gegebenenfalls nachinstalliert werden.
-
-> **Hinweis:** Der Downloadbereich enthält erst dann eine fertige Programmversion, wenn ein Release veröffentlicht wurde. Der grüne **Code**-Button auf GitHub lädt dagegen den Quellcode herunter.
 
 ## 📝 Änderungen
 
