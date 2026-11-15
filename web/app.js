@@ -52,7 +52,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "2.4", APP_DATE = "15.11.2026";
+const APP_VERSION = "2.5", APP_DATE = "15.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -387,6 +387,14 @@ function talking(on) { document.querySelectorAll(".mascot").forEach(m => m.class
 // Aussprache-Korrekturen für die Sprachausgabe (geschrieben bleibt alles richtig)
 const SPEAK_FIX = [[/\bLolli\b/g, "Lollie"], [/\b[Oo]range\b/g, "Orangsch"]];   // sonst sprechen die Windows-Stimmen "Lahli"
 function speakFix(t) { return SPEAK_FIX.reduce((x, [re, to]) => x.replace(re, to), String(t)); }
+// Tondatei für einen einzelnen Buchstaben ("E", "e") oder ein Wort aus silben/einzeln.txt ("Krake")
+const hasClip = k => !!(window.CLIPS && CLIPS.includes(k));
+function clipFor(text) {
+  const t = String(text).trim().replace(/[.!?]+$/, "");
+  if (/^[A-Za-zÄÖÜäöü]$/.test(t)) { const k = "buchstabe-" + slugW(t); return hasClip(k) ? k : null; }
+  if (/^[A-Za-zÄÖÜäöüß]+$/.test(t)) { const k = "wort-" + slugW(t); return hasClip(k) ? k : null; }
+  return null;
+}
 function say(text, kind = "talk", rateF = 1, opts = {}) {
   text = text && speakFix(text);
   return new Promise(resolve => {
@@ -401,6 +409,16 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
     speechSynthesis.cancel();
     stopClip();
     if (NativeTTS.cur) { const c = NativeTTS.cur; NativeTTS.cur = null; Native.post({ t: "stop" }); c.fin(); }
+    // Einzelne Buchstaben und einige Wörter: Tondatei mit exakter Aussprache (sonst z. B. "E" wie "I")
+    const clip = clipFor(text);
+    if (clip) {
+      Speech.kind = kind; talking(true);
+      playClip(`silben/${clip}.wav`).then(() => {
+        if (Speech.seq === my) { Speech.kind = null; talking(false); }
+        resolve();
+      });
+      return;
+    }
     if (nativeVoice()) {
       // Stimme der Windows-Sprachausgabe (z. B. Tobii/Acapela) – spricht das Programm selbst
       let done = false;
@@ -1640,6 +1658,8 @@ function taskWrite(t, used) {
         drawSlots();
         if (pos >= target.length) {
           busy = true; G.repeat = null;
+          await say(LN(d._ch));                     // auch den letzten Buchstaben vorlesen
+          if (t !== G.token) return;
           SFX.success();
           stat(first(w), firstTry);
           await say(`${pick(PRAISE)} Du hast ${w.w} geschrieben!`);
@@ -1654,7 +1674,7 @@ function taskWrite(t, used) {
         const need = target[pos];
         if (errs >= 2) {
           tileEls.find(e => e._ch === need).classList.add("hint");
-          say(`Wir brauchen jetzt den Buchstaben ${LN(need)}.`);
+          (async () => { await say("Wir brauchen jetzt den Buchstaben"); if (t === G.token && !busy) say(LN(need)); })();
         } else say(`Hör genau: ${w.w}. Was kommt jetzt?`, "talk", .85);
       }
     }));
@@ -2027,13 +2047,26 @@ function stickerWord(e) {
 const SV = { w: null, token: 0 };
 const svOpen = () => $("#stickerView").classList.contains("show");
 function svMark(i) { $("#svSyl").querySelectorAll("span").forEach((s, k) => s.classList.toggle("on", k === i)); }
-async function svSayWord() { if (SV.w) await say(art(SV.w)); }
-async function svSayLetter() { if (SV.w) await say(`${SV.w.w} fängt mit ${LN(first(SV.w))} an.`); }
+// Teile nacheinander sprechen. Wörter mit eigener Tondatei (z. B. "Krake") und der
+// Anfangsbuchstabe werden dabei einzeln abgespielt, damit sie genau richtig klingen.
+async function svParts(parts) {
+  const my = SV.token;
+  for (const p of parts) { if (SV.token !== my || !svOpen()) return false; await say(p); }
+  return SV.token === my && svOpen();
+}
+// "Krake hat 2 Silben." -> mit Tondatei: ["Krake", "hat 2 Silben."], sonst ein Satz
+const svWithWord = rest => hasClip("wort-" + slugW(SV.w.w)) ? [SV.w.w, rest] : [`${SV.w.w} ${rest}`];
+async function svSayWord() { if (SV.w) await svParts(hasClip("wort-" + slugW(SV.w.w)) ? [SV.w.g, SV.w.w] : [art(SV.w)]); }
+async function svSayLetter() {
+  if (!SV.w) return;
+  const [head, ...more] = svWithWord("fängt mit");
+  await svParts([head, ...more, LN(first(SV.w)), "an."]);
+}
 async function svClap() {
   if (!SV.w) return;
   const my = SV.token, n = SV.w.s.split("-").length;
-  if (n === 1) { svMark(0); await say(`${SV.w.w} hat eine Silbe.`); svMark(-1); return; }
-  await say(`${SV.w.w} hat ${n} Silben.`);
+  if (n === 1) { svMark(0); await svParts(svWithWord("hat eine Silbe.")); svMark(-1); return; }
+  await svParts(svWithWord(`hat ${n} Silben.`));
   if (!svOpen() || SV.token !== my) return;
   await saySyllables(SV.w, i => { svMark(i); tone(520 + 60 * i, 0, 0.08, "triangle", 0.12); });
   setTimeout(() => svMark(-1), 500);

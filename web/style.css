@@ -467,7 +467,9 @@ body.kb-open #dlg .dlgbox { max-height: 52vh; }
 #settings .note.warn { color: #b3261e; font-weight: 700; }
 
 /* Sticker-Album: Sticker antippen -> Wort, Anfangsbuchstabe, Silben */
-#album .stickers .gaze { font-size: calc(9 * var(--u)); text-align: center; background: #fff; border-radius: calc(2 * var(--u)); padding: calc(1 * var(--u)) 0; border-width: calc(.5 * var(--u)); }
+/* feste Zeilenhöhe: Kacheln werden nie zusammengestaucht (sonst Emojis abgeschnitten, kein Blättern) */
+#album .stickers { grid-auto-rows: calc(15 * var(--u)); }
+#album .stickers .gaze { font-size: calc(9 * var(--u)); line-height: 1.15; text-align: center; background: #fff; border-radius: calc(2 * var(--u)); padding: 0; border-width: calc(.5 * var(--u)); }
 #stickerView { position: absolute; inset: 0; background: rgba(253,246,227,.97); display: none; align-items: center; justify-content: center; flex-direction: column; gap: calc(4 * var(--u)); z-index: 200; }
 #stickerView.show { display: flex; }
 #stickerView .row { display: flex; align-items: center; gap: calc(6 * var(--w)); }

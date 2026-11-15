@@ -10,6 +10,7 @@ import os, re, struct, subprocess, sys, tempfile, wave, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "web", "silben", "lautschrift.txt")
+SRC2 = os.path.join(HERE, "web", "silben", "einzeln.txt")
 OUT = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(HERE, "web", "silben")
 VOICE, RATE = "Microsoft Katja", "-10%"
 
@@ -50,6 +51,12 @@ def main():
             words.append((w, v.split("|")))
     tmp = tempfile.mkdtemp(prefix="abc-silben-")
     jobs = [(os.path.join(tmp, f"{slug(w)}-{i + 1}.wav"), syl) for w, syls in words for i, syl in enumerate(syls)]
+    # einzelne Tondateien: Buchstabennamen und ganze Wörter (web\silben\einzeln.txt, "name = Lautschrift")
+    singles = []
+    if os.path.exists(SRC2):
+        for line in open(SRC2, encoding="utf-8"):
+            m = re.match(r"^\s*([a-z0-9-]+)\s*=\s*(\S.*?)\s*$", line)
+            if m: singles.append(m.group(1)); jobs.append((os.path.join(tmp, m.group(1) + ".wav"), m.group(2)))
     jf, pf = os.path.join(tmp, "jobs.txt"), os.path.join(tmp, "sprechen.ps1")
     open(jf, "w", encoding="utf-8").write("\n".join(f"{p}\t{s}" for p, s in jobs))
     open(pf, "w", encoding="utf-8-sig").write(PS)
@@ -79,7 +86,9 @@ def main():
         f.write('// Automatisch erzeugt: Silben als Tondateien (Stimme "Katja", exakte Lautschrift).\n')
         f.write("// Wort -> Anzahl Silben. Datei: silben/<wort>-<nr>.wav\n")
         f.write("window.SYL_AUDIO = " + json.dumps(counts, ensure_ascii=False) + ";\n")
-    print(f"{len(jobs)} Silben-Dateien, {total // 1024} KB -> {OUT}")
+        f.write("// Einzelne Tondateien: Buchstabennamen (buchstabe-x) und ganze Wörter (wort-...). Datei: silben/<name>.wav\n")
+        f.write("window.CLIPS = " + json.dumps(singles) + ";\n")
+    print(f"{len(jobs)} Tondateien ({len(singles)} einzeln), {total // 1024} KB -> {OUT}")
 
 
 if __name__ == "__main__":
