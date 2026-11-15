@@ -338,6 +338,29 @@ const STICKERS = ["🐶","🐱","🦄","🐼","🐨","🦋","🐞","🐠","🦖"
   "🌈","🍓","🎈","🦜","🐬","🐢","🦁","🐸","🍭","🎀","🌻","🐧","🦊","🐰",
   "🍉","🧸","🎠","🏰","⭐","🌸","🐝","🦕","🐳","🍦"];
 
+// Wort zu jedem Sticker (Sticker-Album: antippen -> Wort, Anfangsbuchstabe, Silben).
+// Ein Text = Wort aus WORDS (mit Artikel und Silben von dort), sonst eigene Angaben wie bei WORDS.
+const STICKER_WORDS = {
+  "🐶": "Hund", "🐱": "Katze", "🐼": "Panda", "🐨": "Koala", "🐠": "Fisch", "🦕": "Dino",
+  "🚀": "Rakete", "🌈": "Regenbogen", "🍓": "Erdbeere", "🦜": "Papagei", "🐬": "Delfin",
+  "🦁": "Löwe", "🐸": "Frosch", "🍭": "Lolli", "🐧": "Pinguin", "🦊": "Fuchs", "🐰": "Hase",
+  "🍉": "Melone", "🧸": "Teddy", "🐝": "Biene", "🐳": "Wal", "🍦": "Eis",
+  "🦄": { w: "Einhorn",       g: "das", s: "Ein-horn" },
+  "🦋": { w: "Schmetterling", g: "der", s: "Schmet-ter-ling" },
+  "🐞": { w: "Käfer",         g: "der", s: "Kä-fer" },
+  "🦖": { w: "Saurier",       g: "der", s: "Sau-ri-er" },
+  "🐙": { w: "Krake",         g: "die", s: "Kra-ke" },
+  "🌟": { w: "Funkelstern",   g: "der", s: "Fun-kel-stern" },
+  "⭐": { w: "Stern",         g: "der", s: "Stern" },
+  "🎈": { w: "Ballon",        g: "der", s: "Bal-lon" },
+  "🐢": { w: "Schildkröte",   g: "die", s: "Schild-krö-te" },
+  "🎀": { w: "Schleife",      g: "die", s: "Schlei-fe" },
+  "🌻": { w: "Sonnenblume",   g: "die", s: "Son-nen-blu-me" },
+  "🎠": { w: "Karussell",     g: "das", s: "Ka-rus-sell" },
+  "🏰": { w: "Burg",          g: "die", s: "Burg" },
+  "🌸": { w: "Blüte",         g: "die", s: "Blü-te" },
+};
+
 const PRAISE = ["Super!", "Toll gemacht!", "Prima!", "Klasse!", "Richtig!",
   "Wunderbar!", "Spitze!", "Genau!", "Sehr gut!", "Das hast du toll gemacht!"];
 

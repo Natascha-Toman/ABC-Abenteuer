@@ -52,7 +52,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "2.3", APP_DATE = "14.11.2026";
+const APP_VERSION = "2.4", APP_DATE = "15.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -687,7 +687,7 @@ function toggleDwell() {
 const okGaze = g => g && !g.classList.contains("disabled") && !g.classList.contains("done") && !g.classList.contains("matched") && !g.classList.contains("notyet");
 // Oberste sichtbare Ebene (Mitteil-Tafel, Belohnung, Entdecken oder der aktuelle Bildschirm)
 function gazeLayer() {
-  for (const sel of ["#quitAsk.show", "#talk.show", "#reward.show", "#explore.show"]) { const e = $(sel); if (e) return e; }
+  for (const sel of ["#quitAsk.show", "#talk.show", "#reward.show", "#explore.show", "#stickerView.show"]) { const e = $(sel); if (e) return e; }
   return document.querySelector(".screen.active");
 }
 // Blickpunkt beruhigen: Mittelwert der letzten Zeigerpositionen (Augen zittern immer ein wenig)
@@ -702,7 +702,7 @@ function smoothPos() {
 // die großen Kacheln darunter zählen kurz nicht – so lassen sich die kleinen Knöpfe sicher treffen.
 const Lens = { on: false, since: 0, out: 0 };
 function activeTopbar() {
-  if ($("#quitAsk.show") || $("#reward.show") || $("#explore.show")) return null;
+  if ($("#quitAsk.show") || $("#reward.show") || $("#explore.show") || $("#stickerView.show")) return null;
   if ($("#talk.show")) return $("#talk .topbar");
   const scr = document.querySelector(".screen.active");
   return scr ? scr.querySelector(".topbar") : null;
@@ -772,6 +772,9 @@ function nearestGaze(x, y, snap, skipTopbar) {
     if (!okGaze(c) || (skipTopbar && c.closest(".topbar"))) return;
     const r = c.getBoundingClientRect();
     if (!r.width) return;
+    // in einer Liste mit Blättern (Sticker-Album): nur, was gerade sichtbar ist
+    const sc = c.closest(".stickers");
+    if (sc) { const b = sc.getBoundingClientRect(); if (r.bottom < b.top + 8 || r.top > b.bottom - 8) return; }
     const dx = Math.max(r.left - pt.x, 0, pt.x - r.right), dy = Math.max(r.top - pt.y, 0, pt.y - r.bottom);
     const d = Math.hypot(dx, dy);
     if (d < bestD) { bestD = d; best = c; }
@@ -954,6 +957,7 @@ function setTitle(text) {
 function hideOverlays() {
   $("#reward").classList.remove("show");
   $("#explore").classList.remove("show");
+  if (svOpen()) closeSticker();
   document.querySelectorAll(".nextbtn").forEach(b => b.remove());
 }
 function goMenu(speak = true) {
@@ -1980,8 +1984,9 @@ function openAlbum() {
   show("album");
   const box = $("#stickers");
   box.innerHTML = stickers.length
-    ? stickers.map(s => `<div>${esc(s)}</div>`).join("")
+    ? stickers.map(s => { const w = stickerWord(s); return `<div class="gaze" data-say="${esc(w ? art(w) : "Sticker")}">${esc(s)}</div>`; }).join("")
     : `<div class="empty">Noch keine Sticker. Spiel eine Runde, dann bekommst du deinen ersten Sticker! 🌟</div>`;
+  box.querySelectorAll(".gaze").forEach((el, i) => onSelect(el, () => openSticker(stickers[i])));
   box.scrollTop = box.scrollHeight;          // die neuesten Sticker zuerst zeigen
   updateAlbumScroll();
   albumSay();
@@ -2007,8 +2012,58 @@ function albumScroll(dir) {
 }
 function albumSay() {
   const n = stickers.length;
-  say(n === 0 ? "Du hast noch keine Sticker. Spiel eine Runde!" : n === 1 ? "Du hast schon einen Sticker!" : `Toll! Du hast schon ${n} Sticker gesammelt!`);
+  say(n === 0 ? "Du hast noch keine Sticker. Spiel eine Runde!"
+    : n === 1 ? "Du hast schon einen Sticker! Schau ihn an, dann erzähle ich dir etwas dazu."
+    : `Toll! Du hast schon ${n} Sticker gesammelt! Schau einen an, dann erzähle ich dir etwas dazu.`);
 }
+
+// Ein Sticker groß: Wort mit Artikel, Anfangsbuchstabe und Silben – sehen und hören
+function stickerWord(e) {
+  const d = STICKER_WORDS[e];
+  if (!d) return null;
+  if (typeof d === "string") { const w = WORDS.find(x => x.w === d); return w ? Object.assign({}, w, { e }) : null; }
+  return Object.assign({ e }, d);
+}
+const SV = { w: null, token: 0 };
+const svOpen = () => $("#stickerView").classList.contains("show");
+function svMark(i) { $("#svSyl").querySelectorAll("span").forEach((s, k) => s.classList.toggle("on", k === i)); }
+async function svSayWord() { if (SV.w) await say(art(SV.w)); }
+async function svSayLetter() { if (SV.w) await say(`${SV.w.w} fängt mit ${LN(first(SV.w))} an.`); }
+async function svClap() {
+  if (!SV.w) return;
+  const my = SV.token, n = SV.w.s.split("-").length;
+  if (n === 1) { svMark(0); await say(`${SV.w.w} hat eine Silbe.`); svMark(-1); return; }
+  await say(`${SV.w.w} hat ${n} Silben.`);
+  if (!svOpen() || SV.token !== my) return;
+  await saySyllables(SV.w, i => { svMark(i); tone(520 + 60 * i, 0, 0.08, "triangle", 0.12); });
+  setTimeout(() => svMark(-1), 500);
+}
+async function openSticker(e) {
+  const w = stickerWord(e), my = ++SV.token;
+  SV.w = w;
+  stopSpeech();
+  $("#svPic").textContent = e;
+  const pic = $("#svPic"); pic.style.animation = "none"; void pic.offsetWidth; pic.style.animation = "";
+  $("#stickerView .svtext").style.display = w ? "" : "none";
+  ["#svLetter", "#svClap", "#svSay"].forEach(id => { $(id).style.display = w ? "" : "none"; });
+  $("#stickerView").classList.add("show");
+  if (!w) { say("Was für ein schöner Sticker!"); return; }
+  const word = fw(w.w);
+  $("#svArt").textContent = w.g;
+  $("#svWord").innerHTML = `<span class="first">${esc(word[0])}</span>${esc(word.slice(1))}`;
+  $("#svSyl").innerHTML = w.s.split("-").map((p, i) => {
+    const txt = S.letterCase === "upper" ? p.toUpperCase() : S.letterCase === "lower" ? p.toLowerCase() : p;
+    return `<span style="color:${S.sylColor ? (i % 2 ? "#e0504f" : "#2f6fd6") : "inherit"}">${esc(txt)}</span>`;
+  }).join("");
+  $("#svLetter").textContent = fl(first(w));
+  // beim Öffnen einmal alles vorlesen: Wort, Anfangsbuchstabe, Silben
+  await svSayWord(); if (SV.token !== my || !svOpen()) return;
+  await sleep(300); if (SV.token !== my || !svOpen()) return;
+  await svSayLetter(); if (SV.token !== my || !svOpen()) return;
+  await sleep(300); if (SV.token !== my || !svOpen()) return;
+  await svClap();
+}
+function closeSticker() { SV.token++; stopSpeech(); svMark(-1); $("#stickerView").classList.remove("show"); }
 
 // ---------------------------------------------------------------------
 //  Einstellungen
@@ -2316,22 +2371,50 @@ function bindSettings() {
   $("#setVoice").onchange = e => { S.voice = e.target.value; saveS(); };
   $("#btnTestVoice").onclick = () => say("Hallo! Ich bin Emil, die Eule. Womit fängt die Maus an?", "talk", 1, { force: true });
 
+  // Buchstaben auswählen: einzeln ankreuzen oder mit den Knöpfen (alle, keine, Selbstlaute …)
+  const VOWELS = ["A", "E", "I", "O", "U"];
+  const PRESETS = {
+    all: () => ALPHABET.slice(),
+    none: () => [],
+    vowels: () => VOWELS.slice(),
+    addvowels: sel => [...sel, ...VOWELS],
+    start: () => DEFAULT_LETTERS.slice(),
+  };
+  const letterSel = new Set(S.letters);
   const lb = $("#setLetters");
+  const applyLetters = () => {
+    lb.querySelectorAll("input").forEach(cb => { cb.checked = letterSel.has(cb.value); });
+    const note = $("#letterNote");
+    if (letterSel.size >= 2) {
+      S.letters = ALPHABET.filter(x => letterSel.has(x));
+      saveS();
+      note.className = "note";
+      note.textContent = `${S.letters.length} Buchstaben werden geübt: ${S.letters.join(" ")}`;
+    } else {
+      // zu wenige: Auswahl bleibt sichtbar, geübt werden bis dahin die bisherigen Buchstaben
+      note.className = "note warn";
+      note.textContent = `Bitte noch ${2 - letterSel.size} Buchstaben ankreuzen – bis dahin werden die bisherigen geübt (${S.letters.join(" ")}).`;
+    }
+  };
   lb.innerHTML = "";
   ALPHABET.forEach(L => {
     const lab = document.createElement("label");
+    if (VOWELS.includes(L)) lab.className = "vowel";
     const cb = document.createElement("input");
-    cb.type = "checkbox"; cb.checked = S.letters.includes(L);
-    cb.onchange = () => {
-      if (cb.checked) S.letters = ALPHABET.filter(x => x === L || S.letters.includes(x));
-      else if (S.letters.length <= 2) { cb.checked = true; alert("Bitte mindestens 2 Buchstaben auswählen."); return; }
-      else S.letters = S.letters.filter(x => x !== L);
-      saveS();
-    };
+    cb.type = "checkbox"; cb.value = L;
+    cb.onchange = () => { if (cb.checked) letterSel.add(L); else letterSel.delete(L); applyLetters(); };
     lab.appendChild(cb);
     lab.appendChild(document.createTextNode(" " + L));
     lb.appendChild(lab);
   });
+  document.querySelectorAll(".letterbtns button").forEach(b => {
+    b.onclick = () => {
+      const next = PRESETS[b.dataset.preset]([...letterSel]);
+      letterSel.clear(); next.forEach(L => letterSel.add(L));
+      applyLetters();
+    };
+  });
+  applyLetters();
 
   const ta = $("#setTalk");
   ta.value = S.talk;
@@ -2473,5 +2556,9 @@ function init() {
   onSelect($("#exAgain"), () => { const w = EX.words[EX.i % EX.words.length]; say(`${LN(EX.L)} wie ${w.w}.`); });
   onSelect($("#exNext"), () => { EX.i++; showExplore(); });
   onSelect($("#exBack"), () => { $("#explore").classList.remove("show"); stopSpeech(); });
+  onSelect($("#svSay"), () => { SV.token++; stopSpeech(); svSayWord(); });
+  onSelect($("#svLetter"), () => { SV.token++; stopSpeech(); svSayLetter(); });
+  onSelect($("#svClap"), () => { SV.token++; stopSpeech(); svClap(); });
+  onSelect($("#svBack"), closeSticker);
 }
 init();

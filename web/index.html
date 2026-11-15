@@ -84,6 +84,24 @@
   </div>
 </div>
 
+<!-- Sticker-Album: ein Sticker groß mit Wort, Anfangsbuchstabe und Silben -->
+<div id="stickerView">
+  <div class="row">
+    <div class="bigpic" id="svPic"></div>
+    <div class="svtext">
+      <div class="svart" id="svArt"></div>
+      <div class="bigword" id="svWord"></div>
+      <div class="svsyl" id="svSyl"></div>
+    </div>
+  </div>
+  <div class="btns">
+    <div class="gaze" id="svSay" data-say="Wort" title="Wort hören">🔊</div>
+    <div class="gaze" id="svLetter" data-say="Anfangsbuchstabe" title="Anfangsbuchstabe"></div>
+    <div class="gaze" id="svClap" data-say="Silben" title="Silben klatschen">👏</div>
+    <div class="gaze" id="svBack" data-say="Fertig" title="Zurück zum Album">✅</div>
+  </div>
+</div>
+
 <!-- Belohnung -->
 <div id="reward">
   <div class="sticker" id="rewardSticker">⭐</div>
@@ -206,8 +224,16 @@
     <p><button id="btnResetLevels">Freischaltungen zurücksetzen</button></p>
 
     <h3>🔤 Buchstaben, die geübt werden</h3>
+    <div class="letterbtns">
+      <button type="button" data-preset="all">✔ Alle auswählen</button>
+      <button type="button" data-preset="none">✖ Alle abwählen</button>
+      <button type="button" data-preset="vowels">Nur Selbstlaute (A E I O U)</button>
+      <button type="button" data-preset="addvowels">+ Selbstlaute dazunehmen</button>
+      <button type="button" data-preset="start">Start-Buchstaben (M A L I O S E)</button>
+    </div>
     <div class="letters" id="setLetters"></div>
-    <div class="note">Mindestens 2 Buchstaben auswählen. Neue Buchstaben einfach dazunehmen, sobald sie im Unterricht eingeführt wurden.</div>
+    <div class="note" id="letterNote"></div>
+    <div class="note">Mindestens 2 Buchstaben auswählen. Selbstlaute sind <b class="vowelmark">farbig</b> markiert. Neue Buchstaben einfach dazunehmen, sobald sie im Unterricht eingeführt wurden.</div>
 
     <h3>💬 Mitteil-Tafel</h3>
     <div class="note">Eine Zeile pro Feld: <b>Bild ; Beschriftung ; Satz, der gesprochen wird</b>. Als Bild ein Emoji (z. B. 🍎) oder <b>[schaukel]</b>. Bis zu 12 Felder.</div>
