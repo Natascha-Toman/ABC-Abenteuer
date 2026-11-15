@@ -8,6 +8,7 @@ Alle wichtigen Änderungen, die neueste Version steht oben.
 - Sticker-Album: Die Sticker sind wieder größer, die Emojis werden nicht mehr abgeschnitten.
   Die Blätter-Knöpfe ▲ ▼ erscheinen wieder, wenn nicht alle Sticker auf eine Seite passen.
 - Beim „Wörter schreiben“ wird jetzt auch der letzte Buchstabe vorgelesen, danach kommt das Lob.
+- Die Download-Datei trägt die Versionsnummer im Namen (z. B. `ABC-Abenteuer-2.5.zip`).
 
 **Behoben**
 - Einzelne Buchstaben klingen jetzt richtig (z. B. wurde „E“ wie „I“ gesprochen). Alle

@@ -5,14 +5,13 @@
 #                     Schrift, Silben-Töne)          ABC-Abenteuer.exe   (Start-Symbol)
 #     ABC-Abenteuer\  Hauptprogramm (C#)             Anleitung.html      (Bilder eingebettet)
 #     Starter\        Start-Symbol (C#)              files\              (Oberfläche + Hauptprogramm)
-#     Anleitung-Vorlage.html, anleitung-bilder\    ..\ABC-Abenteuer.zip  (zum Weitergeben)
+#     Anleitung-Vorlage.html, anleitung-bilder\    ..\ABC-Abenteuer-<Version>.zip  (zum Weitergeben)
 #
 # Aufruf:  powershell -ExecutionPolicy Bypass -File erstellen.ps1
 $ErrorActionPreference = "Stop"
 $src    = $PSScriptRoot
 $target = Join-Path (Split-Path $src -Parent) "ABC-Lernprogramm"
 $files  = Join-Path $target "files"
-$zip    = Join-Path (Split-Path $src -Parent) "ABC-Abenteuer.zip"
 $dotnet = "C:\Program Files\dotnet\dotnet.exe"
 
 Write-Host "1/5  Programme bauen ..."
@@ -54,6 +53,10 @@ Write-Host "4/5  Anleitung erstellen ..."
 if ($LASTEXITCODE -ne 0) { throw "Anleitung konnte nicht erstellt werden" }
 
 Write-Host "5/5  ZIP erstellen ..."
+# Versionsnummer in den Dateinamen: 2.5.0 -> ABC-Abenteuer-2.5.zip, 2.5.1 -> ABC-Abenteuer-2.5.1.zip
+$v = (Get-Item (Join-Path $files "ABC-Abenteuer.exe")).VersionInfo.ProductVersion.Split("+")[0]
+$ver = [Version]$v
+$short = if ($ver.Build -gt 0) { "{0}.{1}.{2}" -f $ver.Major, $ver.Minor, $ver.Build } else { "{0}.{1}" -f $ver.Major, $ver.Minor }
+$zip = Join-Path (Split-Path $src -Parent) ("ABC-Abenteuer-{0}.zip" -f $short)
 Compress-Archive -Path $target -DestinationPath $zip -Force
-$v = (Get-Item (Join-Path $files "ABC-Abenteuer.exe")).VersionInfo.ProductVersion
-Write-Host ("Fertig: Version {0}, ZIP {1:N1} MB" -f $v, ((Get-Item $zip).Length / 1MB))
+Write-Host ("Fertig: Version {0}, ZIP {1} ({2:N1} MB)" -f $v, (Split-Path $zip -Leaf), ((Get-Item $zip).Length / 1MB))
