@@ -384,3 +384,39 @@ const SENT_THINGS = [
   { w: "Brille", g: "die", e: "👓" }, { w: "Keks", g: "der", e: "🍪" }, { w: "Lolli", g: "der", e: "🍭" },
   { w: "Geschenk", g: "das", e: "🎁" }, { w: "Kerze", g: "die", e: "🕯️" },
 ];
+
+// ---------------------------------------------------------------------
+//  Wortvorhersage der Mitteil-Tafel (Tastatur)
+//  TALK_VOCAB: Grundwortschatz (dazu kommen alle Wörter aus WORDS und STICKER_WORDS).
+//  TALK_NEXT:  typische Folgewörter ("ich" -> "möchte", "habe" …).
+//  Beides ist nur der Anfang: Die Tafel lernt aus jedem vorgelesenen Text dazu (pro Profil).
+// ---------------------------------------------------------------------
+const TALK_VOCAB = `ich du er sie es wir ihr mein meine mich mir dich dir uns
+ja nein bitte danke hallo tschüss gut schlecht super toll doof
+bin bist ist sind war habe hast hat haben möchte möchtest will willst mag magst kann kannst muss musst darf
+mache machen gehen gehe spielen spiele essen esse trinken trinke schlafen schlafe sehen sehe hören höre
+schaukeln malen lesen singen tanzen kuscheln baden duschen fahren laufen helfen hilf warten schauen anziehen ausziehen
+nicht auch noch mehr nochmal fertig jetzt später heute morgen gestern hier da dort raus rein hoch runter
+und oder aber weil wenn mit ohne zu zum zur nach in im auf an aus von bei für
+was wer wo wann wie warum welche
+der die das ein eine einen dem den
+Mama Papa Oma Opa Bruder Schwester Freund Freundin Lehrerin Lehrer Betreuerin Betreuer Hund Katze
+Hunger Durst Klo Toilette Pause Ruhe Hilfe Schmerzen Bauchweh Kopfweh Musik Fernseher Tablet Buch Ball Spiel
+Wasser Saft Tee Milch Kakao Brot Apfel Banane Nudeln Pizza Eis Keks Schokolade Joghurt
+müde traurig froh fröhlich wütend krank kalt warm heiß lustig langweilig
+Schule Kindergarten Hause Garten Spielplatz Bett Auto Bus Rollstuhl Mieder
+weh tut lieb liebe gerne`;
+const TALK_NEXT = {
+  ich: ["möchte", "will", "habe", "bin", "muss", "mag", "kann", "brauche"],
+  du: ["bist", "hast", "kannst", "sollst"], wir: ["möchten", "gehen", "spielen"],
+  möchte: ["spielen", "trinken", "essen", "schaukeln", "schlafen", "raus", "nicht", "nach", "kuscheln", "malen"],
+  will: ["spielen", "trinken", "essen", "nicht", "raus", "nach", "schaukeln"],
+  mag: ["nicht", "dich", "das", "Musik", "spielen"], muss: ["aufs", "mal", "schlafen"], aufs: ["Klo"],
+  habe: ["Hunger", "Durst", "Schmerzen", "Bauchweh", "Kopfweh", "keine", "dich"], hast: ["du"],
+  bin: ["müde", "traurig", "froh", "fertig", "krank", "wütend"], ist: ["kalt", "warm", "toll", "doof", "lustig"],
+  mir: ["ist", "tut"], tut: ["weh"], kann: ["nicht", "ich"], brauche: ["Hilfe", "eine", "Pause"],
+  nach: ["Hause"], zu: ["Hause", "Mama", "Papa"], zum: ["Spielplatz"], in: ["den", "die"],
+  ein: ["Eis", "Spiel", "Buch"], eine: ["Pause", "Banane"], einen: ["Keks", "Apfel", "Saft"],
+  danke: ["schön"], bitte: ["helfen", "nochmal", "warten"], nochmal: ["bitte"], hab: ["dich"], dich: ["lieb"],
+  wo: ["ist", "sind", "bist"], was: ["ist", "machen", "gibt"], wann: ["gehen", "kommt", "ist"],
+};

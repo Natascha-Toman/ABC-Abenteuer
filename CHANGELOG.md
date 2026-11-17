@@ -2,6 +2,22 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.1 – 17.11.2026
+
+**Neu**
+- Mitteil-Tafel, Tastatur: **Wortvorschläge** über den Buchstaben. Sie passen zum angefangenen
+  Wort und schlagen nach einem fertigen Wort logische Folgewörter vor („ich“ → „möchte“,
+  „habe“, „bin“ …). Die Tafel **lernt mit**: Jeder vorgelesene Text wird pro Profil gemerkt, oft
+  benutzte Wörter und Wortfolgen rücken nach vorne. „Gelernte Wörter vergessen“ in den Einstellungen.
+- Tastatur mit den Satzzeichen **, . ?** (Satzanfänge werden automatisch groß geschrieben).
+- Einstellung „Beim Schreiben vorlesen“: Buchstaben und Wörter, nur Buchstaben, nur Wörter
+  oder nur den fertigen Text.
+
+**Verbessert**
+- Die Mitteil-Tafel merkt sich, ob zuletzt die Bilder oder die Tastatur offen waren.
+- Größere Schrift auf allen Tasten der Tastatur.
+- Die Fortschritts-Sterne oben im Spiel haben einen hellen runden Hintergrund und sind gut zu erkennen.
+
 ## 3.0 – 17.11.2026
 
 **Neu**

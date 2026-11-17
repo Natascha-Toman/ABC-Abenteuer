@@ -136,6 +136,7 @@
   <!-- Tastatur: selbst schreiben, die Eule liest vor -->
   <div class="talkkb" id="talkKb">
     <div class="kbtext" id="kbText"></div>
+    <div class="kbpred" id="kbPred"></div>
     <div class="kbkeys" id="kbKeys"></div>
   </div>
 </div>
@@ -247,7 +248,8 @@
     <textarea id="setTalk" rows="12" style="width:100%;font-size:16px;font-family:inherit"></textarea>
     <p><button id="btnTalkAdd">➕ Feld hinzufügen</button> <button id="btnTalkSave">Tafel übernehmen</button> <button id="btnTalkReset">Standard wiederherstellen</button></p>
     <label><span>Tastatur der Mitteil-Tafel (Knopf ⌨️ oben)</span><select id="setTalkKb"><option value="abc">ABC – Buchstaben in Alphabet-Reihenfolge</option><option value="qwertz">QWERTZ – wie auf der Computer-Tastatur</option></select></label>
-    <div class="note">Mit der Tastatur schreibt das Kind selbst, was es sagen möchte; 🔊 liest es vor. Umschalten geht auch direkt auf der Tastatur (Taste „ABC“ / „QWERTZ“).</div>
+    <label><span>Beim Schreiben vorlesen</span><select id="setKbSpeak"><option value="both">jeden Buchstaben und jedes fertige Wort</option><option value="letters">nur Buchstaben</option><option value="words">nur fertige Wörter</option><option value="none">nichts – nur den fertigen Text („Vorlesen“)</option></select></label>
+    <div class="note">Mit der Tastatur schreibt das Kind selbst, was es sagen möchte; 🔊 liest es vor. Umschalten geht auch direkt auf der Tastatur (Taste „ABC“ / „QWERTZ“). Die Tafel merkt sich, ob zuletzt die Bilder oder die Tastatur offen waren.<br><b>Wortvorschläge</b> über der Tastatur: Grundwortschatz und passende Folgewörter (z. B. „ich“ → „möchte“, „habe“ …). Jeder vorgelesene Text wird dazugelernt (pro Profil). <button id="btnLearnReset" type="button">Gelernte Wörter vergessen</button></div>
 
     <h3>📊 Lernstand</h3>
     <div id="stats"></div>

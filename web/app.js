@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.0", APP_DATE = "17.11.2026";
+const APP_VERSION = "3.1", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -107,7 +107,7 @@ const DEFAULTS = {
   round: 5, letterCase: "upper", sylColor: true, allLevels: false,
   manualNext: false, balloonSpeed: 1, autoFull: true, eyeOn: true, eyeClickLock: "td", speechPause: true, lens: true,
   volume: 100, unlockRounds: 3,
-  letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc",
+  letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc", talkKbOpen: false, kbSpeak: "both",
 };
 // Gerätweite Werte (Profil-Liste, aktuelles Profil)
 // Meldung ins Fehlerprotokoll des Programms (protokoll.txt) – im Browser nur in die Konsole
@@ -214,8 +214,8 @@ function sanitizeSettings(o) {
   num("rate", 0.5, 1.3); num("volume", 10, 100, true); num("unlockRounds", 1, 5, true);
   oneOf("round", [3, 4, 5, 6, 8, 10]); oneOf("balloonSpeed", [0.4, 0.65, 1, 1.4]);
   oneOf("letterCase", ["upper", "mixed", "lower"]); oneOf("eyeClickLock", ["td", "eyes", "always", false]);
-  oneOf("talkKb", ["abc", "qwertz"]);
-  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "eyeOn"]
+  oneOf("talkKb", ["abc", "qwertz"]); oneOf("kbSpeak", ["both", "letters", "words", "none"]);
+  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "eyeOn", "talkKbOpen"]
     .forEach(k => { o[k] = typeof o[k] === "boolean" ? o[k] : DEFAULTS[k]; });
   o.voice = typeof o.voice === "string" ? o.voice.slice(0, 200) : "";
   const L = Array.isArray(o.letters) ? [...new Set(o.letters.filter(x => typeof x === "string" && ALPHABET.includes(x)))] : [];
@@ -1015,7 +1015,7 @@ const G = { token: 0, game: null, level: 1, cfg: {}, repeat: null, errors: 0, la
 
 function setProgress(n, total) {
   let h = LV[G.game] ? `<span class="lvl">${stars(G.level)}</span>` : "";
-  for (let i = 0; i < total; i++) h += `<span class="${i < n ? "got" : ""}">⭐</span>`;
+  for (let i = 0; i < total; i++) h += `<span class="star${i < n ? " got" : ""}">⭐</span>`;
   $("#progress").innerHTML = h;
 }
 function setTitle(text) {
@@ -2041,50 +2041,156 @@ function buildTalk() {
 }
 // ---- Tastatur: das Kind schreibt selbst, die Eule liest vor (ABC- oder QWERTZ-Anordnung) ----
 const KB_LAYOUTS = {
-  abc:    ["ABCDEFGHIJ", "KLMNOPQRST", "UVWXYZÄÖÜß"],
-  qwertz: ["QWERTZUIOPÜ", "ASDFGHJKLÖÄ", "YXCVBNMß"],
+  abc:    ["ABCDEFGHIJK", "LMNOPQRSTUV", "WXYZÄÖÜß,.?"],
+  qwertz: ["QWERTZUIOPÜ", "ASDFGHJKLÖÄ", "YXCVBNMß,.?"],
 };
+const KB_PUNCT = { ",": "Komma", ".": "Punkt", "?": "Fragezeichen" };
 Talk.typed = "";                                     // bleibt erhalten, bis es gelöscht wird
 const KB_VOWELS = "AEIOUÄÖÜ";
 const kbUpper = s => [...s].map(c => c === "ß" ? c : c.toUpperCase()).join("");    // ß bleibt ß (nicht "SS")
-function kbLabel(ch) { return ch === "ß" ? ch : S.letterCase === "lower" ? ch.toLowerCase() : S.letterCase === "mixed" ? ch + ch.toLowerCase() : ch; }
-function kbShown(t) { return S.letterCase === "upper" ? kbUpper(t) : S.letterCase === "lower" ? t : cap(t); }
+function kbLabel(ch) { return ch === "ß" || KB_PUNCT[ch] ? ch : S.letterCase === "lower" ? ch.toLowerCase() : S.letterCase === "mixed" ? ch + ch.toLowerCase() : ch; }
+// Satzanfänge groß (am Anfang und nach . ? !)
+const sentenceCase = t => t.replace(/(^\s*|[.?!]\s+)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase());
+function kbShown(t) { return S.letterCase === "upper" ? kbUpper(t) : S.letterCase === "lower" ? t.toLowerCase() : sentenceCase(t); }
+// Was beim Schreiben vorgelesen wird (Einstellung): Buchstaben und/oder Wörter, oder nur der fertige Text
+const kbSays = what => S.kbSpeak === "both" || S.kbSpeak === what;
+const kbSay = t => say(t, "talk", 1, { force: true });
+
+// ---- Wortvorhersage: Grundwortschatz + typische Folgewörter, lernt aus jedem vorgelesenen Text ----
+const Learn = { w: {}, b: {} };                      // w: Wort -> Anzahl, b: Vorwort -> { Folgewort -> Anzahl }
+(function loadLearn() {
+  const x = load("talklearn", null);
+  if (!isObj(x)) return;
+  const okW = w => typeof w === "string" && w.length >= 2 && w.length <= 30 && /^[\p{L}-]+$/u.test(w);
+  const okN = n => typeof n === "number" && isFinite(n) && n > 0;
+  if (isObj(x.w)) Object.entries(x.w).slice(0, 3000).forEach(([w, n]) => { if (okW(w) && okN(n)) Learn.w[w] = Math.min(n, 9999); });
+  if (isObj(x.b)) Object.entries(x.b).slice(0, 2000).forEach(([p, o]) => {
+    if (!okW(p) || !isObj(o)) return;
+    const e = Object.entries(o).filter(([w, n]) => okW(w) && okN(n)).slice(0, 40);
+    if (e.length) Learn.b[p] = Object.fromEntries(e.map(([w, n]) => [w, Math.min(n, 9999)]));
+  });
+})();
+let VOCAB = null;                                    // kleingeschrieben -> richtige Schreibweise ("hunger" -> "Hunger")
+function vocab() {
+  if (VOCAB) return VOCAB;
+  VOCAB = new Map();
+  const add = w => { if (w && /^[\p{L}-]{2,}$/u.test(w) && !VOCAB.has(w.toLowerCase())) VOCAB.set(w.toLowerCase(), w); };
+  TALK_VOCAB.split(/\s+/).forEach(add);
+  Object.values(TALK_NEXT).forEach(l => l.forEach(add));
+  WORDS.forEach(w => add(w.w));
+  Object.values(STICKER_WORDS).forEach(d => add(typeof d === "string" ? d : d.w));
+  return VOCAB;
+}
+const natural = w => vocab().get(w.toLowerCase()) || w;
+// Wo steht der Text gerade? part = angefangenes Wort, prev = Wort davor (nicht über ein Satzende hinweg)
+function kbContext() {
+  const t = Talk.typed;
+  const part = (t.match(/[\p{L}-]*$/u) || [""])[0];
+  const before = t.slice(0, t.length - part.length);
+  const words = before.toLowerCase().match(/[\p{L}-]+/gu) || [];
+  const prev = /[.?!]\s*$/.test(before) || !words.length ? "" : words[words.length - 1];
+  return { part, before, prev };
+}
+function predict() {
+  const { part, prev } = kbContext();
+  const p = part.toLowerCase();
+  const score = new Map();
+  const bump = (w, v) => {
+    w = w.toLowerCase();
+    if (p && (!w.startsWith(p) || w === p)) return;
+    score.set(w, (score.get(w) || 0) + v);
+  };
+  if (prev) {
+    (TALK_NEXT[prev] || []).forEach((w, i) => bump(w, 40 - i));                       // passt logisch dahinter
+    Object.entries(Learn.b[prev] || {}).forEach(([w, n]) => bump(w, 60 * n));         // so schon einmal geschrieben
+  }
+  Object.entries(Learn.w).forEach(([w, n]) => bump(w, 5 * n));                         // oft benutzt
+  if (p) vocab().forEach((v, w) => bump(w, 1));
+  else if (!prev) ["ich", "bitte", "ja", "nein", "Mama", "Papa", "danke", "hallo"].forEach((w, i) => bump(w, 8 - i * .5));
+  return [...score.entries()].sort((a, b) => b[1] - a[1] || a[0].length - b[0].length || a[0].localeCompare(b[0]))
+    .slice(0, 5).map(e => natural(e[0]));
+}
+function kbLearn(text) {
+  let prev = "";
+  (text.toLowerCase().match(/[\p{L}-]+|[.?!]/gu) || []).forEach(w => {
+    if (/^[.?!]$/.test(w) || w.length < 2 || w.length > 30) { prev = ""; return; }
+    Learn.w[w] = (Learn.w[w] || 0) + 1;
+    if (prev) { const b = Learn.b[prev] = Learn.b[prev] || {}; b[w] = (b[w] || 0) + 1; }
+    prev = w;
+  });
+  // Größe begrenzen: selten benutzte Wörter fallen zuerst heraus
+  const ws = Object.entries(Learn.w);
+  if (ws.length > 3000) ws.sort((a, b) => a[1] - b[1]).slice(0, ws.length - 3000).forEach(([w]) => delete Learn.w[w]);
+  const bs = Object.keys(Learn.b);
+  if (bs.length > 2000) bs.slice(0, bs.length - 2000).forEach(k => delete Learn.b[k]);
+  save("talklearn", Learn);
+}
+
 function kbRender() {
   const box = $("#kbText");
   let t = kbShown(Talk.typed);
-  if (t.length > 30) t = "…" + t.slice(-29);          // lange Texte: das Ende bleibt sichtbar
+  if (t.length > 32) t = "…" + t.slice(-31);          // lange Texte: das Ende bleibt sichtbar
   box.innerHTML = `<span class="txt">${esc(t)}</span><span class="caret"></span>${Talk.typed ? "" : `<span class="hint">Schreib, was du sagen möchtest.</span>`}`;
+  // Wortvorschläge: immer 5 Plätze, damit nichts verrutscht
+  const pred = $("#kbPred");
+  pred.innerHTML = "";
+  const list = predict();
+  for (let i = 0; i < 5; i++) {
+    const w = list[i];
+    if (!w) { const d = document.createElement("div"); d.className = "gaze disabled empty"; pred.appendChild(d); continue; }
+    const shown = S.letterCase === "upper" ? kbUpper(w) : S.letterCase === "lower" ? w.toLowerCase() : w;
+    pred.appendChild(kbKey(esc(shown), "word", w, () => {
+      const { before } = kbContext();
+      Talk.typed = (before + w + " ").slice(-200);
+      kbRender();
+      if (kbSays("words")) kbSay(w);
+    }));
+  }
 }
-function kbKey(html, cls, say, fn) {
+function kbKey(html, cls, sayText, fn) {
   const d = document.createElement("div");
   d.className = "gaze " + cls;
   d.dataset.nosay = "1";
-  if (say) d.dataset.say = say;
+  if (sayText) d.dataset.say = sayText;
   d.innerHTML = html;
   onSelect(d, () => { d.classList.remove("hit"); void d.offsetWidth; d.classList.add("hit"); setTimeout(() => d.classList.remove("hit"), 350); fn(); });
   return d;
 }
+// letztes fertiges Wort (für "Wörter vorlesen" nach Leertaste oder Satzzeichen)
+const kbLastWord = () => ((Talk.typed.match(/([\p{L}-]+)[\s,.?]*$/u) || [])[1] || "");
 function kbSpeak() {
   const t = Talk.typed.trim();
-  if (!t) { say("Schreib zuerst etwas.", "talk", 1, { force: true }); return; }
-  Talk.last = { text: cap(t) };
+  if (!t) { kbSay("Schreib zuerst etwas."); return; }
+  const text = sentenceCase(t);
+  Talk.last = { text };
   const title = $("#talkSaid");
   title.textContent = t.length > 36 ? kbShown(t.slice(0, 35)) + "…" : kbShown(t);
   title.classList.remove("said"); void title.offsetWidth; title.classList.add("said");
-  say(cap(t), "talk", 1, { force: true });
+  kbLearn(t);
+  kbSay(text);
 }
 function buildKeyboard() {
   const keys = $("#kbKeys");
   keys.innerHTML = "";
-  const force = { force: true };
   KB_LAYOUTS[S.talkKb === "qwertz" ? "qwertz" : "abc"].forEach(row => {
     const r = document.createElement("div");
     r.className = "kbrow";
-    [...row].forEach(ch => r.appendChild(kbKey(esc(kbLabel(ch)), KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
-      Talk.typed = (Talk.typed + ch.toLowerCase()).slice(0, 200);
-      kbRender();
-      say(ch === "ß" ? "scharfes S" : ch, "talk", 1, force);     // Buchstabe vorlesen (Tondatei mit genauer Aussprache)
-    })));
+    [...row].forEach(ch => {
+      const punct = KB_PUNCT[ch];
+      r.appendChild(kbKey(esc(kbLabel(ch)), punct ? "punct" : KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
+        if (punct) {
+          if (!Talk.typed.trim()) return;
+          const w = kbLastWord();
+          Talk.typed = Talk.typed.replace(/\s+$/, "") + ch + " ";
+          kbRender();
+          if (kbSays("words") && w) kbSay(w); else if (kbSays("letters")) kbSay(punct);
+          return;
+        }
+        Talk.typed = (Talk.typed + ch.toLowerCase()).slice(-200);
+        kbRender();
+        if (kbSays("letters")) kbSay(ch === "ß" ? "scharfes S" : ch);   // Tondatei mit genauer Aussprache
+      }));
+    });
     keys.appendChild(r);
   });
   const other = S.talkKb === "qwertz" ? "abc" : "qwertz";
@@ -2093,39 +2199,44 @@ function buildKeyboard() {
   fn.append(
     kbKey(`<span class="ico">⌨️</span>${other === "abc" ? "ABC" : "QWERTZ"}`, "fn", "", () => {
       S.talkKb = other; saveS(); buildKeyboard();
-      say(other === "abc" ? "A B C Tastatur" : "Quertz Tastatur", "talk", 1, force);
+      kbSay(other === "abc" ? "A B C Tastatur" : "Quertz Tastatur");
     }),
     kbKey(`<span class="ico"><span class="spacebar"></span></span>Leertaste`, "fn space", "", () => {
-      if (Talk.typed && !Talk.typed.endsWith(" ")) { Talk.typed += " "; kbRender(); }
+      if (!Talk.typed || /\s$/.test(Talk.typed)) return;
+      const w = kbLastWord();
+      Talk.typed += " ";
+      kbRender();
+      if (kbSays("words") && w) kbSay(w);
     }),
-    kbKey(`<span class="ico">⌫</span>Löschen`, "fn", "",() => { Talk.typed = Talk.typed.slice(0, -1); kbRender(); }),
-    kbKey(`<span class="ico">🗑️</span>Alles weg`, "fn", "", () => { Talk.typed = ""; kbRender(); say("Alles gelöscht.", "talk", 1, force); }),
+    kbKey(`<span class="ico">⌫</span>Löschen`, "fn", "", () => { Talk.typed = Talk.typed.slice(0, -1); kbRender(); }),
+    kbKey(`<span class="ico">🗑️</span>Alles weg`, "fn", "", () => { Talk.typed = ""; kbRender(); kbSay("Alles gelöscht."); }),
     kbKey(`<span class="ico">🔊</span>Vorlesen`, "fn speak", "", kbSpeak),
   );
   keys.appendChild(fn);
   kbRender();
 }
-// Umschalten zwischen Bildern (Felder) und Tastatur
-function setTalkMode(kb) {
+// Umschalten zwischen Bildern (Felder) und Tastatur – das Programm merkt sich, was zuletzt offen war
+function setTalkMode(kb, remember = true) {
   const t = $("#talk");
   t.classList.toggle("kb", kb);
   const b = $("#talkKbBtn");
   b.textContent = kb ? "🖼️" : "⌨️";
   b.dataset.say = kb ? "Bilder" : "Tastatur";
   if (kb) buildKeyboard();
+  if (remember && S.talkKbOpen !== kb) { S.talkKbOpen = kb; saveS(); }
   stopSpeech();
-  if (t.classList.contains("show")) say(kb ? "Schreib, was du sagen möchtest." : "Was möchtest du sagen?", "talk", 1, { force: true });
+  if (t.classList.contains("show")) kbSay(kb ? "Schreib, was du sagen möchtest." : "Was möchtest du sagen?");
 }
 function openTalk() {
   stopSpeech();
   buildTalk();
-  setTalkMode(false);
+  setTalkMode(!!S.talkKbOpen, false);                 // zuletzt benutzte Ansicht (Bilder oder Tastatur)
   Talk.last = null;
   const title = $("#talkSaid");
   title.textContent = "Ich möchte sagen …";
   title.classList.remove("said");
   $("#talk").classList.add("show");
-  say("Was möchtest du sagen?", "talk", 1, { force: true });
+  say(S.talkKbOpen ? "Schreib, was du sagen möchtest." : "Was möchtest du sagen?", "talk", 1, { force: true });
 }
 function closeTalk() {
   $("#talk").classList.remove("show");
@@ -2395,7 +2506,7 @@ function renderProfiles() {
   });
 }
 // alle gespeicherten Daten eines Profils entfernen ("default" nutzt die Speicherplätze ohne Vorsilbe)
-const PROFILE_KEYS = ["settings", "stats", "stickers", "levels", "recent"];
+const PROFILE_KEYS = ["settings", "stats", "stickers", "levels", "recent", "talklearn"];
 function removeProfileData(id) {
   PROFILE_KEYS.forEach(k => { try { localStorage.removeItem("abc_" + (id === "default" ? k : "p_" + id + "_" + k)); } catch (e) { storageProblem(e, k); } });
 }
@@ -2545,7 +2656,8 @@ function bindSettings() {
   rt.oninput = () => { S.rate = +rt.value; vr.textContent = S.rate.toFixed(2); saveS(); };
 
   sel("#setRound", "round", true); sel("#setCase", "letterCase", false); sel("#setBalloonSpeed", "balloonSpeed", true);
-  sel("#setTalkKb", "talkKb", false);
+  sel("#setTalkKb", "talkKb", false); sel("#setKbSpeak", "kbSpeak", false);
+  $("#btnLearnReset").onclick = () => { if (confirm("Alle gelernten Wörter der Mitteil-Tafel vergessen?")) { Learn.w = {}; Learn.b = {}; save("talklearn", Learn); toast("Gelernte Wörter gelöscht"); } };
   const mn = $("#setManualNext");
   mn.value = S.manualNext ? "1" : "0";
   mn.onchange = () => { S.manualNext = mn.value === "1"; saveS(); };
@@ -2628,7 +2740,7 @@ function bindSettings() {
     renderStats(); fillVoiceSelect();
     $("#setMuted").checked = !!S.muted; ta.value = S.talk;
     $("#setBalloonSpeed").value = String(S.balloonSpeed); mn.value = S.manualNext ? "1" : "0";
-    $("#setTalkKb").value = S.talkKb;
+    $("#setTalkKb").value = S.talkKb; $("#setKbSpeak").value = S.kbSpeak;
     $("#savedNote").textContent = "";
     $("#settings").classList.add("show");
     $("#settings .panel").scrollTop = 0;
