@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.5", APP_DATE = "17.11.2026";
+const APP_VERSION = "3.6", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -751,7 +751,7 @@ function toggleDwell() {
 const okGaze = g => g && !g.classList.contains("disabled") && !g.classList.contains("done") && !g.classList.contains("matched") && !g.classList.contains("notyet");
 // Oberste sichtbare Ebene (Mitteil-Tafel, Belohnung, Entdecken oder der aktuelle Bildschirm)
 function gazeLayer() {
-  for (const sel of ["#quitAsk.show", "#talk.show", "#reward.show", "#explore.show", "#stickerView.show"]) { const e = $(sel); if (e) return e; }
+  for (const sel of ["#quitAsk.show", "#kbBig.show", "#talk.show", "#reward.show", "#explore.show", "#stickerView.show"]) { const e = $(sel); if (e) return e; }
   return document.querySelector(".screen.active");
 }
 // Blickpunkt beruhigen: Mittelwert der letzten Zeigerpositionen (Augen zittern immer ein wenig)
@@ -766,7 +766,7 @@ function smoothPos() {
 // die großen Kacheln darunter zählen kurz nicht – so lassen sich die kleinen Knöpfe sicher treffen.
 const Lens = { on: false, since: 0, out: 0 };
 function activeTopbar() {
-  if ($("#quitAsk.show") || $("#reward.show") || $("#explore.show")) return null;   // Sticker groß: Leiste des Albums bleibt
+  if ($("#quitAsk.show") || $("#kbBig.show") || $("#reward.show") || $("#explore.show")) return null;   // Sticker groß: Leiste des Albums bleibt
   if ($("#talk.show")) return $("#talk .topbar");
   const scr = document.querySelector(".screen.active");
   return scr ? scr.querySelector(".topbar") : null;
@@ -2212,7 +2212,7 @@ function buildKeyboard() {
     keys.appendChild(r);
   });
   // Umschalter ABC / QWERTZ sitzt oben rechts in der Leiste und zeigt, wohin umgeschaltet wird
-  $("#talkLayoutBtn").innerHTML = `<span class="ico">⌨️</span>${S.talkKb === "qwertz" ? "ABC" : "QWERTZ"}`;
+  $("#talkLayoutBtn").textContent = S.talkKb === "qwertz" ? "ABC" : "QWERTZ";
   const fn = document.createElement("div");
   fn.className = "kbrow fnrow";
   fn.append(
@@ -2231,11 +2231,14 @@ function buildKeyboard() {
   kbRender();
 }
 // Umschalten zwischen Bildern (Felder) und Tastatur – das Programm merkt sich, was zuletzt offen war
+// Symbole zum Umschalten: Tastatur (Tasten mit A B C) und Bilder (vier bunte Bildkarten)
+const ICON_KEYBOARD = `<svg class="modeico" viewBox="0 0 120 80"><rect x="4" y="8" width="112" height="64" rx="10" fill="#2b2d42"/>${[0, 1, 2].map(i => `<rect x="${14 + i * 34}" y="18" width="26" height="24" rx="4" fill="#fff"/><text x="${27 + i * 34}" y="37" font-size="19" font-weight="700" text-anchor="middle" fill="#2b2d42" font-family="Andika, sans-serif">${"ABC"[i]}</text>`).join("")}<rect x="24" y="50" width="72" height="12" rx="4" fill="#fff"/></svg>`;
+const ICON_PICTURES = `<svg class="modeico" viewBox="0 0 120 80"><rect x="14" y="4" width="42" height="34" rx="6" fill="#ffd6d4" stroke="#e53935" stroke-width="3"/><circle cx="35" cy="21" r="9" fill="#e53935"/><rect x="64" y="4" width="42" height="34" rx="6" fill="#fff3c4" stroke="#e0a800" stroke-width="3"/><circle cx="85" cy="21" r="9" fill="#ffc107"/><rect x="14" y="42" width="42" height="34" rx="6" fill="#d6ecff" stroke="#1e6fd9" stroke-width="3"/><path d="M24 68 L35 50 L46 68 Z" fill="#1e6fd9"/><rect x="64" y="42" width="42" height="34" rx="6" fill="#dff3e3" stroke="#2e9e44" stroke-width="3"/><path d="M85 50 l3 6 7 1 -5 5 1 7 -6-3 -6 3 1-7 -5-5 7-1z" fill="#2e9e44"/></svg>`;
 function setTalkMode(kb, remember = true) {
   const t = $("#talk");
   t.classList.toggle("kb", kb);
   const b = $("#talkKbBtn");
-  b.textContent = kb ? "🖼️" : "⌨️";
+  b.innerHTML = kb ? ICON_PICTURES + "<span>Bilder</span>" : ICON_KEYBOARD + "<span>Tastatur</span>";
   b.dataset.say = kb ? "Bilder" : "Tastatur";
   if (kb) buildKeyboard();
   if (remember && S.talkKbOpen !== kb) { S.talkKbOpen = kb; saveS(); }
@@ -2253,7 +2256,21 @@ function openTalk() {
   $("#talk").classList.add("show");
   say(S.talkKbOpen ? "Schreib, was du sagen möchtest." : "Was möchtest du sagen?", "talk", 1, { force: true });
 }
+// Geschriebenen Text groß anzeigen (Lupe im Textfeld) – Schrift so groß, wie der Text es erlaubt
+function openKbBig() {
+  const t = Talk.typed.trim();
+  if (!t) { kbSay("Da steht noch nichts."); return; }
+  const box = $("#kbBigText");
+  box.textContent = kbShown(sentenceCase(t));
+  $("#kbBig").classList.add("show");
+  for (let f = 13; f >= 4; f -= 0.5) {
+    box.style.fontSize = u(f);
+    if (box.scrollHeight <= box.clientHeight + 2 && box.scrollWidth <= box.clientWidth + 2) break;
+  }
+}
+function closeKbBig() { $("#kbBig").classList.remove("show"); stopSpeech(); }
 function closeTalk() {
+  closeKbBig();
   $("#talk").classList.remove("show");
   stopSpeech();
   // zurück in der Übung: Aufgabe noch einmal vorlesen
@@ -2869,6 +2886,9 @@ function init() {
   onSelect($("#svLetter"), () => { SV.token++; stopSpeech(); svSayLetter(); });
   onSelect($("#svClap"), () => { SV.token++; stopSpeech(); svClap(); });
   onSelect($("#talkKbBtn"), () => setTalkMode(!$("#talk").classList.contains("kb")));
+  onSelect($("#kbZoom"), openKbBig);
+  onSelect($("#kbBigBack"), closeKbBig);
+  onSelect($("#kbBigSay"), kbSpeak);
   // Alles löschen: zweimal auswählen. Wer einfach weiter hinschaut, löst nach der Verweilzeit das zweite Mal aus.
   let clearArmed = -1e9;
   const clearBtn = $("#talkClear");

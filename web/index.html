@@ -137,9 +137,18 @@
   <div class="talkgrid" id="talkGrid"></div>
   <!-- Tastatur: selbst schreiben, die Eule liest vor -->
   <div class="talkkb" id="talkKb">
-    <div class="kbtext" id="kbText"></div>
+    <div class="kbtext"><div class="kbtextin" id="kbText"></div><div class="gaze kbzoom" id="kbZoom" data-say="Groß anzeigen" title="Text groß anzeigen">🔍</div></div>
     <div class="kbpred" id="kbPred"></div>
     <div class="kbkeys" id="kbKeys"></div>
+  </div>
+</div>
+
+<!-- Mitteil-Tafel: geschriebener Text groß (Lupe im Textfeld) -->
+<div id="kbBig">
+  <div class="bigtext" id="kbBigText"></div>
+  <div class="btns">
+    <div class="gaze" id="kbBigBack" data-say="Zurück"><span class="ico">⬅️</span>Zurück</div>
+    <div class="gaze speak" id="kbBigSay" data-say="Vorlesen"><span class="ico">🔊</span>Vorlesen</div>
   </div>
 </div>
 

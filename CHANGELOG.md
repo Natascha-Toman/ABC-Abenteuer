@@ -2,6 +2,16 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.6 – 17.11.2026
+
+**Neu**
+- Mitteil-Tafel, Tastatur: Lupe 🔍 rechts im Textfeld. Sie zeigt den ganzen geschriebenen Text groß
+  in einem eigenen Fenster (die Schrift passt sich der Textlänge an), mit „Vorlesen“ und „Zurück“.
+
+**Verbessert**
+- Umschalten zwischen Bildern und Tastatur: eigene, klare Symbole mit Beschriftung
+  („Tastatur“: Tasten mit A B C, „Bilder“: vier bunte Bildkarten).
+
 ## 3.5 – 17.11.2026
 
 **Verbessert**

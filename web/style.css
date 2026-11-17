@@ -239,7 +239,7 @@ img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35));
 #talk.show { display: flex; }
 #talk .title { font-size: calc(6 * var(--u)); }
 /* Umschalter ABC / QWERTZ oben rechts – nur sichtbar, wenn die Tastatur offen ist */
-#talk .topbtn.kbswitch { display: none; width: calc(22 * var(--u)); font-size: calc(3.6 * var(--u)); font-weight: 700; background: #e3f1ff; gap: 0; }
+#talk .topbtn.kbswitch { display: none; width: calc(22 * var(--u)); font-size: calc(4.2 * var(--u)); font-weight: 700; background: #e3f1ff; gap: 0; }
 #talk.kb .topbtn.kbswitch { display: flex; }
 #talk .topbtn.kbswitch .ico { font-size: calc(4.5 * var(--u)); line-height: 1.1; }
 #talk .title.said { animation: pop-in .4s; color: var(--blue); }
@@ -369,7 +369,19 @@ body.eye-paused #app::after { content: "⏸ Pause – zum Weitermachen auf ▶�
 #btnHome, #btnAlbumHome, #talkBack { background: #ffe9c7; }
 .topbtn.saybtn { background: #fff6c4; }
 .topbtn.mutebtn { background: #dff3e3; }
-#talkKbBtn { background: #e3f6f3; }
+#talkKbBtn { background: #e3f6f3; width: calc(17 * var(--u)); font-size: calc(2.8 * var(--u)); font-weight: 700; gap: calc(.3 * var(--u)); }
+#talkKbBtn .modeico { width: calc(10 * var(--u)); height: calc(6.7 * var(--u)); display: block; }
+/* Textfeld: Lupe rechts öffnet den Text groß */
+.kbtextin { flex: 1; min-width: 0; display: flex; align-items: center; overflow: hidden; white-space: pre; }
+.kbtext .kbzoom { flex: 0 0 calc(12 * var(--u)); height: calc(7 * var(--u)); font-size: calc(5 * var(--u)); background: #e3f1ff; border-radius: calc(1.5 * var(--u)); border-width: calc(.4 * var(--u)); margin-left: calc(1 * var(--w)); }
+#kbBig { position: absolute; inset: 0; z-index: 650; background: rgba(43,45,66,.82); display: none; flex-direction: column; align-items: center; justify-content: center; gap: calc(3 * var(--u)); padding: calc(4 * var(--u)) calc(4 * var(--w)); }
+#kbBig.show { display: flex; }
+#kbBig .bigtext { width: 100%; flex: 1; min-height: 0; background: #fff; border-radius: calc(3 * var(--u)); padding: calc(3 * var(--u)) calc(3 * var(--w)); font-weight: 700; line-height: 1.25; overflow: hidden; overflow-wrap: break-word; display: flex; align-items: center; justify-content: center; text-align: center; animation: pop-in .3s; }
+#kbBig .btns { display: flex; gap: calc(4 * var(--w)); flex-shrink: 0; }
+#kbBig .btns .gaze { width: calc(40 * var(--u)); height: calc(18 * var(--u)); font-size: calc(5 * var(--u)); font-weight: 700; flex-direction: row; gap: calc(1.5 * var(--w)); }
+#kbBig .btns .gaze .ico { font-size: calc(7 * var(--u)); }
+#kbBig .btns .gaze.speak { background: #d9f7e4; }
+#kbBig .btns #kbBigBack { background: #ffe9c7; }
 
 
 .native .browseronly { display: none; }
