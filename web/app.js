@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.2", APP_DATE = "17.11.2026";
+const APP_VERSION = "3.3", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -2203,7 +2203,7 @@ function buildKeyboard() {
   // Umschalter ABC / QWERTZ sitzt oben rechts in der Leiste und zeigt, wohin umgeschaltet wird
   $("#talkLayoutBtn").innerHTML = `<span class="ico">⌨️</span>${S.talkKb === "qwertz" ? "ABC" : "QWERTZ"}`;
   const fn = document.createElement("div");
-  fn.className = "kbrow";
+  fn.className = "kbrow fnrow";
   fn.append(
     kbKey(`<span class="ico"><span class="spacebar"></span></span>Leertaste`, "fn space", "", () => {
       if (!Talk.typed || /\s$/.test(Talk.typed)) return;

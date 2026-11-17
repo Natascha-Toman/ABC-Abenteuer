@@ -247,29 +247,30 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .talkgrid .gaze.no { background: #ffe3e2; }
 .talkgrid .gaze.said { background: #fff1c9; border-color: var(--orange); }
 /* Mitteil-Tafel: Tastatur (ABC oder QWERTZ) */
-.talkkb { flex: 1; min-height: 0; display: none; flex-direction: column; gap: calc(1.6 * var(--u)); padding: 0 calc(2 * var(--w)) calc(3 * var(--u)); }
+.talkkb { flex: 1; min-height: 0; display: none; flex-direction: column; gap: calc(1.2 * var(--u)); padding: 0 calc(2 * var(--w)) calc(2 * var(--u)); }
 #talk.kb .talkgrid { display: none; }
 #talk.kb .talkkb { display: flex; }
-.kbtext { height: calc(11 * var(--u)); flex-shrink: 0; background: #fff; border-radius: calc(2.5 * var(--u)); border: calc(.5 * var(--u)) solid #cfe0f5;
-  font-size: calc(7.5 * var(--u)); font-weight: 700; display: flex; align-items: center; justify-content: flex-start; padding: 0 calc(2 * var(--w)); overflow: hidden; white-space: pre; }
+.kbtext { height: calc(9 * var(--u)); flex-shrink: 0; background: #fff; border-radius: calc(2.5 * var(--u)); border: calc(.5 * var(--u)) solid #cfe0f5;
+  font-size: calc(6.5 * var(--u)); font-weight: 700; display: flex; align-items: center; justify-content: flex-start; padding: 0 calc(2 * var(--w)); overflow: hidden; white-space: pre; }
 .kbtext .txt { overflow: hidden; white-space: pre; min-width: 0; }
-.kbtext .caret { display: inline-block; width: calc(.4 * var(--w)); height: calc(7.5 * var(--u)); background: var(--blue); margin-left: calc(.3 * var(--w)); animation: kbcaret 1s steps(1) infinite; flex-shrink: 0; }
-.kbtext .hint { color: var(--soft); font-weight: 400; font-size: calc(5 * var(--u)); margin-left: calc(1 * var(--w)); }
+.kbtext .caret { display: inline-block; width: calc(.4 * var(--w)); height: calc(6.5 * var(--u)); background: var(--blue); margin-left: calc(.3 * var(--w)); animation: kbcaret 1s steps(1) infinite; flex-shrink: 0; }
+.kbtext .hint { color: var(--soft); font-weight: 400; font-size: calc(4.2 * var(--u)); margin-left: calc(1 * var(--w)); }
 @keyframes kbcaret { 50% { opacity: 0; } }
-.kbkeys { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: calc(1.6 * var(--u)); }
+.kbkeys { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: calc(1.2 * var(--u)); }
 .kbrow { flex: 1; min-height: 0; display: flex; gap: calc(.8 * var(--w)); justify-content: center; }
-.kbrow .gaze { flex: 0 1 calc(8 * var(--w)); font-size: calc(9.5 * var(--u)); font-weight: 700; border-radius: calc(2 * var(--u)); padding: 0; line-height: 1; }
+.kbrow .gaze { flex: 0 1 calc(8 * var(--w)); font-size: calc(11.5 * var(--u)); font-weight: 700; border-radius: calc(2 * var(--u)); padding: 0; line-height: 1; }
 .kbrow .gaze.vowel { background: #fff1d6; }
-.kbrow .gaze.fn { flex: 1 1 0; font-size: calc(5.2 * var(--u)); background: #e3f1ff; gap: 0; }
-.kbrow .gaze.fn .ico { font-size: calc(5.5 * var(--u)); line-height: 1.1; }
+.kbrow.fnrow { flex: 0 0 calc(10 * var(--u)); }
+.kbrow .gaze.fn { flex: 1 1 0; flex-direction: row; gap: calc(.8 * var(--w)); font-size: calc(4.5 * var(--u)); background: #e3f1ff; gap: 0; }
+.kbrow .gaze.fn .ico { font-size: calc(5 * var(--u)); line-height: 1; margin-right: calc(1 * var(--w)); }
 /* Satzzeichen: etwas höher gesetzt, damit der Beistrich (Komma) nicht abgeschnitten wird */
-.kbrow .gaze.punct { background: #eef3fa; font-size: calc(10 * var(--u)); line-height: 1; padding-bottom: calc(3 * var(--u)); }
-.kbpred { height: calc(11 * var(--u)); flex-shrink: 0; display: flex; gap: calc(1 * var(--w)); }
-.kbpred .gaze { flex: 1 1 0; min-width: 0; font-size: calc(5.5 * var(--u)); font-weight: 700; background: #fff8e6; border-radius: calc(2 * var(--u)); padding: 0 calc(.5 * var(--w)); white-space: nowrap; overflow: hidden; }
+.kbrow .gaze.punct { background: #eef3fa; font-size: calc(11.5 * var(--u)); line-height: 1; padding-bottom: calc(3.5 * var(--u)); }
+.kbpred { height: calc(9 * var(--u)); flex-shrink: 0; display: flex; gap: calc(1 * var(--w)); }
+.kbpred .gaze { flex: 1 1 0; min-width: 0; font-size: calc(4.8 * var(--u)); font-weight: 700; background: #fff8e6; border-radius: calc(2 * var(--u)); padding: 0 calc(.5 * var(--w)); white-space: nowrap; overflow: hidden; }
 .kbpred .gaze.empty { background: transparent; border-color: transparent; box-shadow: none; }
 .kbpred .gaze.hit { background: #fff1c9; border-color: var(--orange); }
 .kbrow .gaze.space { flex-grow: 2.4; }
-.kbrow .spacebar { display: inline-block; width: calc(14 * var(--w)); height: calc(2.2 * var(--u)); border: calc(.6 * var(--u)) solid var(--ink); border-top: none; vertical-align: middle; }
+.kbrow .spacebar { display: inline-block; width: calc(8 * var(--w)); height: calc(2.2 * var(--u)); border: calc(.6 * var(--u)) solid var(--ink); border-top: none; vertical-align: middle; }
 .kbrow .gaze.speak { background: #d9f7e4; }
 .kbrow .gaze.hit { background: #fff1c9; border-color: var(--orange); }
 

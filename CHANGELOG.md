@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.3 – 17.11.2026
+
+**Verbessert**
+- Mitteil-Tafel, Tastatur: Die Buchstabentasten sind größer. Dafür sind Eingabezeile,
+  Wortvorschläge und die untere Reihe (Leertaste, Löschen, Alles weg, Vorlesen) etwas flacher.
+
 ## 3.2 – 17.11.2026
 
 **Verbessert**
