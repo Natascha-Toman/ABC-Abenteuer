@@ -2,6 +2,17 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.2 – 17.11.2026
+
+**Verbessert**
+- Erreichte Sterne oben im Spiel sind dezent hellgrün hinterlegt.
+- Mitteil-Tafel, Tastatur: Der Umschalter ABC / QWERTZ sitzt jetzt oben rechts neben den Knöpfen.
+- Auf jeder Taste steht nur noch ein Buchstabe. Bei „Groß und klein“ wechselt die Tastatur von
+  selbst: am Satzanfang groß, sonst klein.
+
+**Behoben**
+- Der Beistrich (Komma) auf der Tastatur war unten abgeschnitten.
+
 ## 3.1 – 17.11.2026
 
 **Neu**

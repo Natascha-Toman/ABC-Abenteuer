@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.1", APP_DATE = "17.11.2026";
+const APP_VERSION = "3.2", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -2048,10 +2048,14 @@ const KB_PUNCT = { ",": "Komma", ".": "Punkt", "?": "Fragezeichen" };
 Talk.typed = "";                                     // bleibt erhalten, bis es gelöscht wird
 const KB_VOWELS = "AEIOUÄÖÜ";
 const kbUpper = s => [...s].map(c => c === "ß" ? c : c.toUpperCase()).join("");    // ß bleibt ß (nicht "SS")
-function kbLabel(ch) { return ch === "ß" || KB_PUNCT[ch] ? ch : S.letterCase === "lower" ? ch.toLowerCase() : S.letterCase === "mixed" ? ch + ch.toLowerCase() : ch; }
+// Ein Buchstabe pro Taste. Groß oder klein automatisch: GROSSBUCHSTABEN-Einstellung -> immer groß,
+// "nur klein" -> immer klein, "Groß und klein" -> am Satzanfang groß, sonst klein (wie die Umschalttaste).
+const kbBig = () => S.letterCase === "upper" || (S.letterCase === "mixed" && /(^\s*|[.?!]\s+)$/.test(Talk.typed));
+const kbStart = () => /(^\s*|[.?!]\s+)$/.test(kbContext().before);   // angefangenes Wort steht am Satzanfang
+function kbChar(ch) { return ch === "ß" || KB_PUNCT[ch] ? ch : kbBig() ? ch : ch.toLowerCase(); }
 // Satzanfänge groß (am Anfang und nach . ? !)
 const sentenceCase = t => t.replace(/(^\s*|[.?!]\s+)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase());
-function kbShown(t) { return S.letterCase === "upper" ? kbUpper(t) : S.letterCase === "lower" ? t.toLowerCase() : sentenceCase(t); }
+function kbShown(t) { return S.letterCase === "upper" ? kbUpper(t) : S.letterCase === "lower" ? t.toLowerCase() : t; }
 // Was beim Schreiben vorgelesen wird (Einstellung): Buchstaben und/oder Wörter, oder nur der fertige Text
 const kbSays = what => S.kbSpeak === "both" || S.kbSpeak === what;
 const kbSay = t => say(t, "talk", 1, { force: true });
@@ -2130,6 +2134,7 @@ function kbRender() {
   const box = $("#kbText");
   let t = kbShown(Talk.typed);
   if (t.length > 32) t = "…" + t.slice(-31);          // lange Texte: das Ende bleibt sichtbar
+  document.querySelectorAll("#kbKeys .gaze[data-ch]").forEach(k => { k.textContent = kbChar(k.dataset.ch); });
   box.innerHTML = `<span class="txt">${esc(t)}</span><span class="caret"></span>${Talk.typed ? "" : `<span class="hint">Schreib, was du sagen möchtest.</span>`}`;
   // Wortvorschläge: immer 5 Plätze, damit nichts verrutscht
   const pred = $("#kbPred");
@@ -2138,10 +2143,10 @@ function kbRender() {
   for (let i = 0; i < 5; i++) {
     const w = list[i];
     if (!w) { const d = document.createElement("div"); d.className = "gaze disabled empty"; pred.appendChild(d); continue; }
-    const shown = S.letterCase === "upper" ? kbUpper(w) : S.letterCase === "lower" ? w.toLowerCase() : w;
+    const shown = S.letterCase === "upper" ? kbUpper(w) : S.letterCase === "lower" ? w.toLowerCase() : kbStart() ? cap(w) : w;
     pred.appendChild(kbKey(esc(shown), "word", w, () => {
       const { before } = kbContext();
-      Talk.typed = (before + w + " ").slice(-200);
+      Talk.typed = (before + (S.letterCase === "mixed" && kbStart() ? cap(w) : w) + " ").slice(-200);
       kbRender();
       if (kbSays("words")) kbSay(w);
     }));
@@ -2177,7 +2182,7 @@ function buildKeyboard() {
     r.className = "kbrow";
     [...row].forEach(ch => {
       const punct = KB_PUNCT[ch];
-      r.appendChild(kbKey(esc(kbLabel(ch)), punct ? "punct" : KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
+      const k = kbKey(esc(kbChar(ch)), punct ? "punct" : KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
         if (punct) {
           if (!Talk.typed.trim()) return;
           const w = kbLastWord();
@@ -2186,21 +2191,20 @@ function buildKeyboard() {
           if (kbSays("words") && w) kbSay(w); else if (kbSays("letters")) kbSay(punct);
           return;
         }
-        Talk.typed = (Talk.typed + ch.toLowerCase()).slice(-200);
+        Talk.typed = (Talk.typed + kbChar(ch)).slice(-200);
         kbRender();
         if (kbSays("letters")) kbSay(ch === "ß" ? "scharfes S" : ch);   // Tondatei mit genauer Aussprache
-      }));
+      });
+      k.dataset.ch = ch;
+      r.appendChild(k);
     });
     keys.appendChild(r);
   });
-  const other = S.talkKb === "qwertz" ? "abc" : "qwertz";
+  // Umschalter ABC / QWERTZ sitzt oben rechts in der Leiste und zeigt, wohin umgeschaltet wird
+  $("#talkLayoutBtn").innerHTML = `<span class="ico">⌨️</span>${S.talkKb === "qwertz" ? "ABC" : "QWERTZ"}`;
   const fn = document.createElement("div");
   fn.className = "kbrow";
   fn.append(
-    kbKey(`<span class="ico">⌨️</span>${other === "abc" ? "ABC" : "QWERTZ"}`, "fn", "", () => {
-      S.talkKb = other; saveS(); buildKeyboard();
-      kbSay(other === "abc" ? "A B C Tastatur" : "Quertz Tastatur");
-    }),
     kbKey(`<span class="ico"><span class="spacebar"></span></span>Leertaste`, "fn space", "", () => {
       if (!Talk.typed || /\s$/.test(Talk.typed)) return;
       const w = kbLastWord();
@@ -2854,5 +2858,9 @@ function init() {
   onSelect($("#svLetter"), () => { SV.token++; stopSpeech(); svSayLetter(); });
   onSelect($("#svClap"), () => { SV.token++; stopSpeech(); svClap(); });
   onSelect($("#talkKbBtn"), () => setTalkMode(!$("#talk").classList.contains("kb")));
+  onSelect($("#talkLayoutBtn"), () => {
+    S.talkKb = S.talkKb === "qwertz" ? "abc" : "qwertz"; saveS(); buildKeyboard();
+    kbSay(S.talkKb === "abc" ? "A B C Tastatur" : "Quertz Tastatur");
+  });
 }
 init();

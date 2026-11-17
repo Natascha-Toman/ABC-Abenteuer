@@ -119,7 +119,7 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 /* Sterne mit hellem runden Hintergrund, damit man sie gut erkennt (auch die noch leeren) */
 .progress span.star { opacity: 1; filter: none; display: flex; align-items: center; justify-content: center; width: calc(9 * var(--u)); height: calc(9 * var(--u)); font-size: calc(5.5 * var(--u)); background: rgba(255,255,255,.9); border-radius: 50%; box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.08); }
 .progress span.star:not(.got) img.emo { filter: grayscale(1); opacity: .5; }
-.progress span.star.got { background: #fff6d6; }
+.progress span.star.got { background: #dff3e3; }
 .progress .lvl { opacity: 1; filter: none; font-size: calc(3.5 * var(--u)); font-weight: 700; background: #fff; border-radius: calc(2 * var(--u)); padding: calc(.5 * var(--u)) calc(1.2 * var(--w)); margin-right: calc(1.5 * var(--w)); }
 
 /* ---------- Menü ---------- */
@@ -235,6 +235,10 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 #talk { position: absolute; inset: 0; background: #eef6ff; display: none; flex-direction: column; z-index: 600; }
 #talk.show { display: flex; }
 #talk .title { font-size: calc(6 * var(--u)); }
+/* Umschalter ABC / QWERTZ oben rechts – nur sichtbar, wenn die Tastatur offen ist */
+#talk .topbtn.kbswitch { display: none; width: calc(22 * var(--u)); font-size: calc(3.6 * var(--u)); font-weight: 700; background: #e3f1ff; gap: 0; }
+#talk.kb .topbtn.kbswitch { display: flex; }
+#talk .topbtn.kbswitch .ico { font-size: calc(4.5 * var(--u)); line-height: 1.1; }
 #talk .title.said { animation: pop-in .4s; color: var(--blue); }
 .talkgrid { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr); gap: calc(2.5 * var(--u)) calc(2 * var(--w)); padding: 0 calc(3 * var(--w)) calc(4 * var(--u)); }
 .talkgrid .gaze { font-size: calc(4.2 * var(--u)); font-weight: 700; text-align: center; gap: calc(.5 * var(--u)); }
@@ -258,7 +262,8 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .kbrow .gaze.vowel { background: #fff1d6; }
 .kbrow .gaze.fn { flex: 1 1 0; font-size: calc(5.2 * var(--u)); background: #e3f1ff; gap: 0; }
 .kbrow .gaze.fn .ico { font-size: calc(5.5 * var(--u)); line-height: 1.1; }
-.kbrow .gaze.punct { background: #eef3fa; font-size: calc(11 * var(--u)); }
+/* Satzzeichen: etwas höher gesetzt, damit der Beistrich (Komma) nicht abgeschnitten wird */
+.kbrow .gaze.punct { background: #eef3fa; font-size: calc(10 * var(--u)); line-height: 1; padding-bottom: calc(3 * var(--u)); }
 .kbpred { height: calc(11 * var(--u)); flex-shrink: 0; display: flex; gap: calc(1 * var(--w)); }
 .kbpred .gaze { flex: 1 1 0; min-width: 0; font-size: calc(5.5 * var(--u)); font-weight: 700; background: #fff8e6; border-radius: calc(2 * var(--u)); padding: 0 calc(.5 * var(--w)); white-space: nowrap; overflow: hidden; }
 .kbpred .gaze.empty { background: transparent; border-color: transparent; box-shadow: none; }
