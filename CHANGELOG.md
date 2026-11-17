@@ -2,6 +2,19 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.4 – 17.11.2026
+
+**Verbessert**
+- Mitteil-Tafel, Tastatur: „Alles löschen“ 🗑️ sitzt jetzt oben links neben dem Zurück-Knopf und
+  muss zweimal ausgewählt werden (wie die Tür). Wer einfach weiter hinschaut, bestätigt nach
+  der Verweilzeit – wegschauen ist nicht nötig.
+- Ton an/aus hat ein eigenes, klares Symbol: Lautsprecher mit grünen Schallwellen bzw. mit rotem Kreuz.
+- Die Knöpfe oben haben je nach Aufgabe eine eigene, sanfte Farbe (Haus/Zurück orange, Eule gelb,
+  Ton grün, Mitteil-Tafel blau, Tür und Löschen rot).
+- Die Fortschritts-Sterne haben einen leichten Schlagschatten.
+- Sticker-Album: Nach dem Anschauen eines Stickers sagt die Eule beim Zurückgehen nicht mehr
+  jedes Mal „Toll, du hast schon … Sticker gesammelt“.
+
 ## 3.3 – 17.11.2026
 
 **Verbessert**

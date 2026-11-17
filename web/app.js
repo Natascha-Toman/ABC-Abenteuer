@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.3", APP_DATE = "17.11.2026";
+const APP_VERSION = "3.4", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -992,9 +992,13 @@ document.addEventListener("keydown", e => {
 // ---------------------------------------------------------------------
 //  Ton an / aus
 // ---------------------------------------------------------------------
+// Ton an / aus: eigenes, gut erkennbares Symbol (Lautsprecher mit Schallwellen bzw. rot durchgestrichen)
+const SPEAKER = `<path d="M14 38 H32 L56 16 V84 L32 62 H14 Z" fill="#2b2d42" stroke="#2b2d42" stroke-width="5" stroke-linejoin="round"/>`;
+const ICON_SOUND_ON = `<svg class="sndico" viewBox="0 0 100 100" width="1em" height="1em">${SPEAKER}<path d="M68 36 Q76 50 68 64" fill="none" stroke="#2e9e44" stroke-width="7" stroke-linecap="round"/><path d="M78 26 Q92 50 78 74" fill="none" stroke="#2e9e44" stroke-width="7" stroke-linecap="round"/></svg>`;
+const ICON_SOUND_OFF = `<svg class="sndico" viewBox="0 0 100 100" width="1em" height="1em">${SPEAKER}<path d="M68 36 L92 64 M92 36 L68 64" stroke="#e53935" stroke-width="8" stroke-linecap="round"/></svg>`;
 function updateMuteButtons() {
   document.querySelectorAll(".mutebtn").forEach(b => {
-    b.textContent = S.muted ? "🔇" : "🔊";
+    b.innerHTML = S.muted ? ICON_SOUND_OFF : ICON_SOUND_ON;
     b.classList.toggle("off", !!S.muted);
     b.dataset.say = S.muted ? "" : "Ton ausschalten";
   });
@@ -2213,7 +2217,6 @@ function buildKeyboard() {
       if (kbSays("words") && w) kbSay(w);
     }),
     kbKey(`<span class="ico">⌫</span>Löschen`, "fn", "", () => { Talk.typed = Talk.typed.slice(0, -1); kbRender(); }),
-    kbKey(`<span class="ico">🗑️</span>Alles weg`, "fn", "", () => { Talk.typed = ""; kbRender(); kbSay("Alles gelöscht."); }),
     kbKey(`<span class="ico">🔊</span>Vorlesen`, "fn speak", "", kbSpeak),
   );
   keys.appendChild(fn);
@@ -2845,7 +2848,7 @@ function init() {
     ? say(Talk.last.text, "talk", 1, { force: true })
     : say("Was möchtest du sagen?", "talk", 1, { force: true }));
   onSelect($("#btnHome"), () => goMenu());
-  onSelect($("#btnAlbumHome"), () => { if (svOpen()) { closeSticker(); albumSay(); } else goMenu(); });
+  onSelect($("#btnAlbumHome"), () => { if (svOpen()) closeSticker(); else goMenu(); });
   onSelect($("#btnAlbumSay"), () => { if (svOpen()) openSticker(SV.e); else albumSay(); });
   onSelect($("#btnRepeat"), () => { if (G.repeat) G.repeat(); });
   onSelect($("#rewAgain"), () => startGame(G.game, G.level));
@@ -2858,6 +2861,22 @@ function init() {
   onSelect($("#svLetter"), () => { SV.token++; stopSpeech(); svSayLetter(); });
   onSelect($("#svClap"), () => { SV.token++; stopSpeech(); svClap(); });
   onSelect($("#talkKbBtn"), () => setTalkMode(!$("#talk").classList.contains("kb")));
+  // Alles löschen: zweimal auswählen. Wer einfach weiter hinschaut, löst nach der Verweilzeit das zweite Mal aus.
+  let clearArmed = -1e9;
+  const clearBtn = $("#talkClear");
+  onSelect(clearBtn, () => {
+    const now = performance.now();
+    if (now - clearArmed < 8000) {
+      clearArmed = -1e9; clearBtn.classList.remove("armed");
+      Talk.typed = ""; kbRender(); kbSay("Alles gelöscht.");
+      return;
+    }
+    if (!Talk.typed) { kbSay("Da steht noch nichts."); return; }
+    clearArmed = now; clearBtn.classList.add("armed");
+    Gaze.firedEl = null; Gaze.cool = false; Gaze.start = performance.now();
+    kbSay("Alles löschen? Dann noch einmal.");
+    setTimeout(() => { if (performance.now() - clearArmed >= 7900) clearBtn.classList.remove("armed"); }, 8000);
+  });
   onSelect($("#talkLayoutBtn"), () => {
     S.talkKb = S.talkKb === "qwertz" ? "abc" : "qwertz"; saveS(); buildKeyboard();
     kbSay(S.talkKb === "abc" ? "A B C Tastatur" : "Quertz Tastatur");

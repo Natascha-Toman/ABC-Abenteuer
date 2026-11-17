@@ -13,7 +13,7 @@ Programm und wird automatisch erzeugt – dort bitte nichts von Hand ändern.
   Anleitung-Vorlage.html   Anleitung (Text), Bilder in anleitung-bilder\
   anleitung-einbetten.py   macht daraus ..\ABC-Lernprogramm\Anleitung.html (Bilder eingebettet)
   erstellen.ps1            baut alles und erzeugt ..\ABC-Lernprogramm und ..\ABC-Abenteuer-<Version>.zip
-                           (z. B. ABC-Abenteuer-3.3.zip – Versionsnummer automatisch)
+                           (z. B. ABC-Abenteuer-3.4.zip – Versionsnummer automatisch)
   silben-erzeugen.py       erzeugt web\silben\*.wav neu aus web\silben\lautschrift.txt (Silben)
                            und web\silben\einzeln.txt (Buchstabennamen, falsch gesprochene Wörter)
                            (Windows-Stimme "Microsoft Katja" nötig)

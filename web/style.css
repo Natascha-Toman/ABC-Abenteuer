@@ -120,6 +120,9 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .progress span.star { opacity: 1; filter: none; display: flex; align-items: center; justify-content: center; width: calc(9 * var(--u)); height: calc(9 * var(--u)); font-size: calc(5.5 * var(--u)); background: rgba(255,255,255,.9); border-radius: 50%; box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.08); }
 .progress span.star:not(.got) img.emo { filter: grayscale(1); opacity: .5; }
 .progress span.star.got { background: #dff3e3; }
+/* leichter Schlagschatten, damit sich die Sterne vom Hintergrund abheben */
+.progress img.emo { filter: drop-shadow(0 calc(.35 * var(--u)) calc(.3 * var(--u)) rgba(0,0,0,.35)); }
+.progress span.star:not(.got) img.emo { filter: grayscale(1) drop-shadow(0 calc(.3 * var(--u)) calc(.25 * var(--u)) rgba(0,0,0,.25)); }
 .progress .lvl { opacity: 1; filter: none; font-size: calc(3.5 * var(--u)); font-weight: 700; background: #fff; border-radius: calc(2 * var(--u)); padding: calc(.5 * var(--u)) calc(1.2 * var(--w)); margin-right: calc(1.5 * var(--w)); }
 
 /* ---------- Menü ---------- */
@@ -354,6 +357,20 @@ body.eye-paused #app::after { content: "⏸ Pause – zum Weitermachen auf ▶�
 #btnQuit::before { content: "2×"; position: absolute; right: calc(.3 * var(--u)); bottom: calc(.3 * var(--u)); background: #ef6f6c; color: #fff;
   font-size: calc(2.2 * var(--u)); font-weight: 700; line-height: 1; padding: calc(.35 * var(--u)) calc(.5 * var(--w)); border-radius: calc(1.5 * var(--u)); pointer-events: none; }
 #btnQuit.armed::before { content: "1×"; background: #2b2d42; }
+/* Alles löschen (Mitteil-Tafel, nur bei offener Tastatur): ebenfalls zweimal auswählen */
+#talkClear { display: none; position: relative; background: #fde4ef; }
+#talk.kb #talkClear { display: flex; }
+#talk .topbar .title { text-align: center; }
+#talkClear.armed { background: #ef6f6c; box-shadow: 0 0 0 calc(.8 * var(--u)) rgba(239,111,108,.45); animation: glow 1s 4; }
+#talkClear::before { content: "2×"; position: absolute; right: calc(.3 * var(--u)); bottom: calc(.3 * var(--u)); background: #ef6f6c; color: #fff;
+  font-size: calc(2.2 * var(--u)); font-weight: 700; line-height: 1; padding: calc(.35 * var(--u)) calc(.5 * var(--w)); border-radius: calc(1.5 * var(--u)); pointer-events: none; }
+#talkClear.armed::before { content: "1×"; background: #2b2d42; }
+/* Knöpfe oben: jede Art hat eine eigene, sanfte Farbe */
+#btnHome, #btnAlbumHome, #talkBack { background: #ffe9c7; }
+.topbtn.saybtn { background: #fff6c4; }
+.topbtn.mutebtn { background: #dff3e3; }
+#talkKbBtn { background: #e3f6f3; }
+.sndico { display: block; width: 1.25em; height: 1.25em; }
 
 .native .browseronly { display: none; }
 #settings details.more { margin: 14px 0; background: #f6f4ee; border-radius: 10px; padding: 8px 14px; }
