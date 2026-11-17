@@ -2,6 +2,17 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.5 – 17.11.2026
+
+**Verbessert**
+- Das neue, klare Lautsprecher-Symbol steht jetzt überall im Programm (z. B. „Vorlesen“,
+  „Wort hören“ beim Sticker, Meldungen), nicht nur beim Knopf Ton an/aus.
+- Alle Sterne ⭐ im Programm haben einen leichten Schlagschatten (auch auf den Spiele-Kacheln,
+  bei der Stufenwahl und bei der Belohnung).
+- Mitteil-Tafel: Die Wortvorschläge sind größer.
+- Mitteil-Tafel: Nomen werden nach dem Schreiben automatisch großgeschrieben („hunger“ → „Hunger“),
+  wenn das Wort im Wortschatz steht.
+
 ## 3.4 – 17.11.2026
 
 **Verbessert**

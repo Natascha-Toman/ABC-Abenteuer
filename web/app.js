@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.4", APP_DATE = "17.11.2026";
+const APP_VERSION = "3.5", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -992,13 +992,10 @@ document.addEventListener("keydown", e => {
 // ---------------------------------------------------------------------
 //  Ton an / aus
 // ---------------------------------------------------------------------
-// Ton an / aus: eigenes, gut erkennbares Symbol (Lautsprecher mit Schallwellen bzw. rot durchgestrichen)
-const SPEAKER = `<path d="M14 38 H32 L56 16 V84 L32 62 H14 Z" fill="#2b2d42" stroke="#2b2d42" stroke-width="5" stroke-linejoin="round"/>`;
-const ICON_SOUND_ON = `<svg class="sndico" viewBox="0 0 100 100" width="1em" height="1em">${SPEAKER}<path d="M68 36 Q76 50 68 64" fill="none" stroke="#2e9e44" stroke-width="7" stroke-linecap="round"/><path d="M78 26 Q92 50 78 74" fill="none" stroke="#2e9e44" stroke-width="7" stroke-linecap="round"/></svg>`;
-const ICON_SOUND_OFF = `<svg class="sndico" viewBox="0 0 100 100" width="1em" height="1em">${SPEAKER}<path d="M68 36 L92 64 M92 36 L68 64" stroke="#e53935" stroke-width="8" stroke-linecap="round"/></svg>`;
+// Ton an / aus: 🔊 und 🔇 sind eigene, gut erkennbare Lautsprecher-Bilder (emoji/1f50a.svg, 1f507.svg)
 function updateMuteButtons() {
   document.querySelectorAll(".mutebtn").forEach(b => {
-    b.innerHTML = S.muted ? ICON_SOUND_OFF : ICON_SOUND_ON;
+    b.textContent = S.muted ? "🔇" : "🔊";
     b.classList.toggle("off", !!S.muted);
     b.dataset.say = S.muted ? "" : "Ton ausschalten";
   });
@@ -2165,9 +2162,18 @@ function kbKey(html, cls, sayText, fn) {
   onSelect(d, () => { d.classList.remove("hit"); void d.offsetWidth; d.classList.add("hit"); setTimeout(() => d.classList.remove("hit"), 350); fn(); });
   return d;
 }
+// Fertig geschriebenes Wort korrigieren, wenn es laut Wortschatz großgeschrieben wird ("hunger" -> "Hunger").
+// Nur ganz klein geschriebene Wörter, und nur wenn der Wortschatz sie eindeutig groß kennt.
+function kbFixCase() {
+  Talk.typed = Talk.typed.replace(/([\p{L}-]+)([\s,.?]*)$/u, (m, w, rest) => {
+    const n = natural(w);
+    return w === w.toLowerCase() && n !== w && n.toLowerCase() === w && /^\p{Lu}/u.test(n) ? n + rest : m;
+  });
+}
 // letztes fertiges Wort (für "Wörter vorlesen" nach Leertaste oder Satzzeichen)
 const kbLastWord = () => ((Talk.typed.match(/([\p{L}-]+)[\s,.?]*$/u) || [])[1] || "");
 function kbSpeak() {
+  kbFixCase(); kbRender();
   const t = Talk.typed.trim();
   if (!t) { kbSay("Schreib zuerst etwas."); return; }
   const text = sentenceCase(t);
@@ -2189,13 +2195,14 @@ function buildKeyboard() {
       const k = kbKey(esc(kbChar(ch)), punct ? "punct" : KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
         if (punct) {
           if (!Talk.typed.trim()) return;
+          kbFixCase();
           const w = kbLastWord();
           Talk.typed = Talk.typed.replace(/\s+$/, "") + ch + " ";
           kbRender();
           if (kbSays("words") && w) kbSay(w); else if (kbSays("letters")) kbSay(punct);
           return;
         }
-        Talk.typed = (Talk.typed + kbChar(ch)).slice(-200);
+        Talk.typed = (Talk.typed + (S.letterCase === "upper" ? ch.toLowerCase() : kbChar(ch))).slice(-200);
         kbRender();
         if (kbSays("letters")) kbSay(ch === "ß" ? "scharfes S" : ch);   // Tondatei mit genauer Aussprache
       });
@@ -2211,6 +2218,7 @@ function buildKeyboard() {
   fn.append(
     kbKey(`<span class="ico"><span class="spacebar"></span></span>Leertaste`, "fn space", "", () => {
       if (!Talk.typed || /\s$/.test(Talk.typed)) return;
+      kbFixCase();
       const w = kbLastWord();
       Talk.typed += " ";
       kbRender();

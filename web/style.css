@@ -121,7 +121,7 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .progress span.star:not(.got) img.emo { filter: grayscale(1); opacity: .5; }
 .progress span.star.got { background: #dff3e3; }
 /* leichter Schlagschatten, damit sich die Sterne vom Hintergrund abheben */
-.progress img.emo { filter: drop-shadow(0 calc(.35 * var(--u)) calc(.3 * var(--u)) rgba(0,0,0,.35)); }
+img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35)); }   /* alle Sterne ⭐ im Programm */
 .progress span.star:not(.got) img.emo { filter: grayscale(1) drop-shadow(0 calc(.3 * var(--u)) calc(.25 * var(--u)) rgba(0,0,0,.25)); }
 .progress .lvl { opacity: 1; filter: none; font-size: calc(3.5 * var(--u)); font-weight: 700; background: #fff; border-radius: calc(2 * var(--u)); padding: calc(.5 * var(--u)) calc(1.2 * var(--w)); margin-right: calc(1.5 * var(--w)); }
 
@@ -268,8 +268,8 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .kbrow .gaze.fn .ico { font-size: calc(5 * var(--u)); line-height: 1; margin-right: calc(1 * var(--w)); }
 /* Satzzeichen: etwas höher gesetzt, damit der Beistrich (Komma) nicht abgeschnitten wird */
 .kbrow .gaze.punct { background: #eef3fa; font-size: calc(11.5 * var(--u)); line-height: 1; padding-bottom: calc(3.5 * var(--u)); }
-.kbpred { height: calc(9 * var(--u)); flex-shrink: 0; display: flex; gap: calc(1 * var(--w)); }
-.kbpred .gaze { flex: 1 1 0; min-width: 0; font-size: calc(4.8 * var(--u)); font-weight: 700; background: #fff8e6; border-radius: calc(2 * var(--u)); padding: 0 calc(.5 * var(--w)); white-space: nowrap; overflow: hidden; }
+.kbpred { height: calc(12 * var(--u)); flex-shrink: 0; display: flex; gap: calc(1 * var(--w)); }
+.kbpred .gaze { flex: 1 1 0; min-width: 0; font-size: calc(6.5 * var(--u)); font-weight: 700; background: #fff8e6; border-radius: calc(2 * var(--u)); padding: 0 calc(.5 * var(--w)); white-space: nowrap; overflow: hidden; }
 .kbpred .gaze.empty { background: transparent; border-color: transparent; box-shadow: none; }
 .kbpred .gaze.hit { background: #fff1c9; border-color: var(--orange); }
 .kbrow .gaze.space { flex-grow: 2.4; }
@@ -370,7 +370,7 @@ body.eye-paused #app::after { content: "⏸ Pause – zum Weitermachen auf ▶�
 .topbtn.saybtn { background: #fff6c4; }
 .topbtn.mutebtn { background: #dff3e3; }
 #talkKbBtn { background: #e3f6f3; }
-.sndico { display: block; width: 1.25em; height: 1.25em; }
+
 
 .native .browseronly { display: none; }
 #settings details.more { margin: 14px 0; background: #f6f4ee; border-radius: 10px; padding: 8px 14px; }

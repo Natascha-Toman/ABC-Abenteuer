@@ -14,3 +14,6 @@ limitations under the License.
 
 Quelle: https://github.com/googlefonts/noto-emoji (Ordner 2D/svg), Dateien unverändert,
 nur umbenannt (emoji_u1f989.svg -> 1f989.svg). Vollständiger Lizenztext: ../../lizenzen/Noto-Emoji-Apache-2.0.txt
+
+Ausnahme: 1f50a.svg (Lautsprecher) und 1f507.svg (Lautsprecher aus) sind eigene Zeichnungen
+des ABC-Abenteuers (MIT-Lizenz wie das Programm), nicht von Noto Emoji.

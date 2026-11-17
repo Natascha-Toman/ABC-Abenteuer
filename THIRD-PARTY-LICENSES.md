@@ -113,6 +113,8 @@ zusätzlich neben den Bildern ([`web/emoji/LICENSE.txt`](web/emoji/LICENSE.txt))
 Quelle: https://github.com/googlefonts/noto-emoji, Ordner `2D/svg`. Die Bilder sind
 inhaltlich unverändert, nur die Dateinamen sind gekürzt (`emoji_u1f989.svg` → `1f989.svg`).
 Mit `python symbole-holen.py` werden fehlende Bilder für neu verwendete Emojis geholt.
+Ausnahme: Der Lautsprecher (`1f50a.svg`, `1f507.svg`) ist eine eigene Zeichnung des
+ABC-Abenteuers (MIT-Lizenz) und ersetzt das Noto-Bild, weil er für Kinder leichter zu erkennen ist.
 
 Im Programm stehen die Emojis weiterhin als Zeichen im Code; beim Anzeigen werden sie
 durch diese Bilder ersetzt. So sieht das Programm auf jedem Rechner gleich aus und hängt
