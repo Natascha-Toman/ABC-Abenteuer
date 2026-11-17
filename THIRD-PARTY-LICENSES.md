@@ -9,10 +9,11 @@ Ordner neben der `ABC-Abenteuer.exe`.
 | Microsoft Edge WebView2 SDK | 1.0.2792.45 | ja: `Microsoft.Web.WebView2.Core.dll`, `Microsoft.Web.WebView2.WinForms.dll`, `WebView2Loader.dll` | BSD-artige Microsoft-Lizenz, siehe unten |
 | Tobii Core SDK (Tobii.Interaction) | 0.7.3 | ja: `Tobii.Interaction.Net.dll`, `Tobii.Interaction.Model.dll`, `Tobii.EyeX.Client.dll` | proprietär, kostenlos, siehe unten |
 | Schrift „Andika“ (SIL) | Google Fonts v27 | ja: `files/fonts/andika-400.woff2`, `andika-700.woff2` | SIL Open Font License 1.1 |
+| Symbole „Noto Emoji“ (Google) | GitHub `googlefonts/noto-emoji`, Stand 26.10.2026 | ja: `files/emoji/*.svg` | Apache License 2.0, siehe unten |
 | Silben-Tondateien | – | ja: `files/silben/*.wav` (203 Dateien) | siehe Abschnitt „Silben-Tondateien“ |
 | Microsoft Edge WebView2 Runtime | – | nein, ist in Windows 10/11 enthalten | Microsoft-Software-Lizenz |
 | .NET Framework 4.8, System.Speech | – | nein, ist Teil von Windows | Microsoft-Software-Lizenz |
-| Windows-Stimmen (SAPI/OneCore), Bildschirmtastatur (`osk.exe`), Emoji-Schrift „Segoe UI Emoji“ | – | nein, nur auf dem Rechner vorhandene Windows-Bestandteile werden benutzt | Microsoft-Software-Lizenz |
+| Windows-Stimmen (SAPI/OneCore), Bildschirmtastatur (`osk.exe`), Emoji-Schrift „Segoe UI Emoji“ (nur noch für selbst eingetragene Emojis ohne Noto-Bild) | – | nein, nur auf dem Rechner vorhandene Windows-Bestandteile werden benutzt | Microsoft-Software-Lizenz |
 | Tobii Experience / Tobii-Treiber | – | nein, muss vom Gerätehersteller installiert sein | Tobii |
 | Microsoft.NETFramework.ReferenceAssemblies | 1.0.3 | nein, nur zum Bauen | MIT |
 
@@ -99,6 +100,23 @@ Schriftdateien ([`web/fonts/OFL.txt`](web/fonts/OFL.txt)) und in
 [`lizenzen/Andika-OFL.txt`](lizenzen/Andika-OFL.txt). Die Schriftdateien
 `andika-400.woff2` und `andika-700.woff2` stammen unverändert von Google Fonts (Andika v27,
 lateinischer Zeichensatz).
+
+---
+
+## Symbole „Noto Emoji“ (`web/emoji/*.svg`)
+
+Copyright 2013 Google, Inc. All Rights Reserved.
+
+Lizenz: Apache License, Version 2.0. Der vollständige Lizenztext liegt in
+[`lizenzen/Noto-Emoji-Apache-2.0.txt`](lizenzen/Noto-Emoji-Apache-2.0.txt), der Hinweis
+zusätzlich neben den Bildern ([`web/emoji/LICENSE.txt`](web/emoji/LICENSE.txt)).
+Quelle: https://github.com/googlefonts/noto-emoji, Ordner `2D/svg`. Die Bilder sind
+inhaltlich unverändert, nur die Dateinamen sind gekürzt (`emoji_u1f989.svg` → `1f989.svg`).
+Mit `python symbole-holen.py` werden fehlende Bilder für neu verwendete Emojis geholt.
+
+Im Programm stehen die Emojis weiterhin als Zeichen im Code; beim Anzeigen werden sie
+durch diese Bilder ersetzt. So sieht das Programm auf jedem Rechner gleich aus und hängt
+nicht von der Emoji-Schrift von Windows ab.
 
 ---
 

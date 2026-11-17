@@ -98,8 +98,9 @@
     <div class="gaze" id="svSay" data-say="Wort" title="Wort hören">🔊</div>
     <div class="gaze" id="svLetter" data-say="Anfangsbuchstabe" title="Anfangsbuchstabe"></div>
     <div class="gaze" id="svClap" data-say="Silben" title="Silben klatschen">👏</div>
-    <div class="gaze" id="svBack" data-say="Fertig" title="Zurück zum Album">✅</div>
   </div>
+  <!-- Zurück zum Album: oben links (der Haus-Knopf des Albums wird dafür zum Pfeil ⬅️) -->
+
 </div>
 
 <!-- Belohnung -->
@@ -128,9 +129,15 @@
   <div class="topbar">
     <div class="topbtn gaze" id="talkBack" data-say="Zurück">⬅️</div>
     <div class="title" id="talkSaid">Ich möchte sagen …</div>
+    <div class="topbtn gaze" id="talkKbBtn" data-say="Tastatur" title="Tastatur / Bilder">⌨️</div>
     <div class="topbtn gaze saybtn" id="talkRepeat" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
   </div>
   <div class="talkgrid" id="talkGrid"></div>
+  <!-- Tastatur: selbst schreiben, die Eule liest vor -->
+  <div class="talkkb" id="talkKb">
+    <div class="kbtext" id="kbText"></div>
+    <div class="kbkeys" id="kbKeys"></div>
+  </div>
 </div>
 
 <canvas id="confetti" width="1920" height="1080"></canvas>
@@ -239,6 +246,8 @@
     <div class="note">Eine Zeile pro Feld: <b>Bild ; Beschriftung ; Satz, der gesprochen wird</b>. Als Bild ein Emoji (z. B. 🍎) oder <b>[schaukel]</b>. Bis zu 12 Felder.</div>
     <textarea id="setTalk" rows="12" style="width:100%;font-size:16px;font-family:inherit"></textarea>
     <p><button id="btnTalkAdd">➕ Feld hinzufügen</button> <button id="btnTalkSave">Tafel übernehmen</button> <button id="btnTalkReset">Standard wiederherstellen</button></p>
+    <label><span>Tastatur der Mitteil-Tafel (Knopf ⌨️ oben)</span><select id="setTalkKb"><option value="abc">ABC – Buchstaben in Alphabet-Reihenfolge</option><option value="qwertz">QWERTZ – wie auf der Computer-Tastatur</option></select></label>
+    <div class="note">Mit der Tastatur schreibt das Kind selbst, was es sagen möchte; 🔊 liest es vor. Umschalten geht auch direkt auf der Tastatur (Taste „ABC“ / „QWERTZ“).</div>
 
     <h3>📊 Lernstand</h3>
     <div id="stats"></div>
@@ -256,6 +265,7 @@
 </div>
 </div>
 
+<script src="emoji/emoji.js"></script>
 <script src="data.js"></script>
 <script src="silben/silben.js"></script>
 <script src="app.js"></script>

@@ -13,6 +13,51 @@ const u = n => `calc(${n} * var(--u))`;        // Maß relativ zur Bildflächen-
 function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 // ---------------------------------------------------------------------
+//  Symbole: Emojis erscheinen als freie Bilder (Noto Emoji, Apache-2.0-Lizenz) aus emoji/.
+//  Im Code stehen weiter normale Emojis; jeder Text im Fenster wird automatisch umgewandelt,
+//  auch später eingefügter. Emojis ohne Bild (z. B. eigene der Mitteil-Tafel) bleiben Text.
+//  Neue Bilder holen: python symbole-holen.py
+// ---------------------------------------------------------------------
+const EMO_FILES = new Set(window.EMOJI_FILES || []);
+const EMO_PIC = "[\\u2190-\\u21ff\\u2300-\\u23ff\\u2460-\\u27bf\\u2900-\\u297f\\u2b00-\\u2bff\\u3030\\u303d\\u3297\\u3299\\u{1F000}-\\u{1FAFF}]";
+const EMO_RE = new RegExp(`${EMO_PIC}(?:\\uFE0F|[\\u{1F3FB}-\\u{1F3FF}])?(?:\\u200D${EMO_PIC}\\uFE0F?)*`, "gu");
+const emoKey = e => [...e].filter(c => c !== "️").map(c => c.codePointAt(0).toString(16)).join("_");
+const emoSkip = el => !el || !!el.closest("script, style, textarea, input, select, option, title, svg");
+function emojifyText(t) {
+  const s = t.nodeValue;
+  if (!s || !EMO_FILES.size) return;
+  let m, pos = 0, frag = null;
+  EMO_RE.lastIndex = 0;
+  while ((m = EMO_RE.exec(s))) {
+    const k = emoKey(m[0]);
+    if (!EMO_FILES.has(k)) continue;
+    frag = frag || document.createDocumentFragment();
+    if (m.index > pos) frag.appendChild(document.createTextNode(s.slice(pos, m.index)));
+    const img = document.createElement("img");
+    img.className = "emo"; img.alt = m[0]; img.draggable = false; img.src = `emoji/${k}.svg`;
+    frag.appendChild(img);
+    pos = m.index + m[0].length;
+  }
+  if (!frag || !t.parentNode) return;
+  if (pos < s.length) frag.appendChild(document.createTextNode(s.slice(pos)));
+  t.parentNode.replaceChild(frag, t);
+}
+function emojify(n) {
+  if (n.nodeType === 3) { if (!emoSkip(n.parentElement)) emojifyText(n); return; }
+  if (n.nodeType !== 1 || emoSkip(n)) return;
+  const w = document.createTreeWalker(n, NodeFilter.SHOW_TEXT,
+    { acceptNode: t => emoSkip(t.parentElement) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+  const list = [];
+  while (w.nextNode()) list.push(w.currentNode);
+  list.forEach(emojifyText);
+}
+if (EMO_FILES.size) {
+  emojify(document.body);
+  new MutationObserver(ms => ms.forEach(m => m.type === "characterData" ? emojify(m.target) : m.addedNodes.forEach(emojify)))
+    .observe(document.body, { childList: true, subtree: true, characterData: true });
+}
+
+// ---------------------------------------------------------------------
 //  Feste Bildfläche passend skalieren (verhindert Auflösungsprobleme)
 // ---------------------------------------------------------------------
 const STAGE_W = 1920, STAGE_H = 1080;
@@ -52,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "2.5", APP_DATE = "15.11.2026";
+const APP_VERSION = "3.0", APP_DATE = "17.11.2026";
 const SETTINGS_VERSION = 6;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -62,7 +107,7 @@ const DEFAULTS = {
   round: 5, letterCase: "upper", sylColor: true, allLevels: false,
   manualNext: false, balloonSpeed: 1, autoFull: true, eyeOn: true, eyeClickLock: "td", speechPause: true, lens: true,
   volume: 100, unlockRounds: 3,
-  letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK,
+  letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc",
 };
 // Gerätweite Werte (Profil-Liste, aktuelles Profil)
 // Meldung ins Fehlerprotokoll des Programms (protokoll.txt) – im Browser nur in die Konsole
@@ -169,6 +214,7 @@ function sanitizeSettings(o) {
   num("rate", 0.5, 1.3); num("volume", 10, 100, true); num("unlockRounds", 1, 5, true);
   oneOf("round", [3, 4, 5, 6, 8, 10]); oneOf("balloonSpeed", [0.4, 0.65, 1, 1.4]);
   oneOf("letterCase", ["upper", "mixed", "lower"]); oneOf("eyeClickLock", ["td", "eyes", "always", false]);
+  oneOf("talkKb", ["abc", "qwertz"]);
   ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "eyeOn"]
     .forEach(k => { o[k] = typeof o[k] === "boolean" ? o[k] : DEFAULTS[k]; });
   o.voice = typeof o.voice === "string" ? o.voice.slice(0, 200) : "";
@@ -720,7 +766,7 @@ function smoothPos() {
 // die großen Kacheln darunter zählen kurz nicht – so lassen sich die kleinen Knöpfe sicher treffen.
 const Lens = { on: false, since: 0, out: 0 };
 function activeTopbar() {
-  if ($("#quitAsk.show") || $("#reward.show") || $("#explore.show") || $("#stickerView.show")) return null;
+  if ($("#quitAsk.show") || $("#reward.show") || $("#explore.show")) return null;   // Sticker groß: Leiste des Albums bleibt
   if ($("#talk.show")) return $("#talk .topbar");
   const scr = document.querySelector(".screen.active");
   return scr ? scr.querySelector(".topbar") : null;
@@ -786,7 +832,10 @@ function nearestGaze(x, y, snap, skipTopbar) {
   const pt = { x, y };
   const layer = gazeLayer(); if (!layer) return null;
   let best = null, bestD = snap;
-  layer.querySelectorAll(".gaze").forEach(c => {
+  const els = [...layer.querySelectorAll(".gaze")];
+  const tb = activeTopbar();                       // Sticker groß: die Knöpfe oben gehören zum Album darunter
+  if (tb && !layer.contains(tb)) els.push(...tb.querySelectorAll(".gaze"));
+  els.forEach(c => {
     if (!okGaze(c) || (skipTopbar && c.closest(".topbar"))) return;
     const r = c.getBoundingClientRect();
     if (!r.width) return;
@@ -1754,7 +1803,18 @@ function runMemory(t) {
     d.innerHTML = `<span class="back">❓</span>`;
     d._c = cd;
     onSelect(d, async () => {
-      if (lock || t !== G.token || d.classList.contains("open")) return;
+      if (lock || t !== G.token) return;
+      if (d.classList.contains("open")) {
+        // Erste Karte aus Versehen aufgedeckt? Noch einmal auswählen dreht sie wieder um.
+        if (open.length === 1 && open[0] === d) {
+          stopSpeech();
+          open = [];
+          d.classList.remove("open", "wordcard");
+          d.innerHTML = `<span class="back">❓</span>`;
+          SFX.flip();
+        }
+        return;
+      }
       d.classList.add("open");
       if (cd.cls) d.classList.add(cd.cls);
       d.innerHTML = cd.html;
@@ -1979,9 +2039,87 @@ function buildTalk() {
     grid.appendChild(d);
   });
 }
+// ---- Tastatur: das Kind schreibt selbst, die Eule liest vor (ABC- oder QWERTZ-Anordnung) ----
+const KB_LAYOUTS = {
+  abc:    ["ABCDEFGHIJ", "KLMNOPQRST", "UVWXYZÄÖÜß"],
+  qwertz: ["QWERTZUIOPÜ", "ASDFGHJKLÖÄ", "YXCVBNMß"],
+};
+Talk.typed = "";                                     // bleibt erhalten, bis es gelöscht wird
+const KB_VOWELS = "AEIOUÄÖÜ";
+const kbUpper = s => [...s].map(c => c === "ß" ? c : c.toUpperCase()).join("");    // ß bleibt ß (nicht "SS")
+function kbLabel(ch) { return ch === "ß" ? ch : S.letterCase === "lower" ? ch.toLowerCase() : S.letterCase === "mixed" ? ch + ch.toLowerCase() : ch; }
+function kbShown(t) { return S.letterCase === "upper" ? kbUpper(t) : S.letterCase === "lower" ? t : cap(t); }
+function kbRender() {
+  const box = $("#kbText");
+  let t = kbShown(Talk.typed);
+  if (t.length > 30) t = "…" + t.slice(-29);          // lange Texte: das Ende bleibt sichtbar
+  box.innerHTML = `<span class="txt">${esc(t)}</span><span class="caret"></span>${Talk.typed ? "" : `<span class="hint">Schreib, was du sagen möchtest.</span>`}`;
+}
+function kbKey(html, cls, say, fn) {
+  const d = document.createElement("div");
+  d.className = "gaze " + cls;
+  d.dataset.nosay = "1";
+  if (say) d.dataset.say = say;
+  d.innerHTML = html;
+  onSelect(d, () => { d.classList.remove("hit"); void d.offsetWidth; d.classList.add("hit"); setTimeout(() => d.classList.remove("hit"), 350); fn(); });
+  return d;
+}
+function kbSpeak() {
+  const t = Talk.typed.trim();
+  if (!t) { say("Schreib zuerst etwas.", "talk", 1, { force: true }); return; }
+  Talk.last = { text: cap(t) };
+  const title = $("#talkSaid");
+  title.textContent = t.length > 36 ? kbShown(t.slice(0, 35)) + "…" : kbShown(t);
+  title.classList.remove("said"); void title.offsetWidth; title.classList.add("said");
+  say(cap(t), "talk", 1, { force: true });
+}
+function buildKeyboard() {
+  const keys = $("#kbKeys");
+  keys.innerHTML = "";
+  const force = { force: true };
+  KB_LAYOUTS[S.talkKb === "qwertz" ? "qwertz" : "abc"].forEach(row => {
+    const r = document.createElement("div");
+    r.className = "kbrow";
+    [...row].forEach(ch => r.appendChild(kbKey(esc(kbLabel(ch)), KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
+      Talk.typed = (Talk.typed + ch.toLowerCase()).slice(0, 200);
+      kbRender();
+      say(ch === "ß" ? "scharfes S" : ch, "talk", 1, force);     // Buchstabe vorlesen (Tondatei mit genauer Aussprache)
+    })));
+    keys.appendChild(r);
+  });
+  const other = S.talkKb === "qwertz" ? "abc" : "qwertz";
+  const fn = document.createElement("div");
+  fn.className = "kbrow";
+  fn.append(
+    kbKey(`<span class="ico">⌨️</span>${other === "abc" ? "ABC" : "QWERTZ"}`, "fn", "", () => {
+      S.talkKb = other; saveS(); buildKeyboard();
+      say(other === "abc" ? "A B C Tastatur" : "Quertz Tastatur", "talk", 1, force);
+    }),
+    kbKey(`<span class="ico"><span class="spacebar"></span></span>Leertaste`, "fn space", "", () => {
+      if (Talk.typed && !Talk.typed.endsWith(" ")) { Talk.typed += " "; kbRender(); }
+    }),
+    kbKey(`<span class="ico">⌫</span>Löschen`, "fn", "",() => { Talk.typed = Talk.typed.slice(0, -1); kbRender(); }),
+    kbKey(`<span class="ico">🗑️</span>Alles weg`, "fn", "", () => { Talk.typed = ""; kbRender(); say("Alles gelöscht.", "talk", 1, force); }),
+    kbKey(`<span class="ico">🔊</span>Vorlesen`, "fn speak", "", kbSpeak),
+  );
+  keys.appendChild(fn);
+  kbRender();
+}
+// Umschalten zwischen Bildern (Felder) und Tastatur
+function setTalkMode(kb) {
+  const t = $("#talk");
+  t.classList.toggle("kb", kb);
+  const b = $("#talkKbBtn");
+  b.textContent = kb ? "🖼️" : "⌨️";
+  b.dataset.say = kb ? "Bilder" : "Tastatur";
+  if (kb) buildKeyboard();
+  stopSpeech();
+  if (t.classList.contains("show")) say(kb ? "Schreib, was du sagen möchtest." : "Was möchtest du sagen?", "talk", 1, { force: true });
+}
 function openTalk() {
   stopSpeech();
   buildTalk();
+  setTalkMode(false);
   Talk.last = null;
   const title = $("#talkSaid");
   title.textContent = "Ich möchte sagen …";
@@ -2071,10 +2209,19 @@ async function svClap() {
   await saySyllables(SV.w, i => { svMark(i); tone(520 + 60 * i, 0, 0.08, "triangle", 0.12); });
   setTimeout(() => svMark(-1), 500);
 }
+// Während ein Sticker groß gezeigt wird, führt der Knopf oben links (sonst 🏠) zurück zum Album
+function svHomeBtn(open) {
+  const b = $("#btnAlbumHome");
+  b.textContent = open ? "⬅️" : "🏠";
+  b.dataset.say = open ? "Zurück zum Album" : "Zurück zum Menü";
+  b.title = open ? "Zurück zum Album" : "Zurück zum Menü";
+  $("#album").classList.toggle("svopen", open);
+}
 async function openSticker(e) {
   const w = stickerWord(e), my = ++SV.token;
-  SV.w = w;
+  SV.w = w; SV.e = e;
   stopSpeech();
+  svHomeBtn(true);
   $("#svPic").textContent = e;
   const pic = $("#svPic"); pic.style.animation = "none"; void pic.offsetWidth; pic.style.animation = "";
   $("#stickerView .svtext").style.display = w ? "" : "none";
@@ -2096,7 +2243,7 @@ async function openSticker(e) {
   await sleep(300); if (SV.token !== my || !svOpen()) return;
   await svClap();
 }
-function closeSticker() { SV.token++; stopSpeech(); svMark(-1); $("#stickerView").classList.remove("show"); }
+function closeSticker() { SV.token++; stopSpeech(); svMark(-1); $("#stickerView").classList.remove("show"); svHomeBtn(false); }
 
 // ---------------------------------------------------------------------
 //  Einstellungen
@@ -2166,7 +2313,7 @@ function openDialog(title, fields, okText = "Übernehmen") {
       const d = document.createElement("div");
       d.className = "fld";
       d.innerHTML = `<label for="dlg_${f.id}">${esc(f.label)}</label><input id="dlg_${f.id}" class="${f.type === "emoji" ? "emoji" : ""}" maxlength="${f.type === "emoji" ? 8 : 80}" autocomplete="off">`
-        + (f.type === "emoji" ? `<div class="emojis">${DLG_EMOJI.map(e => `<button type="button">${e}</button>`).join("")}</div>
+        + (f.type === "emoji" ? `<div class="emojis">${DLG_EMOJI.map(e => `<button type="button" data-e="${e}">${e}</button>`).join("")}</div>
            <div class="note">Weitere Bilder: Windows-Emoji-Auswahl mit <span class="kbd">Windows-Taste</span> + <span class="kbd">.</span> (Punkt) – öffnet sich beim ersten Antippen des Feldes automatisch.</div>` : "");
       const inp = d.querySelector("input");
       inp.value = f.value || "";
@@ -2176,7 +2323,7 @@ function openDialog(title, fields, okText = "Übernehmen") {
         if (f.type === "emoji" && !Dlg.emojiOpened && Native.on) { Dlg.emojiOpened = true; inp.select(); Native.post({ t: "emojipanel" }); }
       });
       inp.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("#dlgOk").click(); } });
-      d.querySelectorAll(".emojis button").forEach(b => b.onclick = () => { inp.value = b.textContent; inp.focus(); });
+      d.querySelectorAll(".emojis button").forEach(b => b.onclick = () => { inp.value = b.dataset.e; inp.focus(); });
       box.appendChild(d);
     });
     $("#dlgHint").innerHTML = Native.on ? "Die Bildschirmtastatur öffnet sich automatisch und lässt sich mit „⌨ Bildschirmtastatur ein/aus“ oder ihrem eigenen ✕ wieder schließen." : "";
@@ -2371,11 +2518,11 @@ function bindSettings() {
   $("#setNoGpu").onchange = e => { Native.post({ t: "setgpu", off: e.target.checked }); toast("Wirkt beim nächsten Start des Programms"); };
   setInterval(() => {
     const e = $("#eyeStatus"); if (!e) return;
-    e.textContent = !Native.eye ? "nicht gefunden (läuft die Tobii-Software?)"
+    e.textContent = (!Native.eye ? "nicht gefunden (läuft die Tobii-Software?)"
       : Native.active === false ? "ruht (Programm nicht im Vordergrund)"
       : Native.paused ? "pausiert (⏸️)"
-      : performance.now() - Native.lastEye < 500 ? "aktiv – Augen erkannt ✔" : "aktiv – gerade keine Augen erkannt";
-    e.textContent += ` (Klicks gesperrt: ${Native.blocked || 0}, durchgelassen: ${Native.allowed || 0})`;
+      : performance.now() - Native.lastEye < 500 ? "aktiv – Augen erkannt ✔" : "aktiv – gerade keine Augen erkannt")
+      + ` (Klicks gesperrt: ${Native.blocked || 0}, durchgelassen: ${Native.allowed || 0})`;
   }, 500);
   chk("#setHoverSay", "hoverSay"); chk("#setSfx", "sfx"); chk("#setSylColor", "sylColor"); chk("#setMuted", "muted");
   chk("#setAllLevels", "allLevels", renderStats);
@@ -2398,6 +2545,7 @@ function bindSettings() {
   rt.oninput = () => { S.rate = +rt.value; vr.textContent = S.rate.toFixed(2); saveS(); };
 
   sel("#setRound", "round", true); sel("#setCase", "letterCase", false); sel("#setBalloonSpeed", "balloonSpeed", true);
+  sel("#setTalkKb", "talkKb", false);
   const mn = $("#setManualNext");
   mn.value = S.manualNext ? "1" : "0";
   mn.onchange = () => { S.manualNext = mn.value === "1"; saveS(); };
@@ -2480,6 +2628,7 @@ function bindSettings() {
     renderStats(); fillVoiceSelect();
     $("#setMuted").checked = !!S.muted; ta.value = S.talk;
     $("#setBalloonSpeed").value = String(S.balloonSpeed); mn.value = S.manualNext ? "1" : "0";
+    $("#setTalkKb").value = S.talkKb;
     $("#savedNote").textContent = "";
     $("#settings").classList.add("show");
     $("#settings .panel").scrollTop = 0;
@@ -2580,8 +2729,8 @@ function init() {
     ? say(Talk.last.text, "talk", 1, { force: true })
     : say("Was möchtest du sagen?", "talk", 1, { force: true }));
   onSelect($("#btnHome"), () => goMenu());
-  onSelect($("#btnAlbumHome"), () => goMenu());
-  onSelect($("#btnAlbumSay"), albumSay);
+  onSelect($("#btnAlbumHome"), () => { if (svOpen()) { closeSticker(); albumSay(); } else goMenu(); });
+  onSelect($("#btnAlbumSay"), () => { if (svOpen()) openSticker(SV.e); else albumSay(); });
   onSelect($("#btnRepeat"), () => { if (G.repeat) G.repeat(); });
   onSelect($("#rewAgain"), () => startGame(G.game, G.level));
   onSelect($("#rewNext"), () => startGame(G.game, Math.min(3, G.level + 1)));
@@ -2592,6 +2741,6 @@ function init() {
   onSelect($("#svSay"), () => { SV.token++; stopSpeech(); svSayWord(); });
   onSelect($("#svLetter"), () => { SV.token++; stopSpeech(); svSayLetter(); });
   onSelect($("#svClap"), () => { SV.token++; stopSpeech(); svClap(); });
-  onSelect($("#svBack"), closeSticker);
+  onSelect($("#talkKbBtn"), () => setTalkMode(!$("#talk").classList.contains("kb")));
 }
 init();

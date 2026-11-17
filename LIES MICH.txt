@@ -5,17 +5,20 @@ Hier wird das Programm BEARBEITET. Der Ordner ..\ABC-Lernprogramm ist das FERTIG
 Programm und wird automatisch erzeugt – dort bitte nichts von Hand ändern.
 
   web\                     Oberfläche: index.html, app.js, style.css, data.js,
-                           fonts\ (Schrift), silben\ (Silben-Tondateien)
+                           fonts\ (Schrift), silben\ (Silben-Tondateien),
+                           emoji\ (Symbole „Noto Emoji“ als SVG-Bilder, Apache-2.0-Lizenz)
   ABC-Abenteuer\           Hauptprogramm (C#, .NET Framework 4.8, WebView2, Tobii Core SDK)
   Starter\                 Start-Symbol mit der Eule (C#)
   Blicktest\               Testprogramm für die Augensteuerung
   Anleitung-Vorlage.html   Anleitung (Text), Bilder in anleitung-bilder\
   anleitung-einbetten.py   macht daraus ..\ABC-Lernprogramm\Anleitung.html (Bilder eingebettet)
   erstellen.ps1            baut alles und erzeugt ..\ABC-Lernprogramm und ..\ABC-Abenteuer-<Version>.zip
-                           (z. B. ABC-Abenteuer-2.5.zip – Versionsnummer automatisch)
+                           (z. B. ABC-Abenteuer-3.0.zip – Versionsnummer automatisch)
   silben-erzeugen.py       erzeugt web\silben\*.wav neu aus web\silben\lautschrift.txt (Silben)
                            und web\silben\einzeln.txt (Buchstabennamen, falsch gesprochene Wörter)
                            (Windows-Stimme "Microsoft Katja" nötig)
+  symbole-holen.py         holt für neu verwendete Emojis die Noto-Bilder nach web\emoji\
+                           (Internet nötig), z. B. python symbole-holen.py 🍕
   lizenzen\, THIRD-PARTY-LICENSES.md   Lizenzen der Fremdkomponenten
   README.md, .gitignore    für die Veröffentlichung auf GitHub
   DATENSCHUTZ.md           Datenschutzerklärung (Link wird im Microsoft Store gebraucht)

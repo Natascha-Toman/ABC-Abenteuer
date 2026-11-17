@@ -2,6 +2,26 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 3.0 – 17.11.2026
+
+**Neu**
+- Mitteil-Tafel mit **Tastatur**: Über den Knopf ⌨️ oben rechts kann das Kind selbst schreiben,
+  was es sagen möchte. Jeder Buchstabe wird vorgelesen, „🔊 Vorlesen“ spricht den ganzen Text.
+  Dazu Leertaste, Löschen und „Alles weg“. Die Buchstaben stehen wahlweise in ABC-Reihenfolge
+  oder wie auf der Computer-Tastatur (QWERTZ), umschaltbar auf der Tastatur selbst oder in den
+  Einstellungen. Selbstlaute sind farbig, Ä, Ö, Ü und ß sind dabei.
+- **Freie Symbole statt Windows-Emojis**: Alle Bilder (auch Emil, die Eule) kommen jetzt aus
+  „Noto Emoji“ von Google (Apache-2.0-Lizenz) und liegen im Programm. Das Programm sieht damit
+  auf jedem Rechner gleich aus. Selbst eingetragene Emojis ohne Noto-Bild erscheinen wie bisher.
+
+**Verbessert**
+- Sticker-Album: Der Knopf „zurück zum Album“ ist vom grünen Haken ✅ unten rechts nach
+  **oben links** gewandert, wo sonst das Haus steht. Solange ein Sticker groß gezeigt wird,
+  wird das Haus zum Pfeil ⬅️ und führt zurück zu den Stickern, nicht ins Menü.
+  Die Eule 🦉 oben rechts liest den Sticker noch einmal vor.
+- Memory: Eine aus Versehen aufgedeckte erste Karte lässt sich durch nochmaliges Auswählen
+  wieder umdrehen.
+
 ## 2.5 – 15.11.2026
 
 **Verbessert**
