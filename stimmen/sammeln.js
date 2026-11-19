@@ -16,21 +16,69 @@
   const ACC = { der: "den", die: "die", das: "das" };
   const slug = s => s.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z]/g, "");
 
-  // Laute zum Lesenlernen: jeder Buchstabe einzeln und kurz (nicht langgezogen, nicht als Name).
-  // Nur wo der Laut anders klingt als der Buchstabe aussieht, steht der Laut (C = k, V = f, X = ks …).
+  // Aussprache genau vorgeben (Lautschrift IPA) – sonst spricht die Stimme z. B. "l" als "el",
+  // "ma" als "Maria" oder "se" als "see". <phoneme> versteht das Modell "Eleven v4".
+  const ph = (ipa, t) => `<phoneme alphabet="ipa" ph="${ipa}">${t}</phoneme>.`;
+  // Laute zum Lesenlernen: kurz, nicht als Buchstabenname. Mitlaute brauchen ein Dehnungszeichen (lː)
+  // oder ein ganz kurzes Murmel-e (bə) – ein einzelner Mitlaut allein bringt die Stimme durcheinander.
   // Lässt sich in stimmen/texte-anpassen.txt für jeden Buchstaben ändern.
-  const LAUT = {
-    A: "a.", B: "b.", C: "k.", D: "d.", E: "e.", F: "f.", G: "g.", H: "h.", I: "i.", J: "j.",
-    K: "k.", L: "l.", M: "m.", N: "n.", O: "o.", P: "p.", Q: "kw.", R: "r.", S: "s.", T: "t.",
-    U: "u.", V: "f.", W: "w.", X: "ks.", Y: "j.", Z: "ts.", "Ä": "ä.", "Ö": "ö.", "Ü": "ü.",
+  const LAUT_IPA = {
+    A: "aː", B: "bə", C: "kə", D: "də", E: "eː", F: "fː", G: "ɡə", H: "hə", I: "iː", J: "jː",
+    K: "kə", L: "lː", M: "mː", N: "nː", O: "oː", P: "pə", Q: "kv", R: "ʁː", S: "sː", T: "tə",
+    U: "uː", V: "fː", W: "vː", X: "ks", Y: "jː", Z: "ts", "Ä": "ɛː", "Ö": "øː", "Ü": "yː",
   };
+  const LAUT = {};
+  Object.keys(LAUT_IPA).forEach(L => { LAUT[L] = ph(LAUT_IPA[L], L.toLowerCase()); });
+
+  // ---- Silben in Lautschrift (einfache deutsche Regeln) ----
+  const ONSET = [["sch", "ʃ"], ["ch", "x"], ["ck", "k"], ["qu", "kv"], ["pf", "pf"], ["ts", "ts"], ["b", "b"], ["d", "d"], ["f", "f"],
+    ["g", "ɡ"], ["h", "h"], ["j", "j"], ["k", "k"], ["l", "l"], ["m", "m"], ["n", "n"], ["p", "p"], ["r", "ʁ"], ["s", "z"],
+    ["t", "t"], ["w", "v"], ["v", "f"], ["z", "ts"], ["x", "ks"]];
+  const LONG = { a: "aː", e: "eː", i: "iː", o: "oː", u: "uː", "ä": "ɛː", "ö": "øː", "ü": "yː", ie: "iː" };
+  const SHORT = { a: "a", e: "ɛ", i: "ɪ", o: "ɔ", u: "ʊ", "ä": "ɛ", "ö": "œ", "ü": "ʏ", ie: "iː" };
+  function onsetIPA(c) {
+    let r = "";
+    while (c) {
+      const o = ONSET.find(([g]) => c.startsWith(g));
+      if (!o) return null;
+      r += (r && o[0] === "s") ? "s" : o[1]; c = c.slice(o[0].length);   // "s" nach Mitlaut stimmlos
+    }
+    return r.replace(/^zp/, "ʃp").replace(/^zt/, "ʃt");
+  }
+  // Silbe -> IPA, oder null (dann normal als Text). i = Silbe im Wort (0 = erste), next = nächste geschriebene Silbe
+  function sylIPA(syl, i, next) {
+    const m = syl.toLowerCase().match(/^([^aeiouäöü]*)(ie|[aeiouäöü])([nlr]?)$/);
+    if (!m) return null;
+    const on = onsetIPA(m[1]); if (on == null) return null;
+    const [, , v, coda] = m;
+    if (coda) {                                      // Endsilben -en, -el, -er: Murmel-e
+      if (v !== "e" || i === 0) return null;
+      return on + (coda === "r" ? "ɐ" : "ə" + coda);
+    }
+    if (v === "e" && i > 0) return on + "ə";         // offene Endsilbe -e: Murmel-e (Ha-se, Na-se)
+    const short = /^(ck|sch|ch|x|tz)/.test(next || "");
+    return on + (short ? SHORT[v] : LONG[v]);
+  }
+  // Ausnahmen: Wort/Silbennummer -> IPA (Betonung, fremde Wörter). Kurze Silben wie "na" allein
+  // brauchen manchmal ein Betonungszeichen (ˈna), sonst entsteht eine zu lange, falsche Tondatei.
+  const SYL_FIX = {
+    "geschenk-1": "ɡə", "rakete-2": "keː", "video-2": "deː", "jaguar-3": "aʁ", "gitarre-2": "taʁ",
+    "kirsche-1": "kɪʁ", "gorilla-2": "ʁɪl", "irrgarten-1": "ɪʁ", "computer-2": "puː",
+    "ananas-1": "ˈa", "ananas-2": "ˈna", "jacke-1": "ˈja", "spaghetti-1": "ʃpa", "pizza-2": "tsa", "kamera-3": "ʁa",
+  };
+  // Wörter, die die Stimme sonst englisch spricht (gilt auch in Sätzen)
+  const WORD_IPA = { Rose: "ˈʁoːzə" };
+  const wordPh = t => t.replace(/\b(Rose)\b/g, w => `<phoneme alphabet="ipa" ph="${WORD_IPA[w]}">${w}</phoneme>`);
+
   const out = { laut: {}, name: {}, wort: {}, silben: {}, satz: [] };
   const seen = new Set();
   const key = t => String(t).toLowerCase().replace(/[^a-zäöüß0-9]+/g, " ").trim();
   // gruppe = Reihenfolge beim Erzeugen (wichtige zuerst, falls das Guthaben nicht reicht)
   // wie im Programm: Texte werden an Satzzeichen zerlegt, jedes Stück ist eine eigene Tondatei
   const add = (gruppe, t) => (String(t).match(/[^.!?:]+[.!?:]*/g) || []).forEach(x => {
-    x = x.trim(); const k = key(x); if (!k || seen.has(k)) return; seen.add(k); out.satz.push({ gruppe, text: x });
+    x = x.trim(); const k = key(x); if (!k || seen.has(k)) return; seen.add(k);
+    const say = wordPh(x);                             // "say" = so gesprochen (mit Lautschrift), "text" = Schlüssel im Programm
+    out.satz.push(say === x ? { gruppe, text: x } : { gruppe, text: x, say });
   });
 
   // ---- Buchstaben: Laut und Name ----
@@ -41,9 +89,14 @@
   Object.entries(STICKER_WORDS).forEach(([e, d]) => { if (typeof d !== "string") ALL.push(Object.assign({ e }, d)); });
   ["der", "die", "das"].forEach(a => { out.wort[a] = a; });
   ALL.forEach(w => {
-    out.wort[slug(w.w)] = w.w + ".";
-    // Silben genau so, wie sie geschrieben werden (nur "sp" für Wörter mit fremder Aussprache)
-    out.silben[slug(w.w)] = (w.sp || w.s).split("-").map(p => cap(p.toLowerCase().replace(/^ck/, "k")) + ".");
+    out.wort[slug(w.w)] = WORD_IPA[w.w] ? `<phoneme alphabet="ipa" ph="${WORD_IPA[w.w]}">${w.w}</phoneme>.` : w.w + ".";
+    // Silben so, wie sie geschrieben sind ("sp" nur bei fremder Aussprache), möglichst in Lautschrift
+    const shown = w.s.split("-"), spoken = (w.sp || w.s).split("-");
+    out.silben[slug(w.w)] = spoken.map((p, i) => {
+      const t = cap(p.toLowerCase().replace(/^ck/, "k"));
+      const ipa = SYL_FIX[`${slug(w.w)}-${i + 1}`] || sylIPA(p.replace(/^ck/, "k"), i, shown[i + 1]);
+      return ipa ? ph(ipa, cap(shown[i] || t)) : t + ".";
+    });
   });
   COLORS.forEach(c => { out.wort[slug(c.w)] = cap(c.w) + "."; });
 

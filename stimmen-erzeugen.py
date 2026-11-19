@@ -61,7 +61,7 @@ def auftraege(s):
         for i, t in enumerate(syl): jobs.append((f"silben/{k}-{i + 1}", t, 0))
     for x in s["satz"]:
         h = hashlib.sha1(satz_key(x["text"]).encode("utf-8")).hexdigest()[:10]
-        jobs.append(("satz/" + h, x["text"], x["gruppe"]))
+        jobs.append(("satz/" + h, x.get("say", x["text"]), x["gruppe"]))
     # eigene Anpassungen: "id = Text" (id wie in stimmen\anhoeren.html angezeigt)
     over = {}
     f = os.path.join(ST, "texte-anpassen.txt")
@@ -137,6 +137,9 @@ def anhoerseite(jobs, orig):
         kind = i.split("/")[0]
         if kind != last: rows.append(f"<h2>{namen[kind]}</h2>"); last = kind
         shown = orig.get(i, t)
+        # Lautschrift sichtbar machen: <phoneme ph="lː">l</phoneme> -> l [lː]
+        shown = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 <b>[\1]</b>", shown)
+        t = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 [\1]", t)
         rows.append(f'<div class="r"><audio controls preload="none" src="../web/audio/{i}.mp3"></audio>'
                     f'<code>{i}</code><span>{shown}</span>{"" if shown == t else f" <i>(gesprochen als: {t})</i>"}</div>')
     page = ("<!doctype html><meta charset='utf-8'><title>ABC-Abenteuer – Tondateien anhören</title>"

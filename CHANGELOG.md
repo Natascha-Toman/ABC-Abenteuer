@@ -2,6 +2,17 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.2 – 19.11.2026
+
+**Verbessert**
+- Stimme: Laute und Silben werden mit Lautschrift (IPA, `<phoneme>`) erzeugt, damit die Stimme
+  richtig deutsch spricht: „l“ statt „el“, „e“ statt „ei“, „ks“ statt „Kirchenstraße“, „se“ mit
+  Murmel-e statt „see“, „ma“ statt „Maria“, „Rose“ deutsch statt englisch usw.
+  Mitlaute klingen kurz gedehnt (l, m, n, f, s, r) oder mit ganz kurzem Murmel-e (b, d, g, k, p, t).
+- Neue Bilder: Fluss (passend zu den anderen Zeichnungen), Nudeln (Penne auf einem Teller),
+  Computer (Bildschirm statt Laptop).
+- Sterne auf den Menü-Kacheln stehen optisch mittig im weißen Feld.
+
 ## 4.1 – 19.11.2026
 
 **Neu**

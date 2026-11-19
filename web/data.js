@@ -59,16 +59,24 @@ const PICS = {
     <path d="M25 48 L75 48 L72 74 L28 74 Z" fill="#ffd6e7"/>
     <path d="M50 53 Q61 55 57 66 Q50 74 43 66 Q39 55 50 53 Z" fill="#e53935"/>
     <path d="M44 55 L50 50 L56 55" stroke="#2e9e44" stroke-width="3" fill="none" stroke-linecap="round"/>`),
-  nudeln: svg(`<ellipse cx="50" cy="74" rx="45" ry="15" fill="#fff" stroke="#9aa5b8" stroke-width="3"/>
-    <g fill="#ffd166" stroke="#c99a1e" stroke-width="2.5" stroke-linejoin="round">
-      <path d="M16 62 L36 50 L42 60 L22 72 Z"/><path d="M44 46 L66 40 L68 52 L46 58 Z"/><path d="M62 62 L82 54 L86 64 L66 72 Z"/><path d="M34 70 L52 62 L56 72 L38 80 Z"/>
-    </g>
-    <path d="M22 60 L38 52 M26 66 L40 58 M50 46 L64 43 M50 52 L66 48 M68 60 L82 57 M70 66 L84 61 M40 70 L52 65 M42 76 L54 70" stroke="#c99a1e" stroke-width="1.6"/>`),
+  nudeln: svg(`<ellipse cx="50" cy="76" rx="46" ry="14" fill="#fff" stroke="#9aa5b8" stroke-width="3"/><ellipse cx="50" cy="74" rx="34" ry="8" fill="#eef2f7"/>
+    <g transform="translate(34 66) rotate(8)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
+    <g transform="translate(66 66) rotate(-10)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
+    <g transform="translate(50 56) rotate(-28)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
+    <g transform="translate(32 50) rotate(30)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
+    <g transform="translate(68 46) rotate(12)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
+    <g transform="translate(50 38) rotate(-6)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>`),
   jacke: svg(`<path d="M34 14 Q50 4 66 14 L84 24 L93 58 L81 62 L74 42 L74 80 L26 80 L26 42 L19 62 L7 58 L16 24 Z" fill="#ef6f6c" stroke="#a83b39" stroke-width="3" stroke-linejoin="round"/>
     <rect x="26" y="76" width="48" height="8" rx="2" fill="#c94f4c" stroke="#a83b39" stroke-width="2"/>
     <path d="M36 14 Q50 27 64 14" fill="none" stroke="#a83b39" stroke-width="3"/>
     <path d="M50 20 V84" stroke="#ffd93d" stroke-width="3"/>
     <path d="M30 60 H42 M58 60 H70" stroke="#a83b39" stroke-width="3" stroke-linecap="round"/>`),
+  fluss: svg(`<rect x="4" y="8" width="92" height="84" rx="16" fill="#a8e28a" stroke="#6cbf4f" stroke-width="3"/>
+    <path d="M42 8 Q26 30 46 46 Q68 62 34 92 H70 Q98 62 66 40 Q52 28 60 8 Z" fill="#4d96ff"/>
+    <path d="M47 22 q4 -3 8 0 M52 50 q5 -3 10 0 M50 76 q5 -3 10 0" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="17" y="66" width="4" height="10" fill="#8a5a2b"/><circle cx="19" cy="62" r="9" fill="#2e9e44"/>
+    <rect x="80" y="24" width="4" height="10" fill="#8a5a2b"/><circle cx="82" cy="20" r="8" fill="#2e9e44"/>
+    <circle cx="28" cy="24" r="4" fill="#ffd93d"/><circle cx="84" cy="70" r="3.5" fill="#ff7eb6"/>`),
   chor: svg(`<path d="M8 96 Q8 70 25 68 Q42 70 42 96 Z" fill="#4d96ff"/><path d="M58 96 Q58 70 75 68 Q92 70 92 96 Z" fill="#3cb371"/>
     <path d="M32 96 Q32 62 50 60 Q68 62 68 96 Z" fill="#ef6f6c"/>
     <circle cx="25" cy="52" r="13" fill="#f5c08a" stroke="#a0522d" stroke-width="2"/><circle cx="75" cy="52" r="13" fill="#e0a370" stroke="#a0522d" stroke-width="2"/>
@@ -265,7 +273,7 @@ const WORDS = [
   { w: "Brille",    g: "die", e: "👓", s: "Bril-le" },
   { w: "Brief",     g: "der", e: "✉️", s: "Brief" },
   // C
-  { w: "Computer",  g: "der", e: "💻", s: "Com-pu-ter", sp: "Kom-pju-ter" },
+  { w: "Computer",  g: "der", e: "🖥️", s: "Com-pu-ter", sp: "Kom-pju-ter" },
   { w: "Cowboy",    g: "der", e: "🤠", s: "Cow-boy", sp: "Kau-beu" },
   { w: "Chor",      g: "der", e: PICS.chor, s: "Chor", sp: "Kor" },
   { w: "Comic",     g: "der", e: PICS.comic, s: "Co-mic", sp: "Ko-mik" },
@@ -294,7 +302,7 @@ const WORDS = [
   { w: "Flugzeug",  g: "das", e: "✈️", s: "Flug-zeug" },
   { w: "Fahrrad",   g: "das", e: "🚲", s: "Fahr-rad" },
   { w: "Flasche",   g: "die", e: PICS.flasche, s: "Fla-sche" },
-  { w: "Fluss",     g: "der", e: "🏞️", s: "Fluss" },
+  { w: "Fluss",     g: "der", e: PICS.fluss, s: "Fluss" },
   // G
   { w: "Gurke",     g: "die", e: "🥒", s: "Gur-ke", lg: true },
   { w: "Geschenk",  g: "das", e: "🎁", s: "Ge-schenk" },

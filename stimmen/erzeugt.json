@@ -1,147 +1,147 @@
 {
 "laut/a": {
-"text": "a.",
-"text_orig": "a.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"aː\">a</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"aː\">a</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/b": {
-"text": "b.",
-"text_orig": "b.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bə\">b</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bə\">b</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/c": {
-"text": "k.",
-"text_orig": "k.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">c</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">c</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/d": {
-"text": "d.",
-"text_orig": "d.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"də\">d</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"də\">d</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/e": {
-"text": "e.",
-"text_orig": "e.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"eː\">e</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"eː\">e</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/f": {
-"text": "f.",
-"text_orig": "f.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fː\">f</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fː\">f</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/g": {
-"text": "g.",
-"text_orig": "g.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">g</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">g</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/h": {
-"text": "h.",
-"text_orig": "h.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"hə\">h</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"hə\">h</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/i": {
-"text": "i.",
-"text_orig": "i.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"iː\">i</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"iː\">i</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/j": {
-"text": "j.",
-"text_orig": "j.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"jː\">j</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"jː\">j</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/k": {
-"text": "k.",
-"text_orig": "k.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">k</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">k</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/l": {
-"text": "l.",
-"text_orig": "l.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lː\">l</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lː\">l</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/m": {
-"text": "m.",
-"text_orig": "m.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"mː\">m</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mː\">m</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/n": {
-"text": "n.",
-"text_orig": "n.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nː\">n</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nː\">n</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/o": {
-"text": "o.",
-"text_orig": "o.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">o</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">o</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/p": {
-"text": "p.",
-"text_orig": "p.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"pə\">p</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"pə\">p</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/q": {
-"text": "kw.",
-"text_orig": "kw.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kv\">q</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kv\">q</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/r": {
-"text": "r.",
-"text_orig": "r.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁː\">r</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁː\">r</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/s": {
-"text": "s.",
-"text_orig": "s.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"sː\">s</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"sː\">s</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/t": {
-"text": "t.",
-"text_orig": "t.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tə\">t</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tə\">t</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/u": {
-"text": "u.",
-"text_orig": "u.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"uː\">u</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"uː\">u</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/v": {
-"text": "f.",
-"text_orig": "f.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fː\">v</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fː\">v</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/w": {
-"text": "w.",
-"text_orig": "w.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"vː\">w</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"vː\">w</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/x": {
-"text": "ks.",
-"text_orig": "ks.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ks\">x</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ks\">x</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/y": {
-"text": "j.",
-"text_orig": "j.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"jː\">y</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"jː\">y</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/z": {
-"text": "ts.",
-"text_orig": "ts.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ts\">z</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ts\">z</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/ae": {
-"text": "ä.",
-"text_orig": "ä.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɛː\">ä</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɛː\">ä</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/oe": {
-"text": "ö.",
-"text_orig": "ö.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"øː\">ö</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"øː\">ö</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/ue": {
-"text": "ü.",
-"text_orig": "ü.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"yː\">ü</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"yː\">ü</phoneme>.",
 "modell": "eleven_v4"
 },
 "name/a": {
@@ -840,8 +840,8 @@
 "modell": "eleven_v4"
 },
 "wort/rose": {
-"text": "Rose.",
-"text_orig": "Rose.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈʁoːzə\">Rose</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈʁoːzə\">Rose</phoneme>.",
 "modell": "eleven_v4"
 },
 "wort/rakete": {
@@ -1180,8 +1180,8 @@
 "modell": "eleven_v4"
 },
 "silben/affe-2": {
-"text": "Fe.",
-"text_orig": "Fe.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fə\">Fe</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fə\">Fe</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/apfel-1": {
@@ -1190,13 +1190,13 @@
 "modell": "eleven_v4"
 },
 "silben/apfel-2": {
-"text": "Fel.",
-"text_orig": "Fel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fəl\">Fel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fəl\">Fel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ameise-1": {
-"text": "A.",
-"text_orig": "A.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"aː\">A</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"aː\">A</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ameise-2": {
@@ -1205,18 +1205,18 @@
 "modell": "eleven_v4"
 },
 "silben/ameise-3": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ananas-1": {
-"text": "A.",
-"text_orig": "A.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈa\">A</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈa\">A</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ananas-2": {
-"text": "Na.",
-"text_orig": "Na.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈna\">Na</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈna\">Na</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ananas-3": {
@@ -1230,8 +1230,8 @@
 "modell": "eleven_v4"
 },
 "silben/ampel-2": {
-"text": "Pel.",
-"text_orig": "Pel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"pəl\">Pel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"pəl\">Pel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/anker-1": {
@@ -1240,8 +1240,8 @@
 "modell": "eleven_v4"
 },
 "silben/anker-2": {
-"text": "Ker.",
-"text_orig": "Ker.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kɐ\">Ker</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kɐ\">Ker</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/auto-1": {
@@ -1250,8 +1250,8 @@
 "modell": "eleven_v4"
 },
 "silben/auto-2": {
-"text": "To.",
-"text_orig": "To.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"toː\">To</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"toː\">To</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/auge-1": {
@@ -1260,23 +1260,23 @@
 "modell": "eleven_v4"
 },
 "silben/auge-2": {
-"text": "Ge.",
-"text_orig": "Ge.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/banane-1": {
-"text": "Ba.",
-"text_orig": "Ba.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"baː\">Ba</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"baː\">Ba</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/banane-2": {
-"text": "Na.",
-"text_orig": "Na.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"naː\">Na</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"naː\">Na</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/banane-3": {
-"text": "Ne.",
-"text_orig": "Ne.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/baum-1": {
@@ -1290,13 +1290,13 @@
 "modell": "eleven_v4"
 },
 "silben/biene-1": {
-"text": "Bie.",
-"text_orig": "Bie.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"biː\">Bie</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"biː\">Bie</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/biene-2": {
-"text": "Ne.",
-"text_orig": "Ne.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/buch-1": {
@@ -1305,23 +1305,23 @@
 "modell": "eleven_v4"
 },
 "silben/blume-1": {
-"text": "Blu.",
-"text_orig": "Blu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bluː\">Blu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bluː\">Blu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/blume-2": {
-"text": "Me.",
-"text_orig": "Me.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/bluete-1": {
-"text": "Blü.",
-"text_orig": "Blü.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"blyː\">Blü</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"blyː\">Blü</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/bluete-2": {
-"text": "Te.",
-"text_orig": "Te.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/brot-1": {
@@ -1350,8 +1350,8 @@
 "modell": "eleven_v4"
 },
 "silben/brille-2": {
-"text": "Le.",
-"text_orig": "Le.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/computer-1": {
@@ -1360,13 +1360,13 @@
 "modell": "eleven_v4"
 },
 "silben/computer-2": {
-"text": "Pju.",
-"text_orig": "Pju.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"puː\">Pu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"puː\">Pu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/computer-3": {
-"text": "Ter.",
-"text_orig": "Ter.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/cowboy-1": {
@@ -1380,13 +1380,13 @@
 "modell": "eleven_v4"
 },
 "silben/dino-1": {
-"text": "Di.",
-"text_orig": "Di.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"diː\">Di</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"diː\">Di</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/dino-2": {
-"text": "No.",
-"text_orig": "No.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"noː\">No</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"noː\">No</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/delfin-1": {
@@ -1400,23 +1400,23 @@
 "modell": "eleven_v4"
 },
 "silben/drache-1": {
-"text": "Dra.",
-"text_orig": "Dra.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"dʁa\">Dra</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"dʁa\">Dra</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/drache-2": {
-"text": "Che.",
-"text_orig": "Che.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"xə\">Che</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"xə\">Che</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/dusche-1": {
-"text": "Du.",
-"text_orig": "Du.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"dʊ\">Du</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"dʊ\">Du</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/dusche-2": {
-"text": "Sche.",
-"text_orig": "Sche.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Sche</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Sche</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ente-1": {
@@ -1425,18 +1425,18 @@
 "modell": "eleven_v4"
 },
 "silben/ente-2": {
-"text": "Te.",
-"text_orig": "Te.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/elefant-1": {
-"text": "E.",
-"text_orig": "E.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"eː\">E</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"eː\">E</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/elefant-2": {
-"text": "Le.",
-"text_orig": "Le.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/elefant-3": {
@@ -1455,8 +1455,8 @@
 "modell": "eleven_v4"
 },
 "silben/erdbeere-3": {
-"text": "Re.",
-"text_orig": "Re.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">Re</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">Re</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/engel-1": {
@@ -1465,18 +1465,18 @@
 "modell": "eleven_v4"
 },
 "silben/engel-2": {
-"text": "Gel.",
-"text_orig": "Gel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡəl\">Gel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡəl\">Gel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/esel-1": {
-"text": "E.",
-"text_orig": "E.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"eː\">E</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"eː\">E</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/esel-2": {
-"text": "Sel.",
-"text_orig": "Sel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zəl\">Sel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zəl\">Sel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/eis-1": {
@@ -1510,8 +1510,8 @@
 "modell": "eleven_v4"
 },
 "silben/feuer-2": {
-"text": "Er.",
-"text_orig": "Er.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɐ\">Er</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɐ\">Er</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/fee-1": {
@@ -1545,13 +1545,13 @@
 "modell": "eleven_v4"
 },
 "silben/gurke-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">Ke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">Ke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/geschenk-1": {
-"text": "Ge.",
-"text_orig": "Ge.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/geschenk-2": {
@@ -1560,33 +1560,33 @@
 "modell": "eleven_v4"
 },
 "silben/gitarre-1": {
-"text": "Gi.",
-"text_orig": "Gi.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡiː\">Gi</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡiː\">Gi</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/gitarre-2": {
-"text": "Tar.",
-"text_orig": "Tar.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"taʁ\">Tar</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"taʁ\">Tar</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/gitarre-3": {
-"text": "Re.",
-"text_orig": "Re.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">Re</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">Re</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/gorilla-1": {
-"text": "Go.",
-"text_orig": "Go.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡoː\">Go</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡoː\">Go</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/gorilla-2": {
-"text": "Ril.",
-"text_orig": "Ril.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁɪl\">Ril</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁɪl\">Ril</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/gorilla-3": {
-"text": "La.",
-"text_orig": "La.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"laː\">La</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"laː\">La</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/geist-1": {
@@ -1605,13 +1605,13 @@
 "modell": "eleven_v4"
 },
 "silben/hase-1": {
-"text": "Ha.",
-"text_orig": "Ha.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"haː\">Ha</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"haː\">Ha</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/hase-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/herz-1": {
@@ -1635,14 +1635,14 @@
 "modell": "eleven_v4"
 },
 "silben/igel-1": {
-"text": "I.",
-"text_orig": "I.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"iː\">I</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"iː\">I</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/igel-2": {
-"text": "Gel.",
-"text_orig": "Gel.",
-"modell": "?"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡəl\">Gel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡəl\">Gel</phoneme>.",
+"modell": "eleven_v4"
 },
 "silben/insel-1": {
 "text": "In.",
@@ -1650,18 +1650,18 @@
 "modell": "?"
 },
 "silben/insel-2": {
-"text": "Sel.",
-"text_orig": "Sel.",
-"modell": "?"
+"text": "<phoneme alphabet=\"ipa\" ph=\"zəl\">Sel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zəl\">Sel</phoneme>.",
+"modell": "eleven_v4"
 },
 "silben/iglu-1": {
-"text": "I.",
-"text_orig": "I.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"iː\">I</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"iː\">I</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/iglu-2": {
-"text": "Glu.",
-"text_orig": "Glu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡluː\">Glu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡluː\">Glu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/insekt-1": {
@@ -1675,13 +1675,13 @@
 "modell": "?"
 },
 "silben/jacke-1": {
-"text": "Ja.",
-"text_orig": "Ja.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈja\">Ja</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈja\">Ja</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/jacke-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">Cke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">Cke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/junge-1": {
@@ -1690,13 +1690,13 @@
 "modell": "?"
 },
 "silben/junge-2": {
-"text": "Ge.",
-"text_orig": "Ge.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/joghurt-1": {
-"text": "Jo.",
-"text_orig": "Jo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"joː\">Jo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"joː\">Jo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/joghurt-2": {
@@ -1705,18 +1705,18 @@
 "modell": "?"
 },
 "silben/jaguar-1": {
-"text": "Ja.",
-"text_orig": "Ja.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"jaː\">Ja</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"jaː\">Ja</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/jaguar-2": {
-"text": "Gu.",
-"text_orig": "Gu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡuː\">Gu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡuː\">Gu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/jaguar-3": {
-"text": "Ar.",
-"text_orig": "Ar.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"aʁ\">Ar</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"aʁ\">Ar</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/katze-1": {
@@ -1725,8 +1725,8 @@
 "modell": "eleven_v4"
 },
 "silben/katze-2": {
-"text": "Ze.",
-"text_orig": "Ze.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsə\">Ze</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsə\">Ze</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kuh-1": {
@@ -1735,23 +1735,23 @@
 "modell": "eleven_v4"
 },
 "silben/kaese-1": {
-"text": "Kä.",
-"text_orig": "Kä.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kɛː\">Kä</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kɛː\">Kä</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kaese-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krone-1": {
-"text": "Kro.",
-"text_orig": "Kro.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kʁoː\">Kro</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kʁoː\">Kro</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krone-2": {
-"text": "Ne.",
-"text_orig": "Ne.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/keks-1": {
@@ -1765,28 +1765,28 @@
 "modell": "eleven_v4"
 },
 "silben/kerze-2": {
-"text": "Ze.",
-"text_orig": "Ze.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsə\">Ze</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsə\">Ze</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kamel-1": {
-"text": "Ka.",
-"text_orig": "Ka.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kaː\">Ka</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kaː\">Ka</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kamel-2": {
-"text": "Mel.",
-"text_orig": "Mel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"məl\">Mel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"məl\">Mel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krokodil-1": {
-"text": "Kro.",
-"text_orig": "Kro.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kʁoː\">Kro</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kʁoː\">Kro</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krokodil-2": {
-"text": "Ko.",
-"text_orig": "Ko.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"koː\">Ko</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"koː\">Ko</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krokodil-3": {
@@ -1795,38 +1795,38 @@
 "modell": "eleven_v4"
 },
 "silben/koala-1": {
-"text": "Ko.",
-"text_orig": "Ko.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"koː\">Ko</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"koː\">Ko</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/koala-2": {
-"text": "A.",
-"text_orig": "A.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"aː\">A</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"aː\">A</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/koala-3": {
-"text": "La.",
-"text_orig": "La.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"laː\">La</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"laː\">La</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kirsche-1": {
-"text": "Kir.",
-"text_orig": "Kir.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kɪʁ\">Kir</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kɪʁ\">Kir</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kirsche-2": {
-"text": "Sche.",
-"text_orig": "Sche.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Sche</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Sche</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kiwi-1": {
-"text": "Ki.",
-"text_orig": "Ki.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kiː\">Ki</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kiː\">Ki</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kiwi-2": {
-"text": "Wi.",
-"text_orig": "Wi.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"viː\">Wi</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"viː\">Wi</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kaktus-1": {
@@ -1840,28 +1840,28 @@
 "modell": "eleven_v4"
 },
 "silben/kamera-1": {
-"text": "Ka.",
-"text_orig": "Ka.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kaː\">Ka</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kaː\">Ka</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kamera-2": {
-"text": "Me.",
-"text_orig": "Me.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kamera-3": {
-"text": "Ra.",
-"text_orig": "Ra.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁa\">Ra</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁa\">Ra</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/loewe-1": {
-"text": "Lö.",
-"text_orig": "Lö.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"løː\">Lö</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"løː\">Lö</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/loewe-2": {
-"text": "We.",
-"text_orig": "We.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"və\">We</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"və\">We</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/loeffel-1": {
@@ -1870,28 +1870,28 @@
 "modell": "eleven_v4"
 },
 "silben/loeffel-2": {
-"text": "Fel.",
-"text_orig": "Fel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fəl\">Fel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fəl\">Fel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/lama-1": {
-"text": "La.",
-"text_orig": "La.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"laː\">La</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"laː\">La</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/lama-2": {
-"text": "Ma.",
-"text_orig": "Ma.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"maː\">Ma</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"maː\">Ma</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/lupe-1": {
-"text": "Lu.",
-"text_orig": "Lu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"luː\">Lu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"luː\">Lu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/lupe-2": {
-"text": "Pe.",
-"text_orig": "Pe.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"pə\">Pe</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"pə\">Pe</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/lolli-1": {
@@ -1900,8 +1900,8 @@
 "modell": "eleven_v4"
 },
 "silben/lolli-2": {
-"text": "Li.",
-"text_orig": "Li.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"liː\">Li</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"liː\">Li</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/maus-1": {
@@ -1930,48 +1930,48 @@
 "modell": "eleven_v4"
 },
 "silben/mantel-2": {
-"text": "Tel.",
-"text_orig": "Tel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"təl\">Tel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"təl\">Tel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/melone-1": {
-"text": "Me.",
-"text_orig": "Me.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"meː\">Me</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"meː\">Me</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/melone-2": {
-"text": "Lo.",
-"text_orig": "Lo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"loː\">Lo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"loː\">Lo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/melone-3": {
-"text": "Ne.",
-"text_orig": "Ne.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/muschel-1": {
-"text": "Mu.",
-"text_orig": "Mu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"mʊ\">Mu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mʊ\">Mu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/muschel-2": {
-"text": "Schel.",
-"text_orig": "Schel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʃəl\">Schel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʃəl\">Schel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/nase-1": {
-"text": "Na.",
-"text_orig": "Na.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"naː\">Na</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"naː\">Na</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/nase-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/nudeln-1": {
-"text": "Nu.",
-"text_orig": "Nu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nuː\">Nu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nuː\">Nu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/nudeln-2": {
@@ -2010,23 +2010,23 @@
 "modell": "eleven_v4"
 },
 "silben/oma-1": {
-"text": "O.",
-"text_orig": "O.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/oma-2": {
-"text": "Ma.",
-"text_orig": "Ma.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"maː\">Ma</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"maː\">Ma</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/opa-1": {
-"text": "O.",
-"text_orig": "O.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/opa-2": {
-"text": "Pa.",
-"text_orig": "Pa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ohr-1": {
@@ -2040,13 +2040,13 @@
 "modell": "eleven_v4"
 },
 "silben/otter-2": {
-"text": "Ter.",
-"text_orig": "Ter.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/orange-1": {
-"text": "O.",
-"text_orig": "O.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/orange-2": {
@@ -2055,8 +2055,8 @@
 "modell": "eleven_v4"
 },
 "silben/orange-3": {
-"text": "Sche.",
-"text_orig": "Sche.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Ge</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Ge</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/pilz-1": {
@@ -2070,8 +2070,8 @@
 "modell": "eleven_v4"
 },
 "silben/pinguin-2": {
-"text": "Gu.",
-"text_orig": "Gu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡuː\">Gu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡuː\">Gu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/pinguin-3": {
@@ -2090,8 +2090,8 @@
 "modell": "eleven_v4"
 },
 "silben/pizza-2": {
-"text": "Tsa.",
-"text_orig": "Tsa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsa\">Za</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsa\">Za</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/panda-1": {
@@ -2100,18 +2100,18 @@
 "modell": "eleven_v4"
 },
 "silben/panda-2": {
-"text": "Da.",
-"text_orig": "Da.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"daː\">Da</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"daː\">Da</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/papagei-1": {
-"text": "Pa.",
-"text_orig": "Pa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/papagei-2": {
-"text": "Pa.",
-"text_orig": "Pa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/papagei-3": {
@@ -2125,13 +2125,13 @@
 "modell": "eleven_v4"
 },
 "silben/palme-2": {
-"text": "Me.",
-"text_orig": "Me.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/paket-1": {
-"text": "Pa.",
-"text_orig": "Pa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"paː\">Pa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/paket-2": {
@@ -2145,8 +2145,8 @@
 "modell": "eleven_v4"
 },
 "silben/pinsel-2": {
-"text": "Sel.",
-"text_orig": "Sel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zəl\">Sel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zəl\">Sel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/qualle-1": {
@@ -2155,13 +2155,13 @@
 "modell": "eleven_v4"
 },
 "silben/qualle-2": {
-"text": "Le.",
-"text_orig": "Le.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/quadrat-1": {
-"text": "Kwa.",
-"text_orig": "Kwa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kvaː\">Qua</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kvaː\">Qua</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/quadrat-2": {
@@ -2170,28 +2170,28 @@
 "modell": "eleven_v4"
 },
 "silben/rose-1": {
-"text": "Ro.",
-"text_orig": "Ro.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁoː\">Ro</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁoː\">Ro</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/rose-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/rakete-1": {
-"text": "Ra.",
-"text_orig": "Ra.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁaː\">Ra</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁaː\">Ra</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/rakete-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"keː\">Ke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"keː\">Ke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/rakete-3": {
-"text": "Te.",
-"text_orig": "Te.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ring-1": {
@@ -2200,23 +2200,23 @@
 "modell": "eleven_v4"
 },
 "silben/regenbogen-1": {
-"text": "Re.",
-"text_orig": "Re.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁeː\">Re</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁeː\">Re</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/regenbogen-2": {
-"text": "Gen.",
-"text_orig": "Gen.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡən\">Gen</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡən\">Gen</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/regenbogen-3": {
-"text": "Bo.",
-"text_orig": "Bo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"boː\">Bo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"boː\">Bo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/regenbogen-4": {
-"text": "Gen.",
-"text_orig": "Gen.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡən\">Gen</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡən\">Gen</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/roller-1": {
@@ -2225,23 +2225,23 @@
 "modell": "eleven_v4"
 },
 "silben/roller-2": {
-"text": "Ler.",
-"text_orig": "Ler.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lɐ\">Ler</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lɐ\">Ler</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/roboter-1": {
-"text": "Ro.",
-"text_orig": "Ro.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁoː\">Ro</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁoː\">Ro</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/roboter-2": {
-"text": "Bo.",
-"text_orig": "Bo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"boː\">Bo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"boː\">Bo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/roboter-3": {
-"text": "Ter.",
-"text_orig": "Ter.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/sonne-1": {
@@ -2250,23 +2250,23 @@
 "modell": "eleven_v4"
 },
 "silben/sonne-2": {
-"text": "Ne.",
-"text_orig": "Ne.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/sofa-1": {
-"text": "So.",
-"text_orig": "So.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zoː\">So</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zoː\">So</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/sofa-2": {
-"text": "Fa.",
-"text_orig": "Fa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"faː\">Fa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"faː\">Fa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/salat-1": {
-"text": "Sa.",
-"text_orig": "Sa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zaː\">Sa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zaː\">Sa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/salat-2": {
@@ -2275,13 +2275,13 @@
 "modell": "eleven_v4"
 },
 "silben/socke-1": {
-"text": "So.",
-"text_orig": "So.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zɔ\">So</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zɔ\">So</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/socke-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">Cke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">Cke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/seife-1": {
@@ -2290,13 +2290,13 @@
 "modell": "eleven_v4"
 },
 "silben/seife-2": {
-"text": "Fe.",
-"text_orig": "Fe.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fə\">Fe</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fə\">Fe</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/spaghetti-1": {
-"text": "Schpa.",
-"text_orig": "Schpa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʃpa\">Spa</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʃpa\">Spa</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/spaghetti-2": {
@@ -2305,43 +2305,43 @@
 "modell": "eleven_v4"
 },
 "silben/spaghetti-3": {
-"text": "Ti.",
-"text_orig": "Ti.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tiː\">Ti</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tiː\">Ti</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/tomate-1": {
-"text": "To.",
-"text_orig": "To.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"toː\">To</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"toː\">To</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/tomate-2": {
-"text": "Ma.",
-"text_orig": "Ma.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"maː\">Ma</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"maː\">Ma</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/tomate-3": {
-"text": "Te.",
-"text_orig": "Te.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/tiger-1": {
-"text": "Ti.",
-"text_orig": "Ti.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tiː\">Ti</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tiː\">Ti</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/tiger-2": {
-"text": "Ger.",
-"text_orig": "Ger.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡɐ\">Ger</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡɐ\">Ger</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/taxi-1": {
-"text": "Ta.",
-"text_orig": "Ta.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ta\">Ta</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ta\">Ta</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/taxi-2": {
-"text": "Ksi.",
-"text_orig": "Ksi.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ksiː\">Xi</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ksiː\">Xi</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/teddy-1": {
@@ -2350,8 +2350,8 @@
 "modell": "eleven_v4"
 },
 "silben/teddy-2": {
-"text": "Di.",
-"text_orig": "Di.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"diː\">Dy</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"diː\">Dy</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/trommel-1": {
@@ -2360,8 +2360,8 @@
 "modell": "eleven_v4"
 },
 "silben/trommel-2": {
-"text": "Mel.",
-"text_orig": "Mel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"məl\">Mel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"məl\">Mel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/traktor-1": {
@@ -2385,13 +2385,13 @@
 "modell": "eleven_v4"
 },
 "silben/ufo-1": {
-"text": "U.",
-"text_orig": "U.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"uː\">U</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"uː\">U</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ufo-2": {
-"text": "Fo.",
-"text_orig": "Fo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"foː\">Fo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"foː\">Fo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/unterhose-1": {
@@ -2400,23 +2400,23 @@
 "modell": "eleven_v4"
 },
 "silben/unterhose-2": {
-"text": "Ter.",
-"text_orig": "Ter.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/unterhose-3": {
-"text": "Ho.",
-"text_orig": "Ho.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"hoː\">Ho</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"hoː\">Ho</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/unterhose-4": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/uboot-1": {
-"text": "U.",
-"text_orig": "U.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"uː\">U</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"uː\">U</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/uboot-2": {
@@ -2425,8 +2425,8 @@
 "modell": "eleven_v4"
 },
 "silben/ubahn-1": {
-"text": "U.",
-"text_orig": "U.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"uː\">U</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"uː\">U</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ubahn-2": {
@@ -2435,13 +2435,13 @@
 "modell": "eleven_v4"
 },
 "silben/vogel-1": {
-"text": "Fo.",
-"text_orig": "Fo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"foː\">Vo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"foː\">Vo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/vogel-2": {
-"text": "Gel.",
-"text_orig": "Gel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡəl\">Gel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡəl\">Gel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/vulkan-1": {
@@ -2465,13 +2465,13 @@
 "modell": "eleven_v4"
 },
 "silben/vase-1": {
-"text": "Wa.",
-"text_orig": "Wa.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"vaː\">Va</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"vaː\">Va</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/vase-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/wal-1": {
@@ -2485,8 +2485,8 @@
 "modell": "eleven_v4"
 },
 "silben/wolke-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">Ke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">Ke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/wolf-1": {
@@ -2500,8 +2500,8 @@
 "modell": "eleven_v4"
 },
 "silben/wuerfel-2": {
-"text": "Fel.",
-"text_orig": "Fel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fəl\">Fel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fəl\">Fel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/welle-1": {
@@ -2510,28 +2510,28 @@
 "modell": "eleven_v4"
 },
 "silben/welle-2": {
-"text": "Le.",
-"text_orig": "Le.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lə\">Le</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/wecker-1": {
-"text": "We.",
-"text_orig": "We.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"vɛ\">We</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"vɛ\">We</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/wecker-2": {
-"text": "Ker.",
-"text_orig": "Ker.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kɐ\">Cker</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kɐ\">Cker</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/xylophon-1": {
-"text": "Xü.",
-"text_orig": "Xü.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ksyː\">Xy</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ksyː\">Xy</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/xylophon-2": {
-"text": "Lo.",
-"text_orig": "Lo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"loː\">Lo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"loː\">Lo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/xylophon-3": {
@@ -2540,23 +2540,23 @@
 "modell": "eleven_v4"
 },
 "silben/yoga-1": {
-"text": "Jo.",
-"text_orig": "Jo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"joː\">Yo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"joː\">Yo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/yoga-2": {
-"text": "Ga.",
-"text_orig": "Ga.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡaː\">Ga</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡaː\">Ga</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zebra-1": {
-"text": "Ze.",
-"text_orig": "Ze.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tseː\">Ze</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tseː\">Ze</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zebra-2": {
-"text": "Bra.",
-"text_orig": "Bra.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bʁaː\">Bra</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bʁaː\">Bra</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zug-1": {
@@ -2565,18 +2565,18 @@
 "modell": "eleven_v4"
 },
 "silben/zitrone-1": {
-"text": "Zi.",
-"text_orig": "Zi.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsiː\">Zi</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsiː\">Zi</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zitrone-2": {
-"text": "Tro.",
-"text_orig": "Tro.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tʁoː\">Tro</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tʁoː\">Tro</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zitrone-3": {
-"text": "Ne.",
-"text_orig": "Ne.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nə\">Ne</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zelt-1": {
@@ -2590,13 +2590,13 @@
 "modell": "eleven_v4"
 },
 "silben/ziege-1": {
-"text": "Zie.",
-"text_orig": "Zie.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsiː\">Zie</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsiː\">Zie</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ziege-2": {
-"text": "Ge.",
-"text_orig": "Ge.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡə\">Ge</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zirkus-1": {
@@ -2615,18 +2615,18 @@
 "modell": "eleven_v4"
 },
 "silben/zauberer-2": {
-"text": "Be.",
-"text_orig": "Be.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bə\">Be</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bə\">Be</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zauberer-3": {
-"text": "Rer.",
-"text_orig": "Rer.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁɐ\">Rer</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁɐ\">Rer</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zylinder-1": {
-"text": "Zü.",
-"text_orig": "Zü.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsyː\">Zy</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsyː\">Zy</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/zylinder-2": {
@@ -2635,8 +2635,8 @@
 "modell": "eleven_v4"
 },
 "silben/zylinder-3": {
-"text": "Der.",
-"text_orig": "Der.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"dɐ\">Der</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"dɐ\">Der</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/einhorn-1": {
@@ -2655,8 +2655,8 @@
 "modell": "eleven_v4"
 },
 "silben/schmetterling-2": {
-"text": "Ter.",
-"text_orig": "Ter.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/schmetterling-3": {
@@ -2665,13 +2665,13 @@
 "modell": "eleven_v4"
 },
 "silben/kaefer-1": {
-"text": "Kä.",
-"text_orig": "Kä.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kɛː\">Kä</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kɛː\">Kä</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/kaefer-2": {
-"text": "Fer.",
-"text_orig": "Fer.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fɐ\">Fer</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fɐ\">Fer</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/saurier-1": {
@@ -2680,23 +2680,23 @@
 "modell": "eleven_v4"
 },
 "silben/saurier-2": {
-"text": "Ri.",
-"text_orig": "Ri.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁiː\">Ri</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁiː\">Ri</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/saurier-3": {
-"text": "Er.",
-"text_orig": "Er.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɐ\">Er</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɐ\">Er</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krake-1": {
-"text": "Kra.",
-"text_orig": "Kra.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kʁaː\">Kra</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kʁaː\">Kra</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/krake-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">Ke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">Ke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/funkelstern-1": {
@@ -2705,8 +2705,8 @@
 "modell": "eleven_v4"
 },
 "silben/funkelstern-2": {
-"text": "Kel.",
-"text_orig": "Kel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kəl\">Kel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kəl\">Kel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/funkelstern-3": {
@@ -2735,13 +2735,13 @@
 "modell": "eleven_v4"
 },
 "silben/schildkroete-2": {
-"text": "Krö.",
-"text_orig": "Krö.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kʁøː\">Krö</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kʁøː\">Krö</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/schildkroete-3": {
-"text": "Te.",
-"text_orig": "Te.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tə\">Te</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/schleife-1": {
@@ -2750,8 +2750,8 @@
 "modell": "eleven_v4"
 },
 "silben/schleife-2": {
-"text": "Fe.",
-"text_orig": "Fe.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fə\">Fe</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fə\">Fe</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-1": {
@@ -2760,23 +2760,23 @@
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-2": {
-"text": "Nen.",
-"text_orig": "Nen.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"nən\">Nen</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"nən\">Nen</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-3": {
-"text": "Blu.",
-"text_orig": "Blu.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bluː\">Blu</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bluː\">Blu</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-4": {
-"text": "Me.",
-"text_orig": "Me.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mə\">Me</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/karussell-1": {
-"text": "Ka.",
-"text_orig": "Ka.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kaː\">Ka</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kaː\">Ka</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/karussell-2": {
@@ -3890,13 +3890,13 @@
 "modell": "eleven_v4"
 },
 "silben/aufgabe-2": {
-"text": "Ga.",
-"text_orig": "Ga.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡaː\">Ga</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡaː\">Ga</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/aufgabe-3": {
-"text": "Be.",
-"text_orig": "Be.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bə\">Be</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bə\">Be</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/aufzug-1": {
@@ -3920,8 +3920,8 @@
 "modell": "eleven_v4"
 },
 "silben/comic-1": {
-"text": "Ko.",
-"text_orig": "Ko.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"koː\">Co</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"koː\">Co</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/comic-2": {
@@ -3940,23 +3940,23 @@
 "modell": "eleven_v4"
 },
 "silben/dose-1": {
-"text": "Do.",
-"text_orig": "Do.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"doː\">Do</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"doː\">Do</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/dose-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/flasche-1": {
-"text": "Fla.",
-"text_orig": "Fla.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fla\">Fla</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fla\">Fla</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/flasche-2": {
-"text": "Sche.",
-"text_orig": "Sche.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Sche</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʃə\">Sche</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/fluss-1": {
@@ -3965,13 +3965,13 @@
 "modell": "eleven_v4"
 },
 "silben/gabel-1": {
-"text": "Ga.",
-"text_orig": "Ga.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡaː\">Ga</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡaː\">Ga</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/gabel-2": {
-"text": "Bel.",
-"text_orig": "Bel.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"bəl\">Bel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"bəl\">Bel</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/glas-1": {
@@ -3980,18 +3980,18 @@
 "modell": "eleven_v4"
 },
 "silben/glocke-1": {
-"text": "Glo.",
-"text_orig": "Glo.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɡlɔ\">Glo</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɡlɔ\">Glo</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/glocke-2": {
-"text": "Ke.",
-"text_orig": "Ke.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">Cke</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">Cke</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/irrgarten-1": {
-"text": "Irr.",
-"text_orig": "Irr.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɪʁ\">Irr</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɪʁ\">Irr</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/irrgarten-2": {
@@ -4000,8 +4000,8 @@
 "modell": "eleven_v4"
 },
 "silben/irrgarten-3": {
-"text": "Ten.",
-"text_orig": "Ten.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tən\">Ten</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tən\">Ten</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/jause-1": {
@@ -4010,8 +4010,8 @@
 "modell": "eleven_v4"
 },
 "silben/jause-2": {
-"text": "Se.",
-"text_orig": "Se.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"zə\">Se</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/leiter-1": {
@@ -4020,8 +4020,8 @@
 "modell": "eleven_v4"
 },
 "silben/leiter-2": {
-"text": "Ter.",
-"text_orig": "Ter.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tɐ\">Ter</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/lampe-1": {
@@ -4030,33 +4030,33 @@
 "modell": "eleven_v4"
 },
 "silben/lampe-2": {
-"text": "Pe.",
-"text_orig": "Pe.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"pə\">Pe</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"pə\">Pe</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ofen-1": {
-"text": "O.",
-"text_orig": "O.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/ofen-2": {
-"text": "Fen.",
-"text_orig": "Fen.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fən\">Fen</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fən\">Fen</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/video-1": {
-"text": "Wi.",
-"text_orig": "Wi.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"viː\">Vi</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"viː\">Vi</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/video-2": {
-"text": "De.",
-"text_orig": "De.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"deː\">De</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"deː\">De</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/video-3": {
-"text": "O.",
-"text_orig": "O.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">O</phoneme>.",
 "modell": "eleven_v4"
 },
 "silben/wald-1": {

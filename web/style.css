@@ -138,6 +138,7 @@ img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35));
 .tile .ico { font-size: calc(9.5 * var(--u)); line-height: 1; width: calc(16 * var(--u)); height: calc(16 * var(--u)); border-radius: 50%; background: rgba(255,255,255,.75); display: flex; align-items: center; justify-content: center; margin-bottom: calc(.8 * var(--u)); flex-shrink: 0; }
 .tile .stars { font-size: calc(3 * var(--u)); height: calc(4 * var(--u)); flex-shrink: 0; display: flex; align-items: center; gap: calc(.3 * var(--w)); }
 .tile .stars:not(:empty) { background: rgba(255,255,255,.8); border-radius: calc(2.3 * var(--u)); padding: 0 calc(1 * var(--w)); }
+.tile .stars img.emo { transform: translateY(-.09em); }   /* Stern optisch mittig (Spitze oben, Schatten unten) */
 .tile:nth-child(10n+1) { background: #ffe1e0; }
 .tile:nth-child(10n+2) { background: #fff1c9; }
 .tile:nth-child(10n+3) { background: #dff5e6; }
