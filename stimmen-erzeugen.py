@@ -157,13 +157,13 @@ def anhoerseite(jobs, orig):
             "<h1>Tondateien anhören</h1><p>Klingt etwas falsch, in <code>stimmen\texte-anpassen.txt</code> eine Zeile "
             "<code>id = anderer Text</code> eintragen (z. B. <code>laut/b = bö.</code>) und <code>python stimmen-erzeugen.py --los</code> "
             "erneut starten – nur geänderte Dateien werden neu erzeugt. Eine Tondatei anklicken (abspielen) und dann "
-            "„ab hier weiter“ spielt alle folgenden.</p>" + "".join(rows) + r"""<script>
+            "„ab hier weiter“ spielt alle folgenden. <b>Leertaste</b> = Pause / weiter.</p>" + "".join(rows) + r"""<script>
 const rows = [...document.querySelectorAll('.r')];
-let list = [], pos = 0, timer = null, cur = null, last = 0;
+let list = [], pos = 0, timer = null, cur = null, last = 0, paused = false;
 rows.forEach((r, k) => r.querySelector('audio').addEventListener('play', () => { last = k; if (!list.length) mark(r); }));
 function mark(r) { rows.forEach(x => x.classList.remove('on')); if (r) { r.classList.add('on'); r.scrollIntoView({block: 'center', behavior: 'smooth'});
   document.getElementById('jetzt').textContent = r.querySelector('code').textContent + ' – ' + r.querySelector('span').textContent; } }
-function stop() { clearTimeout(timer); if (cur) { cur.pause(); cur.onended = cur.onerror = null; } list = []; cur = null; }
+function stop() { paused = false; clearTimeout(timer); if (cur) { cur.pause(); cur.onended = cur.onerror = null; } list = []; cur = null; }
 function next() {
   if (pos >= list.length) { stop(); document.getElementById('jetzt').textContent = 'fertig'; return; }
   const r = list[pos++]; mark(r); cur = r.querySelector('audio'); cur.currentTime = 0;
@@ -174,6 +174,19 @@ function start(l) { stop(); list = l; pos = 0; next(); }
 document.getElementById('alle').onclick = () => start(rows);
 document.getElementById('weiter').onclick = () => start(rows.slice(last));
 document.getElementById('stopp').onclick = () => { stop(); mark(null); document.getElementById('jetzt').textContent = ''; };
+// Leertaste: Pause / weiter (ohne Liste: ab der zuletzt gespielten Datei weiter)
+document.addEventListener('keydown', e => {
+  if (e.code !== 'Space' || e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') return;
+  e.preventDefault(); e.stopPropagation();
+  if (list.length && !paused) {
+    paused = true; clearTimeout(timer); if (cur) cur.pause();
+    document.getElementById('jetzt').textContent = '⏸ Pause (Leertaste: weiter) – ' + document.getElementById('jetzt').textContent;
+  } else if (paused) {
+    paused = false; const r = list[pos - 1]; mark(r);
+    if (cur && !cur.ended && cur.currentTime > 0) cur.play().catch(next); else next();
+  } else start(rows.slice(last));
+}, true);
+document.addEventListener('keyup', e => { if (e.code === 'Space') e.preventDefault(); }, true);
 document.querySelectorAll('button.sec').forEach(b => b.onclick = () => start([...b.closest('section').querySelectorAll('.r')]));
 </script>""")
     open(os.path.join(ST, "anhoeren.html"), "w", encoding="utf-8").write(page)
