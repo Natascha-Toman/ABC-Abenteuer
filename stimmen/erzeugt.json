@@ -45,8 +45,8 @@
 "modell": "eleven_v4"
 },
 "laut/j": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"jː\">j</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"jː\">j</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"jə\">j</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"jə\">j</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/k": {
@@ -55,8 +55,8 @@
 "modell": "eleven_v4"
 },
 "laut/l": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"lː\">l</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lː\">l</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"lə\">l</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"lə\">l</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/m": {
@@ -70,8 +70,8 @@
 "modell": "eleven_v4"
 },
 "laut/o": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">o</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">o</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈo\">o</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈo\">o</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/p": {
@@ -85,8 +85,8 @@
 "modell": "eleven_v4"
 },
 "laut/r": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"ʁː\">r</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁː\">r</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">r</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">r</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/s": {
@@ -120,13 +120,13 @@
 "modell": "eleven_v4"
 },
 "laut/y": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"jː\">y</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"jː\">y</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈʏpsilɔn\">y</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈʏpsilɔn\">y</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/z": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"ts\">z</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ts\">z</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"tsə\">z</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tsə\">z</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/ae": {
