@@ -23,10 +23,11 @@
   // oder ein ganz kurzes Murmel-e (bə) – ein einzelner Mitlaut allein bringt die Stimme durcheinander.
   // Lässt sich in stimmen/texte-anpassen.txt für jeden Buchstaben ändern.
   const LAUT_IPA = {
-    A: "aː", B: "bə", C: "kə", D: "də", E: "eː", F: "fː", G: "ɡə", H: "hə", I: "iː", J: "jə",
-    K: "kə", L: "lə", M: "mː", N: "nː", O: "ˈo", P: "pə", Q: "kv", R: "ʁə", S: "sː", T: "tə",
-    U: "uː", V: "fː", W: "vː", X: "ks", Y: "ˈʏpsilɔn", Z: "tsə", "Ä": "ɛː", "Ö": "øː", "Ü": "yː",
+    A: "aː", B: "bə", C: "tseː", D: "də", E: "eː", F: "fː", G: "ɡə", H: "hə", I: "iː", J: "jə",
+    K: "kə", L: "lə", M: "mː", N: "nː", O: "ˈɔ", P: "pə", Q: "kv", R: "ʁə", S: "sː", T: "tə",
+    U: "uː", V: "faʊ̯", W: "vː", X: "ks", Y: "ˈʏpsilɔn", Z: "tsə", "Ä": "ɛː", "Ö": "øː", "Ü": "yː",
   };
+  // C, V, Y haben keinen eigenen Laut -> Buchstabenname (Zeh, Fau, Ypsilon), wie von der Nutzerin gewünscht
   const LAUT = {};
   Object.keys(LAUT_IPA).forEach(L => { LAUT[L] = ph(LAUT_IPA[L], L.toLowerCase()); });
 
@@ -34,7 +35,8 @@
   const ONSET = [["sch", "ʃ"], ["ch", "x"], ["ck", "k"], ["qu", "kv"], ["pf", "pf"], ["ts", "ts"], ["b", "b"], ["d", "d"], ["f", "f"],
     ["g", "ɡ"], ["h", "h"], ["j", "j"], ["k", "k"], ["l", "l"], ["m", "m"], ["n", "n"], ["p", "p"], ["r", "ʁ"], ["s", "z"],
     ["t", "t"], ["w", "v"], ["v", "f"], ["z", "ts"], ["x", "ks"]];
-  const LONG = { a: "aː", e: "eː", i: "iː", o: "oː", u: "uː", "ä": "ɛː", "ö": "øː", "ü": "yː", ie: "iː" };
+  // ohne Dehnungszeichen: "aː", "toː" klangen gehaucht ("ah", "toh"); die Betonung ˈ hält die Silbe deutlich
+  const LONG = { a: "a", e: "e", i: "i", o: "o", u: "u", "ä": "ɛ", "ö": "ø", "ü": "y", ie: "i" };
   const SHORT = { a: "a", e: "ɛ", i: "ɪ", o: "ɔ", u: "ʊ", "ä": "ɛ", "ö": "œ", "ü": "ʏ", ie: "iː" };
   function onsetIPA(c) {
     let r = "";
@@ -53,17 +55,17 @@
     const [, , v, coda] = m;
     if (coda) {                                      // Endsilben -en, -el, -er: Murmel-e
       if (v !== "e" || i === 0) return null;
-      return on + (coda === "r" ? "ɐ" : "ə" + coda);
+      return on + (coda === "r" ? "ɛɐ̯" : "ə" + coda);   // "kɐ" klang wie "köhr"
     }
-    if (v === "e" && i > 0) return on + "ə";         // offene Endsilbe -e: Murmel-e (Ha-se, Na-se)
+    if (v === "e" && i > 0) return on + "ɛ";         // offene Endsilbe -e: kurzes hörbares e (Murmel-e "fə" wurde verschluckt)
     const short = /^(ck|sch|ch|x|tz)/.test(next || "");
     return on + (short ? SHORT[v] : LONG[v]);
   }
   // Ausnahmen: Wort/Silbennummer -> IPA (Betonung, fremde Wörter). Kurze Silben wie "na" allein
   // brauchen manchmal ein Betonungszeichen (ˈna), sonst entsteht eine zu lange, falsche Tondatei.
   const SYL_FIX = {
-    "geschenk-1": "ɡə", "rakete-2": "keː", "video-2": "deː", "jaguar-3": "aʁ", "gitarre-2": "taʁ",
-    "kirsche-1": "kɪʁ", "gorilla-2": "ʁɪl", "irrgarten-1": "ɪʁ", "computer-2": "puː",
+    "geschenk-1": "ɡɛ", "rakete-2": "ke", "video-2": "de", "jaguar-3": "aʁ", "gitarre-2": "taʁ",
+    "kirsche-1": "kɪʁ", "gorilla-2": "ʁɪl", "irrgarten-1": "ɪʁ", "computer-2": "pu",
     "ananas-1": "ˈa", "ananas-2": "ˈna", "jacke-1": "ˈja", "spaghetti-1": "ʃpa", "pizza-2": "tsa", "kamera-3": "ʁa",
   };
   // Wörter, die die Stimme sonst englisch spricht (gilt auch in Sätzen)
@@ -82,7 +84,9 @@
   });
 
   // ---- Buchstaben: Laut und Name ----
-  Object.keys(LAUT).forEach(L => { out.laut[slug(L)] = LAUT[L]; out.name[slug(L)] = L + "."; });
+  // Namen, die die Stimme sonst falsch liest (I = "1.", J = "tschai", X = "ex", Y = "i")
+  const NAME_IPA = { I: "iː", J: "jɔt", O: "oː", X: "ɪks", Y: "ˈʏpsilɔn" };
+  Object.keys(LAUT).forEach(L => { out.laut[slug(L)] = LAUT[L]; out.name[slug(L)] = NAME_IPA[L] ? ph(NAME_IPA[L], L) : L + "."; });
 
   // ---- Wörter (Lernwörter, Stickerwörter, Artikel) und Silben ----
   const ALL = WORDS.slice();
@@ -94,7 +98,8 @@
     const shown = w.s.split("-"), spoken = (w.sp || w.s).split("-");
     out.silben[slug(w.w)] = spoken.map((p, i) => {
       const t = cap(p.toLowerCase().replace(/^ck/, "k"));
-      const ipa = SYL_FIX[`${slug(w.w)}-${i + 1}`] || sylIPA(p.replace(/^ck/, "k"), i, shown[i + 1]);
+      let ipa = SYL_FIX[`${slug(w.w)}-${i + 1}`] || sylIPA(p.replace(/^ck/, "k"), i, shown[i + 1]);
+      if (ipa && !ipa.startsWith("ˈ")) ipa = "ˈ" + ipa;   // jede Silbe allein betont – sonst verschluckt oder zu lang
       return ipa ? ph(ipa, cap(shown[i] || t)) : t + ".";
     });
   });
