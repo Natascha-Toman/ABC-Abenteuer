@@ -154,6 +154,7 @@ def main():
     ap.add_argument("--max-zeichen", type=int, default=0)
     ap.add_argument("--modell", default="")
     ap.add_argument("--neu", nargs="*", default=[], help="diese ids neu erzeugen")
+    ap.add_argument("--bis-gruppe", type=int, default=99, help="nur Gruppen 0..N erzeugen (0 = Buchstaben, Wörter, Silben)")
     a = ap.parse_args()
 
     s = sammeln()
@@ -166,8 +167,20 @@ def main():
     for i, t, g in jobs:
         if i not in done and i not in a.neu and os.path.exists(os.path.join(AUDIO, i + ".mp3")):
             done[i] = {"text": t, "text_orig": satz_orig.get(i, t), "modell": "?"}
+    # Tondateien für Texte, die es nicht mehr gibt (z. B. gelöschte Wörter), entfernen
+    ids = {i for i, _, _ in jobs}
+    alt = [i for i in done if i not in ids]
+    if a.los and alt:
+        for i in alt:
+            p = os.path.join(AUDIO, i + ".mp3")
+            if os.path.exists(p): os.remove(p)
+            del done[i]
+        json.dump(done, open(DONE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+        print(f"{len(alt)} nicht mehr gebrauchte Tondateien gelöscht.")
+    elif alt:
+        print(f"{len(alt)} Tondateien werden nicht mehr gebraucht (werden mit --los gelöscht).")
     todo = [(i, t, g) for i, t, g in jobs
-            if i in a.neu or done.get(i, {}).get("text") != t or not os.path.exists(os.path.join(AUDIO, i + ".mp3"))]
+            if g <= a.bis_gruppe and (i in a.neu or done.get(i, {}).get("text") != t or not os.path.exists(os.path.join(AUDIO, i + ".mp3")))]
     zeichen = sum(len(t) for _, t, _ in todo)
     print(f"{len(jobs)} Tondateien insgesamt, davon {len(todo)} zu erzeugen ({zeichen} Zeichen).")
     anhoerseite(jobs, orig)

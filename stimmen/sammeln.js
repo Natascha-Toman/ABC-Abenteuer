@@ -16,12 +16,13 @@
   const ACC = { der: "den", die: "die", das: "das" };
   const slug = s => s.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z]/g, "");
 
-  // Laute zum Lesenlernen: so geschrieben, dass die Stimme nur den Laut spricht (nicht den Namen).
+  // Laute zum Lesenlernen: jeder Buchstabe einzeln und kurz (nicht langgezogen, nicht als Name).
+  // Nur wo der Laut anders klingt als der Buchstabe aussieht, steht der Laut (C = k, V = f, X = ks …).
   // Lässt sich in stimmen/texte-anpassen.txt für jeden Buchstaben ändern.
   const LAUT = {
-    A: "Aaa.", B: "b.", C: "k.", D: "d.", E: "Eee.", F: "Fffff.", G: "g.", H: "Hhhh.", I: "Iii.", J: "Jjj.",
-    K: "k.", L: "Llll.", M: "Mmmm.", N: "Nnnn.", O: "Ooo.", P: "p.", Q: "kw.", R: "Rrrr.", S: "Ssss.", T: "t.",
-    U: "Uuu.", V: "Fffff.", W: "Wwww.", X: "ks.", Y: "Jjj.", Z: "ts.", "Ä": "Äää.", "Ö": "Ööö.", "Ü": "Üüü.",
+    A: "a.", B: "b.", C: "k.", D: "d.", E: "e.", F: "f.", G: "g.", H: "h.", I: "i.", J: "j.",
+    K: "k.", L: "l.", M: "m.", N: "n.", O: "o.", P: "p.", Q: "kw.", R: "r.", S: "s.", T: "t.",
+    U: "u.", V: "f.", W: "w.", X: "ks.", Y: "j.", Z: "ts.", "Ä": "ä.", "Ö": "ö.", "Ü": "ü.",
   };
   const out = { laut: {}, name: {}, wort: {}, silben: {}, satz: [] };
   const seen = new Set();
@@ -33,7 +34,7 @@
   });
 
   // ---- Buchstaben: Laut und Name ----
-  Object.keys(LAUT).forEach(L => { out.laut[slug(L)] = LAUT[L]; out.name[slug(L)] = (LETTER_NAMES[L] || L) + "."; });
+  Object.keys(LAUT).forEach(L => { out.laut[slug(L)] = LAUT[L]; out.name[slug(L)] = L + "."; });
 
   // ---- Wörter (Lernwörter, Stickerwörter, Artikel) und Silben ----
   const ALL = WORDS.slice();
@@ -41,13 +42,8 @@
   ["der", "die", "das"].forEach(a => { out.wort[a] = a; });
   ALL.forEach(w => {
     out.wort[slug(w.w)] = w.w + ".";
-    out.silben[slug(w.w)] = (w.sp || w.s).split("-").map(p => {
-      // offene Silben mit Dehnungs-h, damit sie als Silbe (nicht als Buchstaben) gesprochen werden
-      let x = p.toLowerCase().replace(/^ck/, "k");
-      if (/ee$/.test(x)) x = x.slice(0, -2) + "eh";
-      else if (!/(ie|ei|ai|au|eu|äu)$/.test(x) && /[aeiouäöü]$/.test(x)) x += "h";
-      return cap(x) + ".";
-    });
+    // Silben genau so, wie sie geschrieben werden (nur "sp" für Wörter mit fremder Aussprache)
+    out.silben[slug(w.w)] = (w.sp || w.s).split("-").map(p => cap(p.toLowerCase().replace(/^ck/, "k")) + ".");
   });
   COLORS.forEach(c => { out.wort[slug(c.w)] = cap(c.w) + "."; });
 

@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.0", APP_DATE = "19.11.2026";
+const APP_VERSION = "4.1", APP_DATE = "19.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -240,6 +240,23 @@ function stat(L, ok) {
 const LN = L => L.toUpperCase();
 function fw(w) { return S.letterCase === "upper" ? w.toUpperCase() : S.letterCase === "lower" ? w.toLowerCase() : w; }
 function fl(L) { return S.letterCase === "upper" ? L : S.letterCase === "lower" ? L.toLowerCase() : L + L.toLowerCase(); }
+// Buchstaben optisch mittig: misst die Form des Zeichens (Andika fett) und verschiebt es in die Mitte der Kachel
+// (Kleinbuchstaben wie a, m sitzen sonst zu tief, g, p, y noch tiefer)
+const CG = {};
+function glyphShift(t) {
+  if (t in CG) return CG[t];
+  const font = "700 100px Andika";
+  const ctx = glyphShift.ctx || (glyphShift.ctx = document.createElement("canvas").getContext("2d"));
+  ctx.font = font + ", sans-serif";
+  const m = ctx.measureText(t);
+  if (!m.fontBoundingBoxAscent || !m.actualBoundingBoxAscent) return 0;
+  const v = Math.round((m.fontBoundingBoxDescent - m.fontBoundingBoxAscent - m.actualBoundingBoxDescent + m.actualBoundingBoxAscent) / 2) / 100;
+  if (!document.fonts || document.fonts.check(font)) CG[t] = v;
+  return v;
+}
+if (document.fonts) document.fonts.load("700 100px Andika").catch(() => {});
+function cgHTML(t, cls = "") { return `<span class="cg ${cls}" style="--cy:${glyphShift(t)}em">${esc(t)}</span>`; }
+const flH = L => cgHTML(fl(L));
 function fc(L) { return S.letterCase === "upper" ? L.toUpperCase() : L.toLowerCase(); }
 const art = w => `${w.g} ${w.w}`;                       // "die Maus"
 const verb = (w, sg, pl) => w.pl ? pl : sg;              // "fängt" / "fangen"
@@ -1278,7 +1295,7 @@ function anlautPic2Letter(t, used, c) {
         <div class="bigpic">${w.e}</div>
         <div class="bigword" style="font-size:${u(9)}"><span id="aq" style="color:var(--orange)">?</span>${esc(word.slice(1))}</div></div>`,
     bubble: "Womit fängt das Wort an?", letter: L,
-    options: opts.map(x => ({ html: esc(fl(x)), say: LN(x), correct: x === L })),
+    options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L })),
     speak: () => say(`Womit ${fv} ${art(w)} an?`),
     onWrong: () => `${pick(ENCOURAGE)} Hör genau: ${art(w)}.`,
     onRight: async () => { $("#aq").textContent = word[0]; await say(`${pick(PRAISE)} ${cap(art(w))} ${fv} mit dem Buchstaben ${LN(L)} an.`); },
@@ -1298,7 +1315,7 @@ function anlautLetter2Pic(t, used, c) {
   for (const x of pool) { if (others.length >= c.n - 1) break; if (!others.some(o => first(o) === first(x))) others.push(x); }
   const opts = shuffle([w, ...others]);
   return choiceTask(t, {
-    content: `<div class="bigletter">${esc(fl(L))}</div>`,
+    content: `<div class="bigletter">${flH(L)}</div>`,
     bubble: "Was fängt mit diesem Buchstaben an?", letter: L,
     options: opts.map(o => ({ html: o.e, cls: "pic", say: art(o), correct: o === w, w: o })),
     speak: () => say(`Was fängt mit dem Buchstaben ${LN(L)} an?`),
@@ -1323,7 +1340,7 @@ function anlautEnd(t, used, c) {
         <div class="bigpic">${w.e}</div>
         <div class="bigword" style="font-size:${u(9)}">${esc(word.slice(0, -1))}<span id="aq" style="color:var(--orange)">?</span></div></div>`,
     bubble: "Hör genau auf das Ende! Womit hört das Wort auf?", letter: L,
-    options: opts.map(x => ({ html: esc(fl(x)), say: LN(x), correct: x === L })),
+    options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L })),
     speak: () => say(`Hör genau auf das Ende! Womit ${hv} ${art(w)} auf?`),
     onWrong: () => `${pick(ENCOURAGE)} Hör genau: ${w.w}.`,
     onRight: async () => { $("#aq").textContent = word[word.length - 1]; await say(`${pick(PRAISE)} ${cap(art(w))} ${hv} mit dem Buchstaben ${LN(L)} auf.`); },
@@ -1339,7 +1356,7 @@ function taskHear(t, used) {
   return choiceTask(t, {
     content: c.pic ? `<div class="bigpic">${w.e}</div>` : "",
     bubble: "Wo ist der Buchstabe? Hör genau!", letter: L, nosay: true,
-    options: opts.map(x => ({ html: esc(fl(x)), say: LN(x), correct: x === L, L: x })),
+    options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L, L: x })),
     speak: () => say(c.pic ? `Wo ist der Buchstabe ${LN(L)}? ${LN(L)} wie ${w.w}.` : `Wo ist der Buchstabe ${LN(L)}?`),
     onWrong: (o, n) => `Das ist der Buchstabe ${LN(o.L)}. Wir suchen den Buchstaben ${LN(L)}${n >= 2 ? `, wie ${w.w}` : ""}.`,
     onRight: () => say(`${pick(PRAISE)} Das ist der Buchstabe ${LN(L)}.`),
@@ -1790,7 +1807,7 @@ function runExplore(t) {
   list.forEach(L => {
     const d = document.createElement("div");
     d.className = "gaze opt";
-    d.textContent = fl(L);
+    d.innerHTML = flH(L);
     d.dataset.say = LN(L);
     if (known.has(L)) d.style.background = "#fff1c9";
     onSelect(d, () => openExplore(L));
@@ -1807,7 +1824,7 @@ function openExplore(L) {
 function showExplore() {
   const w = EX.words[EX.i % EX.words.length];
   const word = fw(w.w);
-  $("#exLetter").textContent = fl(EX.L);
+  $("#exLetter").innerHTML = flH(EX.L);
   const pic = $("#exPic");
   pic.innerHTML = w.e;
   pic.style.animation = "none"; void pic.offsetWidth; pic.style.animation = "";
@@ -1834,7 +1851,7 @@ function runMemory(t) {
     if (Ls.length < pairs) Ls = Ls.concat(shuffle(ALPHABET.filter(L => !Ls.includes(L) && anlautWords(L).length)).slice(0, pairs - Ls.length));
     Ls.forEach(L => {
       const w = pick(anlautWords(L));
-      cards.push({ key: L, L, w, html: esc(fl(L)), say: LN(L) });
+      cards.push({ key: L, L, w, html: flH(L), say: LN(L) });
       cards.push({ key: L, L, w, html: w.e, say: art(w) });
     });
   }
@@ -1932,7 +1949,7 @@ function runBalloon(t) {
     }
     const el = document.createElement("div");
     el.className = "gaze balloon notyet";
-    el.textContent = fl(ch);
+    el.innerHTML = flH(ch);
     el.style.background = pick(BALLOON_COLORS);
     el.dataset.say = LN(ch);
     el.dataset.fast = "1";
@@ -2103,8 +2120,7 @@ const kbStart = () => /(^\s*|[.?!]\s+)$/.test(kbContext().before);   // angefang
 // Buchstabe auf der Taste, optisch in die Mitte gerückt: x = ohne Ober-/Unterlänge, d = mit Unterlänge
 function kbKeyHTML(ch) {
   const c = kbChar(ch);
-  const cls = /^[gpqy]$/.test(c) ? "d" : c === "j" ? "j" : /^[acemnorsuvwxz]$/.test(c) ? "x" : "";
-  return `<span class="kl ${cls}">${esc(c)}</span>`;
+  return KB_PUNCT[ch] ? `<span class="kl">${esc(c)}</span>` : cgHTML(c, "kl");   // Satzzeichen bleiben auf der Grundlinie
 }
 function kbChar(ch) { return ch === "ß" || KB_PUNCT[ch] ? ch : kbBig() ? ch : ch.toLowerCase(); }
 // Satzanfänge groß (am Anfang und nach . ? !)
@@ -2453,7 +2469,7 @@ async function openSticker(e) {
     const txt = S.letterCase === "upper" ? p.toUpperCase() : S.letterCase === "lower" ? p.toLowerCase() : p;
     return `<span style="color:${S.sylColor ? (i % 2 ? "#e0504f" : "#2f6fd6") : "inherit"}">${esc(txt)}</span>`;
   }).join("");
-  $("#svLetter").textContent = fl(first(w));
+  $("#svLetter").innerHTML = flH(first(w));
   // beim Öffnen einmal alles vorlesen: Wort, Anfangsbuchstabe, Silben
   await svSayWord(); if (SV.token !== my || !svOpen()) return;
   await sleep(300); if (SV.token !== my || !svOpen()) return;

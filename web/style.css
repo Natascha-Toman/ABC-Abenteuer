@@ -118,12 +118,13 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .progress span.got { opacity: 1; filter: none; animation: jump .6s; }
 /* Sterne mit hellem runden Hintergrund, damit man sie gut erkennt (auch die noch leeren) */
 .progress span.star { opacity: 1; filter: none; display: flex; align-items: center; justify-content: center; width: calc(9 * var(--u)); height: calc(9 * var(--u)); font-size: calc(5.5 * var(--u)); background: rgba(255,255,255,.9); border-radius: 50%; box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.08); }
-.progress span.star:not(.got) img.emo { filter: grayscale(1); opacity: .5; }
+.progress span.star:not(.got) img.emo { opacity: .3; }
 .progress span.star.got { background: #dff3e3; }
 /* leichter Schlagschatten, damit sich die Sterne vom Hintergrund abheben */
 img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35)); }   /* alle Sterne ⭐ im Programm */
-.progress span.star:not(.got) img.emo { filter: grayscale(1) drop-shadow(0 calc(.3 * var(--u)) calc(.25 * var(--u)) rgba(0,0,0,.25)); }
-.progress .lvl { opacity: 1; filter: none; font-size: calc(3.5 * var(--u)); font-weight: 700; background: #fff; border-radius: calc(2 * var(--u)); padding: calc(.5 * var(--u)) calc(1.2 * var(--w)); margin-right: calc(1.5 * var(--w)); }
+.progress span.star:not(.got) img.emo { filter: grayscale(1); }
+/* Stufe: gleiche Form wie die Fortschritts-Sterne (Pille statt Kreis), damit alles zusammenpasst */
+.progress .lvl { opacity: 1; filter: none; display: flex; align-items: center; gap: calc(.2 * var(--w)); height: calc(9 * var(--u)); font-size: calc(4.6 * var(--u)); background: #fff3c4; border-radius: calc(4.5 * var(--u)); padding: 0 calc(1.4 * var(--w)); margin-right: calc(1.5 * var(--w)); box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.08); }
 
 /* ---------- Menü ---------- */
 #menu .grid {
@@ -132,11 +133,11 @@ img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35));
 }
 .tile { font-size: calc(3.8 * var(--u)); font-weight: 700; text-align: center; padding: calc(1 * var(--u)); }
 /* Menü: Symbol immer an derselben Stelle oben, Name darunter, Sterne ganz unten */
-#menu .grid .tile { justify-content: flex-start; padding-top: calc(3 * var(--u)); }
-#menu .grid .tile .stars { margin-top: auto; }
-.tile .ico { font-size: calc(10 * var(--u)); line-height: 1; width: calc(17 * var(--u)); height: calc(17 * var(--u)); border-radius: 50%; background: rgba(255,255,255,.75); display: flex; align-items: center; justify-content: center; margin-bottom: calc(.8 * var(--u)); flex-shrink: 0; }
-.tile .stars { font-size: calc(2.2 * var(--u)); height: calc(3 * var(--u)); letter-spacing: calc(.2 * var(--w)); opacity: .55; }
-.tile .stars img.emo[src$="/2b50.svg"] { filter: none; }
+#menu .grid .tile { justify-content: flex-start; padding-top: calc(2.4 * var(--u)); min-height: 0; }
+#menu .grid .tile .stars { margin-top: auto; margin-bottom: calc(.9 * var(--u)); }
+.tile .ico { font-size: calc(9.5 * var(--u)); line-height: 1; width: calc(16 * var(--u)); height: calc(16 * var(--u)); border-radius: 50%; background: rgba(255,255,255,.75); display: flex; align-items: center; justify-content: center; margin-bottom: calc(.8 * var(--u)); flex-shrink: 0; }
+.tile .stars { font-size: calc(3 * var(--u)); height: calc(4 * var(--u)); flex-shrink: 0; display: flex; align-items: center; gap: calc(.3 * var(--w)); }
+.tile .stars:not(:empty) { background: rgba(255,255,255,.8); border-radius: calc(2.3 * var(--u)); padding: 0 calc(1 * var(--w)); }
 .tile:nth-child(10n+1) { background: #ffe1e0; }
 .tile:nth-child(10n+2) { background: #fff1c9; }
 .tile:nth-child(10n+3) { background: #dff5e6; }
@@ -152,7 +153,9 @@ img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35));
 .adminbtn { border: none; background: rgba(0,0,0,.06); border-radius: calc(1 * var(--u)); font-size: calc(2.2 * var(--u)); padding: calc(.8 * var(--u)) calc(1.4 * var(--u)); color: var(--soft); cursor: pointer; font-family: var(--font); }
 .adminbtn:hover { background: rgba(0,0,0,.12); }
 .adminbtn.setbtn { font-size: calc(2.6 * var(--u)); padding: calc(.4 * var(--u)) calc(.9 * var(--u)); background: transparent; }
+.adminbtn.setbtn { display: flex; align-items: center; gap: calc(.4 * var(--w)); }
 .adminbtn.setbtn img.emo { filter: grayscale(1); opacity: .55; }
+.adminbtn.setbtn .lbl { font-size: calc(1.9 * var(--u)); opacity: .8; }
 
 /* ---------- Stufenwahl ---------- */
 .levels { flex: 1; display: flex; gap: calc(4 * var(--w)); align-items: center; justify-content: center; width: 100%; }
@@ -268,10 +271,8 @@ img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35));
 .kbkeys { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: calc(1.2 * var(--u)); }
 .kbrow { flex: 1; min-height: 0; display: flex; gap: calc(.8 * var(--w)); justify-content: center; }
 .kbrow .gaze { flex: 0 1 calc(8 * var(--w)); font-size: calc(10.5 * var(--u)); font-weight: 700; border-radius: calc(2 * var(--u)); padding: 0; line-height: 1.2; }
-.kbrow .kl { display: inline-block; }
-.kbrow .kl.x { transform: translateY(-.07em); }
-.kbrow .kl.j { transform: translateY(-.09em); }
-.kbrow .kl.d { transform: translateY(-.17em); }
+/* Buchstaben optisch mittig (Verschiebung misst glyphShift in app.js) */
+.cg { display: inline-block; transform: translateY(var(--cy, 0)); }
 .kbrow .gaze.vowel { background: #fff1d6; }
 .kbrow.fnrow { flex: 0 0 calc(10 * var(--u)); }
 .kbrow .gaze.fn { flex: 1 1 0; flex-direction: row; gap: calc(.8 * var(--w)); font-size: calc(4.5 * var(--u)); background: #e3f1ff; gap: 0; }

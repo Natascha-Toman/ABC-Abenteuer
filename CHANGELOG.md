@@ -2,6 +2,27 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.1 – 19.11.2026
+
+**Neu**
+- Neue Wörter mit Bild: Aufgabe, Aufzug, Brief, Chor, Comic, Creme, Dach, Dose, Flasche, Fluss,
+  Gabel, Glas, Glocke, Irrgarten, Jause, Lampe, Leiter, Ofen, Video, Wald (eigene Bilder u. a. für
+  Chor, Comic, Creme, Dach, Irrgarten, Ofen, Gabel, Video, Flasche, Lampe, Wald und ein leeres Glas).
+
+**Verbessert**
+- Stimme: Buchstaben (Laut und Name) werden einzeln und kurz gesprochen, nicht mehr langgezogen.
+  Silben werden genau so gesprochen, wie sie geschrieben sind (kein zusätzliches „h“).
+- Buchstaben-Kacheln: jeder Buchstabe steht optisch genau in der Mitte (auch a, m, g, p, y).
+- Menü: Sterne auf den Kacheln etwas höher und besser sichtbar (auf hellem Feld).
+- Spiele: Stufen-Sterne und Fortschritts-Sterne oben haben dieselbe Form und Größe.
+- Neben dem Zahnrad steht klein „Einstellungen“.
+- Vase und Video zählen nicht mehr als Wörter, die mit dem Laut „f“ anfangen.
+
+**Entfernt**
+- Wörter Cap, Clown, Cupcake, Diamant, Donut, Giraffe, Ingwer, Jojo, Ochse, Vier und ihre
+  Tondateien. `stimmen-erzeugen.py --los` löscht nicht mehr gebrauchte Tondateien selbst;
+  mit `--bis-gruppe 0` werden nur Buchstaben, Wörter und Silben erzeugt.
+
 ## 4.0 – 19.11.2026
 
 **Neu**

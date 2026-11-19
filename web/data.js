@@ -53,8 +53,6 @@ const PICS = {
     <rect x="8" y="62" width="58" height="6" fill="#ef6f6c"/>
     <circle cx="20" cy="76" r="4" fill="#ffd93d"/><circle cx="54" cy="76" r="4" fill="#ffd93d"/>
     <path d="M18 86 L10 96 M56 86 L64 96" stroke="#5a6b80" stroke-width="3" stroke-linecap="round"/>`),
-  vier: svg(`<rect x="16" y="6" width="68" height="88" rx="14" fill="#fff1c9" stroke="#ff9f43" stroke-width="4"/>
-    <text x="50" y="76" font-size="68" font-weight="700" text-anchor="middle" fill="#e0504f" font-family="Andika, sans-serif">4</text>`),
   joghurt: svg(`<path d="M68 22 L88 5" stroke="#b9c0cc" stroke-width="5" stroke-linecap="round"/>
     <path d="M22 30 L78 30 L70 90 Q50 95 30 90 Z" fill="#fff" stroke="#9aa5b8" stroke-width="3" stroke-linejoin="round"/>
     <rect x="17" y="22" width="66" height="10" rx="4" fill="#ff7eb6" stroke="#d94f8c" stroke-width="2"/>
@@ -71,6 +69,74 @@ const PICS = {
     <path d="M36 14 Q50 27 64 14" fill="none" stroke="#a83b39" stroke-width="3"/>
     <path d="M50 20 V84" stroke="#ffd93d" stroke-width="3"/>
     <path d="M30 60 H42 M58 60 H70" stroke="#a83b39" stroke-width="3" stroke-linecap="round"/>`),
+  chor: svg(`<path d="M8 96 Q8 70 25 68 Q42 70 42 96 Z" fill="#4d96ff"/><path d="M58 96 Q58 70 75 68 Q92 70 92 96 Z" fill="#3cb371"/>
+    <path d="M32 96 Q32 62 50 60 Q68 62 68 96 Z" fill="#ef6f6c"/>
+    <circle cx="25" cy="52" r="13" fill="#f5c08a" stroke="#a0522d" stroke-width="2"/><circle cx="75" cy="52" r="13" fill="#e0a370" stroke="#a0522d" stroke-width="2"/>
+    <circle cx="50" cy="42" r="14" fill="#ffd8a8" stroke="#a0522d" stroke-width="2"/>
+    <path d="M13 47 Q25 32 37 47 M62 47 Q75 32 88 47 M37 36 Q50 22 63 36" fill="none" stroke="#6b3a1e" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="21" cy="50" r="1.8" fill="#333"/><circle cx="29" cy="50" r="1.8" fill="#333"/><circle cx="71" cy="50" r="1.8" fill="#333"/><circle cx="79" cy="50" r="1.8" fill="#333"/>
+    <circle cx="45" cy="40" r="1.8" fill="#333"/><circle cx="55" cy="40" r="1.8" fill="#333"/>
+    <ellipse cx="25" cy="58" rx="3" ry="4" fill="#8a2e2e"/><ellipse cx="75" cy="58" rx="3" ry="4" fill="#8a2e2e"/><ellipse cx="50" cy="49" rx="3.5" ry="4.5" fill="#8a2e2e"/>
+    <g fill="#333"><ellipse cx="10" cy="22" rx="4.5" ry="3.5"/><path d="M13.5 22 V6 L20 10 V13 L15.5 11 V22 Z"/>
+    <ellipse cx="84" cy="18" rx="4.5" ry="3.5"/><path d="M87.5 18 V2 L94 6 V9 L89.5 7 V18 Z"/></g>`),
+  comic: svg(`<rect x="12" y="5" width="76" height="90" rx="4" fill="#fff" stroke="#333" stroke-width="3"/>
+    <rect x="18" y="11" width="30" height="36" fill="#ffe066" stroke="#333" stroke-width="2"/><rect x="52" y="11" width="30" height="36" fill="#8cc4ff" stroke="#333" stroke-width="2"/>
+    <rect x="18" y="51" width="64" height="38" fill="#ffc2d4" stroke="#333" stroke-width="2"/>
+    <ellipse cx="33" cy="22" rx="11" ry="7" fill="#fff" stroke="#333" stroke-width="1.5"/><path d="M29 28 L26 35 L35 28" fill="#fff" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="33" cy="40" r="5" fill="#f5c08a" stroke="#333" stroke-width="1.5"/>
+    <path d="M67 15 L70 23 L78 21 L73 28 L80 33 L71 33 L70 42 L65 35 L58 39 L61 30 L54 26 L63 25 Z" fill="#ff9f43" stroke="#e0504f" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="36" cy="72" r="9" fill="#f5c08a" stroke="#333" stroke-width="1.5"/><path d="M48 76 Q60 62 72 76" fill="none" stroke="#333" stroke-width="2"/>
+    <ellipse cx="62" cy="60" rx="12" ry="5" fill="#fff" stroke="#333" stroke-width="1.5"/>`),
+  creme: svg(`<rect x="52" y="10" width="40" height="11" rx="4" fill="#1e6fd9" stroke="#14509e" stroke-width="2" transform="rotate(18 72 15)"/>
+    <path d="M22 48 Q28 32 44 33 Q48 24 56 30 Q72 31 78 48 Z" fill="#fff" stroke="#b5bcc7" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M44 33 Q50 38 56 30" fill="none" stroke="#d5dae2" stroke-width="2"/>
+    <rect x="16" y="46" width="68" height="44" rx="9" fill="#8cc4ff" stroke="#1e6fd9" stroke-width="3"/>
+    <rect x="16" y="58" width="68" height="18" fill="#fff" opacity=".85"/>
+    <path d="M44 67 Q50 60 56 67 Q50 74 44 67 Z" fill="#ff9fc0"/>`),
+  dach: svg(`<rect x="62" y="14" width="13" height="30" fill="#b5653a" stroke="#6b3a1e" stroke-width="2.5"/>
+    <rect x="12" y="74" width="76" height="12" fill="#f3e3c3" stroke="#b39b70" stroke-width="2"/>
+    <path d="M4 76 L50 22 L96 76 Z" fill="#e0504f" stroke="#a83b39" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M21 58 H79 M35 42 H65 M30 58 V76 M50 58 V76 M70 58 V76 M42 42 V58 M58 42 V58" stroke="#a83b39" stroke-width="2"/>
+    `),
+  irrgarten: svg(`<rect x="8" y="8" width="84" height="84" rx="6" fill="#e9f6dc"/>
+    <path d="M44 88 H12 V12 H88 V88 H56 M28 28 H72 V72 H44 M28 28 V72 M44 44 H58 V58" fill="none" stroke="#2e9e44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M50 96 V80 H36 V36 H64 V64 H50 V52" fill="none" stroke="#ef6f6c" stroke-width="2.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+    <circle cx="50" cy="51" r="4.5" fill="#ef6f6c"/>`),
+  ofen: svg(`<rect x="14" y="8" width="72" height="86" rx="7" fill="#e9edf2" stroke="#5a6b80" stroke-width="3"/>
+    <path d="M14 26 H86" stroke="#5a6b80" stroke-width="3"/>
+    <circle cx="27" cy="17" r="4.5" fill="#5a6b80"/><circle cx="41" cy="17" r="4.5" fill="#5a6b80"/><rect x="56" y="12" width="22" height="10" rx="2" fill="#2d3540"/>
+    <rect x="24" y="33" width="52" height="5" rx="2.5" fill="#5a6b80"/>
+    <rect x="23" y="44" width="54" height="40" rx="5" fill="#3a3a3a"/>
+    <rect x="27" y="48" width="46" height="32" rx="4" fill="#ff9f43"/>
+    <path d="M31 54 Q35 50 39 54 T47 54 T55 54 T63 54 T71 54" fill="none" stroke="#ffd166" stroke-width="2.5"/>
+    <path d="M29 72 H71" stroke="#c96f1e" stroke-width="2"/><rect x="38" y="64" width="24" height="8" rx="3" fill="#b5653a"/>`),
+  gabel: svg(`<g transform="rotate(28 50 50)" fill="#cdd4de" stroke="#6b7a8f" stroke-width="2" stroke-linejoin="round">
+    <rect x="45" y="44" width="10" height="52" rx="5"/>
+    <path d="M35 26 H65 V32 Q65 46 54 48 H46 Q35 46 35 32 Z"/>
+    <rect x="35" y="4" width="5.5" height="28" rx="2.5"/><rect x="43.2" y="4" width="5.5" height="28" rx="2.5"/><rect x="51.3" y="4" width="5.5" height="28" rx="2.5"/><rect x="59.5" y="4" width="5.5" height="28" rx="2.5"/></g>`),
+  video: svg(`<rect x="5" y="14" width="90" height="64" rx="8" fill="#2d3540"/>
+    <rect x="11" y="20" width="78" height="52" rx="4" fill="#8cc4ff"/>
+    <circle cx="50" cy="44" r="16" fill="#e53935"/><path d="M44 35 L59 44 L44 53 Z" fill="#fff"/>
+    <rect x="16" y="64" width="68" height="4" rx="2" fill="#fff"/><rect x="16" y="64" width="26" height="4" rx="2" fill="#e53935"/>
+    <path d="M40 78 L35 92 H65 L60 78 Z" fill="#5a6b80"/>`),
+  flasche: svg(`<rect x="41" y="4" width="18" height="10" rx="2" fill="#1e6fd9"/>
+    <path d="M43 14 H57 V25 Q72 33 72 48 V88 Q72 95 65 95 H35 Q28 95 28 88 V48 Q28 33 43 25 Z" fill="#e3f2ff" stroke="#3a7bd5" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M31 56 H69 V88 Q69 92 65 92 H35 Q31 92 31 88 Z" fill="#8cc4ff"/>
+    <path d="M36 40 V84" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".9"/>`),
+  lampe: svg(`<rect x="47" y="48" width="6" height="34" fill="#8a5a2b"/>
+    <ellipse cx="50" cy="86" rx="22" ry="7" fill="#8a5a2b"/>
+    <ellipse cx="50" cy="51" rx="9" ry="5" fill="#fff6c4"/>
+    <path d="M28 12 H72 L86 50 H14 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 12 H72" stroke="#c99a1e" stroke-width="5" stroke-linecap="round"/>
+    <path d="M20 58 L12 68 M50 60 V70 M80 58 L88 68" stroke="#ffcf40" stroke-width="3" stroke-linecap="round"/>`),
+  wald: svg(`<rect x="2" y="84" width="96" height="8" rx="4" fill="#8bc34a"/>
+    <rect x="46.5" y="52" width="7" height="34" fill="#8a5a2b"/><circle cx="50" cy="36" r="20" fill="#3cb371"/><circle cx="38" cy="44" r="12" fill="#3cb371"/><circle cx="62" cy="44" r="12" fill="#3cb371"/>
+    <rect x="20" y="72" width="6" height="14" fill="#8a5a2b"/><path d="M23 20 L37 46 H31 L41 72 H5 L15 46 H9 Z" fill="#2e7d32"/>
+    <rect x="74" y="72" width="6" height="14" fill="#8a5a2b"/><path d="M77 24 L91 48 H85 L95 72 H59 L69 48 H63 Z" fill="#2e7d32"/>`),
+  glas: svg(`<path d="M24 12 H76 L68 89 Q67 94 62 94 H38 Q33 94 32 89 Z" fill="#eef8ff" stroke="#7fa7d6" stroke-width="3" stroke-linejoin="round"/>
+    <ellipse cx="50" cy="12" rx="26" ry="4" fill="#fff" stroke="#7fa7d6" stroke-width="2.5"/>
+    <path d="M33 84 H67" stroke="#b5d3f0" stroke-width="4"/>
+    <path d="M33 22 L39 78" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`),
   // Mieder / Korsett – mit grünem Plus (anziehen) bzw. rotem Minus (ausziehen); nur noch für eigene Tafel-Felder
   mieder_an: svgBig(korsett() + `<circle cx="80" cy="80" r="15" fill="#2e9e44" stroke="#fff" stroke-width="3"/>
     <path d="M80 71 v18 M71 80 h18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`),
@@ -182,6 +248,8 @@ const WORDS = [
   { w: "Anker",     g: "der", e: "⚓", s: "An-ker" },
   { w: "Auto",      g: "das", e: "🚗", s: "Au-to", a: false, lg: true },
   { w: "Auge",      g: "das", e: "👁️", s: "Au-ge", a: false },
+  { w: "Aufgabe",   g: "die", e: "📝", s: "Auf-ga-be", a: false },
+  { w: "Aufzug",    g: "der", e: "🛗", s: "Auf-zug", a: false },
   // B
   { w: "Banane",    g: "die", e: "🍌", s: "Ba-na-ne", lg: true },
   { w: "Baum",      g: "der", e: "🌳", s: "Baum", lg: true },
@@ -195,19 +263,20 @@ const WORDS = [
   { w: "Bett",      g: "das", e: "🛏️", s: "Bett" },
   { w: "Bein",      g: "das", e: "🦵", s: "Bein", lg: true },
   { w: "Brille",    g: "die", e: "👓", s: "Bril-le" },
+  { w: "Brief",     g: "der", e: "✉️", s: "Brief" },
   // C
-  { w: "Clown",     g: "der", e: "🤡", s: "Clown", sp: "Klaun" },
   { w: "Computer",  g: "der", e: "💻", s: "Com-pu-ter", sp: "Kom-pju-ter" },
   { w: "Cowboy",    g: "der", e: "🤠", s: "Cow-boy", sp: "Kau-beu" },
-  { w: "Cupcake",   g: "der", e: "🧁", s: "Cup-cake", sp: "Kap-keik" },
-  { w: "Cap",       g: "die", e: "🧢", s: "Cap", sp: "Käp" },
+  { w: "Chor",      g: "der", e: PICS.chor, s: "Chor", sp: "Kor" },
+  { w: "Comic",     g: "der", e: PICS.comic, s: "Co-mic", sp: "Ko-mik" },
+  { w: "Creme",     g: "die", e: PICS.creme, s: "Creme" },
   // D
   { w: "Dino",      g: "der", e: "🦕", s: "Di-no", lg: true },
   { w: "Delfin",    g: "der", e: "🐬", s: "Del-fin", lg: true },
   { w: "Drache",    g: "der", e: "🐉", s: "Dra-che" },
-  { w: "Donut",     g: "der", e: "🍩", s: "Do-nut", sp: "Do-natt" },
-  { w: "Diamant",   g: "der", e: "💎", s: "Di-a-mant", lg: true },
   { w: "Dusche",    g: "die", e: "🚿", s: "Du-sche" },
+  { w: "Dach",      g: "das", e: PICS.dach, s: "Dach" },
+  { w: "Dose",      g: "die", e: "🥫", s: "Do-se", lg: true },
   // E
   { w: "Ente",      g: "die", e: "🦆", s: "En-te", lg: true },
   { w: "Elefant",   g: "der", e: "🐘", s: "E-le-fant" },
@@ -224,13 +293,17 @@ const WORDS = [
   { w: "Fee",       g: "die", e: "🧚", s: "Fee", lg: true },
   { w: "Flugzeug",  g: "das", e: "✈️", s: "Flug-zeug" },
   { w: "Fahrrad",   g: "das", e: "🚲", s: "Fahr-rad" },
+  { w: "Flasche",   g: "die", e: PICS.flasche, s: "Fla-sche" },
+  { w: "Fluss",     g: "der", e: "🏞️", s: "Fluss" },
   // G
   { w: "Gurke",     g: "die", e: "🥒", s: "Gur-ke", lg: true },
-  { w: "Giraffe",   g: "die", e: "🦒", s: "Gi-raf-fe" },
   { w: "Geschenk",  g: "das", e: "🎁", s: "Ge-schenk" },
   { w: "Gitarre",   g: "die", e: "🎸", s: "Gi-tar-re" },
   { w: "Gorilla",   g: "der", e: "🦍", s: "Go-ril-la" },
   { w: "Geist",     g: "der", e: "👻", s: "Geist" },
+  { w: "Gabel",     g: "die", e: PICS.gabel, s: "Ga-bel", lg: true },
+  { w: "Glas",      g: "das", e: PICS.glas, s: "Glas", lg: true },
+  { w: "Glocke",    g: "die", e: "🔔", s: "Glo-cke", sp: "Glo-ke" },
   // H
   { w: "Hund",      g: "der", e: "🐕", s: "Hund", lg: true },
   { w: "Haus",      g: "das", e: "🏠", s: "Haus", lg: true },
@@ -244,13 +317,13 @@ const WORDS = [
   { w: "Insel",     g: "die", e: "🏝️", s: "In-sel", lg: true },
   { w: "Iglu",      g: "das", e: PICS.iglu, s: "I-glu", lg: true },
   { w: "Insekt",    g: "das", e: "🪲", s: "In-sekt", lg: true },
-  { w: "Ingwer",    g: "der", e: "🫚", s: "Ing-wer" },
+  { w: "Irrgarten", g: "der", e: PICS.irrgarten, s: "Irr-gar-ten" },
   // J
   { w: "Jacke",     g: "die", e: PICS.jacke, s: "Ja-cke", sp: "Ja-ke" },
-  { w: "Jojo",      g: "das", e: "🪀", s: "Jo-jo", lg: true },
   { w: "Junge",     g: "der", e: "👦", s: "Jun-ge" },
   { w: "Joghurt",   g: "der", e: PICS.joghurt, s: "Jo-ghurt", sp: "Jo-gurt" },
   { w: "Jaguar",    g: "der", e: "🐆", s: "Ja-gu-ar", lg: true },
+  { w: "Jause",     g: "die", e: "🥪", s: "Jau-se", lg: true },
   // K
   { w: "Katze",     g: "die", e: "🐈", s: "Kat-ze" },
   { w: "Kuh",       g: "die", e: "🐄", s: "Kuh" },
@@ -271,6 +344,9 @@ const WORDS = [
   { w: "Lama",      g: "das", e: "🦙", s: "La-ma", lg: true },
   { w: "Lupe",      g: "die", e: "🔍", s: "Lu-pe", lg: true },
   { w: "Lolli",     g: "der", e: "🍭", s: "Lol-li" },
+  { w: "Leiter",    g: "die", e: "🪜", s: "Lei-ter", lg: true },
+  { w: "Lampe",     g: "die", e: PICS.lampe, s: "Lam-pe", lg: true },
+  // M
   { w: "Maus",      g: "die", e: "🐭", s: "Maus", lg: true },
   { w: "Mond",      g: "der", e: "🌙", s: "Mond", lg: true },
   { w: "Milch",     g: "die", e: "🥛", s: "Milch" },
@@ -290,8 +366,8 @@ const WORDS = [
   { w: "Opa",       g: "der", e: "👴", s: "O-pa", lg: true },
   { w: "Ohr",       g: "das", e: "👂", s: "Ohr" },
   { w: "Otter",     g: "der", e: "🦦", s: "Ot-ter" },
-  { w: "Ochse",     g: "der", e: "🐂", s: "Och-se" },
   { w: "Orange",    g: "die", e: "🍊", s: "O-ran-ge", sp: "O-rang-sche" },
+  { w: "Ofen",      g: "der", e: PICS.ofen, s: "O-fen", lg: true },
   // P
   { w: "Pilz",      g: "der", e: "🍄", s: "Pilz", lg: true },
   { w: "Pinguin",   g: "der", e: "🐧", s: "Pin-gu-in" },
@@ -337,8 +413,8 @@ const WORDS = [
   { w: "Vogel",     g: "der", e: "🐦", s: "Vo-gel", sp: "Fo-gel" },
   { w: "Vulkan",    g: "der", e: "🌋", s: "Vul-kan" },
   { w: "Vollmond",  g: "der", e: "🌕", s: "Voll-mond", sp: "Foll-mond" },
-  { w: "Vier",      g: "die", e: PICS.vier, s: "Vier", sp: "Fier" },
-  { w: "Vase",      g: "die", e: "🏺", s: "Va-se", sp: "Wa-se" },
+  { w: "Vase",      g: "die", e: "🏺", s: "Va-se", sp: "Wa-se", a: false },
+  { w: "Video",     g: "das", e: PICS.video, s: "Vi-de-o", sp: "Wi-de-o", a: false },
   // W
   { w: "Wal",       g: "der", e: "🐳", s: "Wal", lg: true },
   { w: "Wolke",     g: "die", e: "☁️", s: "Wol-ke", lg: true },
@@ -346,6 +422,7 @@ const WORDS = [
   { w: "Würfel",    g: "der", e: "🎲", s: "Wür-fel" },
   { w: "Welle",     g: "die", e: "🌊", s: "Wel-le" },
   { w: "Wecker",    g: "der", e: "⏰", s: "We-cker", sp: "We-ker" },
+  { w: "Wald",      g: "der", e: PICS.wald, s: "Wald" },
   // X
   { w: "Xylophon",  g: "das", e: PICS.xylophon, s: "Xy-lo-phon", sp: "Xü-lo-fon" },
   // Y

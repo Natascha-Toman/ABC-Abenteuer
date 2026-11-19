@@ -1,7 +1,7 @@
 {
 "laut/a": {
-"text": "Aaa.",
-"text_orig": "Aaa.",
+"text": "a.",
+"text_orig": "a.",
 "modell": "eleven_v4"
 },
 "laut/b": {
@@ -20,13 +20,13 @@
 "modell": "eleven_v4"
 },
 "laut/e": {
-"text": "Eee.",
-"text_orig": "Eee.",
+"text": "e.",
+"text_orig": "e.",
 "modell": "eleven_v4"
 },
 "laut/f": {
-"text": "Fffff.",
-"text_orig": "Fffff.",
+"text": "f.",
+"text_orig": "f.",
 "modell": "eleven_v4"
 },
 "laut/g": {
@@ -35,18 +35,18 @@
 "modell": "eleven_v4"
 },
 "laut/h": {
-"text": "Hhhh.",
-"text_orig": "Hhhh.",
+"text": "h.",
+"text_orig": "h.",
 "modell": "eleven_v4"
 },
 "laut/i": {
-"text": "Iii.",
-"text_orig": "Iii.",
+"text": "i.",
+"text_orig": "i.",
 "modell": "eleven_v4"
 },
 "laut/j": {
-"text": "Jjj.",
-"text_orig": "Jjj.",
+"text": "j.",
+"text_orig": "j.",
 "modell": "eleven_v4"
 },
 "laut/k": {
@@ -55,23 +55,23 @@
 "modell": "eleven_v4"
 },
 "laut/l": {
-"text": "Llll.",
-"text_orig": "Llll.",
+"text": "l.",
+"text_orig": "l.",
 "modell": "eleven_v4"
 },
 "laut/m": {
-"text": "Mmmm.",
-"text_orig": "Mmmm.",
+"text": "m.",
+"text_orig": "m.",
 "modell": "eleven_v4"
 },
 "laut/n": {
-"text": "Nnnn.",
-"text_orig": "Nnnn.",
+"text": "n.",
+"text_orig": "n.",
 "modell": "eleven_v4"
 },
 "laut/o": {
-"text": "Ooo.",
-"text_orig": "Ooo.",
+"text": "o.",
+"text_orig": "o.",
 "modell": "eleven_v4"
 },
 "laut/p": {
@@ -85,13 +85,13 @@
 "modell": "eleven_v4"
 },
 "laut/r": {
-"text": "Rrrr.",
-"text_orig": "Rrrr.",
+"text": "r.",
+"text_orig": "r.",
 "modell": "eleven_v4"
 },
 "laut/s": {
-"text": "Ssss.",
-"text_orig": "Ssss.",
+"text": "s.",
+"text_orig": "s.",
 "modell": "eleven_v4"
 },
 "laut/t": {
@@ -100,18 +100,18 @@
 "modell": "eleven_v4"
 },
 "laut/u": {
-"text": "Uuu.",
-"text_orig": "Uuu.",
+"text": "u.",
+"text_orig": "u.",
 "modell": "eleven_v4"
 },
 "laut/v": {
-"text": "Fffff.",
-"text_orig": "Fffff.",
+"text": "f.",
+"text_orig": "f.",
 "modell": "eleven_v4"
 },
 "laut/w": {
-"text": "Wwww.",
-"text_orig": "Wwww.",
+"text": "w.",
+"text_orig": "w.",
 "modell": "eleven_v4"
 },
 "laut/x": {
@@ -120,8 +120,8 @@
 "modell": "eleven_v4"
 },
 "laut/y": {
-"text": "Jjj.",
-"text_orig": "Jjj.",
+"text": "j.",
+"text_orig": "j.",
 "modell": "eleven_v4"
 },
 "laut/z": {
@@ -130,18 +130,18 @@
 "modell": "eleven_v4"
 },
 "laut/ae": {
-"text": "Äää.",
-"text_orig": "Äää.",
+"text": "ä.",
+"text_orig": "ä.",
 "modell": "eleven_v4"
 },
 "laut/oe": {
-"text": "Ööö.",
-"text_orig": "Ööö.",
+"text": "ö.",
+"text_orig": "ö.",
 "modell": "eleven_v4"
 },
 "laut/ue": {
-"text": "Üüü.",
-"text_orig": "Üüü.",
+"text": "ü.",
+"text_orig": "ü.",
 "modell": "eleven_v4"
 },
 "name/a": {
@@ -150,18 +150,18 @@
 "modell": "eleven_v4"
 },
 "name/b": {
-"text": "Beh.",
-"text_orig": "Beh.",
+"text": "B.",
+"text_orig": "B.",
 "modell": "eleven_v4"
 },
 "name/c": {
-"text": "Zeh.",
-"text_orig": "Zeh.",
+"text": "C.",
+"text_orig": "C.",
 "modell": "eleven_v4"
 },
 "name/d": {
-"text": "Deh.",
-"text_orig": "Deh.",
+"text": "D.",
+"text_orig": "D.",
 "modell": "eleven_v4"
 },
 "name/e": {
@@ -170,18 +170,18 @@
 "modell": "eleven_v4"
 },
 "name/f": {
-"text": "Eff.",
-"text_orig": "Eff.",
+"text": "F.",
+"text_orig": "F.",
 "modell": "eleven_v4"
 },
 "name/g": {
-"text": "Geh.",
-"text_orig": "Geh.",
+"text": "G.",
+"text_orig": "G.",
 "modell": "eleven_v4"
 },
 "name/h": {
-"text": "Hah.",
-"text_orig": "Hah.",
+"text": "H.",
+"text_orig": "H.",
 "modell": "eleven_v4"
 },
 "name/i": {
@@ -190,28 +190,28 @@
 "modell": "eleven_v4"
 },
 "name/j": {
-"text": "Jott.",
-"text_orig": "Jott.",
+"text": "J.",
+"text_orig": "J.",
 "modell": "eleven_v4"
 },
 "name/k": {
-"text": "Kah.",
-"text_orig": "Kah.",
+"text": "K.",
+"text_orig": "K.",
 "modell": "eleven_v4"
 },
 "name/l": {
-"text": "Ell.",
-"text_orig": "Ell.",
+"text": "L.",
+"text_orig": "L.",
 "modell": "eleven_v4"
 },
 "name/m": {
-"text": "Emm.",
-"text_orig": "Emm.",
+"text": "M.",
+"text_orig": "M.",
 "modell": "eleven_v4"
 },
 "name/n": {
-"text": "Enn.",
-"text_orig": "Enn.",
+"text": "N.",
+"text_orig": "N.",
 "modell": "eleven_v4"
 },
 "name/o": {
@@ -220,28 +220,28 @@
 "modell": "eleven_v4"
 },
 "name/p": {
-"text": "Peh.",
-"text_orig": "Peh.",
+"text": "P.",
+"text_orig": "P.",
 "modell": "eleven_v4"
 },
 "name/q": {
-"text": "Kuh.",
-"text_orig": "Kuh.",
+"text": "Q.",
+"text_orig": "Q.",
 "modell": "eleven_v4"
 },
 "name/r": {
-"text": "Err.",
-"text_orig": "Err.",
+"text": "R.",
+"text_orig": "R.",
 "modell": "eleven_v4"
 },
 "name/s": {
-"text": "Ess.",
-"text_orig": "Ess.",
+"text": "S.",
+"text_orig": "S.",
 "modell": "eleven_v4"
 },
 "name/t": {
-"text": "Teh.",
-"text_orig": "Teh.",
+"text": "T.",
+"text_orig": "T.",
 "modell": "eleven_v4"
 },
 "name/u": {
@@ -250,28 +250,28 @@
 "modell": "eleven_v4"
 },
 "name/v": {
-"text": "Fau.",
-"text_orig": "Fau.",
+"text": "V.",
+"text_orig": "V.",
 "modell": "eleven_v4"
 },
 "name/w": {
-"text": "Weh.",
-"text_orig": "Weh.",
+"text": "W.",
+"text_orig": "W.",
 "modell": "eleven_v4"
 },
 "name/x": {
-"text": "Iks.",
-"text_orig": "Iks.",
+"text": "X.",
+"text_orig": "X.",
 "modell": "eleven_v4"
 },
 "name/y": {
-"text": "Üpsilon.",
-"text_orig": "Üpsilon.",
+"text": "Y.",
+"text_orig": "Y.",
 "modell": "eleven_v4"
 },
 "name/z": {
-"text": "Zett.",
-"text_orig": "Zett.",
+"text": "Z.",
+"text_orig": "Z.",
 "modell": "eleven_v4"
 },
 "name/ae": {
@@ -404,11 +404,6 @@
 "text_orig": "Brille.",
 "modell": "eleven_v4"
 },
-"wort/clown": {
-"text": "Clown.",
-"text_orig": "Clown.",
-"modell": "eleven_v4"
-},
 "wort/computer": {
 "text": "Computer.",
 "text_orig": "Computer.",
@@ -417,16 +412,6 @@
 "wort/cowboy": {
 "text": "Cowboy.",
 "text_orig": "Cowboy.",
-"modell": "eleven_v4"
-},
-"wort/cupcake": {
-"text": "Cupcake.",
-"text_orig": "Cupcake.",
-"modell": "eleven_v4"
-},
-"wort/cap": {
-"text": "Cap.",
-"text_orig": "Cap.",
 "modell": "eleven_v4"
 },
 "wort/dino": {
@@ -442,16 +427,6 @@
 "wort/drache": {
 "text": "Drache.",
 "text_orig": "Drache.",
-"modell": "eleven_v4"
-},
-"wort/donut": {
-"text": "Donut.",
-"text_orig": "Donut.",
-"modell": "eleven_v4"
-},
-"wort/diamant": {
-"text": "Diamant.",
-"text_orig": "Diamant.",
 "modell": "eleven_v4"
 },
 "wort/dusche": {
@@ -534,11 +509,6 @@
 "text_orig": "Gurke.",
 "modell": "eleven_v4"
 },
-"wort/giraffe": {
-"text": "Giraffe.",
-"text_orig": "Giraffe.",
-"modell": "eleven_v4"
-},
 "wort/geschenk": {
 "text": "Geschenk.",
 "text_orig": "Geschenk.",
@@ -614,19 +584,9 @@
 "text_orig": "Insekt.",
 "modell": "eleven_v4"
 },
-"wort/ingwer": {
-"text": "Ingwer.",
-"text_orig": "Ingwer.",
-"modell": "eleven_v4"
-},
 "wort/jacke": {
 "text": "Jacke.",
 "text_orig": "Jacke.",
-"modell": "eleven_v4"
-},
-"wort/jojo": {
-"text": "Jojo.",
-"text_orig": "Jojo.",
 "modell": "eleven_v4"
 },
 "wort/junge": {
@@ -817,11 +777,6 @@
 "wort/otter": {
 "text": "Otter.",
 "text_orig": "Otter.",
-"modell": "eleven_v4"
-},
-"wort/ochse": {
-"text": "Ochse.",
-"text_orig": "Ochse.",
 "modell": "eleven_v4"
 },
 "wort/orange": {
@@ -1017,11 +972,6 @@
 "wort/vollmond": {
 "text": "Vollmond.",
 "text_orig": "Vollmond.",
-"modell": "eleven_v4"
-},
-"wort/vier": {
-"text": "Vier.",
-"text_orig": "Vier.",
 "modell": "eleven_v4"
 },
 "wort/vase": {
@@ -1230,8 +1180,8 @@
 "modell": "eleven_v4"
 },
 "silben/affe-2": {
-"text": "Feh.",
-"text_orig": "Feh.",
+"text": "Fe.",
+"text_orig": "Fe.",
 "modell": "eleven_v4"
 },
 "silben/apfel-1": {
@@ -1245,8 +1195,8 @@
 "modell": "eleven_v4"
 },
 "silben/ameise-1": {
-"text": "Ah.",
-"text_orig": "Ah.",
+"text": "A.",
+"text_orig": "A.",
 "modell": "eleven_v4"
 },
 "silben/ameise-2": {
@@ -1255,18 +1205,18 @@
 "modell": "eleven_v4"
 },
 "silben/ameise-3": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/ananas-1": {
-"text": "Ah.",
-"text_orig": "Ah.",
+"text": "A.",
+"text_orig": "A.",
 "modell": "eleven_v4"
 },
 "silben/ananas-2": {
-"text": "Nah.",
-"text_orig": "Nah.",
+"text": "Na.",
+"text_orig": "Na.",
 "modell": "eleven_v4"
 },
 "silben/ananas-3": {
@@ -1300,8 +1250,8 @@
 "modell": "eleven_v4"
 },
 "silben/auto-2": {
-"text": "Toh.",
-"text_orig": "Toh.",
+"text": "To.",
+"text_orig": "To.",
 "modell": "eleven_v4"
 },
 "silben/auge-1": {
@@ -1310,23 +1260,23 @@
 "modell": "eleven_v4"
 },
 "silben/auge-2": {
-"text": "Geh.",
-"text_orig": "Geh.",
+"text": "Ge.",
+"text_orig": "Ge.",
 "modell": "eleven_v4"
 },
 "silben/banane-1": {
-"text": "Bah.",
-"text_orig": "Bah.",
+"text": "Ba.",
+"text_orig": "Ba.",
 "modell": "eleven_v4"
 },
 "silben/banane-2": {
-"text": "Nah.",
-"text_orig": "Nah.",
+"text": "Na.",
+"text_orig": "Na.",
 "modell": "eleven_v4"
 },
 "silben/banane-3": {
-"text": "Neh.",
-"text_orig": "Neh.",
+"text": "Ne.",
+"text_orig": "Ne.",
 "modell": "eleven_v4"
 },
 "silben/baum-1": {
@@ -1345,8 +1295,8 @@
 "modell": "eleven_v4"
 },
 "silben/biene-2": {
-"text": "Neh.",
-"text_orig": "Neh.",
+"text": "Ne.",
+"text_orig": "Ne.",
 "modell": "eleven_v4"
 },
 "silben/buch-1": {
@@ -1355,23 +1305,23 @@
 "modell": "eleven_v4"
 },
 "silben/blume-1": {
-"text": "Bluh.",
-"text_orig": "Bluh.",
+"text": "Blu.",
+"text_orig": "Blu.",
 "modell": "eleven_v4"
 },
 "silben/blume-2": {
-"text": "Meh.",
-"text_orig": "Meh.",
+"text": "Me.",
+"text_orig": "Me.",
 "modell": "eleven_v4"
 },
 "silben/bluete-1": {
-"text": "Blüh.",
-"text_orig": "Blüh.",
+"text": "Blü.",
+"text_orig": "Blü.",
 "modell": "eleven_v4"
 },
 "silben/bluete-2": {
-"text": "Teh.",
-"text_orig": "Teh.",
+"text": "Te.",
+"text_orig": "Te.",
 "modell": "eleven_v4"
 },
 "silben/brot-1": {
@@ -1400,13 +1350,8 @@
 "modell": "eleven_v4"
 },
 "silben/brille-2": {
-"text": "Leh.",
-"text_orig": "Leh.",
-"modell": "eleven_v4"
-},
-"silben/clown-1": {
-"text": "Klaun.",
-"text_orig": "Klaun.",
+"text": "Le.",
+"text_orig": "Le.",
 "modell": "eleven_v4"
 },
 "silben/computer-1": {
@@ -1415,8 +1360,8 @@
 "modell": "eleven_v4"
 },
 "silben/computer-2": {
-"text": "Pjuh.",
-"text_orig": "Pjuh.",
+"text": "Pju.",
+"text_orig": "Pju.",
 "modell": "eleven_v4"
 },
 "silben/computer-3": {
@@ -1434,29 +1379,14 @@
 "text_orig": "Beu.",
 "modell": "eleven_v4"
 },
-"silben/cupcake-1": {
-"text": "Kap.",
-"text_orig": "Kap.",
-"modell": "eleven_v4"
-},
-"silben/cupcake-2": {
-"text": "Keik.",
-"text_orig": "Keik.",
-"modell": "eleven_v4"
-},
-"silben/cap-1": {
-"text": "Käp.",
-"text_orig": "Käp.",
-"modell": "eleven_v4"
-},
 "silben/dino-1": {
-"text": "Dih.",
-"text_orig": "Dih.",
+"text": "Di.",
+"text_orig": "Di.",
 "modell": "eleven_v4"
 },
 "silben/dino-2": {
-"text": "Noh.",
-"text_orig": "Noh.",
+"text": "No.",
+"text_orig": "No.",
 "modell": "eleven_v4"
 },
 "silben/delfin-1": {
@@ -1470,48 +1400,23 @@
 "modell": "eleven_v4"
 },
 "silben/drache-1": {
-"text": "Drah.",
-"text_orig": "Drah.",
+"text": "Dra.",
+"text_orig": "Dra.",
 "modell": "eleven_v4"
 },
 "silben/drache-2": {
-"text": "Cheh.",
-"text_orig": "Cheh.",
-"modell": "eleven_v4"
-},
-"silben/donut-1": {
-"text": "Doh.",
-"text_orig": "Doh.",
-"modell": "eleven_v4"
-},
-"silben/donut-2": {
-"text": "Natt.",
-"text_orig": "Natt.",
-"modell": "eleven_v4"
-},
-"silben/diamant-1": {
-"text": "Dih.",
-"text_orig": "Dih.",
-"modell": "eleven_v4"
-},
-"silben/diamant-2": {
-"text": "Ah.",
-"text_orig": "Ah.",
-"modell": "eleven_v4"
-},
-"silben/diamant-3": {
-"text": "Mant.",
-"text_orig": "Mant.",
+"text": "Che.",
+"text_orig": "Che.",
 "modell": "eleven_v4"
 },
 "silben/dusche-1": {
-"text": "Duh.",
-"text_orig": "Duh.",
+"text": "Du.",
+"text_orig": "Du.",
 "modell": "eleven_v4"
 },
 "silben/dusche-2": {
-"text": "Scheh.",
-"text_orig": "Scheh.",
+"text": "Sche.",
+"text_orig": "Sche.",
 "modell": "eleven_v4"
 },
 "silben/ente-1": {
@@ -1520,18 +1425,18 @@
 "modell": "eleven_v4"
 },
 "silben/ente-2": {
-"text": "Teh.",
-"text_orig": "Teh.",
+"text": "Te.",
+"text_orig": "Te.",
 "modell": "eleven_v4"
 },
 "silben/elefant-1": {
-"text": "Eh.",
-"text_orig": "Eh.",
+"text": "E.",
+"text_orig": "E.",
 "modell": "eleven_v4"
 },
 "silben/elefant-2": {
-"text": "Leh.",
-"text_orig": "Leh.",
+"text": "Le.",
+"text_orig": "Le.",
 "modell": "eleven_v4"
 },
 "silben/elefant-3": {
@@ -1545,13 +1450,13 @@
 "modell": "eleven_v4"
 },
 "silben/erdbeere-2": {
-"text": "Beh.",
-"text_orig": "Beh.",
+"text": "Bee.",
+"text_orig": "Bee.",
 "modell": "eleven_v4"
 },
 "silben/erdbeere-3": {
-"text": "Reh.",
-"text_orig": "Reh.",
+"text": "Re.",
+"text_orig": "Re.",
 "modell": "eleven_v4"
 },
 "silben/engel-1": {
@@ -1565,8 +1470,8 @@
 "modell": "eleven_v4"
 },
 "silben/esel-1": {
-"text": "Eh.",
-"text_orig": "Eh.",
+"text": "E.",
+"text_orig": "E.",
 "modell": "eleven_v4"
 },
 "silben/esel-2": {
@@ -1610,8 +1515,8 @@
 "modell": "eleven_v4"
 },
 "silben/fee-1": {
-"text": "Feh.",
-"text_orig": "Feh.",
+"text": "Fee.",
+"text_orig": "Fee.",
 "modell": "eleven_v4"
 },
 "silben/flugzeug-1": {
@@ -1640,28 +1545,13 @@
 "modell": "eleven_v4"
 },
 "silben/gurke-2": {
-"text": "Keh.",
-"text_orig": "Keh.",
-"modell": "eleven_v4"
-},
-"silben/giraffe-1": {
-"text": "Gih.",
-"text_orig": "Gih.",
-"modell": "eleven_v4"
-},
-"silben/giraffe-2": {
-"text": "Raf.",
-"text_orig": "Raf.",
-"modell": "eleven_v4"
-},
-"silben/giraffe-3": {
-"text": "Feh.",
-"text_orig": "Feh.",
+"text": "Ke.",
+"text_orig": "Ke.",
 "modell": "eleven_v4"
 },
 "silben/geschenk-1": {
-"text": "Geh.",
-"text_orig": "Geh.",
+"text": "Ge.",
+"text_orig": "Ge.",
 "modell": "eleven_v4"
 },
 "silben/geschenk-2": {
@@ -1670,8 +1560,8 @@
 "modell": "eleven_v4"
 },
 "silben/gitarre-1": {
-"text": "Gih.",
-"text_orig": "Gih.",
+"text": "Gi.",
+"text_orig": "Gi.",
 "modell": "eleven_v4"
 },
 "silben/gitarre-2": {
@@ -1680,13 +1570,13 @@
 "modell": "eleven_v4"
 },
 "silben/gitarre-3": {
-"text": "Reh.",
-"text_orig": "Reh.",
+"text": "Re.",
+"text_orig": "Re.",
 "modell": "eleven_v4"
 },
 "silben/gorilla-1": {
-"text": "Goh.",
-"text_orig": "Goh.",
+"text": "Go.",
+"text_orig": "Go.",
 "modell": "eleven_v4"
 },
 "silben/gorilla-2": {
@@ -1695,8 +1585,8 @@
 "modell": "eleven_v4"
 },
 "silben/gorilla-3": {
-"text": "Lah.",
-"text_orig": "Lah.",
+"text": "La.",
+"text_orig": "La.",
 "modell": "eleven_v4"
 },
 "silben/geist-1": {
@@ -1715,13 +1605,13 @@
 "modell": "eleven_v4"
 },
 "silben/hase-1": {
-"text": "Hah.",
-"text_orig": "Hah.",
+"text": "Ha.",
+"text_orig": "Ha.",
 "modell": "eleven_v4"
 },
 "silben/hase-2": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/herz-1": {
@@ -1745,8 +1635,8 @@
 "modell": "eleven_v4"
 },
 "silben/igel-1": {
-"text": "Ih.",
-"text_orig": "Ih.",
+"text": "I.",
+"text_orig": "I.",
 "modell": "eleven_v4"
 },
 "silben/igel-2": {
@@ -1765,14 +1655,14 @@
 "modell": "?"
 },
 "silben/iglu-1": {
-"text": "Ih.",
-"text_orig": "Ih.",
-"modell": "?"
+"text": "I.",
+"text_orig": "I.",
+"modell": "eleven_v4"
 },
 "silben/iglu-2": {
-"text": "Gluh.",
-"text_orig": "Gluh.",
-"modell": "?"
+"text": "Glu.",
+"text_orig": "Glu.",
+"modell": "eleven_v4"
 },
 "silben/insekt-1": {
 "text": "In.",
@@ -1784,35 +1674,15 @@
 "text_orig": "Sekt.",
 "modell": "?"
 },
-"silben/ingwer-1": {
-"text": "Ing.",
-"text_orig": "Ing.",
-"modell": "?"
-},
-"silben/ingwer-2": {
-"text": "Wer.",
-"text_orig": "Wer.",
-"modell": "?"
-},
 "silben/jacke-1": {
-"text": "Jah.",
-"text_orig": "Jah.",
-"modell": "?"
+"text": "Ja.",
+"text_orig": "Ja.",
+"modell": "eleven_v4"
 },
 "silben/jacke-2": {
-"text": "Keh.",
-"text_orig": "Keh.",
-"modell": "?"
-},
-"silben/jojo-1": {
-"text": "Joh.",
-"text_orig": "Joh.",
-"modell": "?"
-},
-"silben/jojo-2": {
-"text": "Joh.",
-"text_orig": "Joh.",
-"modell": "?"
+"text": "Ke.",
+"text_orig": "Ke.",
+"modell": "eleven_v4"
 },
 "silben/junge-1": {
 "text": "Jun.",
@@ -1820,14 +1690,14 @@
 "modell": "?"
 },
 "silben/junge-2": {
-"text": "Geh.",
-"text_orig": "Geh.",
-"modell": "?"
+"text": "Ge.",
+"text_orig": "Ge.",
+"modell": "eleven_v4"
 },
 "silben/joghurt-1": {
-"text": "Joh.",
-"text_orig": "Joh.",
-"modell": "?"
+"text": "Jo.",
+"text_orig": "Jo.",
+"modell": "eleven_v4"
 },
 "silben/joghurt-2": {
 "text": "Gurt.",
@@ -1835,13 +1705,13 @@
 "modell": "?"
 },
 "silben/jaguar-1": {
-"text": "Jah.",
-"text_orig": "Jah.",
-"modell": "?"
+"text": "Ja.",
+"text_orig": "Ja.",
+"modell": "eleven_v4"
 },
 "silben/jaguar-2": {
-"text": "Guh.",
-"text_orig": "Guh.",
+"text": "Gu.",
+"text_orig": "Gu.",
 "modell": "eleven_v4"
 },
 "silben/jaguar-3": {
@@ -1855,8 +1725,8 @@
 "modell": "eleven_v4"
 },
 "silben/katze-2": {
-"text": "Zeh.",
-"text_orig": "Zeh.",
+"text": "Ze.",
+"text_orig": "Ze.",
 "modell": "eleven_v4"
 },
 "silben/kuh-1": {
@@ -1865,23 +1735,23 @@
 "modell": "eleven_v4"
 },
 "silben/kaese-1": {
-"text": "Käh.",
-"text_orig": "Käh.",
+"text": "Kä.",
+"text_orig": "Kä.",
 "modell": "eleven_v4"
 },
 "silben/kaese-2": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/krone-1": {
-"text": "Kroh.",
-"text_orig": "Kroh.",
+"text": "Kro.",
+"text_orig": "Kro.",
 "modell": "eleven_v4"
 },
 "silben/krone-2": {
-"text": "Neh.",
-"text_orig": "Neh.",
+"text": "Ne.",
+"text_orig": "Ne.",
 "modell": "eleven_v4"
 },
 "silben/keks-1": {
@@ -1895,13 +1765,13 @@
 "modell": "eleven_v4"
 },
 "silben/kerze-2": {
-"text": "Zeh.",
-"text_orig": "Zeh.",
+"text": "Ze.",
+"text_orig": "Ze.",
 "modell": "eleven_v4"
 },
 "silben/kamel-1": {
-"text": "Kah.",
-"text_orig": "Kah.",
+"text": "Ka.",
+"text_orig": "Ka.",
 "modell": "eleven_v4"
 },
 "silben/kamel-2": {
@@ -1910,13 +1780,13 @@
 "modell": "eleven_v4"
 },
 "silben/krokodil-1": {
-"text": "Kroh.",
-"text_orig": "Kroh.",
+"text": "Kro.",
+"text_orig": "Kro.",
 "modell": "eleven_v4"
 },
 "silben/krokodil-2": {
-"text": "Koh.",
-"text_orig": "Koh.",
+"text": "Ko.",
+"text_orig": "Ko.",
 "modell": "eleven_v4"
 },
 "silben/krokodil-3": {
@@ -1925,18 +1795,18 @@
 "modell": "eleven_v4"
 },
 "silben/koala-1": {
-"text": "Koh.",
-"text_orig": "Koh.",
+"text": "Ko.",
+"text_orig": "Ko.",
 "modell": "eleven_v4"
 },
 "silben/koala-2": {
-"text": "Ah.",
-"text_orig": "Ah.",
+"text": "A.",
+"text_orig": "A.",
 "modell": "eleven_v4"
 },
 "silben/koala-3": {
-"text": "Lah.",
-"text_orig": "Lah.",
+"text": "La.",
+"text_orig": "La.",
 "modell": "eleven_v4"
 },
 "silben/kirsche-1": {
@@ -1945,18 +1815,18 @@
 "modell": "eleven_v4"
 },
 "silben/kirsche-2": {
-"text": "Scheh.",
-"text_orig": "Scheh.",
+"text": "Sche.",
+"text_orig": "Sche.",
 "modell": "eleven_v4"
 },
 "silben/kiwi-1": {
-"text": "Kih.",
-"text_orig": "Kih.",
+"text": "Ki.",
+"text_orig": "Ki.",
 "modell": "eleven_v4"
 },
 "silben/kiwi-2": {
-"text": "Wih.",
-"text_orig": "Wih.",
+"text": "Wi.",
+"text_orig": "Wi.",
 "modell": "eleven_v4"
 },
 "silben/kaktus-1": {
@@ -1970,28 +1840,28 @@
 "modell": "eleven_v4"
 },
 "silben/kamera-1": {
-"text": "Kah.",
-"text_orig": "Kah.",
+"text": "Ka.",
+"text_orig": "Ka.",
 "modell": "eleven_v4"
 },
 "silben/kamera-2": {
-"text": "Meh.",
-"text_orig": "Meh.",
+"text": "Me.",
+"text_orig": "Me.",
 "modell": "eleven_v4"
 },
 "silben/kamera-3": {
-"text": "Rah.",
-"text_orig": "Rah.",
+"text": "Ra.",
+"text_orig": "Ra.",
 "modell": "eleven_v4"
 },
 "silben/loewe-1": {
-"text": "Löh.",
-"text_orig": "Löh.",
+"text": "Lö.",
+"text_orig": "Lö.",
 "modell": "eleven_v4"
 },
 "silben/loewe-2": {
-"text": "Weh.",
-"text_orig": "Weh.",
+"text": "We.",
+"text_orig": "We.",
 "modell": "eleven_v4"
 },
 "silben/loeffel-1": {
@@ -2005,23 +1875,23 @@
 "modell": "eleven_v4"
 },
 "silben/lama-1": {
-"text": "Lah.",
-"text_orig": "Lah.",
+"text": "La.",
+"text_orig": "La.",
 "modell": "eleven_v4"
 },
 "silben/lama-2": {
-"text": "Mah.",
-"text_orig": "Mah.",
+"text": "Ma.",
+"text_orig": "Ma.",
 "modell": "eleven_v4"
 },
 "silben/lupe-1": {
-"text": "Luh.",
-"text_orig": "Luh.",
+"text": "Lu.",
+"text_orig": "Lu.",
 "modell": "eleven_v4"
 },
 "silben/lupe-2": {
-"text": "Peh.",
-"text_orig": "Peh.",
+"text": "Pe.",
+"text_orig": "Pe.",
 "modell": "eleven_v4"
 },
 "silben/lolli-1": {
@@ -2030,8 +1900,8 @@
 "modell": "eleven_v4"
 },
 "silben/lolli-2": {
-"text": "Lih.",
-"text_orig": "Lih.",
+"text": "Li.",
+"text_orig": "Li.",
 "modell": "eleven_v4"
 },
 "silben/maus-1": {
@@ -2065,23 +1935,23 @@
 "modell": "eleven_v4"
 },
 "silben/melone-1": {
-"text": "Meh.",
-"text_orig": "Meh.",
+"text": "Me.",
+"text_orig": "Me.",
 "modell": "eleven_v4"
 },
 "silben/melone-2": {
-"text": "Loh.",
-"text_orig": "Loh.",
+"text": "Lo.",
+"text_orig": "Lo.",
 "modell": "eleven_v4"
 },
 "silben/melone-3": {
-"text": "Neh.",
-"text_orig": "Neh.",
+"text": "Ne.",
+"text_orig": "Ne.",
 "modell": "eleven_v4"
 },
 "silben/muschel-1": {
-"text": "Muh.",
-"text_orig": "Muh.",
+"text": "Mu.",
+"text_orig": "Mu.",
 "modell": "eleven_v4"
 },
 "silben/muschel-2": {
@@ -2090,18 +1960,18 @@
 "modell": "eleven_v4"
 },
 "silben/nase-1": {
-"text": "Nah.",
-"text_orig": "Nah.",
+"text": "Na.",
+"text_orig": "Na.",
 "modell": "eleven_v4"
 },
 "silben/nase-2": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/nudeln-1": {
-"text": "Nuh.",
-"text_orig": "Nuh.",
+"text": "Nu.",
+"text_orig": "Nu.",
 "modell": "eleven_v4"
 },
 "silben/nudeln-2": {
@@ -2140,23 +2010,23 @@
 "modell": "eleven_v4"
 },
 "silben/oma-1": {
-"text": "Oh.",
-"text_orig": "Oh.",
+"text": "O.",
+"text_orig": "O.",
 "modell": "eleven_v4"
 },
 "silben/oma-2": {
-"text": "Mah.",
-"text_orig": "Mah.",
+"text": "Ma.",
+"text_orig": "Ma.",
 "modell": "eleven_v4"
 },
 "silben/opa-1": {
-"text": "Oh.",
-"text_orig": "Oh.",
+"text": "O.",
+"text_orig": "O.",
 "modell": "eleven_v4"
 },
 "silben/opa-2": {
-"text": "Pah.",
-"text_orig": "Pah.",
+"text": "Pa.",
+"text_orig": "Pa.",
 "modell": "eleven_v4"
 },
 "silben/ohr-1": {
@@ -2174,19 +2044,9 @@
 "text_orig": "Ter.",
 "modell": "eleven_v4"
 },
-"silben/ochse-1": {
-"text": "Och.",
-"text_orig": "Och.",
-"modell": "eleven_v4"
-},
-"silben/ochse-2": {
-"text": "Seh.",
-"text_orig": "Seh.",
-"modell": "eleven_v4"
-},
 "silben/orange-1": {
-"text": "Oh.",
-"text_orig": "Oh.",
+"text": "O.",
+"text_orig": "O.",
 "modell": "eleven_v4"
 },
 "silben/orange-2": {
@@ -2195,8 +2055,8 @@
 "modell": "eleven_v4"
 },
 "silben/orange-3": {
-"text": "Scheh.",
-"text_orig": "Scheh.",
+"text": "Sche.",
+"text_orig": "Sche.",
 "modell": "eleven_v4"
 },
 "silben/pilz-1": {
@@ -2210,8 +2070,8 @@
 "modell": "eleven_v4"
 },
 "silben/pinguin-2": {
-"text": "Guh.",
-"text_orig": "Guh.",
+"text": "Gu.",
+"text_orig": "Gu.",
 "modell": "eleven_v4"
 },
 "silben/pinguin-3": {
@@ -2230,8 +2090,8 @@
 "modell": "eleven_v4"
 },
 "silben/pizza-2": {
-"text": "Tsah.",
-"text_orig": "Tsah.",
+"text": "Tsa.",
+"text_orig": "Tsa.",
 "modell": "eleven_v4"
 },
 "silben/panda-1": {
@@ -2240,18 +2100,18 @@
 "modell": "eleven_v4"
 },
 "silben/panda-2": {
-"text": "Dah.",
-"text_orig": "Dah.",
+"text": "Da.",
+"text_orig": "Da.",
 "modell": "eleven_v4"
 },
 "silben/papagei-1": {
-"text": "Pah.",
-"text_orig": "Pah.",
+"text": "Pa.",
+"text_orig": "Pa.",
 "modell": "eleven_v4"
 },
 "silben/papagei-2": {
-"text": "Pah.",
-"text_orig": "Pah.",
+"text": "Pa.",
+"text_orig": "Pa.",
 "modell": "eleven_v4"
 },
 "silben/papagei-3": {
@@ -2265,13 +2125,13 @@
 "modell": "eleven_v4"
 },
 "silben/palme-2": {
-"text": "Meh.",
-"text_orig": "Meh.",
+"text": "Me.",
+"text_orig": "Me.",
 "modell": "eleven_v4"
 },
 "silben/paket-1": {
-"text": "Pah.",
-"text_orig": "Pah.",
+"text": "Pa.",
+"text_orig": "Pa.",
 "modell": "eleven_v4"
 },
 "silben/paket-2": {
@@ -2295,13 +2155,13 @@
 "modell": "eleven_v4"
 },
 "silben/qualle-2": {
-"text": "Leh.",
-"text_orig": "Leh.",
+"text": "Le.",
+"text_orig": "Le.",
 "modell": "eleven_v4"
 },
 "silben/quadrat-1": {
-"text": "Kwah.",
-"text_orig": "Kwah.",
+"text": "Kwa.",
+"text_orig": "Kwa.",
 "modell": "eleven_v4"
 },
 "silben/quadrat-2": {
@@ -2310,28 +2170,28 @@
 "modell": "eleven_v4"
 },
 "silben/rose-1": {
-"text": "Roh.",
-"text_orig": "Roh.",
+"text": "Ro.",
+"text_orig": "Ro.",
 "modell": "eleven_v4"
 },
 "silben/rose-2": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/rakete-1": {
-"text": "Rah.",
-"text_orig": "Rah.",
+"text": "Ra.",
+"text_orig": "Ra.",
 "modell": "eleven_v4"
 },
 "silben/rakete-2": {
-"text": "Keh.",
-"text_orig": "Keh.",
+"text": "Ke.",
+"text_orig": "Ke.",
 "modell": "eleven_v4"
 },
 "silben/rakete-3": {
-"text": "Teh.",
-"text_orig": "Teh.",
+"text": "Te.",
+"text_orig": "Te.",
 "modell": "eleven_v4"
 },
 "silben/ring-1": {
@@ -2340,8 +2200,8 @@
 "modell": "eleven_v4"
 },
 "silben/regenbogen-1": {
-"text": "Reh.",
-"text_orig": "Reh.",
+"text": "Re.",
+"text_orig": "Re.",
 "modell": "eleven_v4"
 },
 "silben/regenbogen-2": {
@@ -2350,8 +2210,8 @@
 "modell": "eleven_v4"
 },
 "silben/regenbogen-3": {
-"text": "Boh.",
-"text_orig": "Boh.",
+"text": "Bo.",
+"text_orig": "Bo.",
 "modell": "eleven_v4"
 },
 "silben/regenbogen-4": {
@@ -2370,13 +2230,13 @@
 "modell": "eleven_v4"
 },
 "silben/roboter-1": {
-"text": "Roh.",
-"text_orig": "Roh.",
+"text": "Ro.",
+"text_orig": "Ro.",
 "modell": "eleven_v4"
 },
 "silben/roboter-2": {
-"text": "Boh.",
-"text_orig": "Boh.",
+"text": "Bo.",
+"text_orig": "Bo.",
 "modell": "eleven_v4"
 },
 "silben/roboter-3": {
@@ -2390,23 +2250,23 @@
 "modell": "eleven_v4"
 },
 "silben/sonne-2": {
-"text": "Neh.",
-"text_orig": "Neh.",
+"text": "Ne.",
+"text_orig": "Ne.",
 "modell": "eleven_v4"
 },
 "silben/sofa-1": {
-"text": "Soh.",
-"text_orig": "Soh.",
+"text": "So.",
+"text_orig": "So.",
 "modell": "eleven_v4"
 },
 "silben/sofa-2": {
-"text": "Fah.",
-"text_orig": "Fah.",
+"text": "Fa.",
+"text_orig": "Fa.",
 "modell": "eleven_v4"
 },
 "silben/salat-1": {
-"text": "Sah.",
-"text_orig": "Sah.",
+"text": "Sa.",
+"text_orig": "Sa.",
 "modell": "eleven_v4"
 },
 "silben/salat-2": {
@@ -2415,13 +2275,13 @@
 "modell": "eleven_v4"
 },
 "silben/socke-1": {
-"text": "Soh.",
-"text_orig": "Soh.",
+"text": "So.",
+"text_orig": "So.",
 "modell": "eleven_v4"
 },
 "silben/socke-2": {
-"text": "Keh.",
-"text_orig": "Keh.",
+"text": "Ke.",
+"text_orig": "Ke.",
 "modell": "eleven_v4"
 },
 "silben/seife-1": {
@@ -2430,13 +2290,13 @@
 "modell": "eleven_v4"
 },
 "silben/seife-2": {
-"text": "Feh.",
-"text_orig": "Feh.",
+"text": "Fe.",
+"text_orig": "Fe.",
 "modell": "eleven_v4"
 },
 "silben/spaghetti-1": {
-"text": "Schpah.",
-"text_orig": "Schpah.",
+"text": "Schpa.",
+"text_orig": "Schpa.",
 "modell": "eleven_v4"
 },
 "silben/spaghetti-2": {
@@ -2445,28 +2305,28 @@
 "modell": "eleven_v4"
 },
 "silben/spaghetti-3": {
-"text": "Tih.",
-"text_orig": "Tih.",
+"text": "Ti.",
+"text_orig": "Ti.",
 "modell": "eleven_v4"
 },
 "silben/tomate-1": {
-"text": "Toh.",
-"text_orig": "Toh.",
+"text": "To.",
+"text_orig": "To.",
 "modell": "eleven_v4"
 },
 "silben/tomate-2": {
-"text": "Mah.",
-"text_orig": "Mah.",
+"text": "Ma.",
+"text_orig": "Ma.",
 "modell": "eleven_v4"
 },
 "silben/tomate-3": {
-"text": "Teh.",
-"text_orig": "Teh.",
+"text": "Te.",
+"text_orig": "Te.",
 "modell": "eleven_v4"
 },
 "silben/tiger-1": {
-"text": "Tih.",
-"text_orig": "Tih.",
+"text": "Ti.",
+"text_orig": "Ti.",
 "modell": "eleven_v4"
 },
 "silben/tiger-2": {
@@ -2475,13 +2335,13 @@
 "modell": "eleven_v4"
 },
 "silben/taxi-1": {
-"text": "Tah.",
-"text_orig": "Tah.",
+"text": "Ta.",
+"text_orig": "Ta.",
 "modell": "eleven_v4"
 },
 "silben/taxi-2": {
-"text": "Ksih.",
-"text_orig": "Ksih.",
+"text": "Ksi.",
+"text_orig": "Ksi.",
 "modell": "eleven_v4"
 },
 "silben/teddy-1": {
@@ -2490,8 +2350,8 @@
 "modell": "eleven_v4"
 },
 "silben/teddy-2": {
-"text": "Dih.",
-"text_orig": "Dih.",
+"text": "Di.",
+"text_orig": "Di.",
 "modell": "eleven_v4"
 },
 "silben/trommel-1": {
@@ -2525,13 +2385,13 @@
 "modell": "eleven_v4"
 },
 "silben/ufo-1": {
-"text": "Uh.",
-"text_orig": "Uh.",
+"text": "U.",
+"text_orig": "U.",
 "modell": "eleven_v4"
 },
 "silben/ufo-2": {
-"text": "Foh.",
-"text_orig": "Foh.",
+"text": "Fo.",
+"text_orig": "Fo.",
 "modell": "eleven_v4"
 },
 "silben/unterhose-1": {
@@ -2545,18 +2405,18 @@
 "modell": "eleven_v4"
 },
 "silben/unterhose-3": {
-"text": "Hoh.",
-"text_orig": "Hoh.",
+"text": "Ho.",
+"text_orig": "Ho.",
 "modell": "eleven_v4"
 },
 "silben/unterhose-4": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/uboot-1": {
-"text": "Uh.",
-"text_orig": "Uh.",
+"text": "U.",
+"text_orig": "U.",
 "modell": "eleven_v4"
 },
 "silben/uboot-2": {
@@ -2565,8 +2425,8 @@
 "modell": "eleven_v4"
 },
 "silben/ubahn-1": {
-"text": "Uh.",
-"text_orig": "Uh.",
+"text": "U.",
+"text_orig": "U.",
 "modell": "eleven_v4"
 },
 "silben/ubahn-2": {
@@ -2575,8 +2435,8 @@
 "modell": "eleven_v4"
 },
 "silben/vogel-1": {
-"text": "Foh.",
-"text_orig": "Foh.",
+"text": "Fo.",
+"text_orig": "Fo.",
 "modell": "eleven_v4"
 },
 "silben/vogel-2": {
@@ -2604,19 +2464,14 @@
 "text_orig": "Mond.",
 "modell": "eleven_v4"
 },
-"silben/vier-1": {
-"text": "Fier.",
-"text_orig": "Fier.",
-"modell": "eleven_v4"
-},
 "silben/vase-1": {
-"text": "Wah.",
-"text_orig": "Wah.",
+"text": "Wa.",
+"text_orig": "Wa.",
 "modell": "eleven_v4"
 },
 "silben/vase-2": {
-"text": "Seh.",
-"text_orig": "Seh.",
+"text": "Se.",
+"text_orig": "Se.",
 "modell": "eleven_v4"
 },
 "silben/wal-1": {
@@ -2630,8 +2485,8 @@
 "modell": "eleven_v4"
 },
 "silben/wolke-2": {
-"text": "Keh.",
-"text_orig": "Keh.",
+"text": "Ke.",
+"text_orig": "Ke.",
 "modell": "eleven_v4"
 },
 "silben/wolf-1": {
@@ -2655,13 +2510,13 @@
 "modell": "eleven_v4"
 },
 "silben/welle-2": {
-"text": "Leh.",
-"text_orig": "Leh.",
+"text": "Le.",
+"text_orig": "Le.",
 "modell": "eleven_v4"
 },
 "silben/wecker-1": {
-"text": "Weh.",
-"text_orig": "Weh.",
+"text": "We.",
+"text_orig": "We.",
 "modell": "eleven_v4"
 },
 "silben/wecker-2": {
@@ -2670,13 +2525,13 @@
 "modell": "eleven_v4"
 },
 "silben/xylophon-1": {
-"text": "Xüh.",
-"text_orig": "Xüh.",
+"text": "Xü.",
+"text_orig": "Xü.",
 "modell": "eleven_v4"
 },
 "silben/xylophon-2": {
-"text": "Loh.",
-"text_orig": "Loh.",
+"text": "Lo.",
+"text_orig": "Lo.",
 "modell": "eleven_v4"
 },
 "silben/xylophon-3": {
@@ -2685,23 +2540,23 @@
 "modell": "eleven_v4"
 },
 "silben/yoga-1": {
-"text": "Joh.",
-"text_orig": "Joh.",
+"text": "Jo.",
+"text_orig": "Jo.",
 "modell": "eleven_v4"
 },
 "silben/yoga-2": {
-"text": "Gah.",
-"text_orig": "Gah.",
+"text": "Ga.",
+"text_orig": "Ga.",
 "modell": "eleven_v4"
 },
 "silben/zebra-1": {
-"text": "Zeh.",
-"text_orig": "Zeh.",
+"text": "Ze.",
+"text_orig": "Ze.",
 "modell": "eleven_v4"
 },
 "silben/zebra-2": {
-"text": "Brah.",
-"text_orig": "Brah.",
+"text": "Bra.",
+"text_orig": "Bra.",
 "modell": "eleven_v4"
 },
 "silben/zug-1": {
@@ -2710,18 +2565,18 @@
 "modell": "eleven_v4"
 },
 "silben/zitrone-1": {
-"text": "Zih.",
-"text_orig": "Zih.",
+"text": "Zi.",
+"text_orig": "Zi.",
 "modell": "eleven_v4"
 },
 "silben/zitrone-2": {
-"text": "Troh.",
-"text_orig": "Troh.",
+"text": "Tro.",
+"text_orig": "Tro.",
 "modell": "eleven_v4"
 },
 "silben/zitrone-3": {
-"text": "Neh.",
-"text_orig": "Neh.",
+"text": "Ne.",
+"text_orig": "Ne.",
 "modell": "eleven_v4"
 },
 "silben/zelt-1": {
@@ -2740,8 +2595,8 @@
 "modell": "eleven_v4"
 },
 "silben/ziege-2": {
-"text": "Geh.",
-"text_orig": "Geh.",
+"text": "Ge.",
+"text_orig": "Ge.",
 "modell": "eleven_v4"
 },
 "silben/zirkus-1": {
@@ -2760,8 +2615,8 @@
 "modell": "eleven_v4"
 },
 "silben/zauberer-2": {
-"text": "Beh.",
-"text_orig": "Beh.",
+"text": "Be.",
+"text_orig": "Be.",
 "modell": "eleven_v4"
 },
 "silben/zauberer-3": {
@@ -2770,8 +2625,8 @@
 "modell": "eleven_v4"
 },
 "silben/zylinder-1": {
-"text": "Züh.",
-"text_orig": "Züh.",
+"text": "Zü.",
+"text_orig": "Zü.",
 "modell": "eleven_v4"
 },
 "silben/zylinder-2": {
@@ -2810,8 +2665,8 @@
 "modell": "eleven_v4"
 },
 "silben/kaefer-1": {
-"text": "Käh.",
-"text_orig": "Käh.",
+"text": "Kä.",
+"text_orig": "Kä.",
 "modell": "eleven_v4"
 },
 "silben/kaefer-2": {
@@ -2825,8 +2680,8 @@
 "modell": "eleven_v4"
 },
 "silben/saurier-2": {
-"text": "Rih.",
-"text_orig": "Rih.",
+"text": "Ri.",
+"text_orig": "Ri.",
 "modell": "eleven_v4"
 },
 "silben/saurier-3": {
@@ -2835,13 +2690,13 @@
 "modell": "eleven_v4"
 },
 "silben/krake-1": {
-"text": "Krah.",
-"text_orig": "Krah.",
+"text": "Kra.",
+"text_orig": "Kra.",
 "modell": "eleven_v4"
 },
 "silben/krake-2": {
-"text": "Keh.",
-"text_orig": "Keh.",
+"text": "Ke.",
+"text_orig": "Ke.",
 "modell": "eleven_v4"
 },
 "silben/funkelstern-1": {
@@ -2880,13 +2735,13 @@
 "modell": "eleven_v4"
 },
 "silben/schildkroete-2": {
-"text": "Kröh.",
-"text_orig": "Kröh.",
+"text": "Krö.",
+"text_orig": "Krö.",
 "modell": "eleven_v4"
 },
 "silben/schildkroete-3": {
-"text": "Teh.",
-"text_orig": "Teh.",
+"text": "Te.",
+"text_orig": "Te.",
 "modell": "eleven_v4"
 },
 "silben/schleife-1": {
@@ -2895,8 +2750,8 @@
 "modell": "eleven_v4"
 },
 "silben/schleife-2": {
-"text": "Feh.",
-"text_orig": "Feh.",
+"text": "Fe.",
+"text_orig": "Fe.",
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-1": {
@@ -2910,18 +2765,18 @@
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-3": {
-"text": "Bluh.",
-"text_orig": "Bluh.",
+"text": "Blu.",
+"text_orig": "Blu.",
 "modell": "eleven_v4"
 },
 "silben/sonnenblume-4": {
-"text": "Meh.",
-"text_orig": "Meh.",
+"text": "Me.",
+"text_orig": "Me.",
 "modell": "eleven_v4"
 },
 "silben/karussell-1": {
-"text": "Kah.",
-"text_orig": "Kah.",
+"text": "Ka.",
+"text_orig": "Ka.",
 "modell": "eleven_v4"
 },
 "silben/karussell-2": {
@@ -2937,11 +2792,6 @@
 "silben/burg-1": {
 "text": "Burg.",
 "text_orig": "Burg.",
-"modell": "eleven_v4"
-},
-"satz/f778858741": {
-"text": "Hallo! Ich bin Emil, die Eule.",
-"text_orig": "Hallo! Ich bin Emil, die Eule.",
 "modell": "eleven_v4"
 },
 "satz/537218b156": {
@@ -3172,11 +3022,6 @@
 "satz/6cede4af9e": {
 "text": "Lies die Wörter genau.",
 "text_orig": "Lies die Wörter genau.",
-"modell": "eleven_v4"
-},
-"satz/cebecd2737": {
-"text": "Lies das Wort. Welches Bild hat diese Farbe?",
-"text_orig": "Lies das Wort. Welches Bild hat diese Farbe?",
 "modell": "eleven_v4"
 },
 "satz/ce8b35308a": {
@@ -3937,6 +3782,286 @@
 "satz/de4e84708a": {
 "text": "Ich bin Emil, die Eule.",
 "text_orig": "Ich bin Emil, die Eule.",
+"modell": "eleven_v4"
+},
+"wort/aufgabe": {
+"text": "Aufgabe.",
+"text_orig": "Aufgabe.",
+"modell": "eleven_v4"
+},
+"wort/aufzug": {
+"text": "Aufzug.",
+"text_orig": "Aufzug.",
+"modell": "eleven_v4"
+},
+"wort/brief": {
+"text": "Brief.",
+"text_orig": "Brief.",
+"modell": "eleven_v4"
+},
+"wort/chor": {
+"text": "Chor.",
+"text_orig": "Chor.",
+"modell": "eleven_v4"
+},
+"wort/comic": {
+"text": "Comic.",
+"text_orig": "Comic.",
+"modell": "eleven_v4"
+},
+"wort/creme": {
+"text": "Creme.",
+"text_orig": "Creme.",
+"modell": "eleven_v4"
+},
+"wort/dach": {
+"text": "Dach.",
+"text_orig": "Dach.",
+"modell": "eleven_v4"
+},
+"wort/dose": {
+"text": "Dose.",
+"text_orig": "Dose.",
+"modell": "eleven_v4"
+},
+"wort/flasche": {
+"text": "Flasche.",
+"text_orig": "Flasche.",
+"modell": "eleven_v4"
+},
+"wort/fluss": {
+"text": "Fluss.",
+"text_orig": "Fluss.",
+"modell": "eleven_v4"
+},
+"wort/gabel": {
+"text": "Gabel.",
+"text_orig": "Gabel.",
+"modell": "eleven_v4"
+},
+"wort/glas": {
+"text": "Glas.",
+"text_orig": "Glas.",
+"modell": "eleven_v4"
+},
+"wort/glocke": {
+"text": "Glocke.",
+"text_orig": "Glocke.",
+"modell": "eleven_v4"
+},
+"wort/irrgarten": {
+"text": "Irrgarten.",
+"text_orig": "Irrgarten.",
+"modell": "eleven_v4"
+},
+"wort/jause": {
+"text": "Jause.",
+"text_orig": "Jause.",
+"modell": "eleven_v4"
+},
+"wort/leiter": {
+"text": "Leiter.",
+"text_orig": "Leiter.",
+"modell": "eleven_v4"
+},
+"wort/lampe": {
+"text": "Lampe.",
+"text_orig": "Lampe.",
+"modell": "eleven_v4"
+},
+"wort/ofen": {
+"text": "Ofen.",
+"text_orig": "Ofen.",
+"modell": "eleven_v4"
+},
+"wort/video": {
+"text": "Video.",
+"text_orig": "Video.",
+"modell": "eleven_v4"
+},
+"wort/wald": {
+"text": "Wald.",
+"text_orig": "Wald.",
+"modell": "eleven_v4"
+},
+"silben/aufgabe-1": {
+"text": "Auf.",
+"text_orig": "Auf.",
+"modell": "eleven_v4"
+},
+"silben/aufgabe-2": {
+"text": "Ga.",
+"text_orig": "Ga.",
+"modell": "eleven_v4"
+},
+"silben/aufgabe-3": {
+"text": "Be.",
+"text_orig": "Be.",
+"modell": "eleven_v4"
+},
+"silben/aufzug-1": {
+"text": "Auf.",
+"text_orig": "Auf.",
+"modell": "eleven_v4"
+},
+"silben/aufzug-2": {
+"text": "Zug.",
+"text_orig": "Zug.",
+"modell": "eleven_v4"
+},
+"silben/brief-1": {
+"text": "Brief.",
+"text_orig": "Brief.",
+"modell": "eleven_v4"
+},
+"silben/chor-1": {
+"text": "Kor.",
+"text_orig": "Kor.",
+"modell": "eleven_v4"
+},
+"silben/comic-1": {
+"text": "Ko.",
+"text_orig": "Ko.",
+"modell": "eleven_v4"
+},
+"silben/comic-2": {
+"text": "Mik.",
+"text_orig": "Mik.",
+"modell": "eleven_v4"
+},
+"silben/creme-1": {
+"text": "Creme.",
+"text_orig": "Creme.",
+"modell": "eleven_v4"
+},
+"silben/dach-1": {
+"text": "Dach.",
+"text_orig": "Dach.",
+"modell": "eleven_v4"
+},
+"silben/dose-1": {
+"text": "Do.",
+"text_orig": "Do.",
+"modell": "eleven_v4"
+},
+"silben/dose-2": {
+"text": "Se.",
+"text_orig": "Se.",
+"modell": "eleven_v4"
+},
+"silben/flasche-1": {
+"text": "Fla.",
+"text_orig": "Fla.",
+"modell": "eleven_v4"
+},
+"silben/flasche-2": {
+"text": "Sche.",
+"text_orig": "Sche.",
+"modell": "eleven_v4"
+},
+"silben/fluss-1": {
+"text": "Fluss.",
+"text_orig": "Fluss.",
+"modell": "eleven_v4"
+},
+"silben/gabel-1": {
+"text": "Ga.",
+"text_orig": "Ga.",
+"modell": "eleven_v4"
+},
+"silben/gabel-2": {
+"text": "Bel.",
+"text_orig": "Bel.",
+"modell": "eleven_v4"
+},
+"silben/glas-1": {
+"text": "Glas.",
+"text_orig": "Glas.",
+"modell": "eleven_v4"
+},
+"silben/glocke-1": {
+"text": "Glo.",
+"text_orig": "Glo.",
+"modell": "eleven_v4"
+},
+"silben/glocke-2": {
+"text": "Ke.",
+"text_orig": "Ke.",
+"modell": "eleven_v4"
+},
+"silben/irrgarten-1": {
+"text": "Irr.",
+"text_orig": "Irr.",
+"modell": "eleven_v4"
+},
+"silben/irrgarten-2": {
+"text": "Gar.",
+"text_orig": "Gar.",
+"modell": "eleven_v4"
+},
+"silben/irrgarten-3": {
+"text": "Ten.",
+"text_orig": "Ten.",
+"modell": "eleven_v4"
+},
+"silben/jause-1": {
+"text": "Jau.",
+"text_orig": "Jau.",
+"modell": "eleven_v4"
+},
+"silben/jause-2": {
+"text": "Se.",
+"text_orig": "Se.",
+"modell": "eleven_v4"
+},
+"silben/leiter-1": {
+"text": "Lei.",
+"text_orig": "Lei.",
+"modell": "eleven_v4"
+},
+"silben/leiter-2": {
+"text": "Ter.",
+"text_orig": "Ter.",
+"modell": "eleven_v4"
+},
+"silben/lampe-1": {
+"text": "Lam.",
+"text_orig": "Lam.",
+"modell": "eleven_v4"
+},
+"silben/lampe-2": {
+"text": "Pe.",
+"text_orig": "Pe.",
+"modell": "eleven_v4"
+},
+"silben/ofen-1": {
+"text": "O.",
+"text_orig": "O.",
+"modell": "eleven_v4"
+},
+"silben/ofen-2": {
+"text": "Fen.",
+"text_orig": "Fen.",
+"modell": "eleven_v4"
+},
+"silben/video-1": {
+"text": "Wi.",
+"text_orig": "Wi.",
+"modell": "eleven_v4"
+},
+"silben/video-2": {
+"text": "De.",
+"text_orig": "De.",
+"modell": "eleven_v4"
+},
+"silben/video-3": {
+"text": "O.",
+"text_orig": "O.",
+"modell": "eleven_v4"
+},
+"silben/wald-1": {
+"text": "Wald.",
+"text_orig": "Wald.",
 "modell": "eleven_v4"
 }
 }
