@@ -35,7 +35,43 @@ const PICS = {
     <line x1="35" y1="10" x2="40" y2="70" stroke="#555" stroke-width="3"/><line x1="65" y1="10" x2="70" y2="70" stroke="#555" stroke-width="3"/>
     <rect x="34" y="68" width="42" height="8" rx="3" fill="#ef6f6c"/>
     <circle cx="55" cy="40" r="9" fill="#f5c08a"/><path d="M48 50 h14 l2 18 h-18 z" fill="#4d96ff"/>`),
-  // Mieder / Korsett – mit grünem Plus (anziehen) bzw. rotem Minus (ausziehen)
+  // eindeutige eigene Bilder (für Wörter ohne passendes Symbol)
+  iglu: svg(`<rect x="4" y="78" width="92" height="7" rx="3" fill="#dbe9f7"/>
+    <path d="M10 79 Q10 22 50 22 Q90 22 90 79 Z" fill="#f4f9ff" stroke="#7fa7d6" stroke-width="3"/>
+    <path d="M13 63 H87 M19 47 H81 M31 33 H69 M30 79 V63 M70 79 V63 M40 63 V47 M60 63 V47 M28 47 V35 M50 47 V33 M72 47 V35" stroke="#a9c6e8" stroke-width="2.5" fill="none"/>
+    <path d="M37 79 V66 Q50 52 63 66 V79 Z" fill="#3a5f8f"/>`),
+  uboot: svg(`<path d="M4 84 Q27 78 50 84 T96 84" stroke="#4d96ff" stroke-width="4" fill="none"/>
+    <path d="M58 36 V18 H70" stroke="#666" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <rect x="38" y="34" width="26" height="18" rx="5" fill="#ffcf40" stroke="#c99a00" stroke-width="3"/>
+    <ellipse cx="52" cy="62" rx="40" ry="15" fill="#ffcf40" stroke="#c99a00" stroke-width="3"/>
+    <path d="M12 62 L3 53 V71 Z" fill="#9aa5b8"/>
+    <circle cx="34" cy="62" r="5.5" fill="#bfe3ff" stroke="#c99a00" stroke-width="2"/><circle cx="52" cy="62" r="5.5" fill="#bfe3ff" stroke="#c99a00" stroke-width="2"/><circle cx="70" cy="62" r="5.5" fill="#bfe3ff" stroke="#c99a00" stroke-width="2"/>`),
+  ubahn: svg(`<rect x="62" y="4" width="32" height="30" rx="5" fill="#1e5fbf"/>
+    <text x="78" y="29" font-size="26" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">U</text>
+    <rect x="8" y="26" width="58" height="60" rx="12" fill="#eef2f7" stroke="#5a6b80" stroke-width="3"/>
+    <rect x="15" y="34" width="44" height="22" rx="5" fill="#bfe3ff" stroke="#5a6b80" stroke-width="2"/>
+    <rect x="8" y="62" width="58" height="6" fill="#ef6f6c"/>
+    <circle cx="20" cy="76" r="4" fill="#ffd93d"/><circle cx="54" cy="76" r="4" fill="#ffd93d"/>
+    <path d="M18 86 L10 96 M56 86 L64 96" stroke="#5a6b80" stroke-width="3" stroke-linecap="round"/>`),
+  vier: svg(`<rect x="16" y="6" width="68" height="88" rx="14" fill="#fff1c9" stroke="#ff9f43" stroke-width="4"/>
+    <text x="50" y="76" font-size="68" font-weight="700" text-anchor="middle" fill="#e0504f" font-family="Andika, sans-serif">4</text>`),
+  joghurt: svg(`<path d="M68 22 L88 5" stroke="#b9c0cc" stroke-width="5" stroke-linecap="round"/>
+    <path d="M22 30 L78 30 L70 90 Q50 95 30 90 Z" fill="#fff" stroke="#9aa5b8" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="17" y="22" width="66" height="10" rx="4" fill="#ff7eb6" stroke="#d94f8c" stroke-width="2"/>
+    <path d="M25 48 L75 48 L72 74 L28 74 Z" fill="#ffd6e7"/>
+    <path d="M50 53 Q61 55 57 66 Q50 74 43 66 Q39 55 50 53 Z" fill="#e53935"/>
+    <path d="M44 55 L50 50 L56 55" stroke="#2e9e44" stroke-width="3" fill="none" stroke-linecap="round"/>`),
+  nudeln: svg(`<ellipse cx="50" cy="74" rx="45" ry="15" fill="#fff" stroke="#9aa5b8" stroke-width="3"/>
+    <g fill="#ffd166" stroke="#c99a1e" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M16 62 L36 50 L42 60 L22 72 Z"/><path d="M44 46 L66 40 L68 52 L46 58 Z"/><path d="M62 62 L82 54 L86 64 L66 72 Z"/><path d="M34 70 L52 62 L56 72 L38 80 Z"/>
+    </g>
+    <path d="M22 60 L38 52 M26 66 L40 58 M50 46 L64 43 M50 52 L66 48 M68 60 L82 57 M70 66 L84 61 M40 70 L52 65 M42 76 L54 70" stroke="#c99a1e" stroke-width="1.6"/>`),
+  jacke: svg(`<path d="M34 14 Q50 4 66 14 L84 24 L93 58 L81 62 L74 42 L74 80 L26 80 L26 42 L19 62 L7 58 L16 24 Z" fill="#ef6f6c" stroke="#a83b39" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="26" y="76" width="48" height="8" rx="2" fill="#c94f4c" stroke="#a83b39" stroke-width="2"/>
+    <path d="M36 14 Q50 27 64 14" fill="none" stroke="#a83b39" stroke-width="3"/>
+    <path d="M50 20 V84" stroke="#ffd93d" stroke-width="3"/>
+    <path d="M30 60 H42 M58 60 H70" stroke="#a83b39" stroke-width="3" stroke-linecap="round"/>`),
+  // Mieder / Korsett – mit grünem Plus (anziehen) bzw. rotem Minus (ausziehen); nur noch für eigene Tafel-Felder
   mieder_an: svgBig(korsett() + `<circle cx="80" cy="80" r="15" fill="#2e9e44" stroke="#fff" stroke-width="3"/>
     <path d="M80 71 v18 M71 80 h18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`),
   mieder_aus: svgBig(korsett() + `<circle cx="80" cy="80" r="15" fill="#e53935" stroke="#fff" stroke-width="3"/>
@@ -152,7 +188,8 @@ const WORDS = [
   { w: "Bär",       g: "der", e: "🐻", s: "Bär" },
   { w: "Biene",     g: "die", e: "🐝", s: "Bie-ne" },
   { w: "Buch",      g: "das", e: "📖", s: "Buch" },
-  { w: "Blume",     g: "die", e: "🌼", s: "Blu-me", lg: true },
+  { w: "Blume",     g: "die", e: "🌷", s: "Blu-me", lg: true },
+  { w: "Blüte",     g: "die", e: "🌸", s: "Blü-te" },
   { w: "Brot",      g: "das", e: "🍞", s: "Brot", lg: true },
   { w: "Bus",       g: "der", e: "🚌", s: "Bus", lg: true },
   { w: "Bett",      g: "das", e: "🛏️", s: "Bett" },
@@ -160,14 +197,23 @@ const WORDS = [
   { w: "Brille",    g: "die", e: "👓", s: "Bril-le" },
   // C
   { w: "Clown",     g: "der", e: "🤡", s: "Clown", sp: "Klaun" },
+  { w: "Computer",  g: "der", e: "💻", s: "Com-pu-ter", sp: "Kom-pju-ter" },
+  { w: "Cowboy",    g: "der", e: "🤠", s: "Cow-boy", sp: "Kau-beu" },
+  { w: "Cupcake",   g: "der", e: "🧁", s: "Cup-cake", sp: "Kap-keik" },
+  { w: "Cap",       g: "die", e: "🧢", s: "Cap", sp: "Käp" },
   // D
   { w: "Dino",      g: "der", e: "🦕", s: "Di-no", lg: true },
   { w: "Delfin",    g: "der", e: "🐬", s: "Del-fin", lg: true },
   { w: "Drache",    g: "der", e: "🐉", s: "Dra-che" },
+  { w: "Donut",     g: "der", e: "🍩", s: "Do-nut", sp: "Do-natt" },
+  { w: "Diamant",   g: "der", e: "💎", s: "Di-a-mant", lg: true },
+  { w: "Dusche",    g: "die", e: "🚿", s: "Du-sche" },
   // E
   { w: "Ente",      g: "die", e: "🦆", s: "En-te", lg: true },
   { w: "Elefant",   g: "der", e: "🐘", s: "E-le-fant" },
   { w: "Erdbeere",  g: "die", e: "🍓", s: "Erd-bee-re" },
+  { w: "Engel",     g: "der", e: "👼", s: "En-gel" },
+  { w: "Esel",      g: "der", e: "🫏", s: "E-sel", lg: true },
   { w: "Eis",       g: "das", e: "🍦", s: "Eis", a: false, lg: true },
   { w: "Ei",        g: "das", e: "🥚", s: "Ei", a: false, lg: true },
   // F
@@ -183,19 +229,28 @@ const WORDS = [
   { w: "Giraffe",   g: "die", e: "🦒", s: "Gi-raf-fe" },
   { w: "Geschenk",  g: "das", e: "🎁", s: "Ge-schenk" },
   { w: "Gitarre",   g: "die", e: "🎸", s: "Gi-tar-re" },
+  { w: "Gorilla",   g: "der", e: "🦍", s: "Go-ril-la" },
+  { w: "Geist",     g: "der", e: "👻", s: "Geist" },
   // H
   { w: "Hund",      g: "der", e: "🐕", s: "Hund", lg: true },
   { w: "Haus",      g: "das", e: "🏠", s: "Haus", lg: true },
   { w: "Hase",      g: "der", e: "🐇", s: "Ha-se", lg: true },
   { w: "Herz",      g: "das", e: "❤️", s: "Herz" },
-  { w: "Hut",       g: "der", e: "🎩", s: "Hut", lg: true },
+  { w: "Hut",       g: "der", e: "👒", s: "Hut", lg: true },
   { w: "Hand",      g: "die", e: "✋", s: "Hand", lg: true },
   { w: "Hai",       g: "der", e: "🦈", s: "Hai", lg: true },
   // I
   { w: "Igel",      g: "der", e: "🦔", s: "I-gel", lg: true },
   { w: "Insel",     g: "die", e: "🏝️", s: "In-sel", lg: true },
+  { w: "Iglu",      g: "das", e: PICS.iglu, s: "I-glu", lg: true },
+  { w: "Insekt",    g: "das", e: "🪲", s: "In-sekt", lg: true },
+  { w: "Ingwer",    g: "der", e: "🫚", s: "Ing-wer" },
   // J
-  { w: "Jacke",     g: "die", e: "🧥", s: "Ja-cke", sp: "Ja-ke" },
+  { w: "Jacke",     g: "die", e: PICS.jacke, s: "Ja-cke", sp: "Ja-ke" },
+  { w: "Jojo",      g: "das", e: "🪀", s: "Jo-jo", lg: true },
+  { w: "Junge",     g: "der", e: "👦", s: "Jun-ge" },
+  { w: "Joghurt",   g: "der", e: PICS.joghurt, s: "Jo-ghurt", sp: "Jo-gurt" },
+  { w: "Jaguar",    g: "der", e: "🐆", s: "Ja-gu-ar", lg: true },
   // K
   { w: "Katze",     g: "die", e: "🐈", s: "Kat-ze" },
   { w: "Kuh",       g: "die", e: "🐄", s: "Kuh" },
@@ -220,17 +275,23 @@ const WORDS = [
   { w: "Mond",      g: "der", e: "🌙", s: "Mond", lg: true },
   { w: "Milch",     g: "die", e: "🥛", s: "Milch" },
   { w: "Mais",      g: "der", e: "🌽", s: "Mais", lg: true },
+  { w: "Mantel",    g: "der", e: "🧥", s: "Man-tel", lg: true },
   { w: "Melone",    g: "die", e: "🍉", s: "Me-lo-ne", lg: true },
   { w: "Muschel",   g: "die", e: "🐚", s: "Mu-schel" },
   // N
   { w: "Nase",      g: "die", e: "👃", s: "Na-se", lg: true },
-  { w: "Nudeln",    g: "die", pl: true, e: "🍝", s: "Nu-deln", lg: true },
+  { w: "Nudeln",    g: "die", pl: true, e: PICS.nudeln, s: "Nu-deln", lg: true },
+  { w: "Nilpferd",  g: "das", e: "🦛", s: "Nil-pferd" },
+  { w: "Nest",      g: "das", e: "🪺", s: "Nest", lg: true },
   { w: "Nuss",      g: "die", e: "🥜", s: "Nuss" },
   { w: "Nashorn",   g: "das", e: "🦏", s: "Nas-horn" },
   // O
   { w: "Oma",       g: "die", e: "👵", s: "O-ma", lg: true },
   { w: "Opa",       g: "der", e: "👴", s: "O-pa", lg: true },
   { w: "Ohr",       g: "das", e: "👂", s: "Ohr" },
+  { w: "Otter",     g: "der", e: "🦦", s: "Ot-ter" },
+  { w: "Ochse",     g: "der", e: "🐂", s: "Och-se" },
+  { w: "Orange",    g: "die", e: "🍊", s: "O-ran-ge", sp: "O-rang-sche" },
   // P
   { w: "Pilz",      g: "der", e: "🍄", s: "Pilz", lg: true },
   { w: "Pinguin",   g: "der", e: "🐧", s: "Pin-gu-in" },
@@ -257,6 +318,7 @@ const WORDS = [
   { w: "Salat",     g: "der", e: "🥗", s: "Sa-lat", lg: true },
   { w: "Socke",     g: "die", e: "🧦", s: "So-cke", sp: "So-ke" },
   { w: "Seife",     g: "die", e: "🧼", s: "Sei-fe", lg: true },
+  { w: "Spaghetti", g: "die", pl: true, e: "🍝", s: "Spa-ghet-ti", sp: "Schpa-get-ti", a: false },
   // T
   { w: "Tomate",    g: "die", e: "🍅", s: "To-ma-te", lg: true },
   { w: "Tiger",     g: "der", e: "🐅", s: "Ti-ger" },
@@ -268,9 +330,15 @@ const WORDS = [
   // U
   { w: "Uhr",       g: "die", e: "⌚", s: "Uhr" },
   { w: "Ufo",       g: "das", e: "🛸", s: "U-fo", lg: true },
+  { w: "Unterhose", g: "die", e: "🩲", s: "Un-ter-ho-se", lg: true },
+  { w: "U-Boot",    g: "das", e: PICS.uboot, s: "U-Boot" },
+  { w: "U-Bahn",    g: "die", e: PICS.ubahn, s: "U-Bahn" },
   // V
   { w: "Vogel",     g: "der", e: "🐦", s: "Vo-gel", sp: "Fo-gel" },
   { w: "Vulkan",    g: "der", e: "🌋", s: "Vul-kan" },
+  { w: "Vollmond",  g: "der", e: "🌕", s: "Voll-mond", sp: "Foll-mond" },
+  { w: "Vier",      g: "die", e: PICS.vier, s: "Vier", sp: "Fier" },
+  { w: "Vase",      g: "die", e: "🏺", s: "Va-se", sp: "Wa-se" },
   // W
   { w: "Wal",       g: "der", e: "🐳", s: "Wal", lg: true },
   { w: "Wolke",     g: "die", e: "☁️", s: "Wol-ke", lg: true },
@@ -291,6 +359,7 @@ const WORDS = [
   { w: "Ziege",     g: "die", e: "🐐", s: "Zie-ge" },
   { w: "Zirkus",    g: "der", e: "🎪", s: "Zir-kus", lg: true },
   { w: "Zauberer",  g: "der", e: "🧙", s: "Zau-be-rer", lg: true },
+  { w: "Zylinder",  g: "der", e: "🎩", s: "Zy-lin-der", sp: "Zü-lin-der" },
 ];
 
 // Alle Buchstaben, die im Programm geübt werden können
@@ -324,9 +393,6 @@ const DEFAULT_TALK = [
   "🏁 ; Fertig ; Ich bin fertig.",
   "👍 ; Ja ; Ja.",
   "👎 ; Nein ; Nein.",
-  "[mieder_an] ; Mieder anziehen ; Bitte Mieder anziehen.",
-  "[mieder_aus] ; Mieder ausziehen ; Bitte Mieder ausziehen.",
-  "[schaukel] ; Schaukeln ; Ich möchte schaukeln.",
   "🥤 ; Durst ; Ich habe Durst.",
   "🍽️ ; Hunger ; Ich habe Hunger.",
   "🚽 ; Klo ; Ich muss aufs Klo.",
@@ -358,7 +424,7 @@ const STICKER_WORDS = {
   "🌻": { w: "Sonnenblume",   g: "die", s: "Son-nen-blu-me" },
   "🎠": { w: "Karussell",     g: "das", s: "Ka-rus-sell" },
   "🏰": { w: "Burg",          g: "die", s: "Burg" },
-  "🌸": { w: "Blüte",         g: "die", s: "Blü-te" },
+  "🌸": "Blüte",
 };
 
 const PRAISE = ["Super!", "Toll gemacht!", "Prima!", "Klasse!", "Richtig!",
@@ -380,7 +446,7 @@ const SENT_ANIMALS = [
 const SENT_THINGS = [
   { w: "Käse", g: "der", e: "🧀" }, { w: "Banane", g: "die", e: "🍌" }, { w: "Apfel", g: "der", e: "🍎" },
   { w: "Ei", g: "das", e: "🥚" }, { w: "Eis", g: "das", e: "🍦" }, { w: "Brot", g: "das", e: "🍞" },
-  { w: "Buch", g: "das", e: "📖" }, { w: "Hut", g: "der", e: "🎩" }, { w: "Ring", g: "der", e: "💍" },
+  { w: "Buch", g: "das", e: "📖" }, { w: "Hut", g: "der", e: "👒" }, { w: "Ring", g: "der", e: "💍" },
   { w: "Brille", g: "die", e: "👓" }, { w: "Keks", g: "der", e: "🍪" }, { w: "Lolli", g: "der", e: "🍭" },
   { w: "Geschenk", g: "das", e: "🎁" }, { w: "Kerze", g: "die", e: "🕯️" },
 ];

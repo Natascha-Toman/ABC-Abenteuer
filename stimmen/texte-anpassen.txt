@@ -1,0 +1,11 @@
+# Aussprache-Korrekturen für die Tondateien (ElevenLabs)
+#
+# Klingt eine Tondatei falsch (stimmen\anhoeren.html), hier eine Zeile eintragen:
+#     id = Text, so wie er gesprochen werden soll
+# Die id steht in anhoeren.html links neben dem Text, z. B. laut/b, wort/cap, silben/affe-2, satz/1a2b3c4d5e.
+# Danach:  python stimmen-erzeugen.py --los   – nur geänderte Dateien werden neu erzeugt (und berechnet).
+#
+# Beispiele (mit # davor sind sie ausgeschaltet):
+# laut/b = bö.
+# silben/affe-2 = fe.
+# wort/cap = Käp.

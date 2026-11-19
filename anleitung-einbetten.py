@@ -4,6 +4,8 @@ from PIL import Image
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 tpl=open("Anleitung-Vorlage.html",encoding="utf-8").read()
 def img_uri(name):
+    if name.endswith(".png"):   # PNG mit durchsichtigem Hintergrund (z. B. die Eule) unverändert einbetten
+        return "data:image/png;base64,"+base64.b64encode(open(os.path.join("anleitung-bilder",name),"rb").read()).decode()
     im=Image.open(os.path.join("anleitung-bilder",name)).convert("RGB")
     if im.width>960: im=im.resize((960,round(im.height*960/im.width)),Image.LANCZOS)
     b=io.BytesIO(); im.save(b,"JPEG",quality=80,optimize=True)

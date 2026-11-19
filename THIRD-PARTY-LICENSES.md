@@ -10,7 +10,7 @@ Ordner neben der `ABC-Abenteuer.exe`.
 | Tobii Core SDK (Tobii.Interaction) | 0.7.3 | ja: `Tobii.Interaction.Net.dll`, `Tobii.Interaction.Model.dll`, `Tobii.EyeX.Client.dll` | proprietär, kostenlos, siehe unten |
 | Schrift „Andika“ (SIL) | Google Fonts v27 | ja: `files/fonts/andika-400.woff2`, `andika-700.woff2` | SIL Open Font License 1.1 |
 | Symbole „Noto Emoji“ (Google) | GitHub `googlefonts/noto-emoji`, Stand 26.10.2026 | ja: `files/emoji/*.svg` | Apache License 2.0, siehe unten |
-| Silben-Tondateien | – | ja: `files/silben/*.wav` (203 Dateien) | siehe Abschnitt „Silben-Tondateien“ |
+| Tondateien (Stimme) | ElevenLabs, Modell „Eleven v4“ | ja: `files/audio/**/*.mp3` | siehe Abschnitt „Tondateien“ |
 | Microsoft Edge WebView2 Runtime | – | nein, ist in Windows 10/11 enthalten | Microsoft-Software-Lizenz |
 | .NET Framework 4.8, System.Speech | – | nein, ist Teil von Windows | Microsoft-Software-Lizenz |
 | Windows-Stimmen (SAPI/OneCore), Bildschirmtastatur (`osk.exe`), Emoji-Schrift „Segoe UI Emoji“ (nur noch für selbst eingetragene Emojis ohne Noto-Bild) | – | nein, nur auf dem Rechner vorhandene Windows-Bestandteile werden benutzt | Microsoft-Software-Lizenz |
@@ -122,21 +122,23 @@ nicht von der Emoji-Schrift von Windows ab.
 
 ---
 
-## Silben-Tondateien (`web/silben/*.wav`)
+## Tondateien (`web/audio/**/*.mp3`)
 
-Die 203 kurzen Silben-Tondateien sind **keine Aufnahmen einer Person**. Sie wurden mit
-der Windows-Sprachausgabe erzeugt: Stimme „Microsoft Katja“ aus dem deutschen
-Windows-Sprachpaket, genaue Aussprache über Lautschrift (IPA). Die Lautschrift steht in
-`web/silben/lautschrift.txt`. Mit `python silben-erzeugen.py` lassen sich alle Dateien
-jederzeit auf einem Windows-Rechner mit deutscher Stimme neu erzeugen.
+Buchstaben (als Laut und als Name), Wörter, Silben, Sätze und Spielanweisungen sind fertige
+Tondateien. Sie sind **keine Aufnahmen einer Person**, sondern wurden mit der Sprach-KI von
+**ElevenLabs** erzeugt (Modell „Eleven v4“, Stimme `mmOXzpKbn8xfIqiOB9FO`) – mit einem
+bezahlten ElevenLabs-Abo, das die Weitergabe der erzeugten Tondateien erlaubt
+(ElevenLabs-Nutzungsbedingungen, kommerzielle Nutzungsrechte ab dem Starter-Abo).
 
-**Hinweis zur Rechtslage:** Die Windows-Lizenzbedingungen regeln nicht ausdrücklich, ob
-mit einer Windows-Stimme erzeugte Tonaufnahmen weitergegeben werden dürfen. Das ist noch
-nicht abschließend geklärt. Deshalb liegen die Tondateien **nicht im Quellcode-Archiv**.
-Beim Bauen erzeugt `erstellen.ps1` sie automatisch mit der Windows-Stimme des eigenen
-Rechners. Nur das fertige Download-ZIP enthält sie, damit das Programm ohne Zusatzschritt
-läuft. Sie fallen nicht unter die MIT-Lizenz dieses Projekts. Bei Bedarf können sie durch
-eigene Aufnahmen ersetzt werden (gleiche Dateinamen, WAV mono).
+- Erzeugt werden sie mit `python stimmen-erzeugen.py --los` (API-Schlüssel in
+  `elevenlabs-key.txt`, wird nie veröffentlicht). Welche Texte gesprochen werden, sammelt
+  `stimmen/sammeln.js` aus der Wortliste; Aussprache-Korrekturen stehen in
+  `stimmen/texte-anpassen.txt`.
+- Die Tondateien fallen **nicht** unter die MIT-Lizenz dieses Projekts. Wer das Programm
+  verändert und neue Tondateien braucht, erzeugt sie mit einem eigenen ElevenLabs-Zugang
+  oder ersetzt sie durch eigene Aufnahmen (gleiche Dateinamen, MP3).
+- Für alles ohne Tondatei (z. B. selbst geschriebene Texte der Mitteil-Tafel) spricht die
+  Windows-Sprachausgabe.
 
 ---
 

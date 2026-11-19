@@ -2,6 +2,38 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.0 – 19.11.2026
+
+**Neu**
+- **Neue Stimme:** Buchstaben, alle Wörter, Silben, die Sätze aus „Sätze lesen“, Spielanweisungen
+  und Lob sind fertige Tondateien mit einer natürlichen Stimme (ElevenLabs, „Eleven v4“).
+  Für alles andere (z. B. selbst geschriebene Texte) spricht weiter die Windows-Stimme.
+- **Buchstaben als Laut:** Zum Lesenlernen spricht die Eule „l“, „m“, „k“ statt „el“, „em“, „ka“.
+  Einstellung „Buchstaben sprechen als“: Laut oder Buchstabenname.
+- **Buchstaben entdecken:** mindestens 5 Wörter mit Bild für jeden Buchstaben (Q, X, Y weniger),
+  z. B. Computer, Cowboy, Donut, Esel, Gorilla, Iglu, Jojo, Nilpferd, Otter, Unterhose, U-Boot,
+  Vollmond. Neue eigene Bilder: Iglu, U-Boot, U-Bahn, Vier, Joghurt, Nudeln, Jacke.
+- **Eindeutige Bilder:** Spaghetti 🍝 und Nudeln, Mantel 🧥 und Jacke, Blüte 🌸 und Blume 🌷,
+  Zylinder 🎩 und Hut 👒 haben jetzt je ein eigenes, unverwechselbares Bild.
+- Mitteil-Tafel, große Textanzeige: Beim Vorlesen wird das gerade gesprochene Wort markiert.
+- Mitteil-Tafel: neue Einstellungen „jedes Wort“ und „nur fertiger Satz“ (liest nur den Satz
+  vor, wenn er mit Punkt oder Fragezeichen fertig ist).
+- Neues Eulen-Symbol überall (Programm, Startsymbol, Anleitung, Store-Bilder).
+- `erstellen.ps1 -OhneZip`: baut das Programm zum Testen, ohne ZIP-Datei.
+
+**Verbessert**
+- Menü: einheitliche Symbole in hellen Kreisen, immer an derselben Stelle; eigene Symbole für
+  „Buchstaben entdecken“ (ABC) und „Memory“ (zwei Karten). Sterne auf den Kacheln dezenter.
+- Einstellungen: nur noch ein kleines graues Zahnrad ⚙ unten rechts.
+- Pause: Der Hinweis steht jetzt klein und dezent in der Anzeige unten links („⏸ Pause – weiter mit ▶️“).
+- Tastatur: Buchstaben stehen optisch mittig und werden nicht mehr abgeschnitten; lange
+  Wortvorschläge werden kleiner geschrieben, damit sie ins Feld passen. Lupe mittig in der Zeile.
+- Mitteil-Tafel: „Mieder anziehen/ausziehen“ und „Schaukeln“ sind nicht mehr voreingestellt
+  (auch aus bestehenden Tafeln entfernt; eigene Felder bleiben möglich).
+
+**Entfernt**
+- Die alten Silben-Tondateien (Windows-Stimme „Katja“) und `silben-erzeugen.py`.
+
 ## 3.6 – 17.11.2026
 
 **Neu**

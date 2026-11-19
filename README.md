@@ -1,4 +1,4 @@
-# 🦉 ABC-Abenteuer
+# <img src="anleitung-bilder/eule.png" alt="" width="40"> ABC-Abenteuer
 
 **Spielerisch lesen und schreiben lernen – mit Augensteuerung, Maus oder Touch.**
 
@@ -6,7 +6,7 @@ ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder. Es wurde besonders m
 
 ## ⬇️ ABC-Abenteuer 2.5 herunterladen
 
-### [🦉 Jetzt ABC-Abenteuer 2.5 für Windows herunterladen](https://github.com/Natascha-Toman/ABC-Abenteuer/releases/tag/v2.5.0)
+### [Jetzt ABC-Abenteuer 2.5 für Windows herunterladen](https://github.com/Natascha-Toman/ABC-Abenteuer/releases/tag/v2.5.0)
 
 **Kostenlos · Für Windows · Keine klassische Installation erforderlich**
 

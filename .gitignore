@@ -28,6 +28,9 @@ desktop.ini
 # (eigene, eingeschränkte Lizenz) – nicht Teil des Lernprogramms.
 Blicktest/
 
-# Silben-Tondateien: mit Windows-Stimme erzeugt, nicht im Quellcode-Archiv.
-# erstellen.ps1 erzeugt sie beim Bauen automatisch (silben-erzeugen.py).
-web/silben/*.wav
+
+# ElevenLabs-API-Schlüssel – niemals veröffentlichen
+elevenlabs-key.txt
+*.key
+stimmen/anhoeren.html
+stimmen/liste.json

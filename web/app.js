@@ -97,17 +97,17 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "3.6", APP_DATE = "17.11.2026";
-const SETTINGS_VERSION = 6;
+const APP_VERSION = "4.0", APP_DATE = "19.11.2026";
+const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
   dwell: false,   // Auswahl nur per Klick – das Verweilen übernimmt die Tobii-Software (Linksklick)
   dwellMs: 1200, dwellBigMs: 1800, dot: false, hideCursor: false, mouseGuard: true,
   voice: "", rate: 0.85, hoverSay: true, sfx: true, muted: false,
   round: 5, letterCase: "upper", sylColor: true, allLevels: false,
-  manualNext: false, balloonSpeed: 1, autoFull: true, eyeOn: true, eyeClickLock: "td", speechPause: true, lens: true,
+  manualNext: false, balloonSpeed: 1, autoFull: true, eyeClickLock: "td", speechPause: true, lens: true,
   volume: 100, unlockRounds: 3,
-  letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc", talkKbOpen: false, kbSpeak: "both",
+  letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc", talkKbOpen: false, kbSpeak: "both", letterVoice: "laut",
 };
 // Gerätweite Werte (Profil-Liste, aktuelles Profil)
 // Meldung ins Fehlerprotokoll des Programms (protokoll.txt) – im Browser nur in die Konsole
@@ -193,12 +193,13 @@ function load(key, def) { return gload(pkey(key), def); }
 function save(key, v) { gsave(pkey(key), v); }
 const SAVED = load("settings", {});
 const S = Object.assign({}, DEFAULTS, SAVED);
-if ((SAVED.v || 1) < 2) S.dwell = false;
-if ((SAVED.v || 1) < 3 && /multilingual/i.test(S.voice || "")) S.voice = "";   // mehrsprachige Stimme zurücksetzen
-if ((SAVED.v || 1) < 4 && typeof S.talk === "string")      // Mieder: Korsett-Bild statt Weste
-  S.talk = S.talk.replace(/🦺➕/g, "[mieder_an]").replace(/🦺➖/g, "[mieder_aus]");
+// alte, nicht mehr benutzte Einstellungen entfernen
+delete S.eyeOn;
 // v6: neuer Standard für alle – nur Klicks von TD Control sperren, Betreuer dürfen immer klicken
 if ((SAVED.v || 1) < 6) S.eyeClickLock = "td";
+// v7: Mieder und Schaukel gehören nicht mehr zur voreingestellten Mitteil-Tafel
+if ((SAVED.v || 1) < 7 && typeof S.talk === "string")
+  S.talk = S.talk.split(/\r?\n/).filter(l => !/^\s*\[(mieder_an|mieder_aus|schaukel)\]\s*;\s*(Mieder anziehen|Mieder ausziehen|Schaukeln)\s*;/.test(l)).join("\n");
 sanitizeSettings(S);
 if ((SAVED.v || 1) < SETTINGS_VERSION) { S.v = SETTINGS_VERSION; save("settings", S); }
 let stats = cleanStats(load("stats", {}));
@@ -214,8 +215,8 @@ function sanitizeSettings(o) {
   num("rate", 0.5, 1.3); num("volume", 10, 100, true); num("unlockRounds", 1, 5, true);
   oneOf("round", [3, 4, 5, 6, 8, 10]); oneOf("balloonSpeed", [0.4, 0.65, 1, 1.4]);
   oneOf("letterCase", ["upper", "mixed", "lower"]); oneOf("eyeClickLock", ["td", "eyes", "always", false]);
-  oneOf("talkKb", ["abc", "qwertz"]); oneOf("kbSpeak", ["both", "letters", "words", "none"]);
-  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "eyeOn", "talkKbOpen"]
+  oneOf("talkKb", ["abc", "qwertz"]); oneOf("kbSpeak", ["both", "letters", "words", "sentence", "none"]); oneOf("letterVoice", ["laut", "name"]);
+  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "talkKbOpen"]
     .forEach(k => { o[k] = typeof o[k] === "boolean" ? o[k] : DEFAULTS[k]; });
   o.voice = typeof o.voice === "string" ? o.voice.slice(0, 200) : "";
   const L = Array.isArray(o.letters) ? [...new Set(o.letters.filter(x => typeof x === "string" && ALPHABET.includes(x)))] : [];
@@ -429,56 +430,101 @@ function bestVoice() {
   return germanVoice();
 }
 function talking(on) { document.querySelectorAll(".mascot").forEach(m => m.classList.toggle("talking", on)); }
-// opts.force: auch bei "Ton aus" sprechen (Mitteil-Tafel). opts.onWord(charIndex): Wortgrenzen
-// Aussprache-Korrekturen für die Sprachausgabe (geschrieben bleibt alles richtig)
+// Aussprache-Korrekturen für die Windows-Stimmen (geschrieben bleibt alles richtig)
 const SPEAK_FIX = [[/\bLolli\b/g, "Lollie"], [/\b[Oo]range\b/g, "Orangsch"]];   // sonst sprechen die Windows-Stimmen "Lahli"
 function speakFix(t) { return SPEAK_FIX.reduce((x, [re, to]) => x.replace(re, to), String(t)); }
-// Tondatei für einen einzelnen Buchstaben ("E", "e") oder ein Wort aus silben/einzeln.txt ("Krake")
-const hasClip = k => !!(window.CLIPS && CLIPS.includes(k));
-function clipFor(text) {
-  const t = String(text).trim().replace(/[.!?]+$/, "");
-  if (/^[A-Za-zÄÖÜäöü]$/.test(t)) { const k = "buchstabe-" + slugW(t); return hasClip(k) ? k : null; }
-  if (/^[A-Za-zÄÖÜäöüß]+$/.test(t)) { const k = "wort-" + slugW(t); return hasClip(k) ? k : null; }
+// ---- Fertige Tondateien (erzeugt mit stimmen-erzeugen.py, liegen in audio\) ----
+// audio/audio.js beschreibt, welche Dateien es gibt. Ein Satz wird in Stücke zerlegt:
+// ganze Sätze, Satzteile, einzelne Wörter und Buchstaben (als Laut "l" oder Name "el").
+// Was keine Tondatei hat, spricht die Windows-Stimme – so funktioniert alles auch ohne Dateien.
+const AU = window.AUDIO || {};
+const AU_SET = { laut: new Set(AU.laut || []), name: new Set(AU.name || []), wort: new Set(AU.wort || []) };
+const auKey = t => String(t).toLowerCase().replace(/[^a-zäöüß0-9]+/g, " ").trim();
+function satzClip(t) { const id = AU.satz && AU.satz[auKey(t)]; return id ? `audio/satz/${id}.mp3` : null; }
+function wortClip(t) {
+  t = String(t).trim().replace(/[.!?:,]+$/, "");
+  return /^[A-Za-zÄÖÜäöüß-]+$/.test(t) && AU_SET.wort.has(slugW(t)) ? `audio/wort/${slugW(t)}.mp3` : null;
+}
+// Buchstabe: zum Lesenlernen als Laut ("l", "k"), auf Wunsch als Name ("el", "ka") – Einstellung "Buchstaben sprechen als"
+function letterClip(L) {
+  const k = slugW(L);
+  if (S.letterVoice !== "name" && AU_SET.laut.has(k)) return `audio/laut/${k}.mp3`;
+  if (AU_SET.name.has(k)) return `audio/name/${k}.mp3`;
   return null;
 }
+const LETTER_RE = /(^|[\s„"(])([A-ZÄÖÜ])(?=$|[\s.,!?:;“")])/g;
+function speechParts(text) {
+  const whole = satzClip(text);
+  if (whole) return [{ clip: whole, text }];
+  const out = [];
+  const tts = t => {                                   // Text ohne Tondatei: an das vorige Sprech-Stück anhängen
+    t = t.trim(); if (!t) return;
+    const last = out[out.length - 1];
+    if (last && last.tts != null) last.tts += (/^[.,!?:;…]/.test(t) ? "" : " ") + t;
+    else if (!/^[\s.,!?:;…–-]+$/.test(t)) out.push({ tts: t });
+  };
+  const chunk = c => { const p = satzClip(c) || wortClip(c); if (p) out.push({ clip: p, text: c }); else tts(c); };
+  for (const sent of String(text).match(/[^.!?:]+[.!?:]*|[.!?:]+/g) || []) {
+    const sc = satzClip(sent);
+    if (sc) { out.push({ clip: sc, text: sent }); continue; }
+    let pos = 0, m;
+    const pieces = [];
+    LETTER_RE.lastIndex = 0;
+    while ((m = LETTER_RE.exec(sent))) { const at = m.index + m[1].length; pieces.push(sent.slice(pos, at), { L: m[2] }); pos = at + 1; }
+    pieces.push(sent.slice(pos));
+    for (const p of pieces) {
+      if (typeof p === "string") { if (/[A-Za-zÄÖÜäöüß0-9]/.test(p)) chunk(p); else tts(p); continue; }
+      const c = letterClip(p.L);
+      if (c) out.push({ clip: c, text: p.L });
+      else tts(S.letterVoice === "name" ? (LETTER_NAMES[p.L] || p.L) : p.L);
+    }
+  }
+  return out;
+}
+// opts.force: auch bei "Ton aus" sprechen (Mitteil-Tafel). opts.onWord(charIndex): Wortgrenzen (nur Windows-Stimme)
 function say(text, kind = "talk", rateF = 1, opts = {}) {
-  text = text && speakFix(text);
   return new Promise(resolve => {
     if (!text) { resolve(); return; }
     // Ist die Mitteil-Tafel offen, schweigt die Übung (nur die Tafel selbst spricht)
     const talkOpen = !opts.force && $("#talk").classList.contains("show");
-    if ((S.muted && !opts.force) || talkOpen || !window.speechSynthesis) {
-      setTimeout(resolve, Math.min(1500, 300 + text.length * 25));
+    if ((S.muted && !opts.force) || talkOpen) {
+      setTimeout(resolve, Math.min(1500, 300 + String(text).length * 25));
       return;
     }
     const my = ++Speech.seq;
-    speechSynthesis.cancel();
+    if (window.speechSynthesis) speechSynthesis.cancel();
     stopClip();
     if (NativeTTS.cur) { const c = NativeTTS.cur; NativeTTS.cur = null; Native.post({ t: "stop" }); c.fin(); }
-    // Einzelne Buchstaben und einige Wörter: Tondatei mit exakter Aussprache (sonst z. B. "E" wie "I")
-    const clip = clipFor(text);
-    if (clip) {
-      Speech.kind = kind; talking(true);
-      playClip(`silben/${clip}.wav`).then(() => {
-        if (Speech.seq === my) { Speech.kind = null; talking(false); }
-        resolve();
-      });
-      return;
-    }
+    const parts = speechParts(text);
+    Speech.kind = kind; talking(true);
+    (async () => {
+      for (const p of parts) {
+        if (Speech.seq !== my) break;
+        if (p.clip) {
+          const ok = await playClip(p.clip);
+          if (!ok && Speech.seq === my) await sayTTS(p.text, rateF, {}, my);   // Datei fehlt -> Windows-Stimme
+        } else await sayTTS(p.tts, rateF, parts.length === 1 ? opts : { german: opts.german }, my);
+      }
+      if (Speech.seq === my) { Speech.kind = null; talking(false); }
+      resolve();
+    })();
+  });
+}
+// Windows-Sprachausgabe (programmeigene SAPI-Stimme oder Stimme des Browsers)
+function sayTTS(text, rateF, opts, my) {
+  text = text && speakFix(text);
+  return new Promise(resolve => {
+    if (!text || Speech.seq !== my) { resolve(); return; }
     if (nativeVoice()) {
       // Stimme der Windows-Sprachausgabe (z. B. Tobii/Acapela) – spricht das Programm selbst
       let done = false;
-      const fin = () => {
-        if (done) return; done = true;
-        if (Speech.seq === my) { Speech.kind = null; talking(false); }
-        resolve();
-      };
+      const fin = () => { if (done) return; done = true; resolve(); };
       NativeTTS.cur = { id: my, fin, onWord: opts.onWord };
       Native.post({ t: "speak", id: my, text, voice: S.voice.slice(5), rate: S.rate * rateF, volume: Math.round(vol01() * 100) });
       setTimeout(fin, 3000 + text.length * 150 / (S.rate * rateF));
-      Speech.kind = kind; talking(true);
       return;
     }
+    if (!window.speechSynthesis) { setTimeout(resolve, Math.min(1500, 300 + text.length * 25)); return; }
     const ut = new SpeechSynthesisUtterance(text);
     ut.lang = "de-DE";
     // Silben und einzelne Buchstaben immer mit einer rein deutschen Stimme
@@ -488,15 +534,10 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
     ut.pitch = 1.05;
     ut.volume = vol01();
     let done = false;
-    const fin = () => {
-      if (done) return; done = true;
-      if (Speech.seq === my) { Speech.kind = null; talking(false); }
-      resolve();
-    };
+    const fin = () => { if (done) return; done = true; resolve(); };
     ut.onend = fin; ut.onerror = fin;
     if (opts.onWord) ut.onboundary = e => { if (Speech.seq === my && (!e.name || e.name === "word")) opts.onWord(e.charIndex); };
     setTimeout(fin, 2500 + text.length * 120 / (S.rate * rateF));
-    Speech.kind = kind; talking(true);
     setTimeout(() => { if (Speech.seq === my) speechSynthesis.speak(ut); else fin(); }, 40);
   });
 }
@@ -529,18 +570,19 @@ function playClip(src) {
   return new Promise(res => {
     const a = new Audio(src);
     a.volume = vol01();
+    a.playbackRate = Math.max(.6, Math.min(1.5, (S.rate || .85) / .85));   // Sprechtempo der Einstellungen
     SylAudio.cur = a;
-    let done = false;
-    const fin = ok => { if (done) return; done = true; res(ok); };
+    let done = false, guard = setTimeout(() => fin(true), 15000);
+    const fin = ok => { if (done) return; done = true; clearTimeout(guard); if (SylAudio.cur === a) SylAudio.cur = null; res(ok); };
     a._fin = () => fin(true);
     a.onended = () => fin(true);
     a.onerror = () => fin(false);
+    a.onloadedmetadata = () => { if (isFinite(a.duration)) { clearTimeout(guard); guard = setTimeout(() => fin(true), a.duration * 1000 / a.playbackRate + 1500); } };
     a.play().catch(() => fin(false));
-    setTimeout(() => fin(true), 2500);
   });
 }
 async function saySyllables(w, onIdx) {
-  const n = window.SYL_AUDIO && SYL_AUDIO[w.w];
+  const n = AU.silben && AU.silben[slugW(w.w)];
   const talkOpen = $("#talk").classList.contains("show");
   if (n && !S.muted && !talkOpen) {
     stopSpeech();
@@ -550,7 +592,7 @@ async function saySyllables(w, onIdx) {
     for (; i < n; i++) {
       if (Speech.seq !== my) break;
       if (onIdx) onIdx(i);
-      const ok = await playClip(`silben/${slugW(w.w)}-${i + 1}.wav`);
+      const ok = await playClip(`audio/silben/${slugW(w.w)}-${i + 1}.mp3`);
       if (!ok && i === 0) break;                 // Datei fehlt -> Sprachausgabe
       if (Speech.seq !== my) break;
       if (i < n - 1) await sleep(380);
@@ -721,11 +763,13 @@ function toast(text) {
   toastTimer = setTimeout(() => t.classList.remove("show"), 2500);
 }
 const Badge = { off: null, mouse: null };
+// Anzeige unten links: Augensteuerung / Verweilen, Pause oder "Erst zuhören"
+const badgeText = (hold = Gaze.holdShown) => Native.paused ? "⏸ Pause – weiter mit ▶️" : hold ? "🔊 Erst zuhören …" : eyeMode() ? "👁 Augensteuerung" : "👁 Verweilen";
 function updateBadges(now) {
   const off = !!dwellOn(), mouse = dwellOn() && mouseActive(now);
   if (off !== Badge.off) {
     Badge.off = off; $("#badgeOff").classList.toggle("show", off);
-    $("#badgeOff").textContent = eyeMode() ? "👁 Augensteuerung" : "👁 Verweilen";
+    $("#badgeOff").textContent = badgeText();
     $("#badgeOff").title = eyeMode() ? "Augensteuerung aktiv (F9)" : "Programm-Verweilen an (F9)";
   }
   if (mouse !== Badge.mouse) { Badge.mouse = mouse; $("#badgeMouse").classList.toggle("show", mouse); }
@@ -733,7 +777,7 @@ function updateBadges(now) {
 function togglePause() {
   Native.paused = !Native.paused;
   document.body.classList.toggle("eye-paused", Native.paused);
-  $("#badgeOff").textContent = Native.paused ? "⏸ Augensteuerung pausiert" : "👁 Augensteuerung";
+  $("#badgeOff").textContent = badgeText();
   document.querySelectorAll(".pausebtn").forEach(b => { b.textContent = Native.paused ? "▶️" : "⏸️"; });
   if (Gaze.target) { Gaze.target.style.setProperty("--dwell", 0); setTarget(null, performance.now()); }
   say(Native.paused ? "Pause. Schau auf den Knopf, wenn es weitergehen soll." : "Weiter geht's!", "info", 1, { force: true });
@@ -928,7 +972,7 @@ function gazeLoop(now) {
   if (hold !== Gaze.holdShown) {
     Gaze.holdShown = hold;
     document.body.classList.toggle("speech-hold", hold);
-    $("#badgeOff").textContent = Native.paused ? "⏸ Augensteuerung pausiert" : hold ? "🔊 Erst zuhören …" : eyeMode() ? "👁 Augensteuerung" : "👁 Verweilen";
+    $("#badgeOff").textContent = badgeText(hold);
   }
   requestAnimationFrame(gazeLoop);
 }
@@ -1037,8 +1081,11 @@ function goMenu(speak = true) {
   if (speak) say("Was möchtest du spielen?");
 }
 
+// eigene Menü-Symbole (passen zu den anderen): bunte Buchstaben ABC, zwei Memory-Karten
+const ICON_ABC = svg(`<text x="50" y="68" font-size="44" font-weight="700" text-anchor="middle" font-family="Andika, sans-serif"><tspan fill="#ef6f6c">A</tspan><tspan fill="#4d96ff">B</tspan><tspan fill="#3cb371">C</tspan></text>`);
+const ICON_MEMORY = `<svg viewBox="6 12 88 76" width="1.15em" height="1em" style="vertical-align:-0.12em">` + (`<g transform="rotate(-12 34 52)"><rect x="12" y="22" width="42" height="58" rx="8" fill="#9b72cf" stroke="#6b4aa0" stroke-width="3"/><text x="33" y="64" font-size="34" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">?</text></g><g transform="rotate(10 66 50)"><rect x="44" y="20" width="42" height="58" rx="8" fill="#fff" stroke="#4d96ff" stroke-width="3"/><text x="65" y="62" font-size="32" font-weight="700" text-anchor="middle" fill="#4d96ff" font-family="Andika, sans-serif">A</text></g>`) + "</svg>";
 const GAMES = [
-  { id: "explore", ico: "🔤", name: "Buchstaben entdecken" },
+  { id: "explore", ico: ICON_ABC, name: "Buchstaben entdecken" },
   { id: "anlaut",  ico: "🍎", name: "Womit fängt es an?" },
   { id: "hear",    ico: "👂", name: "Hör genau!" },
   { id: "read",    ico: "📖", name: "Wörter lesen" },
@@ -1046,7 +1093,7 @@ const GAMES = [
   { id: "write",   ico: "✏️", name: "Wörter schreiben" },
   { id: "syll",    ico: "👏", name: "Silben klatschen" },
   { id: "puzzle",  ico: "🧩", name: "Silben-Puzzle" },
-  { id: "memory",  ico: "🃏", name: "Memory" },
+  { id: "memory",  ico: ICON_MEMORY, name: "Memory" },
   { id: "balloon", ico: "🎈", name: "Ballon-Jagd" },
   { id: "color",   ico: "🎨", name: "Farben malen" },
   { id: "album",   ico: "🏆", name: "Meine Sticker" },
@@ -1567,8 +1614,8 @@ function sylDisplay(w) {
   return w.s.split("-").map(p => S.letterCase === "upper" ? p.toUpperCase() : S.letterCase === "lower" ? p.toLowerCase() : p);
 }
 async function playOneSyllable(w, i) {
-  const n = window.SYL_AUDIO && SYL_AUDIO[w.w];
-  if (n && !S.muted) { stopSpeech(); const ok = await playClip(`silben/${slugW(w.w)}-${i + 1}.wav`); if (ok) return; }
+  const n = AU.silben && AU.silben[slugW(w.w)];
+  if (n && !S.muted) { stopSpeech(); const ok = await playClip(`audio/silben/${slugW(w.w)}-${i + 1}.mp3`); if (ok) return; }
   await say(sylTokens(w)[i] || "", "talk", 0.8, { german: true });
 }
 function taskPuzzle(t, used) {
@@ -2053,6 +2100,12 @@ const kbUpper = s => [...s].map(c => c === "ß" ? c : c.toUpperCase()).join("");
 // "nur klein" -> immer klein, "Groß und klein" -> am Satzanfang groß, sonst klein (wie die Umschalttaste).
 const kbBig = () => S.letterCase === "upper" || (S.letterCase === "mixed" && /(^\s*|[.?!]\s+)$/.test(Talk.typed));
 const kbStart = () => /(^\s*|[.?!]\s+)$/.test(kbContext().before);   // angefangenes Wort steht am Satzanfang
+// Buchstabe auf der Taste, optisch in die Mitte gerückt: x = ohne Ober-/Unterlänge, d = mit Unterlänge
+function kbKeyHTML(ch) {
+  const c = kbChar(ch);
+  const cls = /^[gpqy]$/.test(c) ? "d" : c === "j" ? "j" : /^[acemnorsuvwxz]$/.test(c) ? "x" : "";
+  return `<span class="kl ${cls}">${esc(c)}</span>`;
+}
 function kbChar(ch) { return ch === "ß" || KB_PUNCT[ch] ? ch : kbBig() ? ch : ch.toLowerCase(); }
 // Satzanfänge groß (am Anfang und nach . ? !)
 const sentenceCase = t => t.replace(/(^\s*|[.?!]\s+)(\p{Ll})/gu, (m, a, b) => a + b.toUpperCase());
@@ -2135,7 +2188,7 @@ function kbRender() {
   const box = $("#kbText");
   let t = kbShown(Talk.typed);
   if (t.length > 32) t = "…" + t.slice(-31);          // lange Texte: das Ende bleibt sichtbar
-  document.querySelectorAll("#kbKeys .gaze[data-ch]").forEach(k => { k.textContent = kbChar(k.dataset.ch); });
+  document.querySelectorAll("#kbKeys .gaze[data-ch]").forEach(k => { k.innerHTML = kbKeyHTML(k.dataset.ch); });
   box.innerHTML = `<span class="txt">${esc(t)}</span><span class="caret"></span>${Talk.typed ? "" : `<span class="hint">Schreib, was du sagen möchtest.</span>`}`;
   // Wortvorschläge: immer 5 Plätze, damit nichts verrutscht
   const pred = $("#kbPred");
@@ -2145,12 +2198,13 @@ function kbRender() {
     const w = list[i];
     if (!w) { const d = document.createElement("div"); d.className = "gaze disabled empty"; pred.appendChild(d); continue; }
     const shown = S.letterCase === "upper" ? kbUpper(w) : S.letterCase === "lower" ? w.toLowerCase() : kbStart() ? cap(w) : w;
-    pred.appendChild(kbKey(esc(shown), "word", w, () => {
+    const tile = pred.appendChild(kbKey(esc(shown), "word", w, () => {
       const { before } = kbContext();
       Talk.typed = (before + (S.letterCase === "mixed" && kbStart() ? cap(w) : w) + " ").slice(-200);
       kbRender();
       if (kbSays("words")) kbSay(w);
     }));
+    tile.style.fontSize = u(Math.min(6.5, (S.letterCase === "upper" ? 40 : 45) / Math.max(1, shown.length)));
   }
 }
 function kbKey(html, cls, sayText, fn) {
@@ -2172,7 +2226,7 @@ function kbFixCase() {
 }
 // letztes fertiges Wort (für "Wörter vorlesen" nach Leertaste oder Satzzeichen)
 const kbLastWord = () => ((Talk.typed.match(/([\p{L}-]+)[\s,.?]*$/u) || [])[1] || "");
-function kbSpeak() {
+function kbSpeak(onWord) {
   kbFixCase(); kbRender();
   const t = Talk.typed.trim();
   if (!t) { kbSay("Schreib zuerst etwas."); return; }
@@ -2182,7 +2236,7 @@ function kbSpeak() {
   title.textContent = t.length > 36 ? kbShown(t.slice(0, 35)) + "…" : kbShown(t);
   title.classList.remove("said"); void title.offsetWidth; title.classList.add("said");
   kbLearn(t);
-  kbSay(text);
+  return say(text, "talk", 1, { force: true, onWord });
 }
 function buildKeyboard() {
   const keys = $("#kbKeys");
@@ -2192,14 +2246,15 @@ function buildKeyboard() {
     r.className = "kbrow";
     [...row].forEach(ch => {
       const punct = KB_PUNCT[ch];
-      const k = kbKey(esc(kbChar(ch)), punct ? "punct" : KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
+      const k = kbKey(kbKeyHTML(ch), punct ? "punct" : KB_VOWELS.includes(ch) ? "vowel" : "", "", () => {
         if (punct) {
           if (!Talk.typed.trim()) return;
           kbFixCase();
           const w = kbLastWord();
           Talk.typed = Talk.typed.replace(/\s+$/, "") + ch + " ";
           kbRender();
-          if (kbSays("words") && w) kbSay(w); else if (kbSays("letters")) kbSay(punct);
+          if (S.kbSpeak === "sentence" && ch !== ",") { const m = Talk.typed.trim().match(/(?:^|[.?!]\s+)([^.?!]+[.?!])$/); if (m) kbSay(sentenceCase(m[1].trim())); }
+          else if (kbSays("words") && w) kbSay(w); else if (kbSays("letters")) kbSay(punct);
           return;
         }
         Talk.typed = (Talk.typed + (S.letterCase === "upper" ? ch.toLowerCase() : kbChar(ch))).slice(-200);
@@ -2260,13 +2315,33 @@ function openTalk() {
 function openKbBig() {
   const t = Talk.typed.trim();
   if (!t) { kbSay("Da steht noch nichts."); return; }
-  const box = $("#kbBigText");
-  box.textContent = kbShown(sentenceCase(t));
+  const box = $("#kbBigText"), text = sentenceCase(t), shown = kbShown(text);
+  // jedes Wort einzeln, mit seiner Stelle im gesprochenen Text (für die Markierung beim Vorlesen)
+  let html = "", pos = 0, m;
+  const re = /\S+/g;
+  while ((m = re.exec(text))) { html += esc(shown.slice(pos, m.index)) + `<span class="w" data-s="${m.index}">${esc(shown.slice(m.index, m.index + m[0].length))}</span>`; pos = m.index + m[0].length; }
+  box.innerHTML = `<div class="in">${html}</div>`;
   $("#kbBig").classList.add("show");
   for (let f = 13; f >= 4; f -= 0.5) {
     box.style.fontSize = u(f);
     if (box.scrollHeight <= box.clientHeight + 2 && box.scrollWidth <= box.clientWidth + 2) break;
   }
+}
+// Vorlesen im großen Fenster: das gerade gesprochene Wort wird gelb markiert
+function kbBigSpeak() {
+  const spans = [...document.querySelectorAll("#kbBigText .w")];
+  const mark = i => spans.forEach((s, k) => s.classList.toggle("on", k === i));
+  let real = false, timers = [];
+  const byChar = ci => { let i = 0; spans.forEach((s, k) => { if (+s.dataset.s <= ci) i = k; }); return i; };
+  // Falls die Stimme keine Wortgrenzen meldet: Zeitpunkte schätzen
+  timers.push(setTimeout(() => {
+    if (real) return;
+    const cps = 13 * (S.rate || .85) / .85;
+    let at = 0;
+    spans.forEach((s, k) => { timers.push(setTimeout(() => { if (!real) mark(k); }, at * 1000)); at += (s.textContent.length + 1) / cps; });
+  }, 350));
+  const p = kbSpeak(ci => { real = true; mark(byChar(ci)); });
+  Promise.resolve(p).then(() => { timers.forEach(clearTimeout); setTimeout(() => mark(-1), 400); });
 }
 function closeKbBig() { $("#kbBig").classList.remove("show"); stopSpeech(); }
 function closeTalk() {
@@ -2336,12 +2411,12 @@ async function svParts(parts) {
   return SV.token === my && svOpen();
 }
 // "Krake hat 2 Silben." -> mit Tondatei: ["Krake", "hat 2 Silben."], sonst ein Satz
-const svWithWord = rest => hasClip("wort-" + slugW(SV.w.w)) ? [SV.w.w, rest] : [`${SV.w.w} ${rest}`];
-async function svSayWord() { if (SV.w) await svParts(hasClip("wort-" + slugW(SV.w.w)) ? [SV.w.g, SV.w.w] : [art(SV.w)]); }
+const svWithWord = rest => [`${SV.w.w} ${rest}`];
+async function svSayWord() { if (SV.w) await svParts([art(SV.w)]); }
 async function svSayLetter() {
   if (!SV.w) return;
   const [head, ...more] = svWithWord("fängt mit");
-  await svParts([head, ...more, LN(first(SV.w)), "an."]);
+  await svParts([`${[head, ...more].join(" ")} ${LN(first(SV.w))} an.`]);
 }
 async function svClap() {
   if (!SV.w) return;
@@ -2688,7 +2763,7 @@ function bindSettings() {
   rt.oninput = () => { S.rate = +rt.value; vr.textContent = S.rate.toFixed(2); saveS(); };
 
   sel("#setRound", "round", true); sel("#setCase", "letterCase", false); sel("#setBalloonSpeed", "balloonSpeed", true);
-  sel("#setTalkKb", "talkKb", false); sel("#setKbSpeak", "kbSpeak", false);
+  sel("#setTalkKb", "talkKb", false); sel("#setKbSpeak", "kbSpeak", false); sel("#setLetterVoice", "letterVoice", false);
   $("#btnLearnReset").onclick = () => { if (confirm("Alle gelernten Wörter der Mitteil-Tafel vergessen?")) { Learn.w = {}; Learn.b = {}; save("talklearn", Learn); toast("Gelernte Wörter gelöscht"); } };
   const mn = $("#setManualNext");
   mn.value = S.manualNext ? "1" : "0";
@@ -2772,7 +2847,7 @@ function bindSettings() {
     renderStats(); fillVoiceSelect();
     $("#setMuted").checked = !!S.muted; ta.value = S.talk;
     $("#setBalloonSpeed").value = String(S.balloonSpeed); mn.value = S.manualNext ? "1" : "0";
-    $("#setTalkKb").value = S.talkKb; $("#setKbSpeak").value = S.kbSpeak;
+    $("#setTalkKb").value = S.talkKb; $("#setKbSpeak").value = S.kbSpeak; $("#setLetterVoice").value = S.letterVoice;
     $("#savedNote").textContent = "";
     $("#settings").classList.add("show");
     $("#settings .panel").scrollTop = 0;
@@ -2888,7 +2963,7 @@ function init() {
   onSelect($("#talkKbBtn"), () => setTalkMode(!$("#talk").classList.contains("kb")));
   onSelect($("#kbZoom"), openKbBig);
   onSelect($("#kbBigBack"), closeKbBig);
-  onSelect($("#kbBigSay"), kbSpeak);
+  onSelect($("#kbBigSay"), kbBigSpeak);
   // Alles löschen: zweimal auswählen. Wer einfach weiter hinschaut, löst nach der Verweilzeit das zweite Mal aus.
   let clearArmed = -1e9;
   const clearBtn = $("#talkClear");

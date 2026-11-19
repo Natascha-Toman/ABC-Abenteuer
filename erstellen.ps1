@@ -7,7 +7,9 @@
 #     Starter\        Start-Symbol (C#)              files\              (Oberfläche + Hauptprogramm)
 #     Anleitung-Vorlage.html, anleitung-bilder\    ..\ABC-Abenteuer-<Version>.zip  (zum Weitergeben)
 #
-# Aufruf:  powershell -ExecutionPolicy Bypass -File erstellen.ps1
+# Aufruf:  powershell -ExecutionPolicy Bypass -File erstellen.ps1            (mit ZIP zum Weitergeben)
+#          powershell -ExecutionPolicy Bypass -File erstellen.ps1 -OhneZip   (nur zum Testen, kein ZIP)
+param([switch]$OhneZip)
 $ErrorActionPreference = "Stop"
 $src    = $PSScriptRoot
 $target = Join-Path (Split-Path $src -Parent) "ABC-Lernprogramm"
@@ -21,12 +23,7 @@ foreach ($p in "ABC-Abenteuer\ABC-Abenteuer.csproj", "Starter\Starter.csproj") {
 }
 
 Write-Host "2/5  Oberfläche kopieren ..."
-# Silben-Tondateien fehlen (z. B. frisch aus dem Repository)? Dann aus der Lautschrift erzeugen.
-if (-not (Get-ChildItem (Join-Path $src "web\silben") -Filter *.wav -ErrorAction SilentlyContinue)) {
-    Write-Host "     Silben-Tondateien erzeugen ..."
-    & python (Join-Path $src "silben-erzeugen.py")
-    if ($LASTEXITCODE -ne 0) { throw "Silben-Tondateien konnten nicht erzeugt werden" }
-}
+# Tondateien (webudio) liegen im Quellcode; neu erzeugen mit: python stimmen-erzeugen.py --los
 if (-not $files.EndsWith("ABC-Lernprogramm\files")) { throw "Unerwarteter Zielordner: $files" }
 New-Item -ItemType Directory -Force $files | Out-Null
 # Spiegeln: im Zielordner wird alles entfernt, was es im Quellcode nicht (mehr) gibt –
@@ -52,6 +49,7 @@ Write-Host "4/5  Anleitung erstellen ..."
 & python (Join-Path $src "anleitung-einbetten.py")
 if ($LASTEXITCODE -ne 0) { throw "Anleitung konnte nicht erstellt werden" }
 
+if ($OhneZip) { Write-Host "5/5  kein ZIP (Testversion) - fertig: $target"; return }
 Write-Host "5/5  ZIP erstellen ..."
 # Versionsnummer in den Dateinamen: 2.5.0 -> ABC-Abenteuer-2.5.zip, 2.5.1 -> ABC-Abenteuer-2.5.1.zip
 $v = (Get-Item (Join-Path $files "ABC-Abenteuer.exe")).VersionInfo.ProductVersion.Split("+")[0]

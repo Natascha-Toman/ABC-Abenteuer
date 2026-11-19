@@ -35,7 +35,7 @@
   <div class="grid" id="menuGrid"></div>
   <div class="adminbar">
     <button class="adminbtn" id="btnFullscreen">⛶ Vollbild</button>
-    <button class="adminbtn" id="btnSettings">⚙ Einstellungen (Erwachsene)</button>
+    <button class="adminbtn setbtn" id="btnSettings" title="Einstellungen (für Erwachsene)" aria-label="Einstellungen">⚙</button>
   </div>
 </section>
 
@@ -222,7 +222,8 @@
     <label><span>Ton aus (Spiele stumm)</span><input type="checkbox" id="setMuted"></label>
     <label><span>Lautstärke: <b id="valVolume"></b></span><input type="range" id="setVolume" min="10" max="100" step="5"></label>
     <div class="note">Schnell umschalten: Lautsprecher 🔊/🔇 oben im Menü und im Spiel, oder Taste <b>F8</b>. Die Mitteil-Tafel 💬 spricht immer – auch wenn der Ton aus ist.</div>
-    <label><span>Stimme</span><select id="setVoice"></select> <button id="btnTestVoice">Test</button></label>
+    <label><span>Buchstaben sprechen als</span><select id="setLetterVoice"><option value="laut">Laut – „l“, „m“, „k“ (zum Lesenlernen)</option><option value="name">Buchstabenname – „el“, „em“, „ka“</option></select></label>
+    <label><span>Stimme (für alles, wofür es keine fertige Tondatei gibt)</span><select id="setVoice"></select> <button id="btnTestVoice">Test</button></label>
     <div class="note">🔊 = Stimmen der Windows-Sprachausgabe (z. B. die Stimmen des Tobii-Geräts, sofern für Windows freigegeben).
     Keine „Multilingual“-Stimme wählen. Die Silben (Silben klatschen, „Hör mal“) kommen immer aus eigenen Tondateien.</div>
     <label><span>Sprechtempo: <b id="valRate"></b></span><input type="range" id="setRate" min="0.5" max="1.3" step="0.05"></label>
@@ -259,7 +260,7 @@
     <textarea id="setTalk" rows="12" style="width:100%;font-size:16px;font-family:inherit"></textarea>
     <p><button id="btnTalkAdd">➕ Feld hinzufügen</button> <button id="btnTalkSave">Tafel übernehmen</button> <button id="btnTalkReset">Standard wiederherstellen</button></p>
     <label><span>Tastatur der Mitteil-Tafel (Knopf ⌨️ oben)</span><select id="setTalkKb"><option value="abc">ABC – Buchstaben in Alphabet-Reihenfolge</option><option value="qwertz">QWERTZ – wie auf der Computer-Tastatur</option></select></label>
-    <label><span>Beim Schreiben vorlesen</span><select id="setKbSpeak"><option value="both">jeden Buchstaben und jedes fertige Wort</option><option value="letters">nur Buchstaben</option><option value="words">nur fertige Wörter</option><option value="none">nichts – nur den fertigen Text („Vorlesen“)</option></select></label>
+    <label><span>Beim Schreiben vorlesen</span><select id="setKbSpeak"><option value="both">jeden Buchstaben und jedes fertige Wort</option><option value="letters">nur Buchstaben</option><option value="words">jedes Wort</option><option value="sentence">nur fertiger Satz (bei . oder ?)</option><option value="none">nichts – nur den ganzen Text („Vorlesen“)</option></select></label>
     <div class="note">Mit der Tastatur schreibt das Kind selbst, was es sagen möchte; 🔊 liest es vor. Umschalten geht auch direkt auf der Tastatur (Taste „ABC“ / „QWERTZ“). Die Tafel merkt sich, ob zuletzt die Bilder oder die Tastatur offen waren.<br><b>Wortvorschläge</b> über der Tastatur: Grundwortschatz und passende Folgewörter (z. B. „ich“ → „möchte“, „habe“ …). Jeder vorgelesene Text wird dazugelernt (pro Profil). <button id="btnLearnReset" type="button">Gelernte Wörter vergessen</button></div>
 
     <h3>📊 Lernstand</h3>
@@ -280,7 +281,7 @@
 
 <script src="emoji/emoji.js"></script>
 <script src="data.js"></script>
-<script src="silben/silben.js"></script>
+<script src="audio/audio.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
