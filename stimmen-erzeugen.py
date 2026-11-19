@@ -135,19 +135,47 @@ def anhoerseite(jobs, orig):
     namen = {"laut": "Buchstaben als Laut", "name": "Buchstabennamen", "wort": "Wörter", "silben": "Silben", "satz": "Sätze und Anweisungen"}
     for i, t, g in jobs:
         kind = i.split("/")[0]
-        if kind != last: rows.append(f"<h2>{namen[kind]}</h2>"); last = kind
+        if kind != last:
+            if last: rows.append("</section>")
+            rows.append(f'<section><h2>{namen[kind]} <button class="sec">▶ diese abspielen</button></h2>'); last = kind
         shown = orig.get(i, t)
         # Lautschrift sichtbar machen: <phoneme ph="lː">l</phoneme> -> l [lː]
         shown = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 <b>[\1]</b>", shown)
         t = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 [\1]", t)
+        anders = shown.replace("<b>", "").replace("</b>", "") != t
         rows.append(f'<div class="r"><audio controls preload="none" src="../web/audio/{i}.mp3"></audio>'
-                    f'<code>{i}</code><span>{shown}</span>{"" if shown == t else f" <i>(gesprochen als: {t})</i>"}</div>')
+                    f'<code>{i}</code><span>{shown}</span>{f" <i>(gesprochen als: {t})</i>" if anders else ""}</div>')
+    if last: rows.append("</section>")
     page = ("<!doctype html><meta charset='utf-8'><title>ABC-Abenteuer – Tondateien anhören</title>"
-            "<style>body{font-family:Segoe UI,sans-serif;margin:20px;background:#fdf6e3}.r{display:flex;gap:12px;align-items:center;margin:3px 0}"
-            "audio{height:30px}code{width:160px;color:#777}i{color:#b25e00}</style>"
-            "<h1>Tondateien anhören</h1><p>Klingt etwas falsch, in <code>stimmen\\texte-anpassen.txt</code> eine Zeile "
+            "<style>body{font-family:Segoe UI,sans-serif;margin:0 20px 20px;background:#fdf6e3}.r{display:flex;gap:12px;align-items:center;margin:3px 0;padding:2px 6px;border-radius:8px}"
+            "audio{height:30px}code{width:160px;color:#777}i{color:#b25e00}.r.on{background:#ffe066}"
+            ".bar{position:sticky;top:0;background:#fdf6e3;padding:10px 0;border-bottom:2px solid #e8dcc0;display:flex;gap:10px;align-items:center;z-index:1}"
+            "button{font:inherit;font-size:16px;padding:6px 14px;border-radius:8px;border:1px solid #c9b98f;background:#fff;cursor:pointer}"
+            "h2 button{font-size:13px;padding:3px 10px;margin-left:10px;vertical-align:middle}#jetzt{color:#555}</style>"
+            "<div class='bar'><button id='alle'>▶ Alle abspielen</button><button id='weiter'>⏯ ab hier weiter</button><button id='stopp'>⏹ Stopp</button>"
+            "<label><input type='checkbox' id='langsam'> längere Pause</label><span id='jetzt'></span></div>"
+            "<h1>Tondateien anhören</h1><p>Klingt etwas falsch, in <code>stimmen\texte-anpassen.txt</code> eine Zeile "
             "<code>id = anderer Text</code> eintragen (z. B. <code>laut/b = bö.</code>) und <code>python stimmen-erzeugen.py --los</code> "
-            "erneut starten – nur geänderte Dateien werden neu erzeugt.</p>" + "".join(rows))
+            "erneut starten – nur geänderte Dateien werden neu erzeugt. Eine Tondatei anklicken (abspielen) und dann "
+            "„ab hier weiter“ spielt alle folgenden.</p>" + "".join(rows) + r"""<script>
+const rows = [...document.querySelectorAll('.r')];
+let list = [], pos = 0, timer = null, cur = null, last = 0;
+rows.forEach((r, k) => r.querySelector('audio').addEventListener('play', () => { last = k; if (!list.length) mark(r); }));
+function mark(r) { rows.forEach(x => x.classList.remove('on')); if (r) { r.classList.add('on'); r.scrollIntoView({block: 'center', behavior: 'smooth'});
+  document.getElementById('jetzt').textContent = r.querySelector('code').textContent + ' – ' + r.querySelector('span').textContent; } }
+function stop() { clearTimeout(timer); if (cur) { cur.pause(); cur.onended = cur.onerror = null; } list = []; cur = null; }
+function next() {
+  if (pos >= list.length) { stop(); document.getElementById('jetzt').textContent = 'fertig'; return; }
+  const r = list[pos++]; mark(r); cur = r.querySelector('audio'); cur.currentTime = 0;
+  const go = () => { timer = setTimeout(next, document.getElementById('langsam').checked ? 1200 : 450); };
+  cur.onended = go; cur.onerror = go; cur.play().catch(go);
+}
+function start(l) { stop(); list = l; pos = 0; next(); }
+document.getElementById('alle').onclick = () => start(rows);
+document.getElementById('weiter').onclick = () => start(rows.slice(last));
+document.getElementById('stopp').onclick = () => { stop(); mark(null); document.getElementById('jetzt').textContent = ''; };
+document.querySelectorAll('button.sec').forEach(b => b.onclick = () => start([...b.closest('section').querySelectorAll('.r')]));
+</script>""")
     open(os.path.join(ST, "anhoeren.html"), "w", encoding="utf-8").write(page)
 
 
