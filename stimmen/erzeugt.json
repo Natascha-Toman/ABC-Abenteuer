@@ -2267,7 +2267,7 @@
 "silben/affe": {
 "text": "Affe. Af – fe.",
 "text_orig": "Affe. Af – fe.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/apfel": {
 "text": "Apfel. Ap – fel.",
@@ -2297,7 +2297,7 @@
 "silben/auto": {
 "text": "Auto. Au – to.",
 "text_orig": "Auto. Au – to.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/auge": {
 "text": "Auge. Au – ge.",
@@ -2332,7 +2332,7 @@
 "silben/biene": {
 "text": "Biene. Bie – ne.",
 "text_orig": "Biene. Bie – ne.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/buch": {
 "text": "Buch. Buch.",
@@ -2347,7 +2347,7 @@
 "silben/bluete": {
 "text": "Blüte. Blü – te.",
 "text_orig": "Blüte. Blü – te.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/brot": {
 "text": "Brot. Brot.",
@@ -2407,12 +2407,12 @@
 "silben/dino": {
 "text": "Dino. Di – no.",
 "text_orig": "Dino. Di – no.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/delfin": {
 "text": "Delfin. Del – fin.",
 "text_orig": "Delfin. Del – fin.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/drache": {
 "text": "Drache. Dra – che.",
@@ -2422,7 +2422,7 @@
 "silben/dusche": {
 "text": "Dusche. Du – sche.",
 "text_orig": "Dusche. Du – sche.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/dach": {
 "text": "Dach. Dach.",
@@ -2437,7 +2437,7 @@
 "silben/ente": {
 "text": "Ente. En – te.",
 "text_orig": "Ente. En – te.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/elefant": {
 "text": "Elefant. E – le – fant.",
@@ -2447,7 +2447,7 @@
 "silben/erdbeere": {
 "text": "Erdbeere. Erd – bee – re.",
 "text_orig": "Erdbeere. Erd – bee – re.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/engel": {
 "text": "Engel. En – gel.",
@@ -2507,7 +2507,7 @@
 "silben/flasche": {
 "text": "Flasche. Fla – sche.",
 "text_orig": "Flasche. Fla – sche.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/fluss": {
 "text": "Fluss. Fluss.",
@@ -2532,7 +2532,7 @@
 "silben/gorilla": {
 "text": "Gorilla. Go – ril – la.",
 "text_orig": "Gorilla. Go – ril – la.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/geist": {
 "text": "Geist. Geist.",
@@ -2567,7 +2567,7 @@
 "silben/hase": {
 "text": "Hase. Ha – se.",
 "text_orig": "Hase. Ha – se.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/herz": {
 "text": "Herz. Herz.",
@@ -2622,7 +2622,7 @@
 "silben/junge": {
 "text": "Junge. Jun – ge.",
 "text_orig": "Junge. Jun – ge.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/joghurt": {
 "text": "Joghurt. Jo – ghurt.",
@@ -2637,12 +2637,12 @@
 "silben/jause": {
 "text": "Jause. Jau – se.",
 "text_orig": "Jause. Jau – se.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 2)"
 },
 "silben/katze": {
 "text": "Katze. Kat – ze.",
 "text_orig": "Katze. Kat – ze.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 2)"
 },
 "silben/kuh": {
 "text": "Kuh. Kuh.",
@@ -2657,7 +2657,7 @@
 "silben/krone": {
 "text": "Krone. Kro – ne.",
 "text_orig": "Krone. Kro – ne.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/keks": {
 "text": "Keks. Keks.",
@@ -2672,12 +2672,12 @@
 "silben/kamel": {
 "text": "Kamel. Ka – mel.",
 "text_orig": "Kamel. Ka – mel.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/krokodil": {
 "text": "Krokodil. Kro – ko – dil.",
 "text_orig": "Krokodil. Kro – ko – dil.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/koala": {
 "text": "Koala. Ko – a – la.",
@@ -2737,7 +2737,7 @@
 "silben/lampe": {
 "text": "Lampe. Lam – pe.",
 "text_orig": "Lampe. Lam – pe.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/maus": {
 "text": "Maus. Maus.",
@@ -2767,7 +2767,7 @@
 "silben/melone": {
 "text": "Melone. Me – lo – ne.",
 "text_orig": "Melone. Me – lo – ne.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/muschel": {
 "text": "Muschel. Mu – schel.",
@@ -2777,7 +2777,7 @@
 "silben/nase": {
 "text": "Nase. Na – se.",
 "text_orig": "Nase. Na – se.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/nudeln": {
 "text": "Nudeln. Nu – deln.",
@@ -2872,7 +2872,7 @@
 "silben/paket": {
 "text": "Paket. Pa – ket.",
 "text_orig": "Paket. Pa – ket.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/pinsel": {
 "text": "Pinsel. Pin – sel.",
@@ -2897,7 +2897,7 @@
 "silben/rakete": {
 "text": "Rakete. Ra – ke – te.",
 "text_orig": "Rakete. Ra – ke – te.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/ring": {
 "text": "Ring. Ring.",
@@ -2917,7 +2917,7 @@
 "silben/roboter": {
 "text": "Roboter. Ro – bo – ter.",
 "text_orig": "Roboter. Ro – bo – ter.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/sofa": {
 "text": "Sofa. So – fa.",
@@ -2962,7 +2962,7 @@
 "silben/teddy": {
 "text": "Teddy. Ted – dy.",
 "text_orig": "Teddy. Ted – dy.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/trommel": {
 "text": "Trommel. Trom – mel.",
@@ -3052,7 +3052,7 @@
 "silben/wecker": {
 "text": "Wecker. We – cker.",
 "text_orig": "Wecker. We – cker.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 2)"
 },
 "silben/wald": {
 "text": "Wald. Wald.",
@@ -3072,7 +3072,7 @@
 "silben/zebra": {
 "text": "Zebra. Ze – bra.",
 "text_orig": "Zebra. Ze – bra.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/zug": {
 "text": "Zug. Zug.",
@@ -3082,7 +3082,7 @@
 "silben/zitrone": {
 "text": "Zitrone. Zi – tro – ne.",
 "text_orig": "Zitrone. Zi – tro – ne.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "silben/zelt": {
 "text": "Zelt. Zelt.",
@@ -3107,17 +3107,17 @@
 "silben/zauberer": {
 "text": "Zauberer. Zau – be – rer.",
 "text_orig": "Zauberer. Zau – be – rer.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "silben/zylinder": {
 "text": "Zylinder. Zy – lin – der.",
 "text_orig": "Zylinder. Zy – lin – der.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/einhorn": {
 "text": "Einhorn. Ein – horn.",
 "text_orig": "Einhorn. Ein – horn.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 2)"
 },
 "silben/schmetterling": {
 "text": "Schmetterling. Schmet – ter – ling.",
@@ -3142,7 +3142,7 @@
 "silben/funkelstern": {
 "text": "Funkelstern. Fun – kel – stern.",
 "text_orig": "Funkelstern. Fun – kel – stern.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/stern": {
 "text": "Stern. Stern.",
@@ -3182,7 +3182,7 @@
 "silben/sonne": {
 "text": "Sonne. Son – ne.",
 "text_orig": "Sonne. Son – ne.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/unterhose": {
 "text": "Unterhose. Un – ter – ho – se.",

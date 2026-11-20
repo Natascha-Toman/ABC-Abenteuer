@@ -26,6 +26,35 @@ HILFE = {
 }
 
 
+# Runde 2 (--runde 2, Fassungen 5–8):
+#   5  mit Kommas: "Hase. Ha, se, Hase."
+#   6  ohne Punkt nach der letzten Silbe: "Hase. Ha – se – Hase."
+#   7  wie 1, Lautschrift für die schwierige Silbe (HILFE2, betontes Murmel-e)
+#   8  wie 1, mit Regieanweisung "langsam und deutlich"
+# SCHREIB: andere Schreibweise einer Silbe nur für die Stimme (Runde 2)
+SCHREIB = {"jacke": {2: "ke"}, "wecker": {2: "ker"}, "taxi": {2: "ksi"}}
+HILFE2 = {
+    "hase": {2: "ˈzə"}, "jause": {2: "ˈzə"}, "nase": {2: "ˈzə"}, "junge": {2: "ˈɡə"}, "ziege": {2: "ˈɡə"},
+    "lampe": {2: "ˈpə"}, "krone": {2: "ˈnə"}, "melone": {3: "ˈnə"}, "sonne": {2: "ˈnə"}, "ente": {2: "ˈtə"},
+    "erdbeere": {2: "ˈbeː", 3: "ˈʁə"}, "jacke": {2: "ˈkə"}, "wecker": {2: "ˈkɐ"}, "dino": {2: "ˈnoː"},
+    "taxi": {2: "ˈksiː"},
+}
+
+
+def mit_ipa(syl, h):
+    return [f'<phoneme alphabet="ipa" ph="{h[k]}">{x}</phoneme>' if k in h else x for k, x in enumerate(syl, 1)]
+
+
+def fassungen2(slug, t):
+    wort, syl = teile_text(t)
+    syl = [SCHREIB.get(slug, {}).get(k, x) for k, x in enumerate(syl, 1)]
+    s7 = mit_ipa(syl, HILFE2.get(slug, {}))
+    return [(f"{wort}. {', '.join(syl)}, {wort}.", True),
+            (f"{wort}. {' – '.join(syl)} – {wort}.", True),
+            (f"{wort}. {' – '.join(s7)}. {wort}.", True),
+            (f"[langsam und deutlich] {wort}. {' – '.join(syl)}. {wort}.", True)]
+
+
 def teile_text(t):
     """'Affe. Af – fe.' -> ('Affe', ['Af', 'fe'])"""
     wort, rest = t.split(". ", 1)
@@ -57,7 +86,8 @@ def seite(woerter):
         wort, syl = teile_text(t)
         n = len(syl)
         cells = []
-        for v in range(0, 5):
+        for v in range(0, 9):
+            if v > 4 and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")): continue
             d = f"../web/audio/silben/{slug}-" if v == 0 else f"auswahl/{slug}/{v}-"
             if v and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")):
                 cells.append(f"<td class='x'>{v}: –</td>"); continue
@@ -91,6 +121,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("woerter", nargs="*")
     ap.add_argument("--uebernehmen", nargs="*", default=None)
+    ap.add_argument("--runde", type=int, default=1)
     a = ap.parse_args()
     s = se.sammeln()
     texte = {k: x["text"] for k, x in s["silben"].items()}
@@ -124,7 +155,8 @@ def main():
         nonlocal used
         t = texte[slug]; n = len(teile_text(t)[1])
         d = os.path.join(AUSWAHL, slug); os.makedirs(d, exist_ok=True)
-        for v, (text, hinten) in enumerate(fassungen(slug, t), 1):
+        liste = fassungen(slug, t) if a.runde == 1 else fassungen2(slug, t)
+        for v, (text, hinten) in enumerate(liste, 1 if a.runde == 1 else 5):
             for versuch in range(3):
                 a_ = array.array("h")
                 a_.frombytes(se.api(f"/v1/text-to-speech/{se.VOICE}?output_format=pcm_22050", key,
@@ -142,8 +174,7 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(4) as ex: list(ex.map(eine, slugs))
     print(f"{used} Zeichen verbraucht.")
     if fehl: print("nicht sauber getrennt:", ", ".join(fehl))
-    alle = sorted(set(slugs) | ({f for f in os.listdir(AUSWAHL)} if os.path.isdir(AUSWAHL) else set()))
-    seite([(k, texte[k]) for k in alle if k in texte])
+    seite([(k, texte[k]) for k in sorted(slugs)])          # nur die Wörter dieses Durchgangs
     print("Anhören: stimmen\\silben-auswahl.html")
 
 
