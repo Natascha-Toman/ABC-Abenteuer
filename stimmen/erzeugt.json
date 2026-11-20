@@ -10,13 +10,13 @@
 "modell": "eleven_v4"
 },
 "laut/c": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"tseː\">c</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"tseː\">c</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kə\">c</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kə\">c</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/d": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"də\">d</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"də\">d</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"dː\">d</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"dː\">d</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/e": {
@@ -70,8 +70,8 @@
 "modell": "eleven_v4"
 },
 "laut/o": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"ˈɔ\">o</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈɔ\">o</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oː\">o</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"oː\">o</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/p": {
@@ -105,8 +105,8 @@
 "modell": "eleven_v4"
 },
 "laut/v": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"faʊ̯\">v</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"faʊ̯\">v</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"fə\">v</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"fə\">v</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/w": {
@@ -120,8 +120,8 @@
 "modell": "eleven_v4"
 },
 "laut/y": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"ˈʏpsilɔn\">y</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈʏpsilɔn\">y</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"iː\">y</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"iː\">y</phoneme>.",
 "modell": "eleven_v4"
 },
 "laut/z": {

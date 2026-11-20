@@ -23,11 +23,11 @@
   // oder ein ganz kurzes Murmel-e (bə) – ein einzelner Mitlaut allein bringt die Stimme durcheinander.
   // Lässt sich in stimmen/texte-anpassen.txt für jeden Buchstaben ändern.
   const LAUT_IPA = {
-    A: "aː", B: "bə", C: "tseː", D: "də", E: "eː", F: "fː", G: "ɡə", H: "hə", I: "iː", J: "jə",
-    K: "kə", L: "lə", M: "mː", N: "nː", O: "ˈɔ", P: "pə", Q: "kv", R: "ʁə", S: "sː", T: "tə",
-    U: "uː", V: "faʊ̯", W: "vː", X: "ks", Y: "ˈʏpsilɔn", Z: "tsə", "Ä": "ɛː", "Ö": "øː", "Ü": "yː",
+    A: "aː", B: "bə", C: "kə", D: "dː", E: "eː", F: "fː", G: "ɡə", H: "hə", I: "iː", J: "jə",
+    K: "kə", L: "lə", M: "mː", N: "nː", O: "oː", P: "pə", Q: "kv", R: "ʁə", S: "sː", T: "tə",
+    U: "uː", V: "fə", W: "vː", X: "ks", Y: "iː", Z: "tsə", "Ä": "ɛː", "Ö": "øː", "Ü": "yː",
   };
-  // C, V, Y haben keinen eigenen Laut -> Buchstabenname (Zeh, Fau, Ypsilon), wie von der Nutzerin gewünscht
+  // alle als Laut (Wunsch der Nutzerin 20.11.2026): C wie k, V wie f, Y wie i
   const LAUT = {};
   Object.keys(LAUT_IPA).forEach(L => { LAUT[L] = ph(LAUT_IPA[L], L.toLowerCase()); });
 
