@@ -103,7 +103,9 @@ def seite(woerter):
         wort, syl = teile_text(t)
         n = len(syl)
         cells = []
-        for v in range(0, 13):
+        nf = os.path.join(AUSWAHL, slug, "namen.json")            # Beschriftung geliehener Fassungen
+        namen = json.load(open(nf, encoding="utf-8")) if os.path.exists(nf) else {}
+        for v in range(0, 25):
             if v > 4 and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")): continue
             d = f"../web/audio/silben/{slug}-" if v == 0 else f"auswahl/{slug}/{v}-"
             if v and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")):
@@ -111,7 +113,7 @@ def seite(woerter):
             files = [f"{d}{k}.wav" for k in range(1, n + 1)]
             btns = "".join(f"<button class='s' data-f='{f}'>{x}</button>" for f, x in zip(files, syl))
             cells.append(f"<td><label><input type='radio' name='{slug}' value='{v}'{' checked' if v == 0 else ''}> "
-                         f"{'bisher' if v == 0 else v}</label><br><button class='all' data-f='{'|'.join(files)}'>▶</button>{btns}</td>")
+                         f"{'bisher' if v == 0 else v}{' ' + namen[str(v)] if str(v) in namen else ''}</label><br><button class='all' data-f='{'|'.join(files)}'>▶</button>{btns}</td>")
         rows.append(f"<tr><th>{wort}</th>{''.join(cells)}</tr>")
     page = ("<!doctype html><meta charset='utf-8'><title>Silben auswählen</title><style>"
             "body{font-family:Segoe UI,sans-serif;margin:20px;background:#fdf6e3}table{border-collapse:collapse}"
@@ -139,6 +141,7 @@ def main():
     ap.add_argument("woerter", nargs="*")
     ap.add_argument("--uebernehmen", nargs="*", default=None)
     ap.add_argument("--runde", type=int, default=1)
+    ap.add_argument("--leihen", nargs="*", default=None)
     a = ap.parse_args()
     s = se.sammeln()
     texte = {k: x["text"] for k, x in s["silben"].items()}
@@ -158,6 +161,28 @@ def main():
         json.dump(done, open(se.DONE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
         print(f"audio.js: {se.manifest()} Einträge.")
         return
+
+    if a.leihen:                       # "hase:2=nase,dose": Silbe 2 von Hase aus Nase bzw. Dose (kostenlos)
+        neu = []
+        for x in a.leihen:
+            ziel, spender = x.split("=")
+            slug, k = ziel.split(":"); k = int(k); n = len(teile_text(texte[slug])[1])
+            d = os.path.join(AUSWAHL, slug); os.makedirs(d, exist_ok=True)
+            nf = os.path.join(d, "namen.json")
+            namen = json.load(open(nf, encoding="utf-8")) if os.path.exists(nf) else {}
+            v = max([12] + [int(f.split("-")[0]) for f in os.listdir(d) if f.endswith("-1.wav")]) + 1
+            for sp in spender.split(","):
+                sl, sk = (sp.split(":") + [None])[:2]
+                syl = teile_text(texte[sl])[1]
+                sk = int(sk) if sk else next(j for j, y in enumerate(syl, 1) if y.lower() == teile_text(texte[slug])[1][k - 1].lower())
+                for j in range(1, n + 1):
+                    src = os.path.join(se.AUDIO, "silben", f"{sl}-{sk}.wav" if j == k else f"{slug}-{j}.wav")
+                    shutil.copy(src, os.path.join(d, f"{v}-{j}.wav"))
+                namen[str(v)] = f"({syl[sk - 1]} aus {teile_text(texte[sl])[0]})"; v += 1
+            json.dump(namen, open(nf, "w", encoding="utf-8"), ensure_ascii=False)
+            neu.append(slug)
+        seite([(k, texte[k]) for k in sorted(set(neu))])
+        print("Anhören: stimmen\\silben-auswahl.html"); return
 
     slugs = []
     for w in a.woerter:
