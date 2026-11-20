@@ -72,6 +72,19 @@ def fassungen3(slug, t):
             (f"[langsam und deutlich] {wort}. {' – '.join(s12)}. {wort}.", True)]
 
 
+# Runde 4 (--runde 4 --sprich "Wecker=Wek – ker"): eigene Silben-Schreibweise für die Stimme
+#   13, 14 mit "langsam und deutlich"   15 ohne   16 mit Kommas
+SPRICH = {}
+
+
+def fassungen4(slug, t):
+    wort, syl = teile_text(t)
+    s = SPRICH.get(slug, " – ".join(syl))
+    lang = f"[langsam und deutlich] {wort}. {s}. {wort}."
+    return [(lang, True), (lang, True), (f"{wort}. {s}. {wort}.", True),
+            (f"[langsam und deutlich] {wort}. {s.replace(' – ', ', ')}, {wort}.", True)]
+
+
 def teile_text(t):
     """'Affe. Af – fe.' -> ('Affe', ['Af', 'fe'])"""
     wort, rest = t.split(". ", 1)
@@ -142,7 +155,11 @@ def main():
     ap.add_argument("--uebernehmen", nargs="*", default=None)
     ap.add_argument("--runde", type=int, default=1)
     ap.add_argument("--leihen", nargs="*", default=None)
+    ap.add_argument("--sprich", nargs="*", default=[])
     a = ap.parse_args()
+    for x in a.sprich:
+        w, s_ = x.split("=", 1)
+        SPRICH[w.lower()] = " – ".join(p.strip() for p in s_.split("-"))     # "Wek-ker" -> "Wek – ker"
     s = se.sammeln()
     texte = {k: x["text"] for k, x in s["silben"].items()}
     done = json.load(open(se.DONE, encoding="utf-8")) if os.path.exists(se.DONE) else {}
@@ -197,8 +214,11 @@ def main():
         nonlocal used
         t = texte[slug]; n = len(teile_text(t)[1])
         d = os.path.join(AUSWAHL, slug); os.makedirs(d, exist_ok=True)
-        liste = {1: fassungen, 2: fassungen2, 3: fassungen3}[a.runde](slug, t)
-        for v, (text, hinten) in enumerate(liste, 4 * a.runde - 3):
+        liste = {1: fassungen, 2: fassungen2, 3: fassungen3, 4: fassungen4}[a.runde](slug, t)
+        erste = 4 * a.runde - 3
+        if a.runde == 4:                                          # nach den geliehenen Fassungen
+            erste = max([12] + [int(f.split("-")[0]) for f in os.listdir(d) if f.endswith("-1.wav")]) + 1
+        for v, (text, hinten) in enumerate(liste, erste):
             for versuch in range(3):
                 a_ = array.array("h")
                 a_.frombytes(se.api(f"/v1/text-to-speech/{se.VOICE}?output_format=pcm_22050", key,
