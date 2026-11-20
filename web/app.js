@@ -609,7 +609,7 @@ async function saySyllables(w, onIdx) {
     for (; i < n; i++) {
       if (Speech.seq !== my) break;
       if (onIdx) onIdx(i);
-      const ok = await playClip(`audio/silben/${slugW(w.w)}-${i + 1}.mp3`);
+      const ok = await playClip(`audio/silben/${slugW(w.w)}-${i + 1}.wav`);
       if (!ok && i === 0) break;                 // Datei fehlt -> Sprachausgabe
       if (Speech.seq !== my) break;
       if (i < n - 1) await sleep(380);
@@ -1632,7 +1632,7 @@ function sylDisplay(w) {
 }
 async function playOneSyllable(w, i) {
   const n = AU.silben && AU.silben[slugW(w.w)];
-  if (n && !S.muted) { stopSpeech(); const ok = await playClip(`audio/silben/${slugW(w.w)}-${i + 1}.mp3`); if (ok) return; }
+  if (n && !S.muted) { stopSpeech(); const ok = await playClip(`audio/silben/${slugW(w.w)}-${i + 1}.wav`); if (ok) return; }
   await say(sylTokens(w)[i] || "", "talk", 0.8, { german: true });
 }
 function taskPuzzle(t, used) {

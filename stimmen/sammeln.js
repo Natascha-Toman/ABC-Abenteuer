@@ -31,43 +31,6 @@
   const LAUT = {};
   Object.keys(LAUT_IPA).forEach(L => { LAUT[L] = ph(LAUT_IPA[L], L.toLowerCase()); });
 
-  // ---- Silben in Lautschrift (einfache deutsche Regeln) ----
-  const ONSET = [["sch", "ʃ"], ["ch", "x"], ["ck", "k"], ["qu", "kv"], ["pf", "pf"], ["ts", "ts"], ["b", "b"], ["d", "d"], ["f", "f"],
-    ["g", "ɡ"], ["h", "h"], ["j", "j"], ["k", "k"], ["l", "l"], ["m", "m"], ["n", "n"], ["p", "p"], ["r", "ʁ"], ["s", "z"],
-    ["t", "t"], ["w", "v"], ["v", "f"], ["z", "ts"], ["x", "ks"]];
-  // ohne Dehnungszeichen: "aː", "toː" klangen gehaucht ("ah", "toh"); die Betonung ˈ hält die Silbe deutlich
-  const LONG = { a: "a", e: "e", i: "i", o: "o", u: "u", "ä": "ɛ", "ö": "ø", "ü": "y", ie: "i" };
-  const SHORT = { a: "a", e: "ɛ", i: "ɪ", o: "ɔ", u: "ʊ", "ä": "ɛ", "ö": "œ", "ü": "ʏ", ie: "iː" };
-  function onsetIPA(c) {
-    let r = "";
-    while (c) {
-      const o = ONSET.find(([g]) => c.startsWith(g));
-      if (!o) return null;
-      r += (r && o[0] === "s") ? "s" : o[1]; c = c.slice(o[0].length);   // "s" nach Mitlaut stimmlos
-    }
-    return r.replace(/^zp/, "ʃp").replace(/^zt/, "ʃt");
-  }
-  // Silbe -> IPA, oder null (dann normal als Text). i = Silbe im Wort (0 = erste), next = nächste geschriebene Silbe
-  function sylIPA(syl, i, next) {
-    const m = syl.toLowerCase().match(/^([^aeiouäöü]*)(ie|[aeiouäöü])([nlr]?)$/);
-    if (!m) return null;
-    const on = onsetIPA(m[1]); if (on == null) return null;
-    const [, , v, coda] = m;
-    if (coda) {                                      // Endsilben -en, -el, -er: Murmel-e
-      if (v !== "e" || i === 0) return null;
-      return on + (coda === "r" ? "ɛɐ̯" : "ə" + coda);   // "kɐ" klang wie "köhr"
-    }
-    if (v === "e" && i > 0) return on + "ɛ";         // offene Endsilbe -e: kurzes hörbares e (Murmel-e "fə" wurde verschluckt)
-    const short = /^(ck|sch|ch|x|tz)/.test(next || "");
-    return on + (short ? SHORT[v] : LONG[v]);
-  }
-  // Ausnahmen: Wort/Silbennummer -> IPA (Betonung, fremde Wörter). Kurze Silben wie "na" allein
-  // brauchen manchmal ein Betonungszeichen (ˈna), sonst entsteht eine zu lange, falsche Tondatei.
-  const SYL_FIX = {
-    "geschenk-1": "ɡɛ", "rakete-2": "ke", "video-2": "de", "jaguar-3": "aʁ", "gitarre-2": "taʁ",
-    "kirsche-1": "kɪʁ", "gorilla-2": "ʁɪl", "irrgarten-1": "ɪʁ", "computer-2": "pu",
-    "ananas-1": "ˈa", "ananas-2": "ˈna", "jacke-1": "ˈja", "spaghetti-1": "ʃpa", "pizza-2": "tsa", "kamera-3": "ʁa",
-  };
   // Wörter, die die Stimme sonst englisch spricht (gilt auch in Sätzen)
   const WORD_IPA = { Rose: "ˈʁoːzə" };
   const wordPh = t => t.replace(/\b(Rose)\b/g, w => `<phoneme alphabet="ipa" ph="${WORD_IPA[w]}">${w}</phoneme>`);
@@ -94,14 +57,10 @@
   ["der", "die", "das"].forEach(a => { out.wort[a] = a; });
   ALL.forEach(w => {
     out.wort[slug(w.w)] = WORD_IPA[w.w] ? `<phoneme alphabet="ipa" ph="${WORD_IPA[w.w]}">${w.w}</phoneme>.` : w.w + ".";
-    // Silben so, wie sie geschrieben sind ("sp" nur bei fremder Aussprache), möglichst in Lautschrift
-    const shown = w.s.split("-"), spoken = (w.sp || w.s).split("-");
-    out.silben[slug(w.w)] = spoken.map((p, i) => {
-      const t = cap(p.toLowerCase().replace(/^ck/, "k"));
-      let ipa = SYL_FIX[`${slug(w.w)}-${i + 1}`] || sylIPA(p.replace(/^ck/, "k"), i, shown[i + 1]);
-      if (ipa && !ipa.startsWith("ˈ")) ipa = "ˈ" + ipa;   // jede Silbe allein betont – sonst verschluckt oder zu lang
-      return ipa ? ph(ipa, cap(shown[i] || t)) : t + ".";
-    });
+    // Silben: die Stimme sagt erst das ganze Wort, dann langsam die Silben ("Hase. Ha – se.") –
+    // so klingen sie deutsch. stimmen-erzeugen.py schneidet die Silben an den Pausen heraus.
+    const syl = w.s.split("-");
+    out.silben[slug(w.w)] = { text: `${wordPh(w.w)}. ${syl.join(" – ")}.`, n: syl.length };
   });
   COLORS.forEach(c => { out.wort[slug(c.w)] = cap(c.w) + "."; });
 

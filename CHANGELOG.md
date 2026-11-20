@@ -5,6 +5,9 @@ Alle wichtigen Änderungen, die neueste Version steht oben.
 ## 4.2 – 19.11.2026
 
 **Verbessert**
+- Silben: Die Stimme spricht erst das ganze Wort und dann langsam die Silben („Hase. Ha – se.“);
+  die Silben werden an den Pausen herausgeschnitten (`web/audio/silben/*.wav`). So klingen sie
+  deutsch und natürlich – die Lautschrift für Silben ist wieder entfernt.
 - Stimme: Laute und Silben werden mit Lautschrift (IPA, `<phoneme>`) erzeugt, damit die Stimme
   richtig deutsch spricht: „l“ statt „el“, „e“ statt „ei“, „ks“ statt „Kirchenstraße“, „se“ mit
   Murmel-e statt „see“, „ma“ statt „Maria“, „Rose“ deutsch statt englisch usw.

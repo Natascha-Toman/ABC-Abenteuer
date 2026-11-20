@@ -12,12 +12,14 @@
 #   python stimmen-erzeugen.py                nur sammeln, Liste und Anhör-Seite schreiben, Kosten anzeigen
 #   python stimmen-erzeugen.py --los          Tondateien erzeugen (braucht elevenlabs-key.txt)
 #   python stimmen-erzeugen.py --los --max-zeichen 20000    höchstens so viele Zeichen verbrauchen
-#   python stimmen-erzeugen.py --los --neu laut/b silben/affe-2   diese Dateien neu erzeugen
+#   python stimmen-erzeugen.py --los --neu laut/b silben/affe   diese Dateien neu erzeugen
+#   Silben: die Stimme spricht "Affe. Af – fe." – das Skript schneidet die Silben an den Pausen
+#   heraus (web\audio\silben\affe-1.wav, affe-2.wav).
 #   Modell: "Eleven v4" (eleven_v4), anderes mit --modell <id>
 #
 # Der API-Schlüssel steht in elevenlabs-key.txt (eine Zeile) neben diesem Skript – diese Datei
 # ist in .gitignore eingetragen und wird nie veröffentlicht.
-import argparse, concurrent.futures, hashlib, threading, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
+import argparse, array, concurrent.futures, hashlib, math, threading, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request, wave
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WEB = os.path.join(HERE, "web")
@@ -57,8 +59,7 @@ def auftraege(s):
     for k, t in s["laut"].items(): jobs.append(("laut/" + k, t, 0))
     for k, t in s["name"].items(): jobs.append(("name/" + k, t, 0))
     for k, t in s["wort"].items(): jobs.append(("wort/" + k, t, 0))
-    for k, syl in s["silben"].items():
-        for i, t in enumerate(syl): jobs.append((f"silben/{k}-{i + 1}", t, 0))
+    for k, x in s["silben"].items(): jobs.append((f"silben/{k}", x["text"], 0))
     for x in s["satz"]:
         h = hashlib.sha1(satz_key(x["text"]).encode("utf-8")).hexdigest()[:10]
         jobs.append(("satz/" + h, x.get("say", x["text"]), x["gruppe"]))
@@ -108,21 +109,75 @@ def modell_waehlen(key, wunsch):
     sys.exit("Kein Modell „Eleven v4“ gefunden. Mit --modell angeben. Verfügbar: " + ", ".join(ids))
 
 
+# ---- Silben aus "Wort. Sil – be." herausschneiden ----
+SR = 22050                                          # pcm_22050: 16 Bit, mono
+
+
+def silben_anzahl(t):
+    return t.split(". ", 1)[1].count("–") + 1 if ". " in t else 1
+
+
+def silben_dateien(i, t):
+    return [os.path.join(AUDIO, f"{i}-{k}.wav") for k in range(1, silben_anzahl(t) + 1)]
+
+
+def vorhanden(i, t):
+    if i.startswith("silben/"): return all(os.path.exists(f) for f in silben_dateien(i, t))
+    return os.path.exists(os.path.join(AUDIO, i + ".mp3"))
+
+
+def silben_schneiden(a, n):
+    """Teilt die Aufnahme an den n größten Pausen: [Wort] | Silbe 1 | ... | Silbe n. None, wenn es nicht passt."""
+    fr = int(SR * 0.01)
+    rms = [math.sqrt(sum(x * x for x in a[i:i + fr]) / max(1, len(a[i:i + fr]))) for i in range(0, len(a), fr)]
+    if not rms or max(rms) == 0: return None
+    thr, low = max(rms) * 0.04, max(rms) * 0.012
+    regs, i = [], 0
+    while i < len(rms):
+        if rms[i] > thr:
+            j = i
+            while j < len(rms) and rms[j] > thr: j += 1
+            while i > 0 and rms[i - 1] > low: i -= 1              # leise Ränder (f, s, h) mitnehmen
+            while j < len(rms) and rms[j] > low: j += 1
+            if regs and i <= regs[-1][1]: regs[-1][1] = j
+            else: regs.append([i, j])
+            i = j
+        else: i += 1
+    regs = [r for r in regs if r[1] - r[0] >= 4]                    # Knackser unter 40 ms weg
+    if len(regs) < n + 1: return None
+    gaps = sorted(range(len(regs) - 1), key=lambda k: regs[k + 1][0] - regs[k][1], reverse=True)[:n]
+    if min(regs[k + 1][0] - regs[k][1] for k in gaps) < 18: return None   # Pausen unter 180 ms: unsicher
+    teile, start = [], 0
+    for k in sorted(gaps): teile.append((regs[start][0], regs[k][1])); start = k + 1
+    teile.append((regs[start][0], regs[-1][1]))
+    return [(s0 * 0.01, e0 * 0.01) for s0, e0 in teile[1:]]          # ohne das ganze Wort am Anfang
+
+
+def wav_schreiben(a, s0, e0, fn, pad=0.05):
+    i, j = max(0, int((s0 - pad) * SR)), min(len(a), int((e0 + pad) * SR))
+    c = array.array("h", a[i:j]); f = min(int(0.008 * SR), len(c) // 2)
+    for k in range(f): c[k] = int(c[k] * k / f); c[-1 - k] = int(c[-1 - k] * k / f)
+    os.makedirs(os.path.dirname(fn), exist_ok=True)
+    w = wave.open(fn, "wb"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(c.tobytes()); w.close()
+
+
+def alte_silben(i):
+    """alte Silben-Dateien eines Wortes (mp3 oder wav)"""
+    d, w = os.path.dirname(os.path.join(AUDIO, i)), os.path.basename(i)
+    if not os.path.isdir(d): return []
+    return [os.path.join(d, f) for f in os.listdir(d) if re.fullmatch(re.escape(w) + r"-\d+\.(mp3|wav)", f)]
+
+
 def manifest():
     """web\\audio\\audio.js: welche Tondateien vorhanden sind (nur die, die es wirklich gibt)"""
     done = json.load(open(DONE, encoding="utf-8")) if os.path.exists(DONE) else {}
-    have = lambda i: os.path.exists(os.path.join(AUDIO, i + ".mp3"))
     m = {"laut": [], "name": [], "wort": [], "silben": {}, "satz": {}}
     for i, info in sorted(done.items()):
-        if not have(i): continue
+        if not vorhanden(i, info["text"]): continue
         kind, name = i.split("/", 1)
         if kind in ("laut", "name", "wort"): m[kind].append(name)
-        elif kind == "silben":
-            w, n = name.rsplit("-", 1)
-            m["silben"][w] = max(m["silben"].get(w, 0), int(n))
+        elif kind == "silben": m["silben"][name] = silben_anzahl(info["text"])   # nur, wenn alle Silben da sind
         elif kind == "satz": m["satz"][satz_key(info["text_orig"])] = name
-    # Silben nur, wenn alle Silben eines Wortes vorhanden sind
-    m["silben"] = {w: n for w, n in m["silben"].items() if all(have(f"silben/{w}-{k}") for k in range(1, n + 1))}
     os.makedirs(AUDIO, exist_ok=True)
     with open(os.path.join(AUDIO, "audio.js"), "w", encoding="utf-8", newline="\n") as f:
         f.write("// Erzeugt von stimmen-erzeugen.py – vorhandene Tondateien (Stimme: ElevenLabs)\n")
@@ -143,6 +198,12 @@ def anhoerseite(jobs, orig):
         shown = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 <b>[\1]</b>", shown)
         t = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 [\1]", t)
         anders = shown.replace("<b>", "").replace("</b>", "") != t
+        if kind == "silben":                         # jede Silbe eine eigene Zeile
+            sy = t.split(". ", 1)[1].rstrip(".").split(" – ") if ". " in t else [t]
+            for k, x in enumerate(sy, 1):
+                rows.append(f'<div class="r"><audio controls preload="none" src="../web/audio/{i}-{k}.wav"></audio>'
+                            f'<code>{i}-{k}</code><span>{x}</span> <i>({t.split(". ")[0]})</i></div>')
+            continue
         rows.append(f'<div class="r"><audio controls preload="none" src="../web/audio/{i}.mp3"></audio>'
                     f'<code>{i}</code><span>{shown}</span>{f" <i>(gesprochen als: {t})</i>" if anders else ""}</div>')
     if last: rows.append("</section>")
@@ -209,7 +270,7 @@ def main():
     done = json.load(open(DONE, encoding="utf-8")) if os.path.exists(DONE) else {}
     # nach einem Abbruch: schon erzeugte Dateien übernehmen (nicht noch einmal bezahlen)
     for i, t, g in jobs:
-        if i not in done and i not in a.neu and os.path.exists(os.path.join(AUDIO, i + ".mp3")):
+        if i not in done and i not in a.neu and vorhanden(i, t):
             done[i] = {"text": t, "text_orig": satz_orig.get(i, t), "modell": "?"}
     # Tondateien für Texte, die es nicht mehr gibt (z. B. gelöschte Wörter), entfernen
     ids = {i for i, _, _ in jobs}
@@ -218,13 +279,15 @@ def main():
         for i in alt:
             p = os.path.join(AUDIO, i + ".mp3")
             if os.path.exists(p): os.remove(p)
+            if i.startswith("silben/") and i.rsplit("-", 1)[0] not in ids:   # Silben eines gelöschten Wortes
+                for f in alte_silben(i): os.remove(f)
             del done[i]
         json.dump(done, open(DONE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
         print(f"{len(alt)} nicht mehr gebrauchte Tondateien gelöscht.")
     elif alt:
         print(f"{len(alt)} Tondateien werden nicht mehr gebraucht (werden mit --los gelöscht).")
     todo = [(i, t, g) for i, t, g in jobs
-            if g <= a.bis_gruppe and (i in a.neu or done.get(i, {}).get("text") != t or not os.path.exists(os.path.join(AUDIO, i + ".mp3")))]
+            if g <= a.bis_gruppe and (i in a.neu or done.get(i, {}).get("text") != t or not vorhanden(i, t))]
     zeichen = sum(len(t) for _, t, _ in todo)
     print(f"{len(jobs)} Tondateien insgesamt, davon {len(todo)} zu erzeugen ({zeichen} Zeichen).")
     anhoerseite(jobs, orig)
@@ -250,8 +313,25 @@ def main():
         if len(plan) < len(todo): print(f"Zeichen-Grenze: {len(todo) - len(plan)} Dateien bleiben für später.")
         lock, n = threading.Lock(), 0
 
+        fehl = []
+
+        def silben(job):
+            i, t, g = job
+            body = {"text": t, "model_id": modell, "language_code": "de"}
+            for versuch in range(3):                   # jede Aufnahme klingt etwas anders – sonst neu versuchen
+                a = array.array("h")
+                a.frombytes(api(f"/v1/text-to-speech/{VOICE}?output_format=pcm_22050", key, body, raw=True))
+                teile = silben_schneiden(a, silben_anzahl(t))
+                if teile: break
+            else:
+                fehl.append(i); return None
+            for f in alte_silben(i): os.remove(f)
+            for (s0, e0), fn in zip(teile, silben_dateien(i, t)): wav_schreiben(a, s0, e0, fn)
+            return job
+
         def eine(job):
             i, t, g = job
+            if i.startswith("silben/"): return silben(job)
             body = {"text": t, "model_id": modell, "language_code": "de"}
             try:
                 mp3 = api(f"/v1/text-to-speech/{VOICE}?output_format={FORMAT}", key, body, raw=True)
@@ -265,6 +345,7 @@ def main():
 
         with concurrent.futures.ThreadPoolExecutor(4) as ex:
             for job in ex.map(eine, plan):
+                if not job: continue
                 i, t, g = job
                 with lock:
                     done[i] = {"text": t, "text_orig": satz_orig.get(i, t), "modell": modell}
@@ -274,6 +355,7 @@ def main():
                         print(f"  {n}/{len(plan)} erzeugt", flush=True)
         json.dump(done, open(DONE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
         print(f"{n} Tondateien erzeugt, {used} Zeichen verbraucht.")
+        if fehl: print(f"Silben nicht sauber getrennt (später erneut starten): {', '.join(fehl)}")
     elif not a.los:
         print("Zum Erzeugen: python stimmen-erzeugen.py --los")
     print(f"audio.js: {manifest()} Einträge. Anhören: stimmen\\anhoeren.html")

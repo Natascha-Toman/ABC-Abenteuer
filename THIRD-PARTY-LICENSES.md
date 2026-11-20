@@ -10,7 +10,7 @@ Ordner neben der `ABC-Abenteuer.exe`.
 | Tobii Core SDK (Tobii.Interaction) | 0.7.3 | ja: `Tobii.Interaction.Net.dll`, `Tobii.Interaction.Model.dll`, `Tobii.EyeX.Client.dll` | proprietär, kostenlos, siehe unten |
 | Schrift „Andika“ (SIL) | Google Fonts v27 | ja: `files/fonts/andika-400.woff2`, `andika-700.woff2` | SIL Open Font License 1.1 |
 | Symbole „Noto Emoji“ (Google) | GitHub `googlefonts/noto-emoji`, Stand 26.10.2026 | ja: `files/emoji/*.svg` | Apache License 2.0, siehe unten |
-| Tondateien (Stimme) | ElevenLabs, Modell „Eleven v4“ | ja: `files/audio/**/*.mp3` | siehe Abschnitt „Tondateien“ |
+| Tondateien (Stimme) | ElevenLabs, Modell „Eleven v4“ | ja: `files/audio/**/*.mp3`, `*.wav` | siehe Abschnitt „Tondateien“ |
 | Microsoft Edge WebView2 Runtime | – | nein, ist in Windows 10/11 enthalten | Microsoft-Software-Lizenz |
 | .NET Framework 4.8, System.Speech | – | nein, ist Teil von Windows | Microsoft-Software-Lizenz |
 | Windows-Stimmen (SAPI/OneCore), Bildschirmtastatur (`osk.exe`), Emoji-Schrift „Segoe UI Emoji“ (nur noch für selbst eingetragene Emojis ohne Noto-Bild) | – | nein, nur auf dem Rechner vorhandene Windows-Bestandteile werden benutzt | Microsoft-Software-Lizenz |
@@ -122,7 +122,7 @@ nicht von der Emoji-Schrift von Windows ab.
 
 ---
 
-## Tondateien (`web/audio/**/*.mp3`)
+## Tondateien (`web/audio/**/*.mp3`, `*.wav`)
 
 Buchstaben (als Laut und als Name), Wörter, Silben, Sätze und Spielanweisungen sind fertige
 Tondateien. Sie sind **keine Aufnahmen einer Person**, sondern wurden mit der Sprach-KI von
