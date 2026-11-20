@@ -55,6 +55,23 @@ def fassungen2(slug, t):
             (f"[langsam und deutlich] {wort}. {' – '.join(syl)}. {wort}.", True)]
 
 
+# Runde 3 (--runde 3, Fassungen 9–12): Schreibweisen der Nutzerin
+#   9, 10  "[langsam und deutlich] Hase. Ha – s:. Hase."   11  ohne Anweisung   12  wie 9 mit Lautschrift
+SCHREIB3 = {"wecker": {2: "KAh"}, "melone": {3: "n:"}, "krone": {2: "n:"}, "jacke": {2: "K:"},
+            "hase": {2: "s:"}, "erdbeere": {2: "beh"}, "ente": {2: "t:"}}
+HILFE3 = {"wecker": {2: "ˈka"}, "melone": {3: "nː"}, "krone": {2: "nː"}, "jacke": {2: "kː"},
+          "hase": {2: "zː"}, "erdbeere": {2: "ˈbeː"}, "ente": {2: "tː"}}
+
+
+def fassungen3(slug, t):
+    wort, syl = teile_text(t)
+    syl = [SCHREIB3.get(slug, {}).get(k, x) for k, x in enumerate(syl, 1)]
+    s12 = mit_ipa(syl, HILFE3.get(slug, {}))
+    lang = f"[langsam und deutlich] {wort}. {' – '.join(syl)}. {wort}."
+    return [(lang, True), (lang, True), (f"{wort}. {' – '.join(syl)}. {wort}.", True),
+            (f"[langsam und deutlich] {wort}. {' – '.join(s12)}. {wort}.", True)]
+
+
 def teile_text(t):
     """'Affe. Af – fe.' -> ('Affe', ['Af', 'fe'])"""
     wort, rest = t.split(". ", 1)
@@ -86,7 +103,7 @@ def seite(woerter):
         wort, syl = teile_text(t)
         n = len(syl)
         cells = []
-        for v in range(0, 9):
+        for v in range(0, 13):
             if v > 4 and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")): continue
             d = f"../web/audio/silben/{slug}-" if v == 0 else f"auswahl/{slug}/{v}-"
             if v and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")):
@@ -155,8 +172,8 @@ def main():
         nonlocal used
         t = texte[slug]; n = len(teile_text(t)[1])
         d = os.path.join(AUSWAHL, slug); os.makedirs(d, exist_ok=True)
-        liste = fassungen(slug, t) if a.runde == 1 else fassungen2(slug, t)
-        for v, (text, hinten) in enumerate(liste, 1 if a.runde == 1 else 5):
+        liste = {1: fassungen, 2: fassungen2, 3: fassungen3}[a.runde](slug, t)
+        for v, (text, hinten) in enumerate(liste, 4 * a.runde - 3):
             for versuch in range(3):
                 a_ = array.array("h")
                 a_.frombytes(se.api(f"/v1/text-to-speech/{se.VOICE}?output_format=pcm_22050", key,

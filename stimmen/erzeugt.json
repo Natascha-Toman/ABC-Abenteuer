@@ -2407,7 +2407,7 @@
 "silben/dino": {
 "text": "Dino. Di – no.",
 "text_orig": "Dino. Di – no.",
-"modell": "eleven_v4 (Auswahl 4)"
+"modell": "eleven_v4 (Auswahl 7)"
 },
 "silben/delfin": {
 "text": "Delfin. Del – fin.",
@@ -2622,7 +2622,7 @@
 "silben/junge": {
 "text": "Junge. Jun – ge.",
 "text_orig": "Junge. Jun – ge.",
-"modell": "eleven_v4 (Auswahl 4)"
+"modell": "eleven_v4 (Auswahl 8)"
 },
 "silben/joghurt": {
 "text": "Joghurt. Jo – ghurt.",
@@ -2637,7 +2637,7 @@
 "silben/jause": {
 "text": "Jause. Jau – se.",
 "text_orig": "Jause. Jau – se.",
-"modell": "eleven_v4 (Auswahl 2)"
+"modell": "eleven_v4 (Auswahl 8)"
 },
 "silben/katze": {
 "text": "Katze. Kat – ze.",
@@ -2737,7 +2737,7 @@
 "silben/lampe": {
 "text": "Lampe. Lam – pe.",
 "text_orig": "Lampe. Lam – pe.",
-"modell": "eleven_v4 (Auswahl 3)"
+"modell": "eleven_v4 (Auswahl 8)"
 },
 "silben/maus": {
 "text": "Maus. Maus.",
@@ -2777,7 +2777,7 @@
 "silben/nase": {
 "text": "Nase. Na – se.",
 "text_orig": "Nase. Na – se.",
-"modell": "eleven_v4 (Auswahl 4)"
+"modell": "eleven_v4 (Auswahl 7)"
 },
 "silben/nudeln": {
 "text": "Nudeln. Nu – deln.",
@@ -2957,7 +2957,7 @@
 "silben/taxi": {
 "text": "Taxi. Ta – xi.",
 "text_orig": "Taxi. Ta – xi.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 8)"
 },
 "silben/teddy": {
 "text": "Teddy. Ted – dy.",
@@ -3097,7 +3097,7 @@
 "silben/ziege": {
 "text": "Ziege. Zie – ge.",
 "text_orig": "Ziege. Zie – ge.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 8)"
 },
 "silben/zirkus": {
 "text": "Zirkus. Zir – kus.",
