@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.8 – 21.11.2026
+
+**Verbessert**
+- Silben klatschen: kleiner 👏-Knopf oben im Spiel schaltet das Vorsagen und Vorklatschen der
+  Silben an und aus (durchgestrichen = aus; gleiche Einstellung wie in den Einstellungen).
+
 ## 4.7 – 21.11.2026
 
 **Verbessert**

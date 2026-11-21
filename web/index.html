@@ -45,6 +45,7 @@
     <div class="topbtn gaze pausebtn" data-nosay="1" title="Augensteuerung pausieren">⏸️</div>
     <div class="topbtn gaze" id="btnHome" data-say="Zurück zum Menü">🏠</div>
     <div class="progress" id="progress"></div>
+    <div class="topbtn gaze sylhelpbtn" id="btnSylHelp" data-nosay="1" title="Silben vorsagen und vorklatschen an/aus">👏<span class="strike"></span></div>
     <div class="topbtn gaze talkbtn" data-say="Ich möchte etwas sagen">💬</div>
     <div class="topbtn gaze mutebtn" data-say="Ton" title="Ton an/aus">🔊</div>
     <div class="topbtn gaze saybtn" id="btnRepeat" data-nosay="1" title="Noch einmal vorlesen">🦉</div>
@@ -242,7 +243,7 @@
     <label><span>Schrift</span><select id="setCase"><option value="upper">GROSSBUCHSTABEN</option><option value="mixed">Groß und klein (Maus)</option><option value="lower">nur klein (maus)</option></select></label>
     <label><span>Silben farbig markieren (beim Lesen)</span><input type="checkbox" id="setSylColor"></label>
     <label><span>Silben klatschen: Wort in Silben vorsagen und vorklatschen</span><input type="checkbox" id="setSylHelp"></label>
-    <div class="note">Ausgeschaltet fragt Emil nur „Wie viele Silben hat …?“ – das Kind spricht und klatscht selbst (gilt für alle Stufen). Nach der richtigen Antwort werden die Silben weiterhin gezeigt und geklatscht.</div>
+    <div class="note">Ausgeschaltet fragt Emil nur „Wie viele Silben hat …?“ – das Kind spricht und klatscht selbst (gilt für alle Stufen). Umschalten auch im Spiel mit dem kleinen 👏-Knopf oben. Nach der richtigen Antwort werden die Silben weiterhin gezeigt und geklatscht.</div>
     <label><span>Alle Stufen sofort freischalten</span><input type="checkbox" id="setAllLevels"></label>
     <label><span>Runden bis zur nächsten Stufe</span><select id="setUnlock"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
     <div class="note">Wer eine Stufe so oft mit höchstens 2 Fehlern schafft, schaltet die nächste Stufe frei (⭐ → ⭐⭐ → ⭐⭐⭐). Standard: 3.</div>

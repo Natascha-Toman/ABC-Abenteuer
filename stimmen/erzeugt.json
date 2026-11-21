@@ -23818,5 +23818,15 @@
 "text": "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:",
 "text_orig": "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:",
 "modell": "eleven_v4"
+},
+"satz/d34347d069": {
+"text": "Ich sage die Silben vor und klatsche mit.",
+"text_orig": "Ich sage die Silben vor und klatsche mit.",
+"modell": "eleven_v4"
+},
+"satz/2b477afe40": {
+"text": "Ich sage die Silben nicht mehr vor.",
+"text_orig": "Ich sage die Silben nicht mehr vor.",
+"modell": "eleven_v4"
 }
 }

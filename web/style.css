@@ -568,3 +568,7 @@ body.kb-open #dlg .dlgbox { max-height: 52vh; }
 #stickerView #svLetter { color: var(--blue); font-weight: 700; }
 #settings .panel:focus { outline: none; }
 #settings input[type=checkbox] { width: 26px; height: 26px; flex: none; cursor: pointer; accent-color: var(--blue); }
+/* Silben klatschen: Knopf "Silben vorsagen" – aus = rot hinterlegt und durchgestrichen */
+.topbtn.sylhelpbtn { position: relative; font-size: calc(5.5 * var(--u)); }
+.sylhelpbtn .strike { display: none; position: absolute; left: 20%; right: 20%; top: 46%; height: calc(.9 * var(--u)); background: #e53935; border-radius: 9px; transform: rotate(-35deg); pointer-events: none; z-index: 2; }
+.sylhelpbtn.off .strike { display: block; }

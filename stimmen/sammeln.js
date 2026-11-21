@@ -70,7 +70,7 @@
 "Was möchtest du spielen?", "Such dir ein Bild aus.", "Der Ton ist wieder an.",
     "Welche Stufe möchtest du spielen?", "Diese Stufe ist noch gesperrt.", "Schaffe erst die Stufe davor.",
     "Pause.", "Schau auf den Knopf, wenn es weitergehen soll.", "Weiter geht's!",
-    "Möchtest du das ABC-Abenteuer beenden?", "Ja oder nein?", "Möchtest du aufhören?", "Dann schau noch einmal auf die Tür.", "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:",
+    "Möchtest du das ABC-Abenteuer beenden?", "Ja oder nein?", "Möchtest du aufhören?", "Dann schau noch einmal auf die Tür.", "Ich sage die Silben vor und klatsche mit.", "Ich sage die Silben nicht mehr vor.", "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:",
     "Tschüss!", "Bis bald!", "Schön, dann spielen wir weiter!",
     "Womit fängt das Wort an?", "Was fängt mit diesem Buchstaben an?", "Welcher Buchstabe fehlt am Ende?",
     "Hör genau!", "Hör mal.", "Hör zu:", "Hör genau:", "Hör noch einmal genau und klatsch mit.",

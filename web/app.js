@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.7", APP_DATE = "21.11.2026";
+const APP_VERSION = "4.8", APP_DATE = "21.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -1202,6 +1202,19 @@ function showLevelSelect(id) {
   G.repeat();
 }
 
+// Silben klatschen: kleiner Knopf oben – Silben vorsagen und vorklatschen an/aus (wie die Einstellung)
+function updateSylHelpBtn() {
+  const b = $("#btnSylHelp");
+  b.style.display = G.game === "syll" ? "" : "none";
+  b.classList.toggle("off", !S.sylHelp);
+  const cb = $("#setSylHelp"); if (cb) cb.checked = !!S.sylHelp;
+}
+function toggleSylHelp() {
+  S.sylHelp = !S.sylHelp; saveS(); updateSylHelpBtn();
+  const bub = $("#stage .bubble");
+  if (bub && G.game === "syll") bub.textContent = S.sylHelp ? "Wie viele Silben hörst du? Klatsch mit!" : "Wie viele Silben hat das Wort?";
+  say(S.sylHelp ? "Ich sage die Silben vor und klatsche mit." : "Ich sage die Silben nicht mehr vor.", "info", 1, { force: true });
+}
 async function startGame(id, level = 1) {
   G.token++; const t = G.token;
   G.game = id; G.level = level; G.cfg = LV[id] ? LV[id][level] : {};
@@ -1210,6 +1223,7 @@ async function startGame(id, level = 1) {
   hideOverlays();
   $("#stage").innerHTML = "";
   show("game");
+  updateSylHelpBtn();
   if (id === "explore") return runExplore(t);
   if (id === "memory") return runMemory(t);
   if (id === "balloon") return runBalloon(t);
@@ -3017,6 +3031,7 @@ function init() {
   onSelect($("#btnAlbumHome"), () => { if (svOpen()) closeSticker(); else goMenu(); });
   onSelect($("#btnAlbumSay"), () => { if (svOpen()) openSticker(SV.e); else albumSay(); });
   onSelect($("#btnRepeat"), () => { if (G.repeat) G.repeat(); });
+  onSelect($("#btnSylHelp"), toggleSylHelp);
   onSelect($("#rewAgain"), () => startGame(G.game, G.level));
   onSelect($("#rewNext"), () => startGame(G.game, Math.min(3, G.level + 1)));
   onSelect($("#rewMenu"), () => goMenu());
