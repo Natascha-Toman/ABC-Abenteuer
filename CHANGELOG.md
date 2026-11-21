@@ -2,6 +2,16 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.6 – 21.11.2026
+
+**Verbessert**
+- Verwechselbare Buchstaben (g/k/c/z, b/p, d/t, m/n, y, f/v) mit Erklärung: „Das ist der Buchstabe g.
+  Manchmal wird dieser Buchstabe aber auch so ausgesprochen: Ge.“ – einzeln angeschaut nur Laut und Name.
+- Selbstlaute (a, e, i, o, u) und „Buchstaben entdecken“: der Name wird nie wiederholt.
+- Eigenes Symbol für „Anfang und Ende“.
+- Beenden: „Möchtest du aufhören? Dann schau noch einmal auf die Tür.“
+- Silben klatschen: neue Einstellung „Wort in Silben vorsagen und vorklatschen“ (abschaltbar, alle Stufen).
+
 ## 4.5 – 21.11.2026
 
 **Verbessert**

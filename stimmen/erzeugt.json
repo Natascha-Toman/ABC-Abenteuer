@@ -1244,11 +1244,6 @@
 "text_orig": "Möchtest du aufhören?",
 "modell": "eleven_v4"
 },
-"satz/cfd7562798": {
-"text": "Dann noch einmal die Tür.",
-"text_orig": "Dann noch einmal die Tür.",
-"modell": "eleven_v4"
-},
 "satz/cd21f1542c": {
 "text": "Tschüss!",
 "text_orig": "Tschüss!",
@@ -23812,6 +23807,16 @@
 "satz/31ce96dfc3": {
 "text": "Du hast schon 100 Sticker gesammelt!",
 "text_orig": "Du hast schon 100 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/74aa7771bb": {
+"text": "Dann schau noch einmal auf die Tür.",
+"text_orig": "Dann schau noch einmal auf die Tür.",
+"modell": "eleven_v4"
+},
+"satz/7674f038a9": {
+"text": "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:",
+"text_orig": "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:",
 "modell": "eleven_v4"
 }
 }

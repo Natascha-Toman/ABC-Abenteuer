@@ -97,14 +97,14 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.5", APP_DATE = "21.11.2026";
+const APP_VERSION = "4.6", APP_DATE = "21.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
   dwell: false,   // Auswahl nur per Klick – das Verweilen übernimmt die Tobii-Software (Linksklick)
   dwellMs: 1200, dwellBigMs: 1800, dot: false, hideCursor: false, mouseGuard: true,
   voice: "", rate: 0.85, hoverSay: true, sfx: true, muted: false,
-  round: 5, letterCase: "upper", sylColor: true, allLevels: false,
+  round: 5, letterCase: "upper", sylColor: true, sylHelp: true, allLevels: false,
   manualNext: false, balloonSpeed: 1, autoFull: true, eyeClickLock: "td", speechPause: true, lens: true,
   volume: 100, unlockRounds: 3,
   letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc", talkKbOpen: false, kbSpeak: "both", letterVoice: "laut",
@@ -216,7 +216,7 @@ function sanitizeSettings(o) {
   oneOf("round", [3, 4, 5, 6, 8, 10]); oneOf("balloonSpeed", [0.4, 0.65, 1, 1.4]);
   oneOf("letterCase", ["upper", "mixed", "lower"]); oneOf("eyeClickLock", ["td", "eyes", "always", false]);
   oneOf("talkKb", ["abc", "qwertz"]); oneOf("kbSpeak", ["both", "letters", "words", "sentence", "none"]); oneOf("letterVoice", ["laut", "name"]);
-  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "talkKbOpen"]
+  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "sylHelp", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "talkKbOpen"]
     .forEach(k => { o[k] = typeof o[k] === "boolean" ? o[k] : DEFAULTS[k]; });
   o.voice = typeof o.voice === "string" ? o.voice.slice(0, 200) : "";
   const L = Array.isArray(o.letters) ? [...new Set(o.letters.filter(x => typeof x === "string" && ALPHABET.includes(x)))] : [];
@@ -469,11 +469,14 @@ function letterClip(L) {
   if (AU_SET.name.has(k)) return `audio/name/${k}.mp3`;
   return null;
 }
-// Laute, die man leicht verwechselt (g/k/c/z, b/p, d/t, m/n, i/y, f/v, e/ä): erst der Laut, dann der Name –
-// so ist eindeutig, welcher Buchstabe gemeint ist (z. B. „i – Ypsilon“ statt nur „i“)
-const AMBIG = new Set("BPDTGKCZMNIYFVEÄ");
+// Laute, die man leicht verwechselt (g/k/c/z, b/p, d/t, m/n, y, f/v): erst der Laut, dann der Name –
+// so ist eindeutig, welcher Buchstabe gemeint ist. Im Satz mit Erklärung danach:
+// „Das ist der Buchstabe g. Manchmal wird dieser Buchstabe aber auch so ausgesprochen: Ge.“
+// Selbstlaute (Name = Laut) nie; bei „Buchstaben entdecken“ nie (opts.noName).
+const AMBIG = new Set("BPDTGKCZMNYFV");
+const AMBIG_SAY = "Manchmal wird dieser Buchstabe aber auch so ausgesprochen:";
 const LETTER_RE = /(^|[\s„"(])([A-ZÄÖÜ])(?=$|[\s.,!?:;“")])/g;
-function speechParts(text) {
+function speechParts(text, noName = false) {
   const whole = satzClip(text);
   if (whole) return [{ clip: whole, text }];
   const out = [];
@@ -484,6 +487,8 @@ function speechParts(text) {
     else if (!/^[\s.,!?:;…–-]+$/.test(t)) out.push({ tts: t });
   };
   const chunk = c => { const p = satzClip(c) || wortClip(c); if (p) out.push({ clip: p, text: c }); else tts(c); };
+  const explained = new Set();
+  const nameClip = L => AU_SET.name.has(slugW(L)) ? { clip: `audio/name/${slugW(L)}.mp3`, text: LETTER_NAMES[L] || L } : null;
   for (const sent of String(text).match(/[^.!?:]+[.!?:]*|[.!?:]+/g) || []) {
     const sc = satzClip(sent);
     if (sc) { out.push({ clip: sc, text: sent }); continue; }
@@ -492,13 +497,20 @@ function speechParts(text) {
     LETTER_RE.lastIndex = 0;
     while ((m = LETTER_RE.exec(sent))) { const at = m.index + m[1].length; pieces.push(sent.slice(pos, at), { L: m[2] }); pos = at + 1; }
     pieces.push(sent.slice(pos));
+    // verwechselbarer Buchstabe (als Laut gesprochen) -> Name dazu, einmal pro Ansage
+    const amb = noName || S.letterVoice === "name" ? [] : pieces.filter(p => typeof p !== "string" && AMBIG.has(p.L) && AU_SET.laut.has(slugW(p.L)) && nameClip(p.L) && !explained.has(p.L));
+    const bare = !pieces.some(p => typeof p === "string" && /[A-Za-zÄÖÜäöüß0-9]/.test(p));   // nur der Buchstabe (z. B. beim Anschauen)
     for (const p of pieces) {
       if (typeof p === "string") { if (/[A-Za-zÄÖÜäöüß0-9]/.test(p)) chunk(p); else tts(p); continue; }
-      const c = letterClip(p.L), k = slugW(p.L);
-      if (c && S.letterVoice !== "name" && AMBIG.has(p.L) && AU_SET.name.has(k) && c.includes("/laut/"))
-        out.push({ clip: c, text: p.L }, { pause: 180 }, { clip: `audio/name/${k}.mp3`, text: LETTER_NAMES[p.L] || p.L });
+      const c = letterClip(p.L);
+      if (c && bare && amb.includes(p)) { out.push({ clip: c, text: p.L }, { pause: 250 }, nameClip(p.L)); explained.add(p.L); }
       else if (c) out.push({ clip: c, text: p.L });
       else tts(S.letterVoice === "name" ? (LETTER_NAMES[p.L] || p.L) : p.L);
+    }
+    if (!bare && amb.length === 1) {
+      const L = amb[0].L;
+      out.push({ pause: 350 }, ...speechParts(AMBIG_SAY, true), { pause: 200 }, nameClip(L), { pause: 200 });
+      explained.add(L);
     }
   }
   return out;
@@ -518,7 +530,7 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
     if (window.speechSynthesis) speechSynthesis.cancel();
     stopClip();
     if (NativeTTS.cur) { const c = NativeTTS.cur; NativeTTS.cur = null; Native.post({ t: "stop" }); c.fin(); }
-    const parts = opts.parts || (opts.tts ? [{ tts: String(text) }] : speechParts(text));
+    const parts = opts.parts || (opts.tts ? [{ tts: String(text) }] : speechParts(text, opts.noName));
     Speech.kind = kind; talking(true);
     (async () => {
       for (const p of parts) {
@@ -539,8 +551,9 @@ function sayLautName(L, vorher = "") {
   const k = slugW(L);
   const laut = AU_SET.laut.has(k) ? { clip: `audio/laut/${k}.mp3`, text: L } : { tts: L };
   const name = AU_SET.name.has(k) ? { clip: `audio/name/${k}.mp3`, text: L } : { tts: LETTER_NAMES[L] || L };
-  const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör gut zu! Der Buchstabe macht so:"), { pause: 250 }, laut, { pause: 900 },
-                 ...speechParts("Und er heißt:"), { pause: 250 }, name];
+  const vokal = "AEIOUÄÖÜ".includes(L);               // Selbstlaut: Name = Laut, nicht wiederholen
+  const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör gut zu! Der Buchstabe macht so:"), { pause: 250 }, laut,
+                 ...(vokal ? [] : [{ pause: 900 }, ...speechParts("Und er heißt:"), { pause: 250 }, name])];
   return say(`So klingt der Buchstabe ${L}`, "talk", 1, { parts });
 }
 // Windows-Sprachausgabe (programmeigene SAPI-Stimme oder Stimme des Browsers)
@@ -941,7 +954,7 @@ function setTarget(el, now) {
   el.classList.add("looking");
   if (S.hoverSay && el.dataset.say && !el.dataset.nosay && !el.closest("#game .topbar")) {
     Gaze.hoverTimer = setTimeout(() => {
-      if (Gaze.target === el && Speech.kind !== "talk" && !(dwellOn() && mouseActive(performance.now()))) say(el.dataset.say, "hover");
+      if (Gaze.target === el && Speech.kind !== "talk" && !(dwellOn() && mouseActive(performance.now()))) say(el.dataset.say, "hover", 1, { noName: !!el.dataset.noname });
     }, 300);
   }
 }
@@ -1126,9 +1139,15 @@ function goMenu(speak = true) {
 // eigene Menü-Symbole (passen zu den anderen): bunte Buchstaben ABC, zwei Memory-Karten
 const ICON_ABC = svg(`<text x="50" y="68" font-size="44" font-weight="700" text-anchor="middle" font-family="Andika, sans-serif"><tspan fill="#ef6f6c">A</tspan><tspan fill="#4d96ff">B</tspan><tspan fill="#3cb371">C</tspan></text>`);
 const ICON_MEMORY = `<svg viewBox="6 12 88 76" width="1.15em" height="1em" style="vertical-align:-0.12em">` + (`<g transform="rotate(-12 34 52)"><rect x="12" y="22" width="42" height="58" rx="8" fill="#9b72cf" stroke="#6b4aa0" stroke-width="3"/><text x="33" y="64" font-size="34" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">?</text></g><g transform="rotate(10 66 50)"><rect x="44" y="20" width="42" height="58" rx="8" fill="#fff" stroke="#4d96ff" stroke-width="3"/><text x="65" y="62" font-size="32" font-weight="700" text-anchor="middle" fill="#4d96ff" font-family="Andika, sans-serif">A</text></g>`) + "</svg>";
+// Anfang und Ende: Wort aus Kästchen – erster Buchstabe grün, letzter orange, Pfeil von vorne nach hinten
+const ICON_ANLAUT = svg(`<rect x="3" y="22" width="24" height="32" rx="6" fill="#3cb371"/><text x="15" y="47" font-size="24" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">A</text>
+  <rect x="31" y="22" width="17" height="32" rx="5" fill="#e3e8f0"/><rect x="52" y="22" width="17" height="32" rx="5" fill="#e3e8f0"/>
+  <circle cx="39.5" cy="38" r="3" fill="#9aa5b8"/><circle cx="60.5" cy="38" r="3" fill="#9aa5b8"/>
+  <rect x="73" y="22" width="24" height="32" rx="6" fill="#ff8c42"/><text x="85" y="47" font-size="24" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">E</text>
+  <path d="M15 62 Q15 74 27 74 H73 Q85 74 85 66" fill="none" stroke="#4d96ff" stroke-width="4" stroke-linecap="round"/><path d="M79 68 L85 61 L91 68" fill="none" stroke="#4d96ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`);
 const GAMES = [
   { id: "explore", ico: ICON_ABC, name: "Buchstaben entdecken" },
-  { id: "anlaut",  ico: "🍎", name: "Anfang und Ende" },
+  { id: "anlaut",  ico: ICON_ANLAUT, name: "Anfang und Ende" },
   { id: "hear",    ico: "👂", name: "Hör genau!" },
   { id: "read",    ico: "📖", name: "Wörter lesen" },
   { id: "sent",    ico: "📜", name: "Sätze lesen" },
@@ -1449,15 +1468,15 @@ async function taskSyll(t, used) {
     content: `<div style="display:flex;flex-direction:column;align-items:center;gap:${u(1)}">
         <div class="bigpic" style="font-size:${u(22)}">${w.e}</div>
         <div class="bigword" style="font-size:${u(8)}" id="sylw">${esc(fw(w.w))}</div></div>`,
-    bubble: "Wie viele Silben hörst du? Klatsch mit!",
+    bubble: S.sylHelp ? "Wie viele Silben hörst du? Klatsch mit!" : "Wie viele Silben hat das Wort?",
     options: nums.map(k => ({ html: `<div class="claps">${"👏".repeat(k)}</div><div style="font-size:${u(9)}">${k}</div>`, cls: "small", say: NUMS[k], correct: k === n })),
     speak: async () => {
       await say(`Wie viele Silben hat ${art(w)}?`);
-      if (t !== G.token) return;
+      if (t !== G.token || !S.sylHelp) return;          // Einstellung: Silben nicht vorsagen und nicht vorklatschen
       await sleep(200);
       await saySyllables(w, () => SFX.clap());
     },
-    onWrong: () => "Hör noch einmal genau und klatsch mit.",
+    onWrong: () => S.sylHelp ? "Hör noch einmal genau und klatsch mit." : "Versuch es noch einmal.",
     onRight: async () => {
       const el = $("#sylw");
       el.className = "sylrow";
@@ -1835,7 +1854,7 @@ function runExplore(t) {
     const d = document.createElement("div");
     d.className = "gaze opt";
     d.innerHTML = flH(L);
-    d.dataset.say = LN(L);
+    d.dataset.say = LN(L); d.dataset.noname = "1";
     if (known.has(L)) d.style.background = "#fff1c9";
     onSelect(d, () => openExplore(L));
     $("#lg").appendChild(d);
@@ -1857,7 +1876,7 @@ function showExplore() {
   pic.innerHTML = w.e;
   pic.style.animation = "none"; void pic.offsetWidth; pic.style.animation = "";
   $("#exWord").innerHTML = `<span style="color:var(--orange)">${esc(word[0])}</span>${esc(word.slice(1))}`;
-  say(`${LN(EX.L)} wie ${w.w}.`);
+  say(`${LN(EX.L)} wie ${w.w}.`, "talk", 1, { noName: true });
 }
 
 // ---- Spiel: Memory ----
@@ -2786,7 +2805,7 @@ function bindSettings() {
       : performance.now() - Native.lastEye < 500 ? "aktiv – Augen erkannt ✔" : "aktiv – gerade keine Augen erkannt")
       + ` (Klicks gesperrt: ${Native.blocked || 0}, durchgelassen: ${Native.allowed || 0})`;
   }, 500);
-  chk("#setHoverSay", "hoverSay"); chk("#setSfx", "sfx"); chk("#setSylColor", "sylColor"); chk("#setMuted", "muted");
+  chk("#setHoverSay", "hoverSay"); chk("#setSfx", "sfx"); chk("#setSylColor", "sylColor"); chk("#setSylHelp", "sylHelp"); chk("#setMuted", "muted");
   chk("#setAllLevels", "allLevels", renderStats);
 
   const vo = $("#setVolume"), vv = $("#valVolume");
@@ -2973,7 +2992,7 @@ function init() {
     // wer einfach weiter auf die Tür schaut, löst nach der normalen Verweilzeit das zweite Mal aus
     Gaze.firedEl = null; Gaze.cool = false; Gaze.start = performance.now();
     toast("🚪 Zum Beenden noch einmal auf die Tür");
-    say("Möchtest du aufhören? Dann noch einmal die Tür.", "info", 1, { force: true });
+    say("Möchtest du aufhören? Dann schau noch einmal auf die Tür.", "info", 1, { force: true });
     setTimeout(() => { if (performance.now() - quitArmed >= 7900) b.classList.remove("armed"); }, 8000);
   });
   $("#btnQuit").addEventListener("dblclick", e => { e.preventDefault(); if (!$("#quitAsk").classList.contains("show")) quitAsk(); });
@@ -3000,7 +3019,7 @@ function init() {
   onSelect($("#rewAgain"), () => startGame(G.game, G.level));
   onSelect($("#rewNext"), () => startGame(G.game, Math.min(3, G.level + 1)));
   onSelect($("#rewMenu"), () => goMenu());
-  onSelect($("#exAgain"), () => { const w = EX.words[EX.i % EX.words.length]; say(`${LN(EX.L)} wie ${w.w}.`); });
+  onSelect($("#exAgain"), () => { const w = EX.words[EX.i % EX.words.length]; say(`${LN(EX.L)} wie ${w.w}.`, "talk", 1, { noName: true }); });
   onSelect($("#exNext"), () => { EX.i++; showExplore(); });
   onSelect($("#exBack"), () => { $("#explore").classList.remove("show"); stopSpeech(); });
   onSelect($("#svSay"), () => { SV.token++; stopSpeech(); svSayWord(); });
