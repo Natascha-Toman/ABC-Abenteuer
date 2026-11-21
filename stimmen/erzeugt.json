@@ -60,9 +60,9 @@
 "modell": "eleven_v4"
 },
 "laut/m": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"mː\">m</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mː\">m</phoneme>.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"mə\">m</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"mə\">m</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "laut/n": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"nː\">n</phoneme>.",
@@ -80,9 +80,9 @@
 "modell": "eleven_v4"
 },
 "laut/q": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"kv\">q</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kv\">q</phoneme>.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"kvə\">q</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kvə\">q</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "laut/r": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ʁə\">r</phoneme>.",
@@ -140,9 +140,9 @@
 "modell": "eleven_v4"
 },
 "laut/ue": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"yː\">ü</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"yː\">ü</phoneme>.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈy\">ü</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈy\">ü</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "name/a": {
 "text": "A.",
@@ -205,9 +205,9 @@
 "modell": "eleven_v4"
 },
 "name/m": {
-"text": "M.",
-"text_orig": "M.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ɛm\">M</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ɛm\">M</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "name/n": {
 "text": "N.",
@@ -310,9 +310,9 @@
 "modell": "eleven_v4"
 },
 "wort/apfel": {
-"text": "Apfel.",
-"text_orig": "Apfel.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈapfəl\">Apfel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈapfəl\">Apfel</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/ameise": {
 "text": "Ameise.",
@@ -410,9 +410,9 @@
 "modell": "eleven_v4"
 },
 "wort/cowboy": {
-"text": "Cowboy.",
-"text_orig": "Cowboy.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈkaʊbɔʏ\">Cowboy</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkaʊbɔʏ\">Cowboy</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/dino": {
 "text": "Dino.",
@@ -465,9 +465,9 @@
 "modell": "eleven_v4"
 },
 "wort/ei": {
-"text": "Ei.",
-"text_orig": "Ei.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈaɪ\">Ei</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈaɪ\">Ei</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/fisch": {
 "text": "Fisch.",
@@ -610,9 +610,9 @@
 "modell": "eleven_v4"
 },
 "wort/kuh": {
-"text": "Kuh.",
-"text_orig": "Kuh.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈkuː\">Kuh</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkuː\">Kuh</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/kaese": {
 "text": "Käse.",
@@ -635,9 +635,9 @@
 "modell": "eleven_v4"
 },
 "wort/kamel": {
-"text": "Kamel.",
-"text_orig": "Kamel.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"kaˈmeːl\">Kamel</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kaˈmeːl\">Kamel</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/krokodil": {
 "text": "Krokodil.",
@@ -775,9 +775,9 @@
 "modell": "eleven_v4"
 },
 "wort/otter": {
-"text": "Otter.",
-"text_orig": "Otter.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈɔtɐ\">Otter</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈɔtɐ\">Otter</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/orange": {
 "text": "Orange.",
@@ -1135,9 +1135,9 @@
 "modell": "eleven_v4"
 },
 "wort/blau": {
-"text": "Blau.",
-"text_orig": "Blau.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈblaʊ\">Blau</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈblaʊ\">Blau</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/gelb": {
 "text": "Gelb.",
@@ -1160,9 +1160,9 @@
 "modell": "eleven_v4"
 },
 "wort/braun": {
-"text": "Braun.",
-"text_orig": "Braun.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈbʁaʊn\">Braun</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈbʁaʊn\">Braun</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/schwarz": {
 "text": "Schwarz.",
@@ -2322,7 +2322,7 @@
 "silben/baum": {
 "text": "Baum. Baum.",
 "text_orig": "Baum. Baum.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "silben/baer": {
 "text": "Bär. Bär.",
@@ -2417,7 +2417,7 @@
 "silben/drache": {
 "text": "Drache. Dra – che.",
 "text_orig": "Drache. Dra – che.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "silben/dusche": {
 "text": "Dusche. Du – sche.",
@@ -2552,7 +2552,7 @@
 "silben/glocke": {
 "text": "Glocke. Glo – cke.",
 "text_orig": "Glocke. Glo – cke.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 2)"
 },
 "silben/hund": {
 "text": "Hund. Hund.",
@@ -2687,7 +2687,7 @@
 "silben/kirsche": {
 "text": "Kirsche. Kir – sche.",
 "text_orig": "Kirsche. Kir – sche.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/kiwi": {
 "text": "Kiwi. Ki – wi.",
@@ -2707,7 +2707,7 @@
 "silben/loewe": {
 "text": "Löwe. Lö – we.",
 "text_orig": "Löwe. Lö – we.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "silben/loeffel": {
 "text": "Löffel. Löf – fel.",
@@ -2827,7 +2827,7 @@
 "silben/orange": {
 "text": "Orange. O – ran – ge.",
 "text_orig": "Orange. O – ran – ge.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 4)"
 },
 "silben/ofen": {
 "text": "Ofen. O – fen.",
@@ -3022,7 +3022,7 @@
 "silben/video": {
 "text": "Video. Vi – de – o.",
 "text_orig": "Video. Vi – de – o.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 3)"
 },
 "silben/wal": {
 "text": "Wal. Wal.",

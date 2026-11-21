@@ -9,3 +9,15 @@
 # laut/b = bö.
 # silben/affe-2 = fe.
 # wort/cap = Käp.
+wort/apfel = <phoneme alphabet="ipa" ph="ˈapfəl">Apfel</phoneme>.
+wort/braun = <phoneme alphabet="ipa" ph="ˈbʁaʊn">Braun</phoneme>.
+wort/cowboy = <phoneme alphabet="ipa" ph="ˈkaʊbɔʏ">Cowboy</phoneme>.
+wort/kuh = <phoneme alphabet="ipa" ph="ˈkuː">Kuh</phoneme>.
+laut/m = <phoneme alphabet="ipa" ph="mə">m</phoneme>.
+laut/q = <phoneme alphabet="ipa" ph="kvə">q</phoneme>.
+laut/ue = <phoneme alphabet="ipa" ph="ˈy">ü</phoneme>.
+name/m = <phoneme alphabet="ipa" ph="ɛm">M</phoneme>.
+wort/blau = <phoneme alphabet="ipa" ph="ˈblaʊ">Blau</phoneme>.
+wort/ei = <phoneme alphabet="ipa" ph="ˈaɪ">Ei</phoneme>.
+wort/kamel = <phoneme alphabet="ipa" ph="kaˈmeːl">Kamel</phoneme>.
+wort/otter = <phoneme alphabet="ipa" ph="ˈɔtɐ">Otter</phoneme>.
