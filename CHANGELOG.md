@@ -2,6 +2,13 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.10 – 22.11.2026
+
+**Verbessert**
+- Dunkler Hintergrund überarbeitet: leere Sterne sichtbar, alle Schriften, Zeichen und Linien ohne
+  eigenen Hintergrund hell (Schreib-Linien, Silben, Mischschüssel, Knöpfe unten im Menü …).
+- Einstellungen und Eingabe-Fenster ebenfalls dunkel.
+
 ## 4.9 – 22.11.2026
 
 **Verbessert**

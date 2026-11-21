@@ -584,3 +584,31 @@ body.dark #talk { background: #1e2d52; }
 body.dark .bigpic { filter: drop-shadow(0 0 calc(.5 * var(--u)) rgba(255,255,255,.9)) drop-shadow(0 0 calc(1.5 * var(--u)) rgba(255,255,255,.35)); }
 #album .stickers div.empty { background: transparent; font-size: calc(4.5 * var(--u)); grid-row: span 3; }
 body.dark .bigletter { background: #fff; border-radius: var(--radius); padding: 0 calc(2 * var(--w)); }
+/* Dunkel: Sterne-Leiste, kleine Knöpfe unten im Menü */
+body.dark .progress .pill { background: rgba(255,255,255,.16); }
+body.dark .progress .pill.lvl { background: #fff3c4; }
+body.dark .progress .star:not(.got) img.emo { filter: grayscale(1) brightness(2.4); opacity: .5; }
+body.dark .adminbtn { color: #d3daf0; background: rgba(255,255,255,.1); }
+body.dark .adminbtn:hover { background: rgba(255,255,255,.2); }
+body.dark .adminbtn.setbtn { background: transparent; }
+body.dark .adminbtn.setbtn img.emo { filter: grayscale(1) brightness(2.6); opacity: .8; }
+/* Dunkel: Einstellungen und Eingabe-Fenster */
+body.dark #settings .panel, body.dark #dlg .dlgbox { background: #1b2742; color: #e8ecf8; color-scheme: dark; }
+body.dark #settings .actions, body.dark #dlg .dlgbtns { background: #1b2742; border-color: #33426a; }
+body.dark #settings h3 { color: #8fb8ff; border-color: #33426a; }
+body.dark #settings .note { color: #b4bdd8; }
+body.dark #settings .note.warn, body.dark #settings button.danger { color: #ff8a80; }
+body.dark #settings td, body.dark #settings th { border-color: #3a4870; }
+body.dark #settings .letters label { background: #26345a; }
+body.dark #settings .letters label.vowel, body.dark #settings .vowelmark { background: #4a3a1a; color: #ffcf8a; }
+body.dark #settings details.more { background: #24314f; }
+body.dark #settings .prow.cur { background: #1f4a32; }
+body.dark #settings a { color: #8fb8ff; }
+body.dark #dlg .fld input { border-color: #4a5880; }
+body.dark #dlg .emojis button, body.dark #dlg .kbd { background: #26345a; border-color: #3a4870; }
+/* Dunkel: Schrift ohne eigenen Hintergrund hell */
+body.dark .slot { border-color: #8e98b8; color: #8790b3; }
+body.dark .slot.filled, body.dark .sylrow { color: #fff; }
+body.dark .start-hint, body.dark #start .version, body.dark #stickerView .svart { color: #c2cae3; }
+body.dark .bowl { border-color: #c2cae3; }
+body.dark .mixlabel { color: #fff; }
