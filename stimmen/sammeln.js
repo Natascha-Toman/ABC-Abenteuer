@@ -74,7 +74,8 @@
     "Tschüss!", "Bis bald!", "Schön, dann spielen wir weiter!",
     "Womit fängt das Wort an?", "Womit fängt es an?", "Was fängt mit diesem Buchstaben an?", "Hör genau auf das Ende!",
     "Womit hört das Wort auf?", "Hör genau!", "Hör mal.", "Hör zu:", "Hör genau:", "Hör noch einmal genau und klatsch mit.",
-    "Wo ist der Buchstabe?", "Wo ist der Buchstabe", "Das ist der Buchstabe", "Wir suchen den Buchstaben",
+    "Wo ist der Buchstabe?", "Wo ist der Buchstabe", "Hör genau hin: So klingt der Buchstabe.", "Und so heißt der Buchstabe.",
+"Das ist der Buchstabe", "Wir suchen den Buchstaben",
     "Wir brauchen jetzt den Buchstaben", "Was fängt mit dem Buchstaben", "Lass alle Ballons mit dem Buchstaben", "platzen!",
     "an.", "an?", "auf.", "Was kommt jetzt?", "Lies genau.", "Lies das Wort.", "Welches Bild passt?", "Lies den Satz.",
     "Lies die beiden Wörter.", "Welches Wort passt zum Bild?", "Welches Bild hat diese Farbe?", "Lies die Wörter genau.",
@@ -96,8 +97,7 @@
   for (let n = 2; n <= 60; n++) add(1, `Du hast schon ${n} Sticker gesammelt!`);
   PRAISE.forEach(t => add(1, t));
   ENCOURAGE.forEach(t => t.split(/(?<=[.!?])\s+/).forEach(x => add(1, x)));
-  // Mitteil-Tafel (voreingestellte Felder)
-  DEFAULT_TALK.split("\n").forEach(l => { const p = l.split(";").map(x => x.trim()); if (p[2]) add(1, p[2]); if (p[1]) add(1, p[1]); });
+  // Mitteil-Tafel: keine Tondateien – dort spricht immer die Windows-Stimme (Wunsch der Nutzerin)
 
   // ---- Sätze lesen ----
   SENT_ANIMALS.forEach(an => SENT_THINGS.forEach(th => {

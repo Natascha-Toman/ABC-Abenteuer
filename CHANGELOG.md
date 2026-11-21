@@ -2,6 +2,15 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.4 – 21.11.2026
+
+**Verbessert**
+- Neue Bilder im Noto-Stil: Engel, Cowboy und Junge als ganze Figuren, Nudeln (Farfalle in
+  einer Schüssel), Comic-Heft; Zahn weißer mit Umriss, Socke nur noch eine.
+- Wo ist der Buchstabe, Stufe 3: „Hör genau hin: So klingt der Buchstabe … Und so heißt der
+  Buchstabe …“ – erst der Laut, dann der Name.
+- Mitteil-Tafel spricht immer mit der Windows-Stimme (keine ElevenLabs-Tondateien mehr dafür).
+
 ## 4.3 – 21.11.2026
 
 **Verbessert**

@@ -59,13 +59,6 @@ const PICS = {
     <path d="M25 48 L75 48 L72 74 L28 74 Z" fill="#ffd6e7"/>
     <path d="M50 53 Q61 55 57 66 Q50 74 43 66 Q39 55 50 53 Z" fill="#e53935"/>
     <path d="M44 55 L50 50 L56 55" stroke="#2e9e44" stroke-width="3" fill="none" stroke-linecap="round"/>`),
-  nudeln: svg(`<ellipse cx="50" cy="76" rx="46" ry="14" fill="#fff" stroke="#9aa5b8" stroke-width="3"/><ellipse cx="50" cy="74" rx="34" ry="8" fill="#eef2f7"/>
-    <g transform="translate(34 66) rotate(8)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
-    <g transform="translate(66 66) rotate(-10)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
-    <g transform="translate(50 56) rotate(-28)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
-    <g transform="translate(32 50) rotate(30)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
-    <g transform="translate(68 46) rotate(12)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>
-    <g transform="translate(50 38) rotate(-6)"><path d="M-22 -7 L16 -7 L22 7 L-16 7 Z" fill="#ffd166" stroke="#c99a1e" stroke-width="2" stroke-linejoin="round"/><path d="M-12 -7 L-6 7 M-4 -7 L2 7 M4 -7 L10 7" stroke="#e5ad35" stroke-width="1.8"/><path d="M-20 -4 L14 -4" stroke="#ffe7a3" stroke-width="2" stroke-linecap="round"/><ellipse cx="19" cy="0" rx="3" ry="7.4" transform="rotate(-23 19 0)" fill="#a8741a" stroke="#c99a1e" stroke-width="1.5"/></g>`),
   jacke: svg(`<path d="M34 14 Q50 4 66 14 L84 24 L93 58 L81 62 L74 42 L74 80 L26 80 L26 42 L19 62 L7 58 L16 24 Z" fill="#ef6f6c" stroke="#a83b39" stroke-width="3" stroke-linejoin="round"/>
     <rect x="26" y="76" width="48" height="8" rx="2" fill="#c94f4c" stroke="#a83b39" stroke-width="2"/>
     <path d="M36 14 Q50 27 64 14" fill="none" stroke="#a83b39" stroke-width="3"/>
@@ -87,14 +80,6 @@ const PICS = {
     <ellipse cx="25" cy="58" rx="3" ry="4" fill="#8a2e2e"/><ellipse cx="75" cy="58" rx="3" ry="4" fill="#8a2e2e"/><ellipse cx="50" cy="49" rx="3.5" ry="4.5" fill="#8a2e2e"/>
     <g fill="#333"><ellipse cx="10" cy="22" rx="4.5" ry="3.5"/><path d="M13.5 22 V6 L20 10 V13 L15.5 11 V22 Z"/>
     <ellipse cx="84" cy="18" rx="4.5" ry="3.5"/><path d="M87.5 18 V2 L94 6 V9 L89.5 7 V18 Z"/></g>`),
-  comic: svg(`<rect x="12" y="5" width="76" height="90" rx="4" fill="#fff" stroke="#333" stroke-width="3"/>
-    <rect x="18" y="11" width="30" height="36" fill="#ffe066" stroke="#333" stroke-width="2"/><rect x="52" y="11" width="30" height="36" fill="#8cc4ff" stroke="#333" stroke-width="2"/>
-    <rect x="18" y="51" width="64" height="38" fill="#ffc2d4" stroke="#333" stroke-width="2"/>
-    <ellipse cx="33" cy="22" rx="11" ry="7" fill="#fff" stroke="#333" stroke-width="1.5"/><path d="M29 28 L26 35 L35 28" fill="#fff" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
-    <circle cx="33" cy="40" r="5" fill="#f5c08a" stroke="#333" stroke-width="1.5"/>
-    <path d="M67 15 L70 23 L78 21 L73 28 L80 33 L71 33 L70 42 L65 35 L58 39 L61 30 L54 26 L63 25 Z" fill="#ff9f43" stroke="#e0504f" stroke-width="1.5" stroke-linejoin="round"/>
-    <circle cx="36" cy="72" r="9" fill="#f5c08a" stroke="#333" stroke-width="1.5"/><path d="M48 76 Q60 62 72 76" fill="none" stroke="#333" stroke-width="2"/>
-    <ellipse cx="62" cy="60" rx="12" ry="5" fill="#fff" stroke="#333" stroke-width="1.5"/>`),
   creme: svg(`<rect x="52" y="10" width="40" height="11" rx="4" fill="#1e6fd9" stroke="#14509e" stroke-width="2" transform="rotate(18 72 15)"/>
     <path d="M22 48 Q28 32 44 33 Q48 24 56 30 Q72 31 78 48 Z" fill="#fff" stroke="#b5bcc7" stroke-width="2.5" stroke-linejoin="round"/>
     <path d="M44 33 Q50 38 56 30" fill="none" stroke="#d5dae2" stroke-width="2"/>
@@ -151,6 +136,64 @@ const PICS = {
   mieder_aus: svgBig(korsett() + `<circle cx="80" cy="80" r="15" fill="#e53935" stroke="#fff" stroke-width="3"/>
     <path d="M71 80 h18" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`),
 };
+
+// Symbole im Noto-Stil (flach, ohne schwarze Umrisse): Figuren mit Noto-Kopf (emoji/1f466.svg), Zahn heller, nur eine Socke
+const svgV = (vb, body) => `<svg viewBox="${vb}" width="1em" height="1em" style="vertical-align:-0.12em">${body}</svg>`;
+const SKIN = "#FFCA28";
+Object.assign(PICS, {
+  zahn: svgV("0 0 128 128", `<path fill="#FFFFFF" stroke="#A9BBC8" stroke-width="4" stroke-linejoin="round" d="M53,7.71c0,0-18.09-5.23-24.78,2.14s-7.030,16.07-7.7,21.43s2.34,16.74,4.35,21.76s5.36,13.39,5.02,19.42s0.76,21.55,1.34,25.11c1.31,8.04,7.37,22.77,13.73,24.44s8.37-1.34,8.37-7.7s2.01-42.52,13.39-41.18c11.38,1.33,10.71,14.72,11.05,21.42c0.33,6.7,3.38,28.41,9.07,27.74s12.69-15.690,13.03-28.41s-3.01-18.410,0-28.12s7.7-19.08,7.7-29.13c0-7.8,0.45-20.57-7.37-26.78c-7.1-5.64-12.1-4.21-15.74-4.02C75.38,6.31,70.36,12.72,53,7.71z"/>
+    <path fill="#BFE0EC" d="M67.15,24.05c4.28,0,19.83-7.54,18-9.46c-2.79-2.93-14.74,3.63-19.2,3.34c-4.66-0.3-9.47-2.2-13.97-2.69c-1.55-0.17-3.54,0.33-1.85,2.32C51.360,19,62.87,24.05,67.15,24.05z"/>`),
+  socke: svgV("40 16 92 112", `<path style="fill:#C9E3E6;" d="M85.49,24.13c17.85,1.07,20.95,0.08,24.19,0c3.25-0.08,3.1,1.39,3.1,3.1l0.44,40.38c0,0.66,0.13,1.41,0.34,2.22l-7.83,24.98c-1.31,0.65-1.98,1.09-2.67,1.61c-1.1,0.82-22.8,20.96-25.82,23.9c-3.02,2.93-13.31,7.08-20.05-1.1c-5.77-7-2.45-16.08,0-18.95S81.35,73.71,82.73,69.5c1.13-3.46-0.03-32.96-0.33-42.19C82.34,25.57,82.15,23.93,85.49,24.13z"/>
+    <path style="fill:#5FB2DE;" d="M117.62,83.98c0.46-6.42-3.52-11.24-4.3-15.25c-3.14,2.47-9.37,6.33-13.35,8.34c-1.36,0.69-1.790,2.39-1.26,3.83c1.36,3.72,4.16,10.02,6.52,14.16c0,0,1.55-0.97,4.11-1.87C111.9,92.28,117.2,89.89,117.62,83.98z"/>
+    <path style="fill:#5FB2DE;" d="M55.35,103.43c-1.7,4.09-2.5,10.52,1.84,15.78c5.27,6.39,12.7,5.26,17.14,3.06c0,0-0.31-5.37-5.81-11.87C63.02,103.89,55.35,103.43,55.35,103.43z"/>
+    <path style="fill:#F44336;" d="M96,38.92c-6.26,0-10.89-0.59-13.22-0.96l-0.2-5.12c0.13,0.03,12.4,2.76,30.25-0.33l0.05,5.03C106.51,38.57,100.78,38.92,96,38.92z"/>
+    <path style="fill:#F44336;" d="M96,48.15c-6.05,0-10.59-0.55-12.99-0.93l-0.14-5.01c2.95,0.52,14.61,2.21,30.05-0.47l0.05,5.02C106.57,47.8,100.81,48.15,96,48.15z"/>`),
+  junge: svgV("0 0 100 100", `
+    <rect x="37" y="84" width="9" height="10" fill="${SKIN}"/><rect x="54" y="84" width="9" height="10" fill="${SKIN}"/>
+    <path d="M33 99 Q33 92 41 92 L47 92 L47 99 Z" fill="#5D4037"/><path d="M67 99 Q67 92 59 92 L53 92 L53 99 Z" fill="#5D4037"/>
+    <path d="M35 72 L65 72 L66 87 L52 87 L50 80 L48 87 L34 87 Z" fill="#455A64"/>
+    <path d="M27 58 Q25 70 24 76" stroke="${SKIN}" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M73 58 Q75 70 76 76" stroke="${SKIN}" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M36 44 Q50 40 64 44 L75 52 L71 63 L65 59 L65 74 L35 74 L35 59 L29 63 L25 52 Z" fill="#2196F3"/>
+    <path d="M44 44 Q50 50 56 44" fill="${SKIN}"/><path d="M35 66 L65 66 L65 74 L35 74 Z" fill="#1E88E5"/>
+    <image href="emoji/1f466.svg" x="27" y="0" width="46" height="46"/>`),
+  engel: svgV("0 0 100 100", `
+    <path d="M36 52 Q8 30 6 50 Q4 66 16 70 Q8 78 20 84 Q30 86 38 70 Z" fill="#E1F5FE" stroke="#B3E5FC" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M64 52 Q92 30 94 50 Q96 66 84 70 Q92 78 80 84 Q70 86 62 70 Z" fill="#E1F5FE" stroke="#B3E5FC" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M38 46 Q50 42 62 46 L72 96 Q50 100 28 96 Z" fill="#FFFFFF" stroke="#CFD8DC" stroke-width="2"/>
+    <path d="M44 60 L40 96 M56 60 L60 96" stroke="#ECEFF1" stroke-width="3"/>
+    <path d="M40 50 Q32 62 34 72" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M60 50 Q68 62 66 72" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <circle cx="34.5" cy="74" r="3.6" fill="${SKIN}"/><circle cx="65.5" cy="74" r="3.6" fill="${SKIN}"/>
+    <image href="emoji/1f466.svg" x="30" y="6" width="40" height="40"/>
+    <ellipse cx="50" cy="6" rx="15" ry="4.2" fill="none" stroke="#FFC107" stroke-width="3.4"/>`),
+  cowboy: svgV("0 0 100 100", `
+    <path d="M37 76 L48 76 L47 92 L38 92 Z" fill="#1565C0"/><path d="M52 76 L63 76 L62 92 L53 92 Z" fill="#1565C0"/>
+    <path d="M36 90 L48 90 L48 98 L32 98 Q31 94 36 94 Z" fill="#6D4C41"/><path d="M52 90 L64 90 L68 94 Q69 98 68 98 L52 98 Z" fill="#6D4C41"/>
+    <path d="M36 74 L64 74 L64 80 L36 80 Z" fill="#5D4037"/><rect x="47" y="74" width="6" height="6" fill="#FFC107"/>
+    <path d="M27 58 Q25 70 25 76" stroke="${SKIN}" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M73 58 Q75 68 74 74" stroke="${SKIN}" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M36 46 Q50 42 64 46 L75 54 L71 64 L65 60 L65 75 L35 75 L35 60 L29 64 L25 54 Z" fill="#E53935"/>
+    <path d="M36 50 L44 50 L46 75 L35 75 Z M64 50 L56 50 L54 75 L65 75 Z" fill="#8D6E63"/>
+    <path d="M44 46 L50 54 L56 46" fill="#FFF3E0"/>
+    <g fill="none" stroke="#B5835A" stroke-width="2.6"><ellipse cx="81" cy="82" rx="9" ry="12"/><ellipse cx="79" cy="82" rx="7" ry="10.5"/><path d="M85 93 Q90 97 88 100"/></g>
+    <image href="emoji/1f466.svg" x="29" y="6" width="42" height="42"/>
+    <path d="M18 18 Q50 26 82 18 Q84 24 72 26 Q50 30 28 26 Q16 24 18 18 Z" fill="#795548"/>
+    <path d="M32 21 Q31 4 42 6 Q50 10 58 6 Q69 4 68 21 Q50 25 32 21 Z" fill="#8D6E63"/>
+    <path d="M32 17 Q50 21 68 17 L68 21 Q50 25 32 21 Z" fill="#4E342E"/>`),
+  nudeln: svgV("0 0 100 100", `
+    <ellipse cx="50" cy="56" rx="44" ry="12" fill="#B3E5FC"/>
+    ${[[30,50,-20],[52,46,15],[70,52,-10],[40,40,30],[62,38,-25],[50,30,5],[24,58,10],[76,60,20],[50,56,-5]].map(([x,y,r]) =>
+      `<g transform="translate(${x} ${y}) rotate(${r})"><path d="M-12 -8 Q-6 -6 -2 -2 Q0 -3 2 -2 Q6 -6 12 -8 Q14 0 12 8 Q6 6 2 2 Q0 3 -2 2 Q-6 6 -12 8 Q-14 0 -12 -8 Z" fill="#FFCA28" stroke="#F9A825" stroke-width="1.4" stroke-linejoin="round"/><path d="M-9 -4 Q-6 0 -9 4 M9 -4 Q6 0 9 4" stroke="#F9A825" stroke-width="1.2" fill="none"/><rect x="-2" y="-3" width="4" height="6" rx="1.5" fill="#F9A825"/></g>`).join("")}
+    <path d="M6 56 Q8 92 50 94 Q92 92 94 56 Q90 66 50 68 Q10 66 6 56 Z" fill="#29B6F6"/>
+    <path d="M10 64 Q20 86 50 88" stroke="#81D4FA" stroke-width="3" fill="none" stroke-linecap="round"/>`),
+  comic: svgV("0 0 100 100", `
+    <rect x="20" y="8" width="66" height="88" rx="4" fill="#E0E0E0"/>
+    <rect x="15" y="5" width="66" height="88" rx="4" fill="#42A5F5"/>
+    <rect x="15" y="5" width="66" height="16" rx="4" fill="#E53935"/><rect x="15" y="15" width="66" height="6" fill="#E53935"/>
+    <path d="M22 13 H52 M58 13 H74" stroke="#FFCDD2" stroke-width="4" stroke-linecap="round"/>
+    <path d="M48 30 L53 40 L64 36 L59 46 L70 51 L59 55 L63 66 L52 61 L47 72 L43 61 L32 64 L37 54 L26 49 L37 45 L33 35 L43 39 Z" fill="#FFEB3B"/>
+    <path d="M48 40 L51 46 L57 44 L54 50 L60 52 L54 55 L56 60 L50 58 L47 64 L45 58 L39 60 L41 54 L35 52 L41 49 L39 43 L45 46 Z" fill="#FF9800"/>
+    <ellipse cx="38" cy="78" rx="16" ry="9" fill="#FFFFFF"/><path d="M30 84 L26 92 L37 86 Z" fill="#FFFFFF"/>
+    <circle cx="31" cy="78" r="2.2" fill="#455A64"/><circle cx="38" cy="78" r="2.2" fill="#455A64"/><circle cx="45" cy="78" r="2.2" fill="#455A64"/>`),
+});
 function korsett() {
   return `<path d="M24 12 Q50 22 76 12 Q64 50 76 88 Q50 97 24 88 Q36 50 24 12 Z" fill="#cfe3f7" stroke="#3a6ea5" stroke-width="3.5" stroke-linejoin="round"/>
     <path d="M36 18 Q42 50 35 90 M64 18 Q58 50 65 90" fill="none" stroke="#7aa6d6" stroke-width="2.5"/>
@@ -274,7 +317,7 @@ const WORDS = [
   { w: "Brief",     g: "der", e: "✉️", s: "Brief" },
   // C
   { w: "Computer",  g: "der", e: "🖥️", s: "Com-pu-ter", sp: "Kom-pju-ter" },
-  { w: "Cowboy",    g: "der", e: "🤠", s: "Cow-boy", sp: "Kau-beu" },
+  { w: "Cowboy",    g: "der", e: PICS.cowboy, s: "Cow-boy", sp: "Kau-beu" },
   { w: "Chor",      g: "der", e: PICS.chor, s: "Chor", sp: "Kor" },
   { w: "Comic",     g: "der", e: PICS.comic, s: "Co-mic", sp: "Ko-mik" },
   { w: "Creme",     g: "die", e: PICS.creme, s: "Creme" },
@@ -289,7 +332,7 @@ const WORDS = [
   { w: "Ente",      g: "die", e: "🦆", s: "En-te", lg: true },
   { w: "Elefant",   g: "der", e: "🐘", s: "E-le-fant" },
   { w: "Erdbeere",  g: "die", e: "🍓", s: "Erd-bee-re" },
-  { w: "Engel",     g: "der", e: "👼", s: "En-gel" },
+  { w: "Engel",     g: "der", e: PICS.engel, s: "En-gel" },
   { w: "Esel",      g: "der", e: "🫏", s: "E-sel", lg: true },
   { w: "Eis",       g: "das", e: "🍦", s: "Eis", a: false, lg: true },
   { w: "Ei",        g: "das", e: "🥚", s: "Ei", a: false, lg: true },
@@ -328,7 +371,7 @@ const WORDS = [
   { w: "Irrgarten", g: "der", e: PICS.irrgarten, s: "Irr-gar-ten" },
   // J
   { w: "Jacke",     g: "die", e: PICS.jacke, s: "Ja-cke", sp: "Ja-ke" },
-  { w: "Junge",     g: "der", e: "👦", s: "Jun-ge" },
+  { w: "Junge",     g: "der", e: PICS.junge, s: "Jun-ge" },
   { w: "Joghurt",   g: "der", e: PICS.joghurt, s: "Jo-ghurt", sp: "Jo-gurt" },
   { w: "Jaguar",    g: "der", e: "🐆", s: "Ja-gu-ar", lg: true },
   { w: "Jause",     g: "die", e: "🥪", s: "Jau-se", lg: true },
@@ -400,7 +443,7 @@ const WORDS = [
   { w: "Sonne",     g: "die", e: "☀️", s: "Son-ne" },
   { w: "Sofa",      g: "das", e: "🛋️", s: "So-fa", lg: true },
   { w: "Salat",     g: "der", e: "🥗", s: "Sa-lat", lg: true },
-  { w: "Socke",     g: "die", e: "🧦", s: "So-cke", sp: "So-ke" },
+  { w: "Socke",     g: "die", e: PICS.socke, s: "So-cke", sp: "So-ke" },
   { w: "Seife",     g: "die", e: "🧼", s: "Sei-fe", lg: true },
   { w: "Spaghetti", g: "die", pl: true, e: "🍝", s: "Spa-ghet-ti", sp: "Schpa-get-ti", a: false },
   // T
@@ -440,7 +483,7 @@ const WORDS = [
   { w: "Zug",       g: "der", e: "🚂", s: "Zug", lg: true },
   { w: "Zitrone",   g: "die", e: "🍋", s: "Zi-tro-ne", lg: true },
   { w: "Zelt",      g: "das", e: "⛺", s: "Zelt", lg: true },
-  { w: "Zahn",      g: "der", e: "🦷", s: "Zahn" },
+  { w: "Zahn",      g: "der", e: PICS.zahn, s: "Zahn" },
   { w: "Ziege",     g: "die", e: "🐐", s: "Zie-ge" },
   { w: "Zirkus",    g: "der", e: "🎪", s: "Zir-kus", lg: true },
   { w: "Zauberer",  g: "der", e: "🧙", s: "Zau-be-rer", lg: true },

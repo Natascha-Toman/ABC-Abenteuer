@@ -2039,76 +2039,6 @@
 "text_orig": "Noch einmal.",
 "modell": "eleven_v4"
 },
-"satz/5c37953a27": {
-"text": "Nochmal, bitte!",
-"text_orig": "Nochmal, bitte!",
-"modell": "eleven_v4"
-},
-"satz/b141042c60": {
-"text": "Nochmal",
-"text_orig": "Nochmal",
-"modell": "eleven_v4"
-},
-"satz/9bf3ab9ed7": {
-"text": "Ich bin fertig.",
-"text_orig": "Ich bin fertig.",
-"modell": "eleven_v4"
-},
-"satz/54e0d1a711": {
-"text": "Fertig",
-"text_orig": "Fertig",
-"modell": "eleven_v4"
-},
-"satz/84572ef225": {
-"text": "Ja.",
-"text_orig": "Ja.",
-"modell": "eleven_v4"
-},
-"satz/3e3a2bd4c1": {
-"text": "Nein.",
-"text_orig": "Nein.",
-"modell": "eleven_v4"
-},
-"satz/a9016fcced": {
-"text": "Ich habe Durst.",
-"text_orig": "Ich habe Durst.",
-"modell": "eleven_v4"
-},
-"satz/e21ffeca7f": {
-"text": "Durst",
-"text_orig": "Durst",
-"modell": "eleven_v4"
-},
-"satz/f00bfd3e84": {
-"text": "Ich habe Hunger.",
-"text_orig": "Ich habe Hunger.",
-"modell": "eleven_v4"
-},
-"satz/e2e63b387c": {
-"text": "Hunger",
-"text_orig": "Hunger",
-"modell": "eleven_v4"
-},
-"satz/1c61d61a1b": {
-"text": "Ich muss aufs Klo.",
-"text_orig": "Ich muss aufs Klo.",
-"modell": "eleven_v4"
-},
-"satz/6ccaa99e33": {
-"text": "Klo",
-"text_orig": "Klo",
-"modell": "eleven_v4"
-},
-"satz/60d56a0484": {
-"text": "Ich möchte etwas anderes machen.",
-"text_orig": "Ich möchte etwas anderes machen.",
-"modell": "eleven_v4"
-},
-"satz/b4dde02607": {
-"text": "Etwas anderes",
-"text_orig": "Etwas anderes",
-"modell": "eleven_v4"
-},
 "satz/5423bb0917": {
 "text": "Schau noch einmal.",
 "text_orig": "Schau noch einmal.",
@@ -23487,6 +23417,21 @@
 "satz/e0fa633116": {
 "text": "Burg hat eine Silbe.",
 "text_orig": "Burg hat eine Silbe.",
+"modell": "eleven_v4"
+},
+"satz/4e83f6dc6a": {
+"text": "Hör genau hin:",
+"text_orig": "Hör genau hin:",
+"modell": "eleven_v4"
+},
+"satz/1f11a5ae34": {
+"text": "So klingt der Buchstabe.",
+"text_orig": "So klingt der Buchstabe.",
+"modell": "eleven_v4"
+},
+"satz/f116f7b1d8": {
+"text": "Und so heißt der Buchstabe.",
+"text_orig": "Und so heißt der Buchstabe.",
 "modell": "eleven_v4"
 }
 }

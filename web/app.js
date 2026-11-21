@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.3", APP_DATE = "21.11.2026";
+const APP_VERSION = "4.4", APP_DATE = "21.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -498,7 +498,8 @@ function speechParts(text) {
   }
   return out;
 }
-// opts.force: auch bei "Ton aus" sprechen (Mitteil-Tafel). opts.onWord(charIndex): Wortgrenzen (nur Windows-Stimme)
+// opts.force: auch bei "Ton aus" sprechen (Mitteil-Tafel). opts.tts: nur Windows-Stimme, keine Tondateien
+// (Mitteil-Tafel – das Kind spricht mit seiner eigenen Stimme). opts.onWord(charIndex): Wortgrenzen (nur Windows-Stimme)
 function say(text, kind = "talk", rateF = 1, opts = {}) {
   return new Promise(resolve => {
     if (!text) { resolve(); return; }
@@ -512,11 +513,12 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
     if (window.speechSynthesis) speechSynthesis.cancel();
     stopClip();
     if (NativeTTS.cur) { const c = NativeTTS.cur; NativeTTS.cur = null; Native.post({ t: "stop" }); c.fin(); }
-    const parts = speechParts(text);
+    const parts = opts.parts || (opts.tts ? [{ tts: String(text) }] : speechParts(text));
     Speech.kind = kind; talking(true);
     (async () => {
       for (const p of parts) {
         if (Speech.seq !== my) break;
+        if (p.pause) { await sleep(p.pause); continue; }
         if (p.clip) {
           const ok = await playClip(p.clip);
           if (!ok && Speech.seq === my) await sayTTS(p.text, rateF, {}, my);   // Datei fehlt -> Windows-Stimme
@@ -526,6 +528,15 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
       resolve();
     })();
   });
+}
+// Buchstabe deutlich: erst der Laut, kurze Pause, dann der Name ("Hör genau hin: So klingt der Buchstabe … und so heißt er …")
+function sayLautName(L, vorher = "") {
+  const k = slugW(L);
+  const laut = AU_SET.laut.has(k) ? { clip: `audio/laut/${k}.mp3`, text: L } : { tts: L };
+  const name = AU_SET.name.has(k) ? { clip: `audio/name/${k}.mp3`, text: L } : { tts: LETTER_NAMES[L] || L };
+  const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör genau hin: So klingt der Buchstabe."), { pause: 250 }, laut, { pause: 900 },
+                 ...speechParts("Und so heißt der Buchstabe."), { pause: 250 }, name];
+  return say(`So klingt der Buchstabe ${L}`, "talk", 1, { parts });
 }
 // Windows-Sprachausgabe (programmeigene SAPI-Stimme oder Stimme des Browsers)
 function sayTTS(text, rateF, opts, my) {
@@ -1359,7 +1370,9 @@ function taskHear(t, used) {
     content: c.pic ? `<div class="bigpic">${w.e}</div>` : "",
     bubble: "Wo ist der Buchstabe? Hör genau!", letter: L, nosay: true,
     options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L, L: x })),
-    speak: () => say(c.pic ? `Wo ist der Buchstabe ${LN(L)}? ${LN(L)} wie ${w.w}.` : `Wo ist der Buchstabe ${LN(L)}?`),
+    // Stufe 3 (ohne Bild): Laut und Name nacheinander, damit klar ist, welcher Buchstabe gemeint ist
+    speak: () => c.pic ? say(`Wo ist der Buchstabe ${LN(L)}? ${LN(L)} wie ${w.w}.`)
+                       : sayLautName(L, "Wo ist der Buchstabe?"),
     onWrong: (o, n) => `Das ist der Buchstabe ${LN(o.L)}. Wir suchen den Buchstaben ${LN(L)}${n >= 2 ? `, wie ${w.w}` : ""}.`,
     onRight: () => say(`${pick(PRAISE)} Das ist der Buchstabe ${LN(L)}.`),
   });
@@ -2102,7 +2115,7 @@ function buildTalk() {
       const title = $("#talkSaid");
       title.innerHTML = `${talkIcon(it.ico)} ${esc(it.text)}`;
       title.classList.remove("said"); void title.offsetWidth; title.classList.add("said");
-      say(it.text, "talk", 1, { force: true });
+      say(it.text, "talk", 1, { force: true, tts: true });
     });
     grid.appendChild(d);
   });
@@ -2255,7 +2268,7 @@ function kbSpeak(onWord) {
   title.textContent = t.length > 36 ? kbShown(t.slice(0, 35)) + "…" : kbShown(t);
   title.classList.remove("said"); void title.offsetWidth; title.classList.add("said");
   kbLearn(t);
-  return say(text, "talk", 1, { force: true, onWord });
+  return say(text, "talk", 1, { force: true, tts: true, onWord });
 }
 function buildKeyboard() {
   const keys = $("#kbKeys");
@@ -2963,7 +2976,7 @@ function init() {
   document.querySelectorAll(".talkbtn").forEach(b => onSelect(b, openTalk));
   onSelect($("#talkBack"), closeTalk);
   onSelect($("#talkRepeat"), () => Talk.last
-    ? say(Talk.last.text, "talk", 1, { force: true })
+    ? say(Talk.last.text, "talk", 1, { force: true, tts: true })
     : say("Was möchtest du sagen?", "talk", 1, { force: true }));
   onSelect($("#btnHome"), () => goMenu());
   onSelect($("#btnAlbumHome"), () => { if (svOpen()) closeSticker(); else goMenu(); });
