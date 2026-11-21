@@ -10,7 +10,7 @@
 #             3     "Affe. Af – fe."          (wie bisher, neue Aufnahme)
 #             4     wie 1, mit Lautschrift für schwierige Silben (HILFE unten), sonst neue Aufnahme
 # Braucht elevenlabs-key.txt. Über das PowerShell-Fenster starten (Edge sammelt die Texte).
-import argparse, array, importlib, json, os, shutil, sys
+import argparse, array, html, importlib, json, os, re, shutil, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 se = importlib.import_module("stimmen-erzeugen")
@@ -23,6 +23,10 @@ HILFE = {
     "zylinder": {1: "ˈtsi", 2: "ˈlɪn"}, "teddy": {2: "ˈdi"}, "taxi": {2: "ˈksi"}, "zebra": {1: "ˈtseː"},
     "rakete": {2: "ˈkeː"}, "junge": {1: "ˈjʊŋ"}, "hase": {1: "ˈhaː"}, "erdbeere": {2: "ˈbeː"},
     "delfin": {2: "ˈfiːn"},
+    # Vorschläge des Aussprache-Prüfers (21.11.2026)
+    "baum": {1: "ˈbaʊm"}, "comic": {1: "ˈkɔ"}, "drache": {2: "ˈxə"}, "glocke": {2: "ˈkə"},
+    "kirsche": {1: "ˈkɪʁ", 2: "ˈʃə"}, "loewe": {2: "ˈvə"}, "orange": {1: "ˈo", 3: "ˈʒə"},
+    "unterhose": {3: "ˈhoː", 4: "ˈzə"}, "video": {2: "ˈde", 3: "ˈo"},
 }
 
 
@@ -110,8 +114,31 @@ def schneiden(a, n, hinten):
     return r[:-1] if r else None
 
 
-def seite(woerter):
+DATEIEN = os.path.join(AUSWAHL, "_dateien")     # Fassungen für Laute, Namen, Wörter (mp3)
+LETZTE_DATEIEN = []
+
+
+def datei_ordner(i):
+    return os.path.join(DATEIEN, i.replace("/", "_"))
+
+
+def datei_zeilen(ids):
     rows = []
+    for i in ids:
+        d = datei_ordner(i)
+        texte = json.load(open(os.path.join(d, "texte.json"), encoding="utf-8"))
+        cells = [f"<td><label><input type='radio' name='{i}' value='0' checked> bisher</label><br>"
+                 f"<button class='all' data-f='../web/audio/{i}.mp3'>▶</button></td>"]
+        for v, t in sorted(texte.items(), key=lambda x: int(x[0])):
+            shown = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 [\1]", t)
+            cells.append(f"<td><label><input type='radio' name='{i}' value='{v}'> {v}</label> <small>{html.escape(shown)}</small><br>"
+                         f"<button class='all' data-f='auswahl/_dateien/{i.replace('/', '_')}/{v}.mp3'>▶</button></td>")
+        rows.append(f"<tr><th>{i}</th>{''.join(cells)}</tr>")
+    return rows
+
+
+def seite(woerter, dateien=()):
+    rows = datei_zeilen(dateien)
     for slug, t in woerter:
         wort, syl = teile_text(t)
         n = len(syl)
@@ -156,6 +183,8 @@ def main():
     ap.add_argument("--runde", type=int, default=1)
     ap.add_argument("--leihen", nargs="*", default=None)
     ap.add_argument("--sprich", nargs="*", default=[])
+    ap.add_argument("--vorschlaege", default="", help="ElevenLabs-Vorschlaege.txt des Aussprache-Prüfers")
+    ap.add_argument("--ids", nargs="*", default=[], help="nur diese ids (z. B. wort/apfel) aus --vorschlaege")
     a = ap.parse_args()
     for x in a.sprich:
         w, s_ = x.split("=", 1)
@@ -168,6 +197,15 @@ def main():
         for x in a.uebernehmen:
             slug, v = x.split("="); v = int(v)
             if v == 0: continue
+            if "/" in slug:                              # Laut/Name/Wort: mp3 + Zeile in texte-anpassen.txt
+                t = json.load(open(os.path.join(datei_ordner(slug), "texte.json"), encoding="utf-8"))[str(v)]
+                shutil.copy(os.path.join(datei_ordner(slug), f"{v}.mp3"), os.path.join(se.AUDIO, slug + ".mp3"))
+                ta = os.path.join(se.ST, "texte-anpassen.txt")
+                zeilen = open(ta, encoding="utf-8").read().splitlines() if os.path.exists(ta) else []
+                zeilen = [z for z in zeilen if z.split("=", 1)[0].strip() != slug] + [f"{slug} = {t}"]
+                open(ta, "w", encoding="utf-8", newline="\n").write("\n".join(zeilen) + "\n")
+                done[slug] = {"text": t, "text_orig": t, "modell": f"eleven_v4 (Auswahl {v})"}
+                print("übernommen:", slug, v); continue
             t = texte[slug]; n = len(teile_text(t)[1])
             src = [os.path.join(AUSWAHL, slug, f"{v}-{k}.wav") for k in range(1, n + 1)]
             if not all(os.path.exists(f) for f in src): print("fehlt:", slug, v); continue
@@ -200,6 +238,27 @@ def main():
             neu.append(slug)
         seite([(k, texte[k]) for k in sorted(set(neu))])
         print("Anhören: stimmen\\silben-auswahl.html"); return
+
+    if a.vorschlaege:                  # Fassungen für laut/…, name/…, wort/… aus einer Vorschlags-Datei
+        key = open(se.KEYFILE, encoding="utf-8-sig").read().strip()
+        vor = {}
+        for z in open(a.vorschlaege, encoding="utf-8"):
+            m = re.match(r"((?:laut|name|wort)/\w+) = (.+)$", z.strip())
+            if m and (not a.ids or m.group(1) in a.ids): vor.setdefault(m.group(1), []).append(m.group(2))
+        used = 0
+        for i, kand in vor.items():
+            d = datei_ordner(i); os.makedirs(d, exist_ok=True)
+            tj = {}
+            for v, t in enumerate(kand, 1):
+                mp3 = se.api(f"/v1/text-to-speech/{se.VOICE}?output_format={se.FORMAT}", key,
+                             {"text": t, "model_id": "eleven_v4", "language_code": "de"}, raw=True)
+                open(os.path.join(d, f"{v}.mp3"), "wb").write(mp3); tj[str(v)] = t; used += len(t)
+            json.dump(tj, open(os.path.join(d, "texte.json"), "w", encoding="utf-8"), ensure_ascii=False)
+        print(f"{used} Zeichen verbraucht.")
+        global LETZTE_DATEIEN
+        LETZTE_DATEIEN = list(vor)
+        if not a.woerter:
+            seite([], LETZTE_DATEIEN); print("Anhören: stimmen\\silben-auswahl.html"); return
 
     slugs = []
     for w in a.woerter:
@@ -236,7 +295,7 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(4) as ex: list(ex.map(eine, slugs))
     print(f"{used} Zeichen verbraucht.")
     if fehl: print("nicht sauber getrennt:", ", ".join(fehl))
-    seite([(k, texte[k]) for k in sorted(slugs)])          # nur die Wörter dieses Durchgangs
+    seite([(k, texte[k]) for k in sorted(slugs)], LETZTE_DATEIEN)   # nur die Wörter dieses Durchgangs
     print("Anhören: stimmen\\silben-auswahl.html")
 
 
