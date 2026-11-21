@@ -2,6 +2,14 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.7 – 21.11.2026
+
+**Verbessert**
+- Symbol „Anfang und Ende“ mittig und größer.
+- Anfang und Ende: die Frage nach dem Endbuchstaben gibt es jetzt in allen drei Stufen.
+- Bei der Lösung wird der Buchstabenname nie extra genannt (nur der Laut).
+- Einstellung „Erst zuhören, dann antworten“ mit verständlicher Erklärung.
+
 ## 4.6 – 21.11.2026
 
 **Verbessert**

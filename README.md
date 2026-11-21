@@ -39,7 +39,7 @@ Buchstaben auswählen, kennenlernen und anhören.
 ![Buchstabenübersicht mit großen auswählbaren Buchstaben](bilder/buchstaben.jpg)
 
 ### 🍎 Anfang und Ende
-Den Anfangsbuchstaben eines Wortes erkennen und auswählen – in Stufe 3 auch den Endbuchstaben.
+Den Anfangsbuchstaben eines Wortes erkennen und auswählen – und den Endbuchstaben.
 
 ![Anfangsbuchstaben-Aufgabe mit einem Nashorn und drei Antwortmöglichkeiten](bilder/anfangsbuchstaben.jpg)
 

@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.6", APP_DATE = "21.11.2026";
+const APP_VERSION = "4.7", APP_DATE = "21.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -378,8 +378,8 @@ function nextMode(modes) {
 //  Stufen
 // ---------------------------------------------------------------------
 const LV = {
-  anlaut:  [null, { n: 2, modes: ["pic2letter", "letter2pic"] },
-                  { n: 3, modes: ["pic2letter", "letter2pic"] },
+  anlaut:  [null, { n: 2, modes: ["pic2letter", "letter2pic", "endlaut"] },
+                  { n: 3, modes: ["pic2letter", "letter2pic", "endlaut"] },
                   { n: 4, similar: true, modes: ["pic2letter", "letter2pic", "endlaut"] }],
   hear:    [null, { n: 2, pic: true }, { n: 3, pic: true }, { n: 4, similar: true, pic: false }],
   read:    [null, { n: 2, maxLen: 4, modes: ["word2pic"] },
@@ -411,7 +411,7 @@ const stars = n => "⭐".repeat(n);
 // ---------------------------------------------------------------------
 //  Sprachausgabe
 // ---------------------------------------------------------------------
-const Speech = { voices: [], kind: null, seq: 0 };
+const Speech = { voices: [], kind: null, seq: 0, solution: false };
 const SylAudio = { cur: null };   // gerade laufende Silben-Tondatei
 // Stimmen der Windows-Sprachausgabe (SAPI), z. B. die Acapela-Stimmen auf Tobii-Geräten – spricht das Programm selbst
 const NativeTTS = { voices: [], cur: null };
@@ -530,7 +530,7 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
     if (window.speechSynthesis) speechSynthesis.cancel();
     stopClip();
     if (NativeTTS.cur) { const c = NativeTTS.cur; NativeTTS.cur = null; Native.post({ t: "stop" }); c.fin(); }
-    const parts = opts.parts || (opts.tts ? [{ tts: String(text) }] : speechParts(text, opts.noName));
+    const parts = opts.parts || (opts.tts ? [{ tts: String(text) }] : speechParts(text, opts.noName || Speech.solution));
     Speech.kind = kind; talking(true);
     (async () => {
       for (const p of parts) {
@@ -1140,7 +1140,7 @@ function goMenu(speak = true) {
 const ICON_ABC = svg(`<text x="50" y="68" font-size="44" font-weight="700" text-anchor="middle" font-family="Andika, sans-serif"><tspan fill="#ef6f6c">A</tspan><tspan fill="#4d96ff">B</tspan><tspan fill="#3cb371">C</tspan></text>`);
 const ICON_MEMORY = `<svg viewBox="6 12 88 76" width="1.15em" height="1em" style="vertical-align:-0.12em">` + (`<g transform="rotate(-12 34 52)"><rect x="12" y="22" width="42" height="58" rx="8" fill="#9b72cf" stroke="#6b4aa0" stroke-width="3"/><text x="33" y="64" font-size="34" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">?</text></g><g transform="rotate(10 66 50)"><rect x="44" y="20" width="42" height="58" rx="8" fill="#fff" stroke="#4d96ff" stroke-width="3"/><text x="65" y="62" font-size="32" font-weight="700" text-anchor="middle" fill="#4d96ff" font-family="Andika, sans-serif">A</text></g>`) + "</svg>";
 // Anfang und Ende: Wort aus Kästchen – erster Buchstabe grün, letzter orange, Pfeil von vorne nach hinten
-const ICON_ANLAUT = svg(`<rect x="3" y="22" width="24" height="32" rx="6" fill="#3cb371"/><text x="15" y="47" font-size="24" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">A</text>
+const ICON_ANLAUT = ((b) => `<svg viewBox="0 17 100 63" width="1.2em" height="0.756em" style="display:block;margin:auto">${b}</svg>`)(`<rect x="3" y="22" width="24" height="32" rx="6" fill="#3cb371"/><text x="15" y="47" font-size="24" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">A</text>
   <rect x="31" y="22" width="17" height="32" rx="5" fill="#e3e8f0"/><rect x="52" y="22" width="17" height="32" rx="5" fill="#e3e8f0"/>
   <circle cx="39.5" cy="38" r="3" fill="#9aa5b8"/><circle cx="60.5" cy="38" r="3" fill="#9aa5b8"/>
   <rect x="73" y="22" width="24" height="32" rx="6" fill="#ff8c42"/><text x="85" y="47" font-size="24" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">E</text>
@@ -1297,7 +1297,8 @@ function choiceTask(t, cfg) {
         els.forEach(e => { if (e !== d) e.classList.add("done"); });
         if (cfg.letter) stat(cfg.letter, errors === 0);
         G.repeat = null;
-        await (cfg.onRight ? cfg.onRight(d) : say(pick(PRAISE)));
+        Speech.solution = true;                         // Lösung: Buchstaben nur als Laut, ohne Namen
+        try { await (cfg.onRight ? cfg.onRight(d) : say(pick(PRAISE))); } finally { Speech.solution = false; }
         if (t !== G.token) return;
         resolve(true);
       } else {
@@ -1367,7 +1368,7 @@ function anlautLetter2Pic(t, used, c) {
     onRight: () => say(`${pick(PRAISE)} ${cap(art(w))} ${verb(w, "fängt", "fangen")} mit dem Buchstaben ${LN(L)} an.`),
   });
 }
-// Bild -> Endbuchstabe (nur Stufe 3)
+// Bild -> Endbuchstabe (alle Stufen)
 function anlautEnd(t, used, c) {
   const set = new Set(letters());
   const okEnd = w => w.lg && !"DGBH".includes(last(w)) && w.w.length >= 3;
@@ -1943,7 +1944,7 @@ function runMemory(t) {
         if (cd.L) stat(cd.L, true);
         matched++;
         setProgress(matched, pairs);
-        await say(cd.L ? `${pick(PRAISE)} ${LN(cd.L)} wie ${cd.w.w}.` : `${pick(PRAISE)} Da steht ${cd.w.w}.`);
+        await say(cd.L ? `${pick(PRAISE)} ${LN(cd.L)} wie ${cd.w.w}.` : `${pick(PRAISE)} Da steht ${cd.w.w}.`, "talk", 1, { noName: true });
         if (t !== G.token) return;
         if (matched === pairs) { await sleep(400); finishRound(t); return; }
       } else {
