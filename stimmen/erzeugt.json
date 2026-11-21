@@ -4859,21 +4859,6 @@
 "text_orig": "Da steht Junge.",
 "modell": "eleven_v4"
 },
-"satz/cd5aaebaaa": {
-"text": "der Joghurt",
-"text_orig": "der Joghurt",
-"modell": "eleven_v4"
-},
-"satz/b51b2feb01": {
-"text": "Womit fängt der Joghurt an?",
-"text_orig": "Womit fängt der Joghurt an?",
-"modell": "eleven_v4"
-},
-"satz/00b8880e57": {
-"text": "Der Joghurt fängt mit dem Buchstaben",
-"text_orig": "Der Joghurt fängt mit dem Buchstaben",
-"modell": "eleven_v4"
-},
 "satz/4b95992a9a": {
 "text": "wie Joghurt.",
 "text_orig": "wie Joghurt.",
@@ -5860,22 +5845,22 @@
 "modell": "eleven_v4"
 },
 "satz/e497c12387": {
-"text": "die Orange",
+"text": "die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>",
 "text_orig": "die Orange",
 "modell": "eleven_v4"
 },
 "satz/8ba45123fb": {
-"text": "Womit fängt die Orange an?",
+"text": "Womit fängt die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> an?",
 "text_orig": "Womit fängt die Orange an?",
 "modell": "eleven_v4"
 },
 "satz/47b6c86253": {
-"text": "Die Orange fängt mit dem Buchstaben",
+"text": "Die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> fängt mit dem Buchstaben",
 "text_orig": "Die Orange fängt mit dem Buchstaben",
 "modell": "eleven_v4"
 },
 "satz/121fad52ed": {
-"text": "wie Orange.",
+"text": "wie <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>.",
 "text_orig": "wie Orange.",
 "modell": "eleven_v4"
 },
@@ -11734,21 +11719,6 @@
 "text_orig": "Wo steht Joghurt?",
 "modell": "eleven_v4"
 },
-"satz/9f0d3a0470": {
-"text": "Wie viele Silben hat der Joghurt?",
-"text_orig": "Wie viele Silben hat der Joghurt?",
-"modell": "eleven_v4"
-},
-"satz/5275cf25fb": {
-"text": "Der Joghurt hat zwei Silben.",
-"text_orig": "Der Joghurt hat zwei Silben.",
-"modell": "eleven_v4"
-},
-"satz/2023d6a30b": {
-"text": "Das ist der Joghurt!",
-"text_orig": "Das ist der Joghurt!",
-"modell": "eleven_v4"
-},
 "satz/462def3324": {
 "text": "Lege das Wort Joghurt.",
 "text_orig": "Lege das Wort Joghurt.",
@@ -12730,27 +12700,27 @@
 "modell": "eleven_v4"
 },
 "satz/7b5cc3b4c7": {
-"text": "Wo steht Orange?",
+"text": "Wo steht <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>?",
 "text_orig": "Wo steht Orange?",
 "modell": "eleven_v4"
 },
 "satz/6eb9fb5ba6": {
-"text": "Wie viele Silben hat die Orange?",
+"text": "Wie viele Silben hat die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>?",
 "text_orig": "Wie viele Silben hat die Orange?",
 "modell": "eleven_v4"
 },
 "satz/6156cca8f3": {
-"text": "Die Orange hat drei Silben.",
+"text": "Die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> hat drei Silben.",
 "text_orig": "Die Orange hat drei Silben.",
 "modell": "eleven_v4"
 },
 "satz/0c12c0f297": {
-"text": "Das ist die Orange!",
+"text": "Das ist die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>!",
 "text_orig": "Das ist die Orange!",
 "modell": "eleven_v4"
 },
 "satz/e33b61fdd9": {
-"text": "Lege das Wort Orange.",
+"text": "Lege das Wort <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>.",
 "text_orig": "Lege das Wort Orange.",
 "modell": "eleven_v4"
 },
@@ -20019,16 +19989,6 @@
 "text_orig": "Du hast Joghurt geschrieben!",
 "modell": "eleven_v4"
 },
-"satz/606fe38205": {
-"text": "Womit hört der Joghurt auf?",
-"text_orig": "Womit hört der Joghurt auf?",
-"modell": "eleven_v4"
-},
-"satz/33c6cddb62": {
-"text": "Der Joghurt hört mit dem Buchstaben",
-"text_orig": "Der Joghurt hört mit dem Buchstaben",
-"modell": "eleven_v4"
-},
 "satz/a9f037d5a3": {
 "text": "Joghurt fängt mit",
 "text_orig": "Joghurt fängt mit",
@@ -21210,32 +21170,32 @@
 "modell": "eleven_v4"
 },
 "satz/6fecfa0a12": {
-"text": "Schreib das Wort Orange.",
+"text": "Schreib das Wort <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>.",
 "text_orig": "Schreib das Wort Orange.",
 "modell": "eleven_v4"
 },
 "satz/f83c84f8ec": {
-"text": "Du hast Orange geschrieben!",
+"text": "Du hast <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> geschrieben!",
 "text_orig": "Du hast Orange geschrieben!",
 "modell": "eleven_v4"
 },
 "satz/e472b3376f": {
-"text": "Womit hört die Orange auf?",
+"text": "Womit hört die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> auf?",
 "text_orig": "Womit hört die Orange auf?",
 "modell": "eleven_v4"
 },
 "satz/1c92f76656": {
-"text": "Die Orange hört mit dem Buchstaben",
+"text": "Die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> hört mit dem Buchstaben",
 "text_orig": "Die Orange hört mit dem Buchstaben",
 "modell": "eleven_v4"
 },
 "satz/69acf2a1c3": {
-"text": "Orange fängt mit",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> fängt mit",
 "text_orig": "Orange fängt mit",
 "modell": "eleven_v4"
 },
 "satz/502157c91f": {
-"text": "Orange hat 3 Silben.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme> hat 3 Silben.",
 "text_orig": "Orange hat 3 Silben.",
 "modell": "eleven_v4"
 },
@@ -23827,6 +23787,936 @@
 "satz/2b477afe40": {
 "text": "Ich sage die Silben nicht mehr vor.",
 "text_orig": "Ich sage die Silben nicht mehr vor.",
+"modell": "eleven_v4"
+},
+"wort/weiss": {
+"text": "Weiß.",
+"text_orig": "Weiß.",
+"modell": "eleven_v4"
+},
+"satz/6e1dc98cfc": {
+"text": "Lies noch einmal.",
+"text_orig": "Lies noch einmal.",
+"modell": "eleven_v4"
+},
+"satz/c408bdae25": {
+"text": "eine Silbe",
+"text_orig": "eine Silbe",
+"modell": "eleven_v4"
+},
+"satz/239740b445": {
+"text": "zwei Silben",
+"text_orig": "zwei Silben",
+"modell": "eleven_v4"
+},
+"satz/dd03061673": {
+"text": "drei Silben",
+"text_orig": "drei Silben",
+"modell": "eleven_v4"
+},
+"satz/e4de94d2b6": {
+"text": "vier Silben",
+"text_orig": "vier Silben",
+"modell": "eleven_v4"
+},
+"satz/5fb1afef31": {
+"text": "das Joghurt",
+"text_orig": "das Joghurt",
+"modell": "eleven_v4"
+},
+"satz/e99af9d023": {
+"text": "Womit fängt das Joghurt an?",
+"text_orig": "Womit fängt das Joghurt an?",
+"modell": "eleven_v4"
+},
+"satz/da82e8a796": {
+"text": "Das Joghurt fängt mit dem Buchstaben",
+"text_orig": "Das Joghurt fängt mit dem Buchstaben",
+"modell": "eleven_v4"
+},
+"satz/16d9db519f": {
+"text": "Das Bild ist der Affe.",
+"text_orig": "Das Bild ist der Affe.",
+"modell": "eleven_v4"
+},
+"satz/3323b09931": {
+"text": "Das Bild ist der Apfel.",
+"text_orig": "Das Bild ist der Apfel.",
+"modell": "eleven_v4"
+},
+"satz/67bb11fbde": {
+"text": "Das Bild ist die Ameise.",
+"text_orig": "Das Bild ist die Ameise.",
+"modell": "eleven_v4"
+},
+"satz/3e731e7797": {
+"text": "Das Bild ist die Ananas.",
+"text_orig": "Das Bild ist die Ananas.",
+"modell": "eleven_v4"
+},
+"satz/78fc48a87e": {
+"text": "Das Bild ist die Ampel.",
+"text_orig": "Das Bild ist die Ampel.",
+"modell": "eleven_v4"
+},
+"satz/d0edab79fd": {
+"text": "Das Bild ist der Anker.",
+"text_orig": "Das Bild ist der Anker.",
+"modell": "eleven_v4"
+},
+"satz/b52c2c6a96": {
+"text": "Das Bild ist das Auto.",
+"text_orig": "Das Bild ist das Auto.",
+"modell": "eleven_v4"
+},
+"satz/f2aacffb07": {
+"text": "Das Bild ist das Auge.",
+"text_orig": "Das Bild ist das Auge.",
+"modell": "eleven_v4"
+},
+"satz/d4cf474f00": {
+"text": "Das Bild ist die Aufgabe.",
+"text_orig": "Das Bild ist die Aufgabe.",
+"modell": "eleven_v4"
+},
+"satz/4cb2cef572": {
+"text": "Das Bild ist der Aufzug.",
+"text_orig": "Das Bild ist der Aufzug.",
+"modell": "eleven_v4"
+},
+"satz/362556a16d": {
+"text": "Das Bild ist die Banane.",
+"text_orig": "Das Bild ist die Banane.",
+"modell": "eleven_v4"
+},
+"satz/41daf2f15c": {
+"text": "Das Bild ist der Baum.",
+"text_orig": "Das Bild ist der Baum.",
+"modell": "eleven_v4"
+},
+"satz/2104680b71": {
+"text": "Das Bild ist der Bär.",
+"text_orig": "Das Bild ist der Bär.",
+"modell": "eleven_v4"
+},
+"satz/eb20226a76": {
+"text": "Das Bild ist die Biene.",
+"text_orig": "Das Bild ist die Biene.",
+"modell": "eleven_v4"
+},
+"satz/9a9c0a3d1e": {
+"text": "Das Bild ist das Buch.",
+"text_orig": "Das Bild ist das Buch.",
+"modell": "eleven_v4"
+},
+"satz/3e1144b1e1": {
+"text": "Das Bild ist die Blume.",
+"text_orig": "Das Bild ist die Blume.",
+"modell": "eleven_v4"
+},
+"satz/389e7ed0b6": {
+"text": "Das Bild ist die Blüte.",
+"text_orig": "Das Bild ist die Blüte.",
+"modell": "eleven_v4"
+},
+"satz/6075eb178a": {
+"text": "Das Bild ist das Brot.",
+"text_orig": "Das Bild ist das Brot.",
+"modell": "eleven_v4"
+},
+"satz/52919afcb0": {
+"text": "Das Bild ist der Bus.",
+"text_orig": "Das Bild ist der Bus.",
+"modell": "eleven_v4"
+},
+"satz/4797e5a33a": {
+"text": "Das Bild ist das Bett.",
+"text_orig": "Das Bild ist das Bett.",
+"modell": "eleven_v4"
+},
+"satz/a2a2e3ff53": {
+"text": "Das Bild ist das Bein.",
+"text_orig": "Das Bild ist das Bein.",
+"modell": "eleven_v4"
+},
+"satz/bdec7bc683": {
+"text": "Das Bild ist die Brille.",
+"text_orig": "Das Bild ist die Brille.",
+"modell": "eleven_v4"
+},
+"satz/482755295b": {
+"text": "Das Bild ist der Brief.",
+"text_orig": "Das Bild ist der Brief.",
+"modell": "eleven_v4"
+},
+"satz/3a076f7a69": {
+"text": "Das Bild ist der Computer.",
+"text_orig": "Das Bild ist der Computer.",
+"modell": "eleven_v4"
+},
+"satz/458e0b6b69": {
+"text": "Das Bild ist der Cowboy.",
+"text_orig": "Das Bild ist der Cowboy.",
+"modell": "eleven_v4"
+},
+"satz/1dd35bbadf": {
+"text": "Das Bild ist der Chor.",
+"text_orig": "Das Bild ist der Chor.",
+"modell": "eleven_v4"
+},
+"satz/95e62318b0": {
+"text": "Das Bild ist der Comic.",
+"text_orig": "Das Bild ist der Comic.",
+"modell": "eleven_v4"
+},
+"satz/4960350687": {
+"text": "Das Bild ist die Creme.",
+"text_orig": "Das Bild ist die Creme.",
+"modell": "eleven_v4"
+},
+"satz/b69b8044dd": {
+"text": "Das Bild ist der Dino.",
+"text_orig": "Das Bild ist der Dino.",
+"modell": "eleven_v4"
+},
+"satz/6acdd223ed": {
+"text": "Das Bild ist der Delfin.",
+"text_orig": "Das Bild ist der Delfin.",
+"modell": "eleven_v4"
+},
+"satz/9f371ba30d": {
+"text": "Das Bild ist der Drache.",
+"text_orig": "Das Bild ist der Drache.",
+"modell": "eleven_v4"
+},
+"satz/02b323699b": {
+"text": "Das Bild ist die Dusche.",
+"text_orig": "Das Bild ist die Dusche.",
+"modell": "eleven_v4"
+},
+"satz/6dcadc61c5": {
+"text": "Das Bild ist das Dach.",
+"text_orig": "Das Bild ist das Dach.",
+"modell": "eleven_v4"
+},
+"satz/5d32c3116f": {
+"text": "Das Bild ist die Dose.",
+"text_orig": "Das Bild ist die Dose.",
+"modell": "eleven_v4"
+},
+"satz/0a4ef687a2": {
+"text": "Das Bild ist die Ente.",
+"text_orig": "Das Bild ist die Ente.",
+"modell": "eleven_v4"
+},
+"satz/57f6a0e229": {
+"text": "Das Bild ist der Elefant.",
+"text_orig": "Das Bild ist der Elefant.",
+"modell": "eleven_v4"
+},
+"satz/789dcd317e": {
+"text": "Das Bild ist die Erdbeere.",
+"text_orig": "Das Bild ist die Erdbeere.",
+"modell": "eleven_v4"
+},
+"satz/7d96df4c1d": {
+"text": "Das Bild ist der Engel.",
+"text_orig": "Das Bild ist der Engel.",
+"modell": "eleven_v4"
+},
+"satz/c3a4ea7463": {
+"text": "Das Bild ist der Esel.",
+"text_orig": "Das Bild ist der Esel.",
+"modell": "eleven_v4"
+},
+"satz/07daa68097": {
+"text": "Das Bild ist das Eis.",
+"text_orig": "Das Bild ist das Eis.",
+"modell": "eleven_v4"
+},
+"satz/2add8ec32b": {
+"text": "Das Bild ist das Ei.",
+"text_orig": "Das Bild ist das Ei.",
+"modell": "eleven_v4"
+},
+"satz/983497e415": {
+"text": "Das Bild ist der Fisch.",
+"text_orig": "Das Bild ist der Fisch.",
+"modell": "eleven_v4"
+},
+"satz/3dd49b01fa": {
+"text": "Das Bild ist der Frosch.",
+"text_orig": "Das Bild ist der Frosch.",
+"modell": "eleven_v4"
+},
+"satz/faf806db12": {
+"text": "Das Bild ist der Fuchs.",
+"text_orig": "Das Bild ist der Fuchs.",
+"modell": "eleven_v4"
+},
+"satz/bc6a9c276a": {
+"text": "Das Bild ist das Feuer.",
+"text_orig": "Das Bild ist das Feuer.",
+"modell": "eleven_v4"
+},
+"satz/7cb8273f7c": {
+"text": "Das Bild ist die Fee.",
+"text_orig": "Das Bild ist die Fee.",
+"modell": "eleven_v4"
+},
+"satz/3e5bb57e86": {
+"text": "Das Bild ist das Flugzeug.",
+"text_orig": "Das Bild ist das Flugzeug.",
+"modell": "eleven_v4"
+},
+"satz/496b135d1a": {
+"text": "Das Bild ist das Fahrrad.",
+"text_orig": "Das Bild ist das Fahrrad.",
+"modell": "eleven_v4"
+},
+"satz/b097e77ddc": {
+"text": "Das Bild ist die Flasche.",
+"text_orig": "Das Bild ist die Flasche.",
+"modell": "eleven_v4"
+},
+"satz/0f96819818": {
+"text": "Das Bild ist der Fluss.",
+"text_orig": "Das Bild ist der Fluss.",
+"modell": "eleven_v4"
+},
+"satz/fe49c7a060": {
+"text": "Das Bild ist die Gurke.",
+"text_orig": "Das Bild ist die Gurke.",
+"modell": "eleven_v4"
+},
+"satz/e5d62621e7": {
+"text": "Das Bild ist das Geschenk.",
+"text_orig": "Das Bild ist das Geschenk.",
+"modell": "eleven_v4"
+},
+"satz/4fae6f9f90": {
+"text": "Das Bild ist die Gitarre.",
+"text_orig": "Das Bild ist die Gitarre.",
+"modell": "eleven_v4"
+},
+"satz/9612919024": {
+"text": "Das Bild ist der Gorilla.",
+"text_orig": "Das Bild ist der Gorilla.",
+"modell": "eleven_v4"
+},
+"satz/ac5b4058de": {
+"text": "Das Bild ist der Geist.",
+"text_orig": "Das Bild ist der Geist.",
+"modell": "eleven_v4"
+},
+"satz/5d44dd3873": {
+"text": "Das Bild ist die Gabel.",
+"text_orig": "Das Bild ist die Gabel.",
+"modell": "eleven_v4"
+},
+"satz/9d4f800c1c": {
+"text": "Das Bild ist das Glas.",
+"text_orig": "Das Bild ist das Glas.",
+"modell": "eleven_v4"
+},
+"satz/9b3037c436": {
+"text": "Das Bild ist die Glocke.",
+"text_orig": "Das Bild ist die Glocke.",
+"modell": "eleven_v4"
+},
+"satz/719e7e198c": {
+"text": "Das Bild ist der Hund.",
+"text_orig": "Das Bild ist der Hund.",
+"modell": "eleven_v4"
+},
+"satz/4bdf6e53d3": {
+"text": "Das Bild ist das Haus.",
+"text_orig": "Das Bild ist das Haus.",
+"modell": "eleven_v4"
+},
+"satz/fa778ee90b": {
+"text": "Das Bild ist der Hase.",
+"text_orig": "Das Bild ist der Hase.",
+"modell": "eleven_v4"
+},
+"satz/a051df8126": {
+"text": "Das Bild ist das Herz.",
+"text_orig": "Das Bild ist das Herz.",
+"modell": "eleven_v4"
+},
+"satz/2c3d9573e5": {
+"text": "Das Bild ist der Hut.",
+"text_orig": "Das Bild ist der Hut.",
+"modell": "eleven_v4"
+},
+"satz/186a64001d": {
+"text": "Das Bild ist die Hand.",
+"text_orig": "Das Bild ist die Hand.",
+"modell": "eleven_v4"
+},
+"satz/cd6beb47ba": {
+"text": "Das Bild ist der Hai.",
+"text_orig": "Das Bild ist der Hai.",
+"modell": "eleven_v4"
+},
+"satz/6848ebe709": {
+"text": "Das Bild ist der Igel.",
+"text_orig": "Das Bild ist der Igel.",
+"modell": "eleven_v4"
+},
+"satz/8b796f8f7d": {
+"text": "Das Bild ist die Insel.",
+"text_orig": "Das Bild ist die Insel.",
+"modell": "eleven_v4"
+},
+"satz/bb59eefbe9": {
+"text": "Das Bild ist das Iglu.",
+"text_orig": "Das Bild ist das Iglu.",
+"modell": "eleven_v4"
+},
+"satz/4045001309": {
+"text": "Das Bild ist das Insekt.",
+"text_orig": "Das Bild ist das Insekt.",
+"modell": "eleven_v4"
+},
+"satz/b8382c49ee": {
+"text": "Das Bild ist der Irrgarten.",
+"text_orig": "Das Bild ist der Irrgarten.",
+"modell": "eleven_v4"
+},
+"satz/de60857d92": {
+"text": "Das Bild ist die Jacke.",
+"text_orig": "Das Bild ist die Jacke.",
+"modell": "eleven_v4"
+},
+"satz/43590fd276": {
+"text": "Das Bild ist der Junge.",
+"text_orig": "Das Bild ist der Junge.",
+"modell": "eleven_v4"
+},
+"satz/e20235366b": {
+"text": "Das Bild ist das Joghurt.",
+"text_orig": "Das Bild ist das Joghurt.",
+"modell": "eleven_v4"
+},
+"satz/414b624d63": {
+"text": "Das Bild ist der Jaguar.",
+"text_orig": "Das Bild ist der Jaguar.",
+"modell": "eleven_v4"
+},
+"satz/402f4849b9": {
+"text": "Das Bild ist die Jause.",
+"text_orig": "Das Bild ist die Jause.",
+"modell": "eleven_v4"
+},
+"satz/64ec492d42": {
+"text": "Das Bild ist die Katze.",
+"text_orig": "Das Bild ist die Katze.",
+"modell": "eleven_v4"
+},
+"satz/8cb497ae61": {
+"text": "Das Bild ist die Kuh.",
+"text_orig": "Das Bild ist die Kuh.",
+"modell": "eleven_v4"
+},
+"satz/67321c3984": {
+"text": "Das Bild ist der Käse.",
+"text_orig": "Das Bild ist der Käse.",
+"modell": "eleven_v4"
+},
+"satz/da32041314": {
+"text": "Das Bild ist die Krone.",
+"text_orig": "Das Bild ist die Krone.",
+"modell": "eleven_v4"
+},
+"satz/1db278fe2c": {
+"text": "Das Bild ist der Keks.",
+"text_orig": "Das Bild ist der Keks.",
+"modell": "eleven_v4"
+},
+"satz/660340591f": {
+"text": "Das Bild ist die Kerze.",
+"text_orig": "Das Bild ist die Kerze.",
+"modell": "eleven_v4"
+},
+"satz/ce5369d41a": {
+"text": "Das Bild ist das Kamel.",
+"text_orig": "Das Bild ist das Kamel.",
+"modell": "eleven_v4"
+},
+"satz/02446bc571": {
+"text": "Das Bild ist das Krokodil.",
+"text_orig": "Das Bild ist das Krokodil.",
+"modell": "eleven_v4"
+},
+"satz/4e8787fd26": {
+"text": "Das Bild ist der Koala.",
+"text_orig": "Das Bild ist der Koala.",
+"modell": "eleven_v4"
+},
+"satz/508d5d8c27": {
+"text": "Das Bild ist die Kirsche.",
+"text_orig": "Das Bild ist die Kirsche.",
+"modell": "eleven_v4"
+},
+"satz/9bf18270d4": {
+"text": "Das Bild ist die Kiwi.",
+"text_orig": "Das Bild ist die Kiwi.",
+"modell": "eleven_v4"
+},
+"satz/2c2572c207": {
+"text": "Das Bild ist der Kaktus.",
+"text_orig": "Das Bild ist der Kaktus.",
+"modell": "eleven_v4"
+},
+"satz/c92ed3d463": {
+"text": "Das Bild ist die Kamera.",
+"text_orig": "Das Bild ist die Kamera.",
+"modell": "eleven_v4"
+},
+"satz/e17c843bb4": {
+"text": "Das Bild ist der Löwe.",
+"text_orig": "Das Bild ist der Löwe.",
+"modell": "eleven_v4"
+},
+"satz/e1c7a53ebf": {
+"text": "Das Bild ist der Löffel.",
+"text_orig": "Das Bild ist der Löffel.",
+"modell": "eleven_v4"
+},
+"satz/9eb3481ecc": {
+"text": "Das Bild ist das Lama.",
+"text_orig": "Das Bild ist das Lama.",
+"modell": "eleven_v4"
+},
+"satz/decc460b0a": {
+"text": "Das Bild ist die Lupe.",
+"text_orig": "Das Bild ist die Lupe.",
+"modell": "eleven_v4"
+},
+"satz/55fa9086dc": {
+"text": "Das Bild ist der Lolli.",
+"text_orig": "Das Bild ist der Lolli.",
+"modell": "eleven_v4"
+},
+"satz/7d884750fc": {
+"text": "Das Bild ist die Leiter.",
+"text_orig": "Das Bild ist die Leiter.",
+"modell": "eleven_v4"
+},
+"satz/59f44110c8": {
+"text": "Das Bild ist die Lampe.",
+"text_orig": "Das Bild ist die Lampe.",
+"modell": "eleven_v4"
+},
+"satz/cd3a14c65b": {
+"text": "Das Bild ist die Maus.",
+"text_orig": "Das Bild ist die Maus.",
+"modell": "eleven_v4"
+},
+"satz/bb026f44d1": {
+"text": "Das Bild ist der Mond.",
+"text_orig": "Das Bild ist der Mond.",
+"modell": "eleven_v4"
+},
+"satz/9ab1b65fc4": {
+"text": "Das Bild ist die Milch.",
+"text_orig": "Das Bild ist die Milch.",
+"modell": "eleven_v4"
+},
+"satz/3debce9d9f": {
+"text": "Das Bild ist der Mais.",
+"text_orig": "Das Bild ist der Mais.",
+"modell": "eleven_v4"
+},
+"satz/ac9ef31fa1": {
+"text": "Das Bild ist der Mantel.",
+"text_orig": "Das Bild ist der Mantel.",
+"modell": "eleven_v4"
+},
+"satz/99a33fcc08": {
+"text": "Das Bild ist die Melone.",
+"text_orig": "Das Bild ist die Melone.",
+"modell": "eleven_v4"
+},
+"satz/3bd2074bd2": {
+"text": "Das Bild ist die Muschel.",
+"text_orig": "Das Bild ist die Muschel.",
+"modell": "eleven_v4"
+},
+"satz/aae4f30838": {
+"text": "Das Bild ist die Nase.",
+"text_orig": "Das Bild ist die Nase.",
+"modell": "eleven_v4"
+},
+"satz/9fd9a02758": {
+"text": "Das Bild ist die Nudeln.",
+"text_orig": "Das Bild ist die Nudeln.",
+"modell": "eleven_v4"
+},
+"satz/5fa6a801e7": {
+"text": "Das Bild ist das Nilpferd.",
+"text_orig": "Das Bild ist das Nilpferd.",
+"modell": "eleven_v4"
+},
+"satz/980b8999a6": {
+"text": "Das Bild ist das Nest.",
+"text_orig": "Das Bild ist das Nest.",
+"modell": "eleven_v4"
+},
+"satz/709b5f4f93": {
+"text": "Das Bild ist die Nuss.",
+"text_orig": "Das Bild ist die Nuss.",
+"modell": "eleven_v4"
+},
+"satz/2a9c5b7d22": {
+"text": "Das Bild ist das Nashorn.",
+"text_orig": "Das Bild ist das Nashorn.",
+"modell": "eleven_v4"
+},
+"satz/6a93342503": {
+"text": "Das Bild ist die Oma.",
+"text_orig": "Das Bild ist die Oma.",
+"modell": "eleven_v4"
+},
+"satz/de19050fb4": {
+"text": "Das Bild ist der Opa.",
+"text_orig": "Das Bild ist der Opa.",
+"modell": "eleven_v4"
+},
+"satz/6eb5e31b8a": {
+"text": "Das Bild ist das Ohr.",
+"text_orig": "Das Bild ist das Ohr.",
+"modell": "eleven_v4"
+},
+"satz/6d61bccadc": {
+"text": "Das Bild ist der Otter.",
+"text_orig": "Das Bild ist der Otter.",
+"modell": "eleven_v4"
+},
+"satz/534a6b3250": {
+"text": "Das Bild ist die <phoneme alphabet=\"ipa\" ph=\"oˈʁɑ̃ːʒə\">Orange</phoneme>.",
+"text_orig": "Das Bild ist die Orange.",
+"modell": "eleven_v4"
+},
+"satz/bfb46d9531": {
+"text": "Das Bild ist der Ofen.",
+"text_orig": "Das Bild ist der Ofen.",
+"modell": "eleven_v4"
+},
+"satz/a12373af8b": {
+"text": "Das Bild ist der Pilz.",
+"text_orig": "Das Bild ist der Pilz.",
+"modell": "eleven_v4"
+},
+"satz/f43701daaa": {
+"text": "Das Bild ist der Pinguin.",
+"text_orig": "Das Bild ist der Pinguin.",
+"modell": "eleven_v4"
+},
+"satz/b098b42e67": {
+"text": "Das Bild ist das Pferd.",
+"text_orig": "Das Bild ist das Pferd.",
+"modell": "eleven_v4"
+},
+"satz/6f386f7b58": {
+"text": "Das Bild ist die Pizza.",
+"text_orig": "Das Bild ist die Pizza.",
+"modell": "eleven_v4"
+},
+"satz/1488429bc5": {
+"text": "Das Bild ist der Panda.",
+"text_orig": "Das Bild ist der Panda.",
+"modell": "eleven_v4"
+},
+"satz/9589e63eee": {
+"text": "Das Bild ist der Papagei.",
+"text_orig": "Das Bild ist der Papagei.",
+"modell": "eleven_v4"
+},
+"satz/23a2ac4500": {
+"text": "Das Bild ist die Palme.",
+"text_orig": "Das Bild ist die Palme.",
+"modell": "eleven_v4"
+},
+"satz/8685e9ac83": {
+"text": "Das Bild ist das Paket.",
+"text_orig": "Das Bild ist das Paket.",
+"modell": "eleven_v4"
+},
+"satz/21248b1138": {
+"text": "Das Bild ist der Pinsel.",
+"text_orig": "Das Bild ist der Pinsel.",
+"modell": "eleven_v4"
+},
+"satz/a83371115c": {
+"text": "Das Bild ist die Qualle.",
+"text_orig": "Das Bild ist die Qualle.",
+"modell": "eleven_v4"
+},
+"satz/6bf79863f5": {
+"text": "Das Bild ist das Quadrat.",
+"text_orig": "Das Bild ist das Quadrat.",
+"modell": "eleven_v4"
+},
+"satz/bf34e59cdf": {
+"text": "Das Bild ist die <phoneme alphabet=\"ipa\" ph=\"ˈʁoːzə\">Rose</phoneme>.",
+"text_orig": "Das Bild ist die Rose.",
+"modell": "eleven_v4"
+},
+"satz/9f265d293b": {
+"text": "Das Bild ist die Rakete.",
+"text_orig": "Das Bild ist die Rakete.",
+"modell": "eleven_v4"
+},
+"satz/c3ba1625a3": {
+"text": "Das Bild ist der Ring.",
+"text_orig": "Das Bild ist der Ring.",
+"modell": "eleven_v4"
+},
+"satz/944639648f": {
+"text": "Das Bild ist der Regenbogen.",
+"text_orig": "Das Bild ist der Regenbogen.",
+"modell": "eleven_v4"
+},
+"satz/fecf353c2a": {
+"text": "Das Bild ist der Roller.",
+"text_orig": "Das Bild ist der Roller.",
+"modell": "eleven_v4"
+},
+"satz/b616aaea97": {
+"text": "Das Bild ist der Roboter.",
+"text_orig": "Das Bild ist der Roboter.",
+"modell": "eleven_v4"
+},
+"satz/2bf01d020a": {
+"text": "Das Bild ist die Sonne.",
+"text_orig": "Das Bild ist die Sonne.",
+"modell": "eleven_v4"
+},
+"satz/8cea0a027c": {
+"text": "Das Bild ist das Sofa.",
+"text_orig": "Das Bild ist das Sofa.",
+"modell": "eleven_v4"
+},
+"satz/94319bee4d": {
+"text": "Das Bild ist der Salat.",
+"text_orig": "Das Bild ist der Salat.",
+"modell": "eleven_v4"
+},
+"satz/7cf7b13cd4": {
+"text": "Das Bild ist die Socke.",
+"text_orig": "Das Bild ist die Socke.",
+"modell": "eleven_v4"
+},
+"satz/f5863d1eaa": {
+"text": "Das Bild ist die Seife.",
+"text_orig": "Das Bild ist die Seife.",
+"modell": "eleven_v4"
+},
+"satz/b84763844e": {
+"text": "Das Bild ist die Spaghetti.",
+"text_orig": "Das Bild ist die Spaghetti.",
+"modell": "eleven_v4"
+},
+"satz/25fc62782f": {
+"text": "Das Bild ist die Tomate.",
+"text_orig": "Das Bild ist die Tomate.",
+"modell": "eleven_v4"
+},
+"satz/4324011b1c": {
+"text": "Das Bild ist der Tiger.",
+"text_orig": "Das Bild ist der Tiger.",
+"modell": "eleven_v4"
+},
+"satz/50bee6fcb7": {
+"text": "Das Bild ist das Taxi.",
+"text_orig": "Das Bild ist das Taxi.",
+"modell": "eleven_v4"
+},
+"satz/c3539ece11": {
+"text": "Das Bild ist der Teddy.",
+"text_orig": "Das Bild ist der Teddy.",
+"modell": "eleven_v4"
+},
+"satz/32d1a8a7d5": {
+"text": "Das Bild ist die Trommel.",
+"text_orig": "Das Bild ist die Trommel.",
+"modell": "eleven_v4"
+},
+"satz/c83f57047a": {
+"text": "Das Bild ist der Traktor.",
+"text_orig": "Das Bild ist der Traktor.",
+"modell": "eleven_v4"
+},
+"satz/8a438580d8": {
+"text": "Das Bild ist die Tür.",
+"text_orig": "Das Bild ist die Tür.",
+"modell": "eleven_v4"
+},
+"satz/0b203f6eb0": {
+"text": "Das Bild ist die Uhr.",
+"text_orig": "Das Bild ist die Uhr.",
+"modell": "eleven_v4"
+},
+"satz/fdc0147f25": {
+"text": "Das Bild ist das Ufo.",
+"text_orig": "Das Bild ist das Ufo.",
+"modell": "eleven_v4"
+},
+"satz/44b2650eb7": {
+"text": "Das Bild ist die Unterhose.",
+"text_orig": "Das Bild ist die Unterhose.",
+"modell": "eleven_v4"
+},
+"satz/33cea54817": {
+"text": "Das Bild ist das U-Boot.",
+"text_orig": "Das Bild ist das U-Boot.",
+"modell": "eleven_v4"
+},
+"satz/6a2ae29f03": {
+"text": "Das Bild ist die U-Bahn.",
+"text_orig": "Das Bild ist die U-Bahn.",
+"modell": "eleven_v4"
+},
+"satz/81ed5e3a21": {
+"text": "Das Bild ist der Vogel.",
+"text_orig": "Das Bild ist der Vogel.",
+"modell": "eleven_v4"
+},
+"satz/c18e405f5f": {
+"text": "Das Bild ist der Vulkan.",
+"text_orig": "Das Bild ist der Vulkan.",
+"modell": "eleven_v4"
+},
+"satz/2e4a9322b8": {
+"text": "Das Bild ist der Vollmond.",
+"text_orig": "Das Bild ist der Vollmond.",
+"modell": "eleven_v4"
+},
+"satz/f899491415": {
+"text": "Das Bild ist die Vase.",
+"text_orig": "Das Bild ist die Vase.",
+"modell": "eleven_v4"
+},
+"satz/f8b64d4bd2": {
+"text": "Das Bild ist das Video.",
+"text_orig": "Das Bild ist das Video.",
+"modell": "eleven_v4"
+},
+"satz/b7044df4cb": {
+"text": "Das Bild ist der Wal.",
+"text_orig": "Das Bild ist der Wal.",
+"modell": "eleven_v4"
+},
+"satz/fd90de1fb3": {
+"text": "Das Bild ist die Wolke.",
+"text_orig": "Das Bild ist die Wolke.",
+"modell": "eleven_v4"
+},
+"satz/71adde60d4": {
+"text": "Das Bild ist der Wolf.",
+"text_orig": "Das Bild ist der Wolf.",
+"modell": "eleven_v4"
+},
+"satz/21353c0479": {
+"text": "Das Bild ist der Würfel.",
+"text_orig": "Das Bild ist der Würfel.",
+"modell": "eleven_v4"
+},
+"satz/c0f1c65532": {
+"text": "Das Bild ist die Welle.",
+"text_orig": "Das Bild ist die Welle.",
+"modell": "eleven_v4"
+},
+"satz/8999095bcb": {
+"text": "Das Bild ist der Wecker.",
+"text_orig": "Das Bild ist der Wecker.",
+"modell": "eleven_v4"
+},
+"satz/9c7638139f": {
+"text": "Das Bild ist der Wald.",
+"text_orig": "Das Bild ist der Wald.",
+"modell": "eleven_v4"
+},
+"satz/2b2d865efe": {
+"text": "Das Bild ist das Xylophon.",
+"text_orig": "Das Bild ist das Xylophon.",
+"modell": "eleven_v4"
+},
+"satz/28ae4bd2cd": {
+"text": "Das Bild ist das Yoga.",
+"text_orig": "Das Bild ist das Yoga.",
+"modell": "eleven_v4"
+},
+"satz/c8a68eac9b": {
+"text": "Das Bild ist das Zebra.",
+"text_orig": "Das Bild ist das Zebra.",
+"modell": "eleven_v4"
+},
+"satz/c0e3a32a95": {
+"text": "Das Bild ist der Zug.",
+"text_orig": "Das Bild ist der Zug.",
+"modell": "eleven_v4"
+},
+"satz/8b7bb3b4e4": {
+"text": "Das Bild ist die Zitrone.",
+"text_orig": "Das Bild ist die Zitrone.",
+"modell": "eleven_v4"
+},
+"satz/b40761da6f": {
+"text": "Das Bild ist das Zelt.",
+"text_orig": "Das Bild ist das Zelt.",
+"modell": "eleven_v4"
+},
+"satz/0c1515f655": {
+"text": "Das Bild ist der Zahn.",
+"text_orig": "Das Bild ist der Zahn.",
+"modell": "eleven_v4"
+},
+"satz/c269451097": {
+"text": "Das Bild ist die Ziege.",
+"text_orig": "Das Bild ist die Ziege.",
+"modell": "eleven_v4"
+},
+"satz/f0589fe28f": {
+"text": "Das Bild ist der Zirkus.",
+"text_orig": "Das Bild ist der Zirkus.",
+"modell": "eleven_v4"
+},
+"satz/b28028ba9f": {
+"text": "Das Bild ist der Zauberer.",
+"text_orig": "Das Bild ist der Zauberer.",
+"modell": "eleven_v4"
+},
+"satz/78f7fe79c8": {
+"text": "Das Bild ist der Zylinder.",
+"text_orig": "Das Bild ist der Zylinder.",
+"modell": "eleven_v4"
+},
+"satz/500c28c51e": {
+"text": "Wie viele Silben hat das Joghurt?",
+"text_orig": "Wie viele Silben hat das Joghurt?",
+"modell": "eleven_v4"
+},
+"satz/ae7efb408a": {
+"text": "Das Joghurt hat zwei Silben.",
+"text_orig": "Das Joghurt hat zwei Silben.",
+"modell": "eleven_v4"
+},
+"satz/4ec2e8a7a5": {
+"text": "Das ist das Joghurt!",
+"text_orig": "Das ist das Joghurt!",
+"modell": "eleven_v4"
+},
+"satz/80e26042ca": {
+"text": "Womit hört das Joghurt auf?",
+"text_orig": "Womit hört das Joghurt auf?",
+"modell": "eleven_v4"
+},
+"satz/a37dba3de0": {
+"text": "Das Joghurt hört mit dem Buchstaben",
+"text_orig": "Das Joghurt hört mit dem Buchstaben",
 "modell": "eleven_v4"
 }
 }

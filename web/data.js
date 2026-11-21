@@ -405,7 +405,7 @@ const WORDS = [
   // J
   { w: "Jacke",     g: "die", e: PICS.jacke, s: "Ja-cke", sp: "Ja-ke" },
   { w: "Junge",     g: "der", e: PICS.junge, s: "Jun-ge" },
-  { w: "Joghurt",   g: "der", e: PICS.joghurt, s: "Jo-ghurt", sp: "Jo-gurt" },
+  { w: "Joghurt",   g: "das", e: PICS.joghurt, s: "Jo-ghurt", sp: "Jo-gurt" },
   { w: "Jaguar",    g: "der", e: "🐆", s: "Ja-gu-ar", lg: true },
   { w: "Jause",     g: "die", e: PICS.jause, s: "Jau-se", lg: true },
   // K

@@ -33,6 +33,8 @@
 
   // Wörter, die die Stimme sonst englisch spricht (gilt auch in Sätzen)
   const WORD_IPA = { Rose: "ˈʁoːzə" };
+  // „Orange“ als Obst (nicht die Farbe) – nur in den Sätzen zum Wort Orange
+  const FRUIT_ORANGE = '<phoneme alphabet="ipa" ph="oˈʁɑ̃ːʒə">Orange</phoneme>';
   const wordPh = t => t.replace(/\b(Rose)\b/g, w => `<phoneme alphabet="ipa" ph="${WORD_IPA[w]}">${w}</phoneme>`);
 
   const out = { laut: {}, name: {}, wort: {}, silben: {}, satz: [] };
@@ -40,11 +42,13 @@
   const key = t => String(t).toLowerCase().replace(/[^a-zäöüß0-9]+/g, " ").trim();
   // gruppe = Reihenfolge beim Erzeugen (wichtige zuerst, falls das Guthaben nicht reicht)
   // wie im Programm: Texte werden an Satzzeichen zerlegt, jedes Stück ist eine eigene Tondatei
-  const add = (gruppe, t) => (String(t).match(/[^.!?:]+[.!?:]*/g) || []).forEach(x => {
+  const add = (gruppe, t, obst = false) => (String(t).match(/[^.!?:]+[.!?:]*/g) || []).forEach(x => {
     x = x.trim(); const k = key(x); if (!k || seen.has(k)) return; seen.add(k);
-    const say = wordPh(x);                             // "say" = so gesprochen (mit Lautschrift), "text" = Schlüssel im Programm
+    let say = wordPh(x);
+    if (obst) say = say.replace(/\bOrange\b/g, FRUIT_ORANGE);   // "say" = so gesprochen (mit Lautschrift), "text" = Schlüssel im Programm
     out.satz.push(say === x ? { gruppe, text: x } : { gruppe, text: x, say });
   });
+  const addS = add;
 
   // ---- Buchstaben: Laut und Name ----
   // Namen, die die Stimme sonst falsch liest (I = "1.", J = "tschai", X = "ex", Y = "i")
@@ -63,6 +67,7 @@
     out.silben[slug(w.w)] = { text: `${wordPh(w.w)}. ${syl.join(" – ")}.`, n: syl.length };
   });
   COLORS.forEach(c => { out.wort[slug(c.w)] = cap(c.w) + "."; });
+  MIX_POTS.forEach(c => { if (!out.wort[slug(c.w)]) out.wort[slug(c.w)] = cap(c.w) + "."; });   // Farbtöpfe beim Mischen (weiß)
 
   // ---- feste Sätze: Begrüßung, Menü, Anweisungen, Mitteil-Tafel ----
   [
@@ -92,7 +97,7 @@
     "Was für ein schöner Sticker!", "Versuch es noch einmal.", "Wir brauchen",
     "Was möchtest du sagen?", "Schreib, was du sagen möchtest.", "Schreib zuerst etwas.", "Da steht noch nichts.",
     "Alles gelöscht.", "Alles löschen?", "Dann wähl den Mülleimer noch einmal.", "Möchtest du noch etwas sagen?", "Komma", "Punkt", "Fragezeichen", "scharfes S", "A B C Tastatur", "Quertz Tastatur",
-    "Lies noch einmal genau.", "So laut spreche ich jetzt.", "Tastatur", "Bilder", "Zurück", "Vorlesen", "Groß anzeigen",
+    "Lies noch einmal genau.", "Lies noch einmal.", "eine Silbe", "zwei Silben", "drei Silben", "vier Silben", "So laut spreche ich jetzt.", "Tastatur", "Bilder", "Zurück", "Vorlesen", "Groß anzeigen",
     // Felder, die beim Anschauen vorgelesen werden (data-say in index.html und app.js)
     "Anfangsbuchstabe", "Fertig", "Weiter", "Ich möchte etwas sagen", "Ja", "Nein", "Noch ein Bild", "Nochmal spielen",
     "Nächste Stufe", "Silben", "Tastatur umschalten", "Ton", "Ton ausschalten", "Wort", "Zum Menü", "Zurück zum Menü",
@@ -129,7 +134,9 @@
   Object.entries(MIXES).forEach(([k, [res]]) => { const [a, b] = k.split("+"); add(5, `${cap(a)} und ${cap(b)} zusammen ergibt ${cap(res)}.`); add(5, `${cap(b)} und ${cap(a)} zusammen ergibt ${cap(res)}.`); });
 
   // ---- Wortbezogene Anweisungen (für jedes Wort) ----
+  WORDS.forEach(w => add(4, `Das Bild ist ${art(w)}.`, w.w === "Orange"));   // Wörter lesen: falsches Bild
   ALL.forEach(w => {
+    const add = (g, t) => addS(g, t, w.w === "Orange");
     const fv = verb(w, "fängt", "fangen"), hv = verb(w, "hört", "hören"), n = (w.s || "").split("-").length;
     add(2, art(w));
     add(2, `Womit ${fv} ${art(w)} an?`);

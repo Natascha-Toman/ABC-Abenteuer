@@ -97,14 +97,14 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.8", APP_DATE = "21.11.2026";
+const APP_VERSION = "4.9", APP_DATE = "22.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
   dwell: false,   // Auswahl nur per Klick – das Verweilen übernimmt die Tobii-Software (Linksklick)
   dwellMs: 1200, dwellBigMs: 1800, dot: false, hideCursor: false, mouseGuard: true,
   voice: "", rate: 0.85, hoverSay: true, sfx: true, muted: false,
-  round: 5, letterCase: "upper", sylColor: true, sylHelp: true, allLevels: false,
+  round: 5, letterCase: "upper", sylColor: true, sylHelp: true, dark: false, allLevels: false,
   manualNext: false, balloonSpeed: 1, autoFull: true, eyeClickLock: "td", speechPause: true, lens: true,
   volume: 100, unlockRounds: 3,
   letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc", talkKbOpen: false, kbSpeak: "both", letterVoice: "laut",
@@ -216,7 +216,7 @@ function sanitizeSettings(o) {
   oneOf("round", [3, 4, 5, 6, 8, 10]); oneOf("balloonSpeed", [0.4, 0.65, 1, 1.4]);
   oneOf("letterCase", ["upper", "mixed", "lower"]); oneOf("eyeClickLock", ["td", "eyes", "always", false]);
   oneOf("talkKb", ["abc", "qwertz"]); oneOf("kbSpeak", ["both", "letters", "words", "sentence", "none"]); oneOf("letterVoice", ["laut", "name"]);
-  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "sylHelp", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "talkKbOpen"]
+  ["dwell", "dot", "hideCursor", "mouseGuard", "hoverSay", "sfx", "muted", "sylColor", "sylHelp", "dark", "allLevels", "manualNext", "autoFull", "speechPause", "lens", "talkKbOpen"]
     .forEach(k => { o[k] = typeof o[k] === "boolean" ? o[k] : DEFAULTS[k]; });
   o.voice = typeof o.voice === "string" ? o.voice.slice(0, 200) : "";
   const L = Array.isArray(o.letters) ? [...new Set(o.letters.filter(x => typeof x === "string" && ALPHABET.includes(x)))] : [];
@@ -488,6 +488,7 @@ function speechParts(text, noName = false) {
   };
   const chunk = c => { const p = satzClip(c) || wortClip(c); if (p) out.push({ clip: p, text: c }); else tts(c); };
   const explained = new Set();
+  let explainL = null;                                 // Hinweis zum Namen erst ganz am Ende der Ansage
   const nameClip = L => AU_SET.name.has(slugW(L)) ? { clip: `audio/name/${slugW(L)}.mp3`, text: LETTER_NAMES[L] || L } : null;
   for (const sent of String(text).match(/[^.!?:]+[.!?:]*|[.!?:]+/g) || []) {
     const sc = satzClip(sent);
@@ -507,11 +508,11 @@ function speechParts(text, noName = false) {
       else if (c) out.push({ clip: c, text: p.L });
       else tts(S.letterVoice === "name" ? (LETTER_NAMES[p.L] || p.L) : p.L);
     }
-    if (!bare && amb.length === 1) {
-      const L = amb[0].L;
-      out.push({ pause: 350 }, ...speechParts(AMBIG_SAY, true), { pause: 200 }, nameClip(L), { pause: 200 });
-      explained.add(L);
-    }
+    if (!bare && amb.length) explainL = amb[amb.length - 1].L;   // zuletzt genannter Buchstabe
+  }
+  if (explainL) {
+    // erst die ganze Aufgabe („Wo ist der Buchstabe G? G wie Gorilla.“), dann der Hinweis
+    out.push({ pause: 400 }, ...speechParts(AMBIG_SAY, true), { pause: 200 }, nameClip(explainL), { pause: 200 });
   }
   return out;
 }
@@ -2547,6 +2548,7 @@ function closeSticker() { SV.token++; stopSpeech(); svMark(-1); $("#stickerView"
 function saveS() { save("settings", S); applyS(); }
 function applyS() {
   document.body.classList.toggle("hide-cursor", !!S.hideCursor);
+  document.body.classList.toggle("dark", !!S.dark);          // dunkler Hintergrund (dunkelblau)
   document.body.classList.toggle("no-dwell", !dwellOn());
   $("#gazeDot").style.display = S.dot ? "block" : "none";
   if (!dwellOn() && Gaze.target) Gaze.target.style.setProperty("--dwell", 0);
@@ -2820,7 +2822,7 @@ function bindSettings() {
       : performance.now() - Native.lastEye < 500 ? "aktiv – Augen erkannt ✔" : "aktiv – gerade keine Augen erkannt")
       + ` (Klicks gesperrt: ${Native.blocked || 0}, durchgelassen: ${Native.allowed || 0})`;
   }, 500);
-  chk("#setHoverSay", "hoverSay"); chk("#setSfx", "sfx"); chk("#setSylColor", "sylColor"); chk("#setSylHelp", "sylHelp"); chk("#setMuted", "muted");
+  chk("#setHoverSay", "hoverSay"); chk("#setSfx", "sfx"); chk("#setSylColor", "sylColor"); chk("#setSylHelp", "sylHelp"); chk("#setDark", "dark"); chk("#setMuted", "muted");
   chk("#setAllLevels", "allLevels", renderStats);
 
   const vo = $("#setVolume"), vv = $("#valVolume");

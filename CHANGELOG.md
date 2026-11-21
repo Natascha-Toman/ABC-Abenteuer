@@ -2,6 +2,20 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.9 – 22.11.2026
+
+**Verbessert**
+- Emils Stimme (ElevenLabs) jetzt wirklich überall außer in der Mitteil-Tafel: Antworten bei
+  „Silben klatschen“ („zwei Silben“), „Das Bild ist …“ bei Wörter lesen, „Lies noch einmal.“,
+  Farbtopf „weiß“ beim Mischen. Geprüft mit einem automatischen Durchlauf aller Spiele und Stufen.
+- „Das Joghurt“ (österreichisch).
+- „Orange“ als Obst wird in den Sätzen zum Wort Orange (z. B. „Lege das Wort Orange.“) wie das
+  Obst ausgesprochen, nicht wie die Farbe.
+- Hör genau: erst die ganze Aufgabe („Wo ist der Buchstabe G? G wie Gorilla.“), danach der Hinweis
+  „Manchmal wird dieser Buchstabe aber auch so ausgesprochen: Ge.“
+- Neue Einstellung „Dunkler Hintergrund“ (dunkelblau, Kacheln bleiben hell).
+- Sticker-Album ohne Sticker: Hinweistext sauber dargestellt.
+
 ## 4.8 – 21.11.2026
 
 **Verbessert**
