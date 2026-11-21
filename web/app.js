@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.2", APP_DATE = "19.11.2026";
+const APP_VERSION = "4.3", APP_DATE = "21.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -1076,9 +1076,11 @@ function show(id) { document.querySelectorAll(".screen").forEach(s => s.classLis
 const G = { token: 0, game: null, level: 1, cfg: {}, repeat: null, errors: 0, lastLetter: null, modeQueue: [] };
 
 function setProgress(n, total) {
-  let h = LV[G.game] ? `<span class="lvl">${stars(G.level)}</span>` : "";
-  for (let i = 0; i < total; i++) h += `<span class="star${i < n ? " got" : ""}">⭐</span>`;
-  $("#progress").innerHTML = h;
+  // wie auf der Startseite: Sterne in einer hellen Pille (Stufe gelb, Fortschritt weiß), nur größer
+  let h = LV[G.game] ? `<span class="pill lvl">${stars(G.level)}</span>` : "";
+  let p = "";
+  for (let i = 0; i < total; i++) p += `<span class="star${i < n ? " got" : ""}">⭐</span>`;
+  $("#progress").innerHTML = h + (total ? `<span class="pill">${p}</span>` : "");
 }
 function setTitle(text) {
   $("#progress").innerHTML = `<span class="got" style="font-size:${u(5)};font-weight:700;animation:none">${esc(text)}</span>`;
@@ -1824,6 +1826,7 @@ function openExplore(L) {
 function showExplore() {
   const w = EX.words[EX.i % EX.words.length];
   const word = fw(w.w);
+  $("#exCount").textContent = `${EX.i % EX.words.length + 1} / ${EX.words.length}`;   // welches Bild von wie vielen
   $("#exLetter").innerHTML = flH(EX.L);
   const pic = $("#exPic");
   pic.innerHTML = w.e;
@@ -2905,9 +2908,8 @@ function showVersion() {
 async function startApp() {
   audio();
   show("menu");
-  const n = PROFILES.on ? profileName() : "";
-  await say(n ? `Hallo ${n}! Schön, dass du da bist. Such dir ein Spiel aus.`
-              : "Hallo! Ich bin Emil, die Eule. Lass uns zusammen lesen und schreiben lernen! Such dir ein Spiel aus.");
+  // immer dieselbe Begrüßung (ohne Namen – so gibt es sie als fertige Tondatei)
+  await say("Hallo! Ich bin Emil, die Eule. Lass uns zusammen lesen und schreiben lernen! Such dir ein Spiel aus.");
 }
 function init() {
   showVersion();

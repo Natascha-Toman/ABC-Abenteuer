@@ -2,6 +2,16 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.3 – 21.11.2026
+
+**Verbessert**
+- Alle Sätze und Spielanweisungen als fertige Tondateien (ElevenLabs).
+- Silben und einige Wörter/Laute nach Gehör ausgewählt (`silben-auswahl.py`: mehrere Fassungen
+  erzeugen, die beste übernehmen). Laute C, V, Y jetzt als Laut (k, f, i), D und O gedehnt.
+- Begrüßung immer gleich („Hallo! Ich bin Emil, die Eule. …“), ohne Namen des Kindes.
+- Buchstaben entdecken: dezente Anzeige „2 / 5“, welches Bild von wie vielen.
+- Sterne in den Spielen wie auf der Startseite: in einer hellen Pille, etwas größer.
+
 ## 4.2 – 19.11.2026
 
 **Verbessert**

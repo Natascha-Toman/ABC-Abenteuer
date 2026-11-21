@@ -67,7 +67,7 @@
   // ---- feste Sätze: Begrüßung, Menü, Anweisungen, Mitteil-Tafel ----
   [
     "Hallo! Ich bin Emil, die Eule.", "Lass uns zusammen lesen und schreiben lernen!", "Such dir ein Spiel aus.",
-    "Schön, dass du da bist.", "Was möchtest du spielen?", "Such dir ein Bild aus.", "Der Ton ist wieder an.",
+"Was möchtest du spielen?", "Such dir ein Bild aus.", "Der Ton ist wieder an.",
     "Welche Stufe möchtest du spielen?", "Diese Stufe ist noch gesperrt.", "Schaffe erst die Stufe davor.",
     "Pause.", "Schau auf den Knopf, wenn es weitergehen soll.", "Weiter geht's!",
     "Möchtest du das ABC-Abenteuer beenden?", "Ja oder nein?", "Möchtest du aufhören?", "Dann noch einmal die Tür.",

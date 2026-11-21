@@ -114,17 +114,18 @@ img.emo { width: 1.1em; height: 1.1em; vertical-align: -0.18em; display: inline-
 .talkbtn { background: #e3f0ff; }
 .topbar .title { font-size: calc(5.5 * var(--u)); font-weight: 700; text-align: center; flex: 1; }
 .progress { flex: 1; display: flex; justify-content: center; align-items: center; gap: calc(1 * var(--w)); font-size: calc(6 * var(--u)); }
-.progress span { opacity: .2; filter: grayscale(1); transition: opacity .4s; }
-.progress span.got { opacity: 1; filter: none; animation: jump .6s; }
-/* Sterne mit hellem runden Hintergrund, damit man sie gut erkennt (auch die noch leeren) */
-.progress span.star { opacity: 1; filter: none; display: flex; align-items: center; justify-content: center; width: calc(9 * var(--u)); height: calc(9 * var(--u)); font-size: calc(5.5 * var(--u)); background: rgba(255,255,255,.9); border-radius: 50%; box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.08); }
-.progress span.star:not(.got) img.emo { opacity: .3; }
-.progress span.star.got { background: #dff3e3; }
+.progress > span:not(.pill) { opacity: .2; filter: grayscale(1); transition: opacity .4s; }
+.progress > span.got { opacity: 1; filter: none; animation: jump .6s; }
+/* Sterne wie auf der Startseite: in einer hellen Pille, nur größer. Stufe gelb, Fortschritt weiß */
+.progress .pill { display: flex; align-items: center; gap: calc(.5 * var(--w)); height: calc(8 * var(--u)); font-size: calc(5 * var(--u));
+  background: rgba(255,255,255,.8); border-radius: calc(4 * var(--u)); padding: 0 calc(1.6 * var(--w)); box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.06); }
+.progress .pill.lvl { background: #fff3c4; margin-right: calc(1.5 * var(--w)); }
+.progress .pill .star { display: flex; }
+.progress .pill img.emo { transform: translateY(-.09em); }   /* Stern optisch mittig (Spitze oben, Schatten unten) */
+.progress .star.got { animation: jump .6s; }
 /* leichter Schlagschatten, damit sich die Sterne vom Hintergrund abheben */
 img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35)); }   /* alle Sterne ⭐ im Programm */
-.progress span.star:not(.got) img.emo { filter: grayscale(1); }
-/* Stufe: gleiche Form wie die Fortschritts-Sterne (Pille statt Kreis), damit alles zusammenpasst */
-.progress .lvl { opacity: 1; filter: none; display: flex; align-items: center; gap: calc(.2 * var(--w)); height: calc(9 * var(--u)); font-size: calc(4.6 * var(--u)); background: #fff3c4; border-radius: calc(4.5 * var(--u)); padding: 0 calc(1.4 * var(--w)); margin-right: calc(1.5 * var(--w)); box-shadow: 0 calc(.4 * var(--u)) 0 rgba(0,0,0,.08); }
+.progress .star:not(.got) img.emo { filter: grayscale(1); opacity: .3; }
 
 /* ---------- Menü ---------- */
 #menu .grid {
@@ -228,6 +229,8 @@ img.emo[src$="/2b50.svg"] { filter: drop-shadow(0 .05em .045em rgba(0,0,0,.35));
 .lettergrid .opt { width: 100%; height: 100%; font-size: calc(8 * var(--u)); }
 #explore { position: absolute; inset: 0; background: rgba(253,246,227,.97); display: none; align-items: center; justify-content: center; flex-direction: column; gap: calc(3 * var(--u)); z-index: 200; }
 #explore.show { display: flex; }
+/* dezent: Bild 2 von 5 */
+#explore .excount { white-space: nowrap; font-size: calc(3.2 * var(--u)); font-weight: 700; color: #9a8a62; background: rgba(255,255,255,.8); border-radius: calc(2.5 * var(--u)); padding: calc(.3 * var(--u)) calc(1.6 * var(--w)); margin-top: calc(-1.5 * var(--u)); }
 #explore .row { display: flex; align-items: center; gap: calc(5 * var(--w)); }
 #explore .btns { display: flex; gap: calc(4 * var(--w)); }
 #explore .btns .gaze { width: calc(30 * var(--u)); height: calc(20 * var(--u)); font-size: calc(10 * var(--u)); }
