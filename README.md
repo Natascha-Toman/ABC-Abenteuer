@@ -38,8 +38,8 @@ Buchstaben auswählen, kennenlernen und anhören.
 
 ![Buchstabenübersicht mit großen auswählbaren Buchstaben](bilder/buchstaben.jpg)
 
-### 🍎 Womit fängt es an?
-Den Anfangsbuchstaben eines Wortes erkennen und auswählen.
+### 🍎 Anfang und Ende
+Den Anfangsbuchstaben eines Wortes erkennen und auswählen – in Stufe 3 auch den Endbuchstaben.
 
 ![Anfangsbuchstaben-Aufgabe mit einem Nashorn und drei Antwortmöglichkeiten](bilder/anfangsbuchstaben.jpg)
 

@@ -566,3 +566,5 @@ body.kb-open #dlg .dlgbox { max-height: 52vh; }
 #stickerView .btns { display: flex; gap: calc(4 * var(--w)); }
 #stickerView .btns .gaze { width: calc(30 * var(--u)); height: calc(20 * var(--u)); font-size: calc(10 * var(--u)); display: flex; align-items: center; justify-content: center; }
 #stickerView #svLetter { color: var(--blue); font-weight: 700; }
+#settings .panel:focus { outline: none; }
+#settings input[type=checkbox] { width: 26px; height: 26px; flex: none; cursor: pointer; accent-color: var(--blue); }

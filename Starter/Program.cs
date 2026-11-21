@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 internal static class Starter
 {
+    [System.Runtime.InteropServices.DllImport("user32.dll")] private static extern bool AllowSetForegroundWindow(int pid);
+
     [STAThread]
     private static void Main(string[] args)
     {
@@ -37,7 +39,9 @@ internal static class Starter
                 WorkingDirectory = Path.GetDirectoryName(exe),
                 UseShellExecute = false,
             };
-            Process.Start(psi);
+            var p = Process.Start(psi);
+            // dem Programm erlauben, sich in den Vordergrund zu holen (sonst ist die Augensteuerung erst nach einem Klick aktiv)
+            try { if (p != null) AllowSetForegroundWindow(p.Id); } catch { }
         }
         catch (Exception ex)
         {

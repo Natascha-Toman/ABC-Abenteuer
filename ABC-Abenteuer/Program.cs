@@ -119,7 +119,7 @@ namespace AbcAbenteuer
             if (!Has("--window")) { FormBorderStyle = FormBorderStyle.None; WindowState = FormWindowState.Maximized; }
             else { Size = new Size(1280, 760); StartPosition = FormStartPosition.CenterScreen; }
             Controls.Add(web);
-            Shown += async (s, e) => await StartAsync();
+            Shown += async (s, e) => { BringToFrontAtStart(); await StartAsync(); };
             // Blickerfassung nur, solange das Programm im Vordergrund und nicht minimiert ist
             Activated += (s, e) => UpdateActive();
             Deactivate += (s, e) => UpdateActive();
@@ -282,6 +282,53 @@ namespace AbcAbenteuer
             }
             catch { }
             return CallNextHookEx(clickHook, nCode, wParam, lParam);
+        }
+
+        // ---------------- Beim Start nach vorne holen ----------------
+        // Wird das Programm aus einem anderen Programm (z. B. Kommunikationssoftware) per Verknüpfung gestartet,
+        // lässt Windows das neue Fenster oft nicht in den Vordergrund – dann wäre die Augensteuerung erst nach
+        // einem Klick aktiv. Deshalb holt sich das Fenster in den ersten Sekunden selbst nach vorne.
+        [System.Runtime.InteropServices.DllImport("user32.dll")] private static extern bool SetForegroundWindow(IntPtr h);
+        [System.Runtime.InteropServices.DllImport("user32.dll")] private static extern IntPtr GetForegroundWindow();
+        [System.Runtime.InteropServices.DllImport("user32.dll")] private static extern bool BringWindowToTop(IntPtr h);
+        [System.Runtime.InteropServices.DllImport("user32.dll")] private static extern uint GetWindowThreadProcessId(IntPtr h, IntPtr pid);
+        [System.Runtime.InteropServices.DllImport("user32.dll")] private static extern bool AttachThreadInput(uint a, uint b, bool attach);
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")] private static extern uint GetCurrentThreadId();
+        private void ForceForeground()
+        {
+            try
+            {
+                if (IsDisposed || !IsHandleCreated) return;
+                if (WindowState == FormWindowState.Minimized) WindowState = Has("--window") ? FormWindowState.Normal : FormWindowState.Maximized;
+                IntPtr fg = GetForegroundWindow();
+                if (fg == Handle) return;
+                uint me = GetCurrentThreadId(), other = fg == IntPtr.Zero ? 0 : GetWindowThreadProcessId(fg, IntPtr.Zero);
+                bool attached = other != 0 && other != me && AttachThreadInput(me, other, true);
+                BringWindowToTop(Handle); SetForegroundWindow(Handle); Activate();
+                if (attached) AttachThreadInput(me, other, false);
+                if (GetForegroundWindow() != Handle)
+                {
+                    // letzter Versuch: kurzer Alt-Tastendruck – danach erlaubt Windows den Wechsel in den Vordergrund
+                    keybd_event(0x12, 0, 0, UIntPtr.Zero); keybd_event(0x12, 0, KEYUP, UIntPtr.Zero);
+                    BringWindowToTop(Handle); SetForegroundWindow(Handle); Activate();
+                }
+                web.Focus();
+            }
+            catch (Exception ex) { Log.Error("In den Vordergrund holen", ex); }
+            UpdateActive();
+        }
+        private void BringToFrontAtStart()
+        {
+            ForceForeground();
+            int tries = 0;
+            var t = new Timer { Interval = 500 };
+            t.Tick += (s, e) =>
+            {
+                // nur in den ersten Sekunden – danach entscheidet der Benutzer, welches Fenster vorne ist
+                if (++tries > 12 || IsDisposed) { t.Stop(); t.Dispose(); return; }
+                if (GetForegroundWindow() != Handle) ForceForeground();
+            };
+            t.Start();
         }
 
         private volatile bool active = true;

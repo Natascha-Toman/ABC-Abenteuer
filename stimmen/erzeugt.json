@@ -1269,24 +1269,9 @@
 "text_orig": "Womit fängt das Wort an?",
 "modell": "eleven_v4"
 },
-"satz/8a8e0a1651": {
-"text": "Womit fängt es an?",
-"text_orig": "Womit fängt es an?",
-"modell": "eleven_v4"
-},
 "satz/6cc90abf4b": {
 "text": "Was fängt mit diesem Buchstaben an?",
 "text_orig": "Was fängt mit diesem Buchstaben an?",
-"modell": "eleven_v4"
-},
-"satz/79db1abb00": {
-"text": "Hör genau auf das Ende!",
-"text_orig": "Hör genau auf das Ende!",
-"modell": "eleven_v4"
-},
-"satz/6516354dfb": {
-"text": "Womit hört das Wort auf?",
-"text_orig": "Womit hört das Wort auf?",
 "modell": "eleven_v4"
 },
 "satz/4613bcb416": {
@@ -23419,19 +23404,414 @@
 "text_orig": "Burg hat eine Silbe.",
 "modell": "eleven_v4"
 },
-"satz/4e83f6dc6a": {
-"text": "Hör genau hin:",
-"text_orig": "Hör genau hin:",
+"satz/50aa8eedda": {
+"text": "Welcher Buchstabe fehlt am Ende?",
+"text_orig": "Welcher Buchstabe fehlt am Ende?",
 "modell": "eleven_v4"
 },
-"satz/1f11a5ae34": {
-"text": "So klingt der Buchstabe.",
-"text_orig": "So klingt der Buchstabe.",
+"satz/24c6090648": {
+"text": "Hör gut zu!",
+"text_orig": "Hör gut zu!",
 "modell": "eleven_v4"
 },
-"satz/f116f7b1d8": {
-"text": "Und so heißt der Buchstabe.",
-"text_orig": "Und so heißt der Buchstabe.",
+"satz/90f8562c1a": {
+"text": "Der Buchstabe macht so:",
+"text_orig": "Der Buchstabe macht so:",
+"modell": "eleven_v4"
+},
+"satz/0827a963c8": {
+"text": "Und er heißt:",
+"text_orig": "Und er heißt:",
+"modell": "eleven_v4"
+},
+"satz/7d0fcaeb4a": {
+"text": "Dann wähl den Mülleimer noch einmal.",
+"text_orig": "Dann wähl den Mülleimer noch einmal.",
+"modell": "eleven_v4"
+},
+"satz/b17dbdd0f7": {
+"text": "Möchtest du noch etwas sagen?",
+"text_orig": "Möchtest du noch etwas sagen?",
+"modell": "eleven_v4"
+},
+"satz/4201c15a87": {
+"text": "Anfangsbuchstabe",
+"text_orig": "Anfangsbuchstabe",
+"modell": "eleven_v4"
+},
+"satz/54e0d1a711": {
+"text": "Fertig",
+"text_orig": "Fertig",
+"modell": "eleven_v4"
+},
+"satz/63776a677f": {
+"text": "Weiter",
+"text_orig": "Weiter",
+"modell": "eleven_v4"
+},
+"satz/0553f6abaf": {
+"text": "Ich möchte etwas sagen",
+"text_orig": "Ich möchte etwas sagen",
+"modell": "eleven_v4"
+},
+"satz/84572ef225": {
+"text": "Ja",
+"text_orig": "Ja",
+"modell": "eleven_v4"
+},
+"satz/3e3a2bd4c1": {
+"text": "Nein",
+"text_orig": "Nein",
+"modell": "eleven_v4"
+},
+"satz/57734ad2bb": {
+"text": "Noch ein Bild",
+"text_orig": "Noch ein Bild",
+"modell": "eleven_v4"
+},
+"satz/1c79cb4e83": {
+"text": "Nochmal spielen",
+"text_orig": "Nochmal spielen",
+"modell": "eleven_v4"
+},
+"satz/b765309b5f": {
+"text": "Nächste Stufe",
+"text_orig": "Nächste Stufe",
+"modell": "eleven_v4"
+},
+"satz/d78ff2ad1c": {
+"text": "Silben",
+"text_orig": "Silben",
+"modell": "eleven_v4"
+},
+"satz/3103d10599": {
+"text": "Tastatur umschalten",
+"text_orig": "Tastatur umschalten",
+"modell": "eleven_v4"
+},
+"satz/5e4b6ad299": {
+"text": "Ton",
+"text_orig": "Ton",
+"modell": "eleven_v4"
+},
+"satz/c0b65c9eb1": {
+"text": "Ton ausschalten",
+"text_orig": "Ton ausschalten",
+"modell": "eleven_v4"
+},
+"satz/07bc21afbb": {
+"text": "Wort",
+"text_orig": "Wort",
+"modell": "eleven_v4"
+},
+"satz/8e4806dd48": {
+"text": "Zum Menü",
+"text_orig": "Zum Menü",
+"modell": "eleven_v4"
+},
+"satz/f0b8a73b46": {
+"text": "Zurück zum Menü",
+"text_orig": "Zurück zum Menü",
+"modell": "eleven_v4"
+},
+"satz/bddbebf467": {
+"text": "Zurück zum Album",
+"text_orig": "Zurück zum Album",
+"modell": "eleven_v4"
+},
+"satz/8cd539d6da": {
+"text": "nach oben",
+"text_orig": "nach oben",
+"modell": "eleven_v4"
+},
+"satz/0b3f8a65dd": {
+"text": "nach unten",
+"text_orig": "nach unten",
+"modell": "eleven_v4"
+},
+"satz/6581f65431": {
+"text": "Sticker",
+"text_orig": "Sticker",
+"modell": "eleven_v4"
+},
+"satz/7168c2298d": {
+"text": "Buchstaben entdecken",
+"text_orig": "Buchstaben entdecken",
+"modell": "eleven_v4"
+},
+"satz/3bc7e40e67": {
+"text": "Anfang und Ende",
+"text_orig": "Anfang und Ende",
+"modell": "eleven_v4"
+},
+"satz/dab6967408": {
+"text": "Wörter lesen",
+"text_orig": "Wörter lesen",
+"modell": "eleven_v4"
+},
+"satz/2e59cd17a0": {
+"text": "Sätze lesen",
+"text_orig": "Sätze lesen",
+"modell": "eleven_v4"
+},
+"satz/5e944e767d": {
+"text": "Wörter schreiben",
+"text_orig": "Wörter schreiben",
+"modell": "eleven_v4"
+},
+"satz/f3af3adfb5": {
+"text": "Silben klatschen",
+"text_orig": "Silben klatschen",
+"modell": "eleven_v4"
+},
+"satz/6f903175ab": {
+"text": "Silben-Puzzle",
+"text_orig": "Silben-Puzzle",
+"modell": "eleven_v4"
+},
+"satz/81c5d49be9": {
+"text": "Memory",
+"text_orig": "Memory",
+"modell": "eleven_v4"
+},
+"satz/b9ad7e8275": {
+"text": "Ballon-Jagd",
+"text_orig": "Ballon-Jagd",
+"modell": "eleven_v4"
+},
+"satz/7a29789e90": {
+"text": "Farben malen",
+"text_orig": "Farben malen",
+"modell": "eleven_v4"
+},
+"satz/e8653088b7": {
+"text": "Meine Sticker",
+"text_orig": "Meine Sticker",
+"modell": "eleven_v4"
+},
+"satz/060e20b99a": {
+"text": "Stufe 1, leicht",
+"text_orig": "Stufe 1, leicht",
+"modell": "eleven_v4"
+},
+"satz/18faacea1b": {
+"text": "Stufe 2, mittel",
+"text_orig": "Stufe 2, mittel",
+"modell": "eleven_v4"
+},
+"satz/baa7ec084c": {
+"text": "Stufe 3, schwer",
+"text_orig": "Stufe 3, schwer",
+"modell": "eleven_v4"
+},
+"satz/84a8d595af": {
+"text": "Stufe 2 ist noch gesperrt",
+"text_orig": "Stufe 2 ist noch gesperrt",
+"modell": "eleven_v4"
+},
+"satz/a69e43d696": {
+"text": "Stufe 3 ist noch gesperrt",
+"text_orig": "Stufe 3 ist noch gesperrt",
+"modell": "eleven_v4"
+},
+"satz/fc000682c8": {
+"text": "Du hast schon 61 Sticker gesammelt!",
+"text_orig": "Du hast schon 61 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/3dc8eb9592": {
+"text": "Du hast schon 62 Sticker gesammelt!",
+"text_orig": "Du hast schon 62 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/0631507adb": {
+"text": "Du hast schon 63 Sticker gesammelt!",
+"text_orig": "Du hast schon 63 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/ccecca09da": {
+"text": "Du hast schon 64 Sticker gesammelt!",
+"text_orig": "Du hast schon 64 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/aad6e8a5b2": {
+"text": "Du hast schon 65 Sticker gesammelt!",
+"text_orig": "Du hast schon 65 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/e477389939": {
+"text": "Du hast schon 66 Sticker gesammelt!",
+"text_orig": "Du hast schon 66 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/8242cad2d7": {
+"text": "Du hast schon 67 Sticker gesammelt!",
+"text_orig": "Du hast schon 67 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/9b187983ad": {
+"text": "Du hast schon 68 Sticker gesammelt!",
+"text_orig": "Du hast schon 68 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/2487ed84d2": {
+"text": "Du hast schon 69 Sticker gesammelt!",
+"text_orig": "Du hast schon 69 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/55d3acc615": {
+"text": "Du hast schon 70 Sticker gesammelt!",
+"text_orig": "Du hast schon 70 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/3d6c6fa31e": {
+"text": "Du hast schon 71 Sticker gesammelt!",
+"text_orig": "Du hast schon 71 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/c1e83ca2d2": {
+"text": "Du hast schon 72 Sticker gesammelt!",
+"text_orig": "Du hast schon 72 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/f754349b66": {
+"text": "Du hast schon 73 Sticker gesammelt!",
+"text_orig": "Du hast schon 73 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/886d662d82": {
+"text": "Du hast schon 74 Sticker gesammelt!",
+"text_orig": "Du hast schon 74 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/ed19b0b512": {
+"text": "Du hast schon 75 Sticker gesammelt!",
+"text_orig": "Du hast schon 75 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/9bf5904059": {
+"text": "Du hast schon 76 Sticker gesammelt!",
+"text_orig": "Du hast schon 76 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/6084df052d": {
+"text": "Du hast schon 77 Sticker gesammelt!",
+"text_orig": "Du hast schon 77 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/ef3cad0662": {
+"text": "Du hast schon 78 Sticker gesammelt!",
+"text_orig": "Du hast schon 78 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/2efd64f976": {
+"text": "Du hast schon 79 Sticker gesammelt!",
+"text_orig": "Du hast schon 79 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/6fd71cf4dc": {
+"text": "Du hast schon 80 Sticker gesammelt!",
+"text_orig": "Du hast schon 80 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/5bbc521b01": {
+"text": "Du hast schon 81 Sticker gesammelt!",
+"text_orig": "Du hast schon 81 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/f6ab092b2a": {
+"text": "Du hast schon 82 Sticker gesammelt!",
+"text_orig": "Du hast schon 82 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/72b759294e": {
+"text": "Du hast schon 83 Sticker gesammelt!",
+"text_orig": "Du hast schon 83 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/8874f4dab5": {
+"text": "Du hast schon 84 Sticker gesammelt!",
+"text_orig": "Du hast schon 84 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/0eafa63863": {
+"text": "Du hast schon 85 Sticker gesammelt!",
+"text_orig": "Du hast schon 85 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/a15d7d264d": {
+"text": "Du hast schon 86 Sticker gesammelt!",
+"text_orig": "Du hast schon 86 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/f54ba97bfa": {
+"text": "Du hast schon 87 Sticker gesammelt!",
+"text_orig": "Du hast schon 87 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/a9d78710db": {
+"text": "Du hast schon 88 Sticker gesammelt!",
+"text_orig": "Du hast schon 88 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/a68deb21a4": {
+"text": "Du hast schon 89 Sticker gesammelt!",
+"text_orig": "Du hast schon 89 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/fdffcf81cc": {
+"text": "Du hast schon 90 Sticker gesammelt!",
+"text_orig": "Du hast schon 90 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/858a95ab6f": {
+"text": "Du hast schon 91 Sticker gesammelt!",
+"text_orig": "Du hast schon 91 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/e92569b4ad": {
+"text": "Du hast schon 92 Sticker gesammelt!",
+"text_orig": "Du hast schon 92 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/a5e2e977b5": {
+"text": "Du hast schon 93 Sticker gesammelt!",
+"text_orig": "Du hast schon 93 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/69dd08ef0b": {
+"text": "Du hast schon 94 Sticker gesammelt!",
+"text_orig": "Du hast schon 94 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/9e73dc93e8": {
+"text": "Du hast schon 95 Sticker gesammelt!",
+"text_orig": "Du hast schon 95 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/eb7d12f014": {
+"text": "Du hast schon 96 Sticker gesammelt!",
+"text_orig": "Du hast schon 96 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/e025eb10ef": {
+"text": "Du hast schon 97 Sticker gesammelt!",
+"text_orig": "Du hast schon 97 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/f14f8a3290": {
+"text": "Du hast schon 98 Sticker gesammelt!",
+"text_orig": "Du hast schon 98 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/5b952da85c": {
+"text": "Du hast schon 99 Sticker gesammelt!",
+"text_orig": "Du hast schon 99 Sticker gesammelt!",
+"modell": "eleven_v4"
+},
+"satz/31ce96dfc3": {
+"text": "Du hast schon 100 Sticker gesammelt!",
+"text_orig": "Du hast schon 100 Sticker gesammelt!",
 "modell": "eleven_v4"
 }
 }

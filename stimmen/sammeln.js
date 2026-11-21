@@ -72,9 +72,9 @@
     "Pause.", "Schau auf den Knopf, wenn es weitergehen soll.", "Weiter geht's!",
     "Möchtest du das ABC-Abenteuer beenden?", "Ja oder nein?", "Möchtest du aufhören?", "Dann noch einmal die Tür.",
     "Tschüss!", "Bis bald!", "Schön, dann spielen wir weiter!",
-    "Womit fängt das Wort an?", "Womit fängt es an?", "Was fängt mit diesem Buchstaben an?", "Hör genau auf das Ende!",
-    "Womit hört das Wort auf?", "Hör genau!", "Hör mal.", "Hör zu:", "Hör genau:", "Hör noch einmal genau und klatsch mit.",
-    "Wo ist der Buchstabe?", "Wo ist der Buchstabe", "Hör genau hin: So klingt der Buchstabe.", "Und so heißt der Buchstabe.",
+    "Womit fängt das Wort an?", "Was fängt mit diesem Buchstaben an?", "Welcher Buchstabe fehlt am Ende?",
+    "Hör genau!", "Hör mal.", "Hör zu:", "Hör genau:", "Hör noch einmal genau und klatsch mit.",
+    "Wo ist der Buchstabe?", "Wo ist der Buchstabe", "Hör gut zu!", "Der Buchstabe macht so:", "Und er heißt:",
 "Das ist der Buchstabe", "Wir suchen den Buchstaben",
     "Wir brauchen jetzt den Buchstaben", "Was fängt mit dem Buchstaben", "Lass alle Ballons mit dem Buchstaben", "platzen!",
     "an.", "an?", "auf.", "Was kommt jetzt?", "Lies genau.", "Lies das Wort.", "Welches Bild passt?", "Lies den Satz.",
@@ -91,10 +91,17 @@
     "Schau ihn an, dann erzähle ich dir etwas dazu.", "Toll!", "Schau einen an, dann erzähle ich dir etwas dazu.",
     "Was für ein schöner Sticker!", "Versuch es noch einmal.", "Wir brauchen",
     "Was möchtest du sagen?", "Schreib, was du sagen möchtest.", "Schreib zuerst etwas.", "Da steht noch nichts.",
-    "Alles gelöscht.", "Alles löschen?", "Komma", "Punkt", "Fragezeichen", "scharfes S", "A B C Tastatur", "Quertz Tastatur",
+    "Alles gelöscht.", "Alles löschen?", "Dann wähl den Mülleimer noch einmal.", "Möchtest du noch etwas sagen?", "Komma", "Punkt", "Fragezeichen", "scharfes S", "A B C Tastatur", "Quertz Tastatur",
     "Lies noch einmal genau.", "So laut spreche ich jetzt.", "Tastatur", "Bilder", "Zurück", "Vorlesen", "Groß anzeigen",
+    // Felder, die beim Anschauen vorgelesen werden (data-say in index.html und app.js)
+    "Anfangsbuchstabe", "Fertig", "Weiter", "Ich möchte etwas sagen", "Ja", "Nein", "Noch ein Bild", "Nochmal spielen",
+    "Nächste Stufe", "Silben", "Tastatur umschalten", "Ton", "Ton ausschalten", "Wort", "Zum Menü", "Zurück zum Menü",
+    "Zurück zum Album", "nach oben", "nach unten", "Sticker",
+    "Buchstaben entdecken", "Anfang und Ende", "Wörter lesen", "Sätze lesen", "Wörter schreiben", "Silben klatschen",
+    "Silben-Puzzle", "Memory", "Ballon-Jagd", "Farben malen", "Meine Sticker",
+    "Stufe 1, leicht", "Stufe 2, mittel", "Stufe 3, schwer", "Stufe 2 ist noch gesperrt", "Stufe 3 ist noch gesperrt",
   ].forEach(t => add(1, t));
-  for (let n = 2; n <= 60; n++) add(1, `Du hast schon ${n} Sticker gesammelt!`);
+  for (let n = 2; n <= 100; n++) add(1, `Du hast schon ${n} Sticker gesammelt!`);
   PRAISE.forEach(t => add(1, t));
   ENCOURAGE.forEach(t => t.split(/(?<=[.!?])\s+/).forEach(x => add(1, x)));
   // Mitteil-Tafel: keine Tondateien – dort spricht immer die Windows-Stimme (Wunsch der Nutzerin)

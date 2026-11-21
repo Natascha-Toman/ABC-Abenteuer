@@ -2,6 +2,27 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.5 – 21.11.2026
+
+**Verbessert**
+- Neue Bilder im Noto-Stil: Jause (Jausenbox mit Brot, Apfel und Trinkflasche), Iglu, Fluss,
+  Brot und Creme (Tube).
+- Wo ist der Buchstabe, Stufe 3, kindgerechter: „Hör gut zu! Der Buchstabe macht so: … Und er heißt: …“
+- Leicht verwechselbare Buchstaben (g/k/c/z, b/p, d/t, m/n, i/y, f/v, e/ä) spricht Emil als Laut
+  und mit Namen („i – Ypsilon“).
+- Spiel „Womit fängt es an?“ heißt jetzt „Anfang und Ende“; Stufe 3 fragt „Welcher Buchstabe
+  fehlt am Ende?“ statt „Hör genau auf das Ende!“.
+- Mitteil-Tafel: „Alles löschen? Dann wähl den Mülleimer noch einmal.“ und Emils Nachfrage
+  („Was möchtest du sagen?“ / „Möchtest du noch etwas sagen?“) mit Emils Stimme; die Eule
+  wiederholt nicht mehr den Satz des Kindes.
+- Einstellungen: „Stimme des Kindes (Mitteil-Tafel)“ mit „▶ Stimme testen“ und Erklärung;
+  „Felder vorlesen, sobald der Blick oder die Maus darauf ruht“; kürzere Verweilen-Option mit
+  größeren Kästchen; Pfeiltasten blättern sofort nach dem Öffnen.
+- Vorlesen beim Anschauen (Knöpfe, Spielnamen, Stufen) mit Emils Stimme statt Windows-Stimme.
+- Sticker-Ansage „Du hast schon … Sticker gesammelt!“ als Tondatei bis 100.
+- Beim Start holt sich das Programm in den Vordergrund – auch wenn es aus einem anderen
+  Programm gestartet wird –, damit die Augensteuerung sofort aktiv ist.
+
 ## 4.4 – 21.11.2026
 
 **Verbessert**

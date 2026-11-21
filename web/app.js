@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.4", APP_DATE = "21.11.2026";
+const APP_VERSION = "4.5", APP_DATE = "21.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -469,6 +469,9 @@ function letterClip(L) {
   if (AU_SET.name.has(k)) return `audio/name/${k}.mp3`;
   return null;
 }
+// Laute, die man leicht verwechselt (g/k/c/z, b/p, d/t, m/n, i/y, f/v, e/ä): erst der Laut, dann der Name –
+// so ist eindeutig, welcher Buchstabe gemeint ist (z. B. „i – Ypsilon“ statt nur „i“)
+const AMBIG = new Set("BPDTGKCZMNIYFVEÄ");
 const LETTER_RE = /(^|[\s„"(])([A-ZÄÖÜ])(?=$|[\s.,!?:;“")])/g;
 function speechParts(text) {
   const whole = satzClip(text);
@@ -491,8 +494,10 @@ function speechParts(text) {
     pieces.push(sent.slice(pos));
     for (const p of pieces) {
       if (typeof p === "string") { if (/[A-Za-zÄÖÜäöüß0-9]/.test(p)) chunk(p); else tts(p); continue; }
-      const c = letterClip(p.L);
-      if (c) out.push({ clip: c, text: p.L });
+      const c = letterClip(p.L), k = slugW(p.L);
+      if (c && S.letterVoice !== "name" && AMBIG.has(p.L) && AU_SET.name.has(k) && c.includes("/laut/"))
+        out.push({ clip: c, text: p.L }, { pause: 180 }, { clip: `audio/name/${k}.mp3`, text: LETTER_NAMES[p.L] || p.L });
+      else if (c) out.push({ clip: c, text: p.L });
       else tts(S.letterVoice === "name" ? (LETTER_NAMES[p.L] || p.L) : p.L);
     }
   }
@@ -529,13 +534,13 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
     })();
   });
 }
-// Buchstabe deutlich: erst der Laut, kurze Pause, dann der Name ("Hör genau hin: So klingt der Buchstabe … und so heißt er …")
+// Buchstabe deutlich: erst der Laut, kurze Pause, dann der Name ("Hör gut zu! Der Buchstabe macht so: … Und er heißt: …")
 function sayLautName(L, vorher = "") {
   const k = slugW(L);
   const laut = AU_SET.laut.has(k) ? { clip: `audio/laut/${k}.mp3`, text: L } : { tts: L };
   const name = AU_SET.name.has(k) ? { clip: `audio/name/${k}.mp3`, text: L } : { tts: LETTER_NAMES[L] || L };
-  const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör genau hin: So klingt der Buchstabe."), { pause: 250 }, laut, { pause: 900 },
-                 ...speechParts("Und so heißt der Buchstabe."), { pause: 250 }, name];
+  const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör gut zu! Der Buchstabe macht so:"), { pause: 250 }, laut, { pause: 900 },
+                 ...speechParts("Und er heißt:"), { pause: 250 }, name];
   return say(`So klingt der Buchstabe ${L}`, "talk", 1, { parts });
 }
 // Windows-Sprachausgabe (programmeigene SAPI-Stimme oder Stimme des Browsers)
@@ -1056,6 +1061,13 @@ document.addEventListener("keydown", e => {
   if ($("#settings").classList.contains("show")) {
     if (e.key === "Enter" && e.ctrlKey) { e.preventDefault(); saveSettingsNow(); }
     else if (e.key === "Escape") { e.preventDefault(); closeSettings(); }
+    else if (/^(ArrowUp|ArrowDown|PageUp|PageDown|Home|End)$/.test(e.key) && !e.target.closest("input, select, textarea")) {
+      // Pfeiltasten blättern im Einstellungsfenster (auch direkt nach dem Öffnen)
+      e.preventDefault();
+      const pn = $("#settings .panel"), step = /Page/.test(e.key) ? pn.clientHeight * 0.85 : 60;
+      if (e.key === "Home") pn.scrollTop = 0; else if (e.key === "End") pn.scrollTop = pn.scrollHeight;
+      else pn.scrollBy({ top: /Up/.test(e.key) ? -step : step, behavior: "smooth" });
+    }
     return;
   }
   if ((e.key === " " || e.key === "Enter") && Gaze.target) { e.preventDefault(); fire(Gaze.target); }
@@ -1116,7 +1128,7 @@ const ICON_ABC = svg(`<text x="50" y="68" font-size="44" font-weight="700" text-
 const ICON_MEMORY = `<svg viewBox="6 12 88 76" width="1.15em" height="1em" style="vertical-align:-0.12em">` + (`<g transform="rotate(-12 34 52)"><rect x="12" y="22" width="42" height="58" rx="8" fill="#9b72cf" stroke="#6b4aa0" stroke-width="3"/><text x="33" y="64" font-size="34" font-weight="700" text-anchor="middle" fill="#fff" font-family="Andika, sans-serif">?</text></g><g transform="rotate(10 66 50)"><rect x="44" y="20" width="42" height="58" rx="8" fill="#fff" stroke="#4d96ff" stroke-width="3"/><text x="65" y="62" font-size="32" font-weight="700" text-anchor="middle" fill="#4d96ff" font-family="Andika, sans-serif">A</text></g>`) + "</svg>";
 const GAMES = [
   { id: "explore", ico: ICON_ABC, name: "Buchstaben entdecken" },
-  { id: "anlaut",  ico: "🍎", name: "Womit fängt es an?" },
+  { id: "anlaut",  ico: "🍎", name: "Anfang und Ende" },
   { id: "hear",    ico: "👂", name: "Hör genau!" },
   { id: "read",    ico: "📖", name: "Wörter lesen" },
   { id: "sent",    ico: "📜", name: "Sätze lesen" },
@@ -1352,9 +1364,9 @@ function anlautEnd(t, used, c) {
     content: `<div style="display:flex;flex-direction:column;align-items:center;gap:${u(1)}">
         <div class="bigpic">${w.e}</div>
         <div class="bigword" style="font-size:${u(9)}">${esc(word.slice(0, -1))}<span id="aq" style="color:var(--orange)">?</span></div></div>`,
-    bubble: "Hör genau auf das Ende! Womit hört das Wort auf?", letter: L,
+    bubble: "Welcher Buchstabe fehlt am Ende?", letter: L,
     options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L })),
-    speak: () => say(`Hör genau auf das Ende! Womit ${hv} ${art(w)} auf?`),
+    speak: () => say(`Welcher Buchstabe fehlt am Ende? Womit ${hv} ${art(w)} auf?`),
     onWrong: () => `${pick(ENCOURAGE)} Hör genau: ${w.w}.`,
     onRight: async () => { $("#aq").textContent = word[word.length - 1]; await say(`${pick(PRAISE)} ${cap(art(w))} ${hv} mit dem Buchstaben ${LN(L)} auf.`); },
   });
@@ -2801,7 +2813,8 @@ function bindSettings() {
   mn.value = S.manualNext ? "1" : "0";
   mn.onchange = () => { S.manualNext = mn.value === "1"; saveS(); };
   $("#setVoice").onchange = e => { S.voice = e.target.value; saveS(); };
-  $("#btnTestVoice").onclick = () => say("Hallo! Ich bin Emil, die Eule. Womit fängt die Maus an?", "talk", 1, { force: true });
+  // testet die gewählte Stimme des Kindes (Mitteil-Tafel) – nicht Emils Tondateien
+  $("#btnTestVoice").onclick = () => say("Hallo! So klinge ich, wenn ich in der Mitteil-Tafel etwas sagen möchte.", "talk", 1, { force: true, tts: true });
 
   // Buchstaben auswählen: einzeln ankreuzen oder mit den Knöpfen (alle, keine, Selbstlaute …)
   const VOWELS = ["A", "E", "I", "O", "U"];
@@ -2883,6 +2896,8 @@ function bindSettings() {
     $("#savedNote").textContent = "";
     $("#settings").classList.add("show");
     $("#settings .panel").scrollTop = 0;
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();   // Pfeiltasten blättern sofort
+    $("#settings .panel").focus({ preventScroll: true });
   };
   $("#btnSaveSettings").onclick = saveSettingsNow;
   $("#btnManual").onclick = () => { if (Native.on) Native.post({ t: "manual" }); else window.open("../Anleitung.html", "_blank"); };
@@ -2975,9 +2990,9 @@ function init() {
   document.querySelectorAll(".mutebtn").forEach(b => onSelect(b, toggleMute));
   document.querySelectorAll(".talkbtn").forEach(b => onSelect(b, openTalk));
   onSelect($("#talkBack"), closeTalk);
-  onSelect($("#talkRepeat"), () => Talk.last
-    ? say(Talk.last.text, "talk", 1, { force: true, tts: true })
-    : say("Was möchtest du sagen?", "talk", 1, { force: true }));
+  // Emil (🦉) fragt nach – wurde schon etwas gesagt: ob das Kind noch etwas sagen möchte
+  onSelect($("#talkRepeat"), () => say(Talk.last ? "Möchtest du noch etwas sagen?"
+    : $("#talk").classList.contains("kb") ? "Schreib, was du sagen möchtest." : "Was möchtest du sagen?", "talk", 1, { force: true }));
   onSelect($("#btnHome"), () => goMenu());
   onSelect($("#btnAlbumHome"), () => { if (svOpen()) closeSticker(); else goMenu(); });
   onSelect($("#btnAlbumSay"), () => { if (svOpen()) openSticker(SV.e); else albumSay(); });
@@ -3008,7 +3023,7 @@ function init() {
     if (!Talk.typed) { kbSay("Da steht noch nichts."); return; }
     clearArmed = now; clearBtn.classList.add("armed");
     Gaze.firedEl = null; Gaze.cool = false; Gaze.start = performance.now();
-    kbSay("Alles löschen? Dann noch einmal.");
+    kbSay("Alles löschen? Dann wähl den Mülleimer noch einmal.");
     setTimeout(() => { if (performance.now() - clearArmed >= 7900) clearBtn.classList.remove("armed"); }, 8000);
   });
   onSelect($("#talkLayoutBtn"), () => {
