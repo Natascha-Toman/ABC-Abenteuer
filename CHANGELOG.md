@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.13 – 22.11.2026
+
+**Verbessert**
+- Laut o: klares, leicht gezogenes „O“ ohne Hauch (aus der Silbe „O“ von „Ofen“). Laute können
+  dafür jetzt auch WAV-Dateien sein.
+
 ## 4.12 – 22.11.2026
 
 **Verbessert**
