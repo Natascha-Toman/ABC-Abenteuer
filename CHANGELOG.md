@@ -2,6 +2,15 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.11 – 22.11.2026
+
+**Verbessert**
+- Aussprache nach dem Bericht des Aussprache-Prüfers, nach Gehör ausgewählt: Laute a, w, q;
+  Wörter Cowboy, Kuh, Ei, Otter, Pilz; 24 Sätze (z. B. „wie Wal“, „die Gitarre“, „der Käse“);
+  Silben von 37 Wörtern (z. B. Apfel, Baum, Biene, Wecker, Zebra).
+- Dunkler Hintergrund: weiße Umrandung um die Bilder statt hellem Schein.
+- Auswahlseite für Tondateien mit Tastaturbefehlen (Zahlen, Enter, Tab).
+
 ## 4.10 – 22.11.2026
 
 **Verbessert**

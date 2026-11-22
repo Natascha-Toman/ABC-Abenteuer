@@ -580,8 +580,8 @@ body.dark .topbar .title, body.dark #start .ver, body.dark #menu .title { color:
 body.dark .progress, body.dark #album .empty { color: #e6ebff; }
 body.dark #explore, body.dark #stickerView { background: rgba(30,45,82,.97); }
 body.dark #talk { background: #1e2d52; }
-/* Bilder direkt auf dem dunklen Hintergrund: heller Schein, damit dunkle Bilder (Igel, Gorilla …) gut sichtbar bleiben */
-body.dark .bigpic { filter: drop-shadow(0 0 calc(.5 * var(--u)) rgba(255,255,255,.9)) drop-shadow(0 0 calc(1.5 * var(--u)) rgba(255,255,255,.35)); }
+/* Bilder direkt auf dem dunklen Hintergrund: weiße Umrandung, damit dunkle Bilder (Igel, Gorilla …) gut sichtbar bleiben */
+body.dark .bigpic { --o: calc(.3 * var(--u)); filter: drop-shadow(var(--o) 0 0 #fff) drop-shadow(calc(-1 * var(--o)) 0 0 #fff) drop-shadow(0 var(--o) 0 #fff) drop-shadow(0 calc(-1 * var(--o)) 0 #fff); }
 #album .stickers div.empty { background: transparent; font-size: calc(4.5 * var(--u)); grid-row: span 3; }
 body.dark .bigletter { background: #fff; border-radius: var(--radius); padding: 0 calc(2 * var(--w)); }
 /* Dunkel: Sterne-Leiste, kleine Knöpfe unten im Menü */

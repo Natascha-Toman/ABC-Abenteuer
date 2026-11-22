@@ -2,7 +2,7 @@
 "laut/a": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"aː\">a</phoneme>.",
 "text_orig": "<phoneme alphabet=\"ipa\" ph=\"aː\">a</phoneme>.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "laut/b": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"bə\">b</phoneme>.",
@@ -80,8 +80,8 @@
 "modell": "eleven_v4"
 },
 "laut/q": {
-"text": "<phoneme alphabet=\"ipa\" ph=\"kvə\">q</phoneme>.",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kvə\">q</phoneme>.",
+"text": "<phoneme alphabet=\"ipa\" ph=\"kv\">q</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"kv\">q</phoneme>.",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "laut/r": {
@@ -112,7 +112,7 @@
 "laut/w": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"vː\">w</phoneme>.",
 "text_orig": "<phoneme alphabet=\"ipa\" ph=\"vː\">w</phoneme>.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "laut/x": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ks\">x</phoneme>.",
@@ -785,9 +785,9 @@
 "modell": "eleven_v4"
 },
 "wort/pilz": {
-"text": "Pilz.",
-"text_orig": "Pilz.",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈpɪlts\">Pilz</phoneme>.",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈpɪlts\">Pilz</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "wort/pinguin": {
 "text": "Pinguin.",
@@ -2177,7 +2177,7 @@
 "silben/apfel": {
 "text": "Apfel. Ap – fel.",
 "text_orig": "Apfel. Ap – fel.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/ameise": {
 "text": "Ameise. A – mei – se.",
@@ -2227,7 +2227,7 @@
 "silben/baum": {
 "text": "Baum. Baum.",
 "text_orig": "Baum. Baum.",
-"modell": "eleven_v4 (Auswahl 1)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/baer": {
 "text": "Bär. Bär.",
@@ -2237,7 +2237,7 @@
 "silben/biene": {
 "text": "Biene. Bie – ne.",
 "text_orig": "Biene. Bie – ne.",
-"modell": "eleven_v4 (Auswahl 3)"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/buch": {
 "text": "Buch. Buch.",
@@ -2252,7 +2252,7 @@
 "silben/bluete": {
 "text": "Blüte. Blü – te.",
 "text_orig": "Blüte. Blü – te.",
-"modell": "eleven_v4 (Auswahl 3)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/brot": {
 "text": "Brot. Brot.",
@@ -2272,12 +2272,12 @@
 "silben/bein": {
 "text": "Bein. Bein.",
 "text_orig": "Bein. Bein.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/brille": {
 "text": "Brille. Bril – le.",
 "text_orig": "Brille. Bril – le.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/brief": {
 "text": "Brief. Brief.",
@@ -2297,7 +2297,7 @@
 "silben/chor": {
 "text": "Chor. Chor.",
 "text_orig": "Chor. Chor.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/comic": {
 "text": "Comic. Co – mic.",
@@ -2322,12 +2322,12 @@
 "silben/drache": {
 "text": "Drache. Dra – che.",
 "text_orig": "Drache. Dra – che.",
-"modell": "eleven_v4 (Auswahl 1)"
+"modell": "eleven_v4 (Auswahl 16)"
 },
 "silben/dusche": {
 "text": "Dusche. Du – sche.",
 "text_orig": "Dusche. Du – sche.",
-"modell": "eleven_v4 (Auswahl 3)"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/dach": {
 "text": "Dach. Dach.",
@@ -2337,7 +2337,7 @@
 "silben/dose": {
 "text": "Dose. Do – se.",
 "text_orig": "Dose. Do – se.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/ente": {
 "text": "Ente. En – te.",
@@ -2362,7 +2362,7 @@
 "silben/esel": {
 "text": "Esel. E – sel.",
 "text_orig": "Esel. E – sel.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/eis": {
 "text": "Eis. Eis.",
@@ -2372,7 +2372,7 @@
 "silben/ei": {
 "text": "Ei. Ei.",
 "text_orig": "Ei. Ei.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/fisch": {
 "text": "Fisch. Fisch.",
@@ -2492,7 +2492,7 @@
 "silben/hai": {
 "text": "Hai. Hai.",
 "text_orig": "Hai. Hai.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/igel": {
 "text": "Igel. I – gel.",
@@ -2542,7 +2542,7 @@
 "silben/jause": {
 "text": "Jause. Jau – se.",
 "text_orig": "Jause. Jau – se.",
-"modell": "eleven_v4 (Auswahl 8)"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/katze": {
 "text": "Katze. Kat – ze.",
@@ -2552,7 +2552,7 @@
 "silben/kuh": {
 "text": "Kuh. Kuh.",
 "text_orig": "Kuh. Kuh.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/kaese": {
 "text": "Käse. Kä – se.",
@@ -2592,7 +2592,7 @@
 "silben/kirsche": {
 "text": "Kirsche. Kir – sche.",
 "text_orig": "Kirsche. Kir – sche.",
-"modell": "eleven_v4 (Auswahl 3)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/kiwi": {
 "text": "Kiwi. Ki – wi.",
@@ -2612,7 +2612,7 @@
 "silben/loewe": {
 "text": "Löwe. Lö – we.",
 "text_orig": "Löwe. Lö – we.",
-"modell": "eleven_v4 (Auswahl 1)"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/loeffel": {
 "text": "Löffel. Löf – fel.",
@@ -2637,7 +2637,7 @@
 "silben/leiter": {
 "text": "Leiter. Lei – ter.",
 "text_orig": "Leiter. Lei – ter.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 16)"
 },
 "silben/lampe": {
 "text": "Lampe. Lam – pe.",
@@ -2682,7 +2682,7 @@
 "silben/nase": {
 "text": "Nase. Na – se.",
 "text_orig": "Nase. Na – se.",
-"modell": "eleven_v4 (Auswahl 7)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/nudeln": {
 "text": "Nudeln. Nu – deln.",
@@ -2712,7 +2712,7 @@
 "silben/oma": {
 "text": "Oma. O – ma.",
 "text_orig": "Oma. O – ma.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/opa": {
 "text": "Opa. O – pa.",
@@ -2722,7 +2722,7 @@
 "silben/ohr": {
 "text": "Ohr. Ohr.",
 "text_orig": "Ohr. Ohr.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/otter": {
 "text": "Otter. Ot – ter.",
@@ -2752,7 +2752,7 @@
 "silben/pferd": {
 "text": "Pferd. Pferd.",
 "text_orig": "Pferd. Pferd.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/pizza": {
 "text": "Pizza. Piz – za.",
@@ -2767,7 +2767,7 @@
 "silben/papagei": {
 "text": "Papagei. Pa – pa – gei.",
 "text_orig": "Papagei. Pa – pa – gei.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 16)"
 },
 "silben/palme": {
 "text": "Palme. Pal – me.",
@@ -2877,7 +2877,7 @@
 "silben/traktor": {
 "text": "Traktor. Trak – tor.",
 "text_orig": "Traktor. Trak – tor.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/tuer": {
 "text": "Tür. Tür.",
@@ -2892,17 +2892,17 @@
 "silben/ufo": {
 "text": "Ufo. U – fo.",
 "text_orig": "Ufo. U – fo.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/uboot": {
 "text": "U-Boot. U – Boot.",
 "text_orig": "U-Boot. U – Boot.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/ubahn": {
 "text": "U-Bahn. U – Bahn.",
 "text_orig": "U-Bahn. U – Bahn.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/vogel": {
 "text": "Vogel. Vo – gel.",
@@ -2947,7 +2947,7 @@
 "silben/wuerfel": {
 "text": "Würfel. Wür – fel.",
 "text_orig": "Würfel. Wür – fel.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/welle": {
 "text": "Welle. Wel – le.",
@@ -2957,7 +2957,7 @@
 "silben/wecker": {
 "text": "Wecker. We – cker.",
 "text_orig": "Wecker. We – cker.",
-"modell": "eleven_v4 (Auswahl 15)"
+"modell": "eleven_v4 (Auswahl 18)"
 },
 "silben/wald": {
 "text": "Wald. Wald.",
@@ -2977,7 +2977,7 @@
 "silben/zebra": {
 "text": "Zebra. Ze – bra.",
 "text_orig": "Zebra. Ze – bra.",
-"modell": "eleven_v4 (Auswahl 4)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/zug": {
 "text": "Zug. Zug.",
@@ -2992,7 +2992,7 @@
 "silben/zelt": {
 "text": "Zelt. Zelt.",
 "text_orig": "Zelt. Zelt.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/zahn": {
 "text": "Zahn. Zahn.",
@@ -3002,12 +3002,12 @@
 "silben/ziege": {
 "text": "Ziege. Zie – ge.",
 "text_orig": "Ziege. Zie – ge.",
-"modell": "eleven_v4 (Auswahl 8)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/zirkus": {
 "text": "Zirkus. Zir – kus.",
 "text_orig": "Zirkus. Zir – kus.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/zauberer": {
 "text": "Zauberer. Zau – be – rer.",
@@ -3017,12 +3017,12 @@
 "silben/zylinder": {
 "text": "Zylinder. Zy – lin – der.",
 "text_orig": "Zylinder. Zy – lin – der.",
-"modell": "eleven_v4 (Auswahl 4)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/einhorn": {
 "text": "Einhorn. Ein – horn.",
 "text_orig": "Einhorn. Ein – horn.",
-"modell": "eleven_v4 (Auswahl 2)"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/schmetterling": {
 "text": "Schmetterling. Schmet – ter – ling.",
@@ -3037,12 +3037,12 @@
 "silben/saurier": {
 "text": "Saurier. Sau – ri – er.",
 "text_orig": "Saurier. Sau – ri – er.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 16)"
 },
 "silben/krake": {
 "text": "Krake. Kra – ke.",
 "text_orig": "Krake. Kra – ke.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "silben/funkelstern": {
 "text": "Funkelstern. Fun – kel – stern.",
@@ -3062,7 +3062,7 @@
 "silben/schildkroete": {
 "text": "Schildkröte. Schild – krö – te.",
 "text_orig": "Schildkröte. Schild – krö – te.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 13)"
 },
 "silben/schleife": {
 "text": "Schleife. Schlei – fe.",
@@ -3092,7 +3092,7 @@
 "silben/unterhose": {
 "text": "Unterhose. Un – ter – ho – se.",
 "text_orig": "Unterhose. Un – ter – ho – se.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 15)"
 },
 "satz/aedb644277": {
 "text": "Der Apfel fängt mit dem Buchstaben",
@@ -3600,9 +3600,9 @@
 "modell": "eleven_v4"
 },
 "satz/afe94e7119": {
-"text": "wie Brille.",
-"text_orig": "wie Brille.",
-"modell": "eleven_v4"
+"text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈbʁɪlə\">Brille</phoneme>.",
+"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈbʁɪlə\">Brille</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/7ec33419e0": {
 "text": "Da steht Brille.",
@@ -3735,9 +3735,9 @@
 "modell": "eleven_v4"
 },
 "satz/f358ead14f": {
-"text": "die Creme",
-"text_orig": "die Creme",
-"modell": "eleven_v4"
+"text": "die <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme>",
+"text_orig": "die <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/d4d702ae8f": {
 "text": "Womit fängt die Creme an?",
@@ -4010,9 +4010,9 @@
 "modell": "eleven_v4"
 },
 "satz/dc69f006d9": {
-"text": "der Esel",
-"text_orig": "der Esel",
-"modell": "eleven_v4"
+"text": "der <phoneme alphabet=\"ipa\" ph=\"ˈeːzəl\">Esel</phoneme>",
+"text_orig": "der <phoneme alphabet=\"ipa\" ph=\"ˈeːzəl\">Esel</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/9b544a620f": {
 "text": "Womit fängt der Esel an?",
@@ -4360,9 +4360,9 @@
 "modell": "eleven_v4"
 },
 "satz/e5947e3b02": {
-"text": "die Gitarre",
-"text_orig": "die Gitarre",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"diː\">die</phoneme> <phoneme alphabet=\"ipa\" ph=\"ɡiːˈtaʁə\">Gitarre</phoneme>",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"diː\">die</phoneme> <phoneme alphabet=\"ipa\" ph=\"ɡiːˈtaʁə\">Gitarre</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/4f330d6d0b": {
 "text": "Womit fängt die Gitarre an?",
@@ -4675,9 +4675,9 @@
 "modell": "eleven_v4"
 },
 "satz/3262f92410": {
-"text": "wie Hai.",
-"text_orig": "wie Hai.",
-"modell": "eleven_v4"
+"text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈhaɪ\">Hai</phoneme>.",
+"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈhaɪ\">Hai</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/2900e3cb7e": {
 "text": "Da steht Hai.",
@@ -4735,9 +4735,9 @@
 "modell": "eleven_v4"
 },
 "satz/9d52448a0a": {
-"text": "das Iglu",
-"text_orig": "das Iglu",
-"modell": "eleven_v4"
+"text": "das <phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme>",
+"text_orig": "das <phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/18a69c198c": {
 "text": "Womit fängt das Iglu an?",
@@ -4970,9 +4970,9 @@
 "modell": "eleven_v4"
 },
 "satz/6001f19fd5": {
-"text": "der Käse",
-"text_orig": "der Käse",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"dɛʁ\">der</phoneme> <phoneme alphabet=\"ipa\" ph=\"ˈkɛːzə\">Käse</phoneme>",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"dɛʁ\">der</phoneme> <phoneme alphabet=\"ipa\" ph=\"ˈkɛːzə\">Käse</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/1496c63f21": {
 "text": "Womit fängt der Käse an?",
@@ -5045,9 +5045,9 @@
 "modell": "eleven_v4"
 },
 "satz/b1fc193329": {
-"text": "die Kerze",
-"text_orig": "die Kerze",
-"modell": "eleven_v4"
+"text": "die <phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme>",
+"text_orig": "die <phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/a6e78c632c": {
 "text": "Womit fängt die Kerze an?",
@@ -6230,9 +6230,9 @@
 "modell": "eleven_v4"
 },
 "satz/9a5a8edf1f": {
-"text": "wie Ring.",
-"text_orig": "wie Ring.",
-"modell": "eleven_v4"
+"text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈʁɪŋ\">Ring</phoneme>.",
+"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈʁɪŋ\">Ring</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/57d6482a66": {
 "text": "Da steht Ring.",
@@ -6890,9 +6890,9 @@
 "modell": "eleven_v4"
 },
 "satz/90d7004925": {
-"text": "der Wal",
-"text_orig": "der Wal",
-"modell": "eleven_v4"
+"text": "der <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>",
+"text_orig": "der <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/ae59c57d29": {
 "text": "Womit fängt der Wal an?",
@@ -6905,14 +6905,14 @@
 "modell": "eleven_v4"
 },
 "satz/96d1e4ea77": {
-"text": "wie Wal.",
-"text_orig": "wie Wal.",
-"modell": "eleven_v4"
+"text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
+"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/90706c9ecb": {
-"text": "Da steht Wal.",
-"text_orig": "Da steht Wal.",
-"modell": "eleven_v4"
+"text": "Da steht <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
+"text_orig": "Da steht <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/e459815ae2": {
 "text": "die Wolke",
@@ -7860,9 +7860,9 @@
 "modell": "eleven_v4"
 },
 "satz/c0f4650e49": {
-"text": "Katze und Brot",
-"text_orig": "Katze und Brot",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Brot",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Brot",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/bcddef683a": {
 "text": "Die Katze hat ein Buch.",
@@ -7880,9 +7880,9 @@
 "modell": "eleven_v4"
 },
 "satz/275040345b": {
-"text": "Katze und Hut",
-"text_orig": "Katze und Hut",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Hut",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Hut",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/43ee506bf6": {
 "text": "Die Katze hat einen Ring.",
@@ -9955,9 +9955,9 @@
 "modell": "eleven_v4"
 },
 "satz/70e88e0473": {
-"text": "Das ist der Apfel!",
-"text_orig": "Das ist der Apfel!",
-"modell": "eleven_v4"
+"text": "Das ist der <phoneme alphabet=\"ipa\" ph=\"ˈapfəl\">Apfel</phoneme>!",
+"text_orig": "Das ist der <phoneme alphabet=\"ipa\" ph=\"ˈapfəl\">Apfel</phoneme>!",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/3aab0156f8": {
 "text": "Lege das Wort Apfel.",
@@ -11062,7 +11062,7 @@
 "satz/ea23b948dd": {
 "text": "Lege das Wort Fee.",
 "text_orig": "Lege das Wort Fee.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/0a98942758": {
 "text": "Wo steht Flugzeug?",
@@ -13772,7 +13772,7 @@
 "satz/1477085060": {
 "text": "Lege das Wort Wal.",
 "text_orig": "Lege das Wort Wal.",
-"modell": "eleven_v4"
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/c73f3c88d4": {
 "text": "Wo steht Wolke?",
@@ -18635,9 +18635,9 @@
 "modell": "eleven_v4"
 },
 "satz/313fae9ec1": {
-"text": "Du hast Creme geschrieben!",
-"text_orig": "Du hast Creme geschrieben!",
-"modell": "eleven_v4"
+"text": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme> geschrieben!",
+"text_orig": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme> geschrieben!",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/7c22d2a8b8": {
 "text": "Womit hört die Creme auf?",
@@ -19175,9 +19175,9 @@
 "modell": "eleven_v4"
 },
 "satz/c46642c4c5": {
-"text": "Du hast Fee geschrieben!",
-"text_orig": "Du hast Fee geschrieben!",
-"modell": "eleven_v4"
+"text": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> geschrieben!",
+"text_orig": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> geschrieben!",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/ba2382dd54": {
 "text": "Womit hört die Fee auf?",
@@ -19190,9 +19190,9 @@
 "modell": "eleven_v4"
 },
 "satz/802815c8e0": {
-"text": "Fee fängt mit",
-"text_orig": "Fee fängt mit",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> fängt mit",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> fängt mit",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/f24860bc71": {
 "text": "Fee hat eine Silbe.",
@@ -19850,9 +19850,9 @@
 "modell": "eleven_v4"
 },
 "satz/10fd329cf1": {
-"text": "Iglu fängt mit",
-"text_orig": "Iglu fängt mit",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme> fängt mit",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme> fängt mit",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/7009e7311a": {
 "text": "Iglu hat 2 Silben.",
@@ -20095,9 +20095,9 @@
 "modell": "eleven_v4"
 },
 "satz/9004b69c4c": {
-"text": "Du hast Kuh geschrieben!",
-"text_orig": "Du hast Kuh geschrieben!",
-"modell": "eleven_v4"
+"text": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkuː\">Kuh</phoneme> geschrieben!",
+"text_orig": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkuː\">Kuh</phoneme> geschrieben!",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/9e3720c843": {
 "text": "Womit hört die Kuh auf?",
@@ -20230,9 +20230,9 @@
 "modell": "eleven_v4"
 },
 "satz/1f0f9e804a": {
-"text": "Kerze fängt mit",
-"text_orig": "Kerze fängt mit",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme> fängt mit",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme> fängt mit",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/bfe0878a93": {
 "text": "Kerze hat 2 Silben.",
@@ -22450,9 +22450,9 @@
 "modell": "eleven_v4"
 },
 "satz/8ec3f15c46": {
-"text": "Wal fängt mit",
-"text_orig": "Wal fängt mit",
-"modell": "eleven_v4"
+"text": "<phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme> fängt mit",
+"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme> fängt mit",
+"modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/465a059bb7": {
 "text": "Wal hat eine Silbe.",

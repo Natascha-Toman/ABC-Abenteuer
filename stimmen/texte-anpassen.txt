@@ -11,13 +11,40 @@
 # wort/cap = Käp.
 wort/apfel = <phoneme alphabet="ipa" ph="ˈapfəl">Apfel</phoneme>.
 wort/braun = <phoneme alphabet="ipa" ph="ˈbʁaʊn">Braun</phoneme>.
-wort/cowboy = <phoneme alphabet="ipa" ph="ˈkaʊbɔʏ">Cowboy</phoneme>.
-wort/kuh = <phoneme alphabet="ipa" ph="ˈkuː">Kuh</phoneme>.
 laut/m = <phoneme alphabet="ipa" ph="mə">m</phoneme>.
-laut/q = <phoneme alphabet="ipa" ph="kvə">q</phoneme>.
 laut/ue = <phoneme alphabet="ipa" ph="ˈy">ü</phoneme>.
 name/m = <phoneme alphabet="ipa" ph="ɛm">M</phoneme>.
 wort/blau = <phoneme alphabet="ipa" ph="ˈblaʊ">Blau</phoneme>.
-wort/ei = <phoneme alphabet="ipa" ph="ˈaɪ">Ei</phoneme>.
 wort/kamel = <phoneme alphabet="ipa" ph="kaˈmeːl">Kamel</phoneme>.
+laut/a = <phoneme alphabet="ipa" ph="aː">a</phoneme>.
+laut/w = <phoneme alphabet="ipa" ph="vː">w</phoneme>.
+laut/q = <phoneme alphabet="ipa" ph="kv">q</phoneme>.
+wort/cowboy = <phoneme alphabet="ipa" ph="ˈkaʊbɔʏ">Cowboy</phoneme>.
+wort/kuh = <phoneme alphabet="ipa" ph="ˈkuː">Kuh</phoneme>.
+wort/ei = <phoneme alphabet="ipa" ph="ˈaɪ">Ei</phoneme>.
 wort/otter = <phoneme alphabet="ipa" ph="ˈɔtɐ">Otter</phoneme>.
+wort/pilz = <phoneme alphabet="ipa" ph="ˈpɪlts">Pilz</phoneme>.
+satz/275040345b = <phoneme alphabet="ipa" ph="ˈkatsə">Katze</phoneme> und Hut
+satz/3262f92410 = wie <phoneme alphabet="ipa" ph="ˈhaɪ">Hai</phoneme>.
+satz/90d7004925 = der <phoneme alphabet="ipa" ph="ˈvaːl">Wal</phoneme>
+satz/96d1e4ea77 = wie <phoneme alphabet="ipa" ph="ˈvaːl">Wal</phoneme>.
+satz/9d52448a0a = das <phoneme alphabet="ipa" ph="ˈɪɡluː">Iglu</phoneme>
+satz/e5947e3b02 = <phoneme alphabet="ipa" ph="diː">die</phoneme> <phoneme alphabet="ipa" ph="ɡiːˈtaʁə">Gitarre</phoneme>
+satz/f358ead14f = die <phoneme alphabet="ipa" ph="ˈkreːm">Creme</phoneme>
+satz/10fd329cf1 = <phoneme alphabet="ipa" ph="ˈɪɡluː">Iglu</phoneme> fängt mit
+satz/1f0f9e804a = <phoneme alphabet="ipa" ph="ˈkɛʁtsə">Kerze</phoneme> fängt mit
+satz/313fae9ec1 = Du hast <phoneme alphabet="ipa" ph="ˈkreːm">Creme</phoneme> geschrieben!
+satz/6001f19fd5 = <phoneme alphabet="ipa" ph="dɛʁ">der</phoneme> <phoneme alphabet="ipa" ph="ˈkɛːzə">Käse</phoneme>
+satz/70e88e0473 = Das ist der <phoneme alphabet="ipa" ph="ˈapfəl">Apfel</phoneme>!
+satz/802815c8e0 = <phoneme alphabet="ipa" ph="ˈfeː">Fee</phoneme> fängt mit
+satz/8ec3f15c46 = <phoneme alphabet="ipa" ph="ˈvaːl">Wal</phoneme> fängt mit
+satz/9004b69c4c = Du hast <phoneme alphabet="ipa" ph="ˈkuː">Kuh</phoneme> geschrieben!
+satz/90706c9ecb = Da steht <phoneme alphabet="ipa" ph="ˈvaːl">Wal</phoneme>.
+satz/9a5a8edf1f = wie <phoneme alphabet="ipa" ph="ˈʁɪŋ">Ring</phoneme>.
+satz/afe94e7119 = wie <phoneme alphabet="ipa" ph="ˈbʁɪlə">Brille</phoneme>.
+satz/b1fc193329 = die <phoneme alphabet="ipa" ph="ˈkɛʁtsə">Kerze</phoneme>
+satz/c0f4650e49 = <phoneme alphabet="ipa" ph="ˈkatsə">Katze</phoneme> und Brot
+satz/c46642c4c5 = Du hast <phoneme alphabet="ipa" ph="ˈfeː">Fee</phoneme> geschrieben!
+satz/dc69f006d9 = der <phoneme alphabet="ipa" ph="ˈeːzəl">Esel</phoneme>
+satz/1477085060 = Lege das Wort Wal.
+satz/ea23b948dd = Lege das Wort Fee.
