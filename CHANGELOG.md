@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.12 – 22.11.2026
+
+**Verbessert**
+- Silben von Comic, Drache, Ofen (O stärker betont) und Pizza neu ausgewählt.
+
 ## 4.11 – 22.11.2026
 
 **Verbessert**
