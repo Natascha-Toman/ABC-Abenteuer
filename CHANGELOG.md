@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.16 – 22.11.2026
+
+**Verbessert**
+- Laut u: klares „U“ aus der Silbe „U“ von „Ufo“ (WAV).
+
 ## 4.15 – 22.11.2026
 
 **Behoben**
