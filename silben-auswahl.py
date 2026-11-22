@@ -80,6 +80,22 @@ def fassungen3(slug, t):
 #   13, 14 mit "langsam und deutlich"   15 ohne   16 mit Kommas
 SPRICH = {}
 
+# Runde 5 (--runde 5): Lautschrift-Hilfen aus dem Bericht des Aussprache-Prüfers (22.11.2026),
+#   nummeriert nach der höchsten vorhandenen Fassung:
+#   a) langsam und deutlich + Lautschrift   b) Lautschrift   c) langsam und deutlich   d) neue Aufnahme
+HILFE5 = {}
+
+
+def fassungen5(slug, t):
+    wort, syl = teile_text(t)
+    s5 = " – ".join(mit_ipa(syl, HILFE5.get(slug, {})))
+    s = " – ".join(syl)
+    return [(f"[langsam und deutlich] {wort}. {s5}. {wort}.", True), (f"{wort}. {s5}. {wort}.", True),
+            (f"[langsam und deutlich] {wort}. {s}. {wort}.", True), (f"{wort}. {s}. {wort}.", True)]
+
+
+NEU_AB = {}                                        # Seite: nur "bisher" und die neuen Fassungen zeigen
+
 
 def fassungen4(slug, t):
     wort, syl = teile_text(t)
@@ -137,6 +153,28 @@ def datei_zeilen(ids):
     return rows
 
 
+
+# Tastatur auf der Auswahlseite: Zahl = Fassung anhören (0 = bisher, 1 = erste Spalte daneben …),
+# Enter = zuletzt angehörte Fassung auswählen, Tab / Umschalt+Tab = nächstes / voriges Wort
+TASTEN_JS = ("const rows=[...document.querySelectorAll('table tr')];let row=0,col=null;"
+    "function go(i){rows[row].classList.remove('cur');row=Math.max(0,Math.min(rows.length-1,i));col=null;"
+    "rows[row].classList.add('cur');rows[row].scrollIntoView({block:'center'});"
+    "rows[row].querySelectorAll('td.pick').forEach(t=>t.classList.remove('pick'));}"
+    "document.addEventListener('keydown',e=>{if(e.target.id==='out')return;"
+    "if(e.key==='Tab'){e.preventDefault();go(row+(e.shiftKey?-1:1));return;}"
+    "if(/^[0-9]$/.test(e.key)){e.preventDefault();const td=rows[row].querySelectorAll('td')[+e.key];if(!td)return;"
+    "rows[row].querySelectorAll('td.pick').forEach(t=>t.classList.remove('pick'));td.classList.add('pick');col=+e.key;"
+    "const b=td.querySelector('button.all');if(b)b.click();return;}"
+    "if(e.key==='Enter'&&col!==null){e.preventDefault();const r=rows[row].querySelectorAll('td')[col].querySelector('input');"
+    "if(r){r.checked=true;upd();rows[row].classList.add('done');}}});"
+    "rows.forEach((r,i)=>r.addEventListener('click',()=>{if(i!==row)go(i);}));go(0);")
+TASTEN_CSS = ("tr.cur{outline:4px solid #4d96ff;outline-offset:-2px;background:#eef5ff}td.pick{background:#ffe066}"
+    "tr.done th::after{content:' ✓';color:#2e9e44}.keys{background:#fff;border:1px solid #e0d4b4;border-radius:8px;padding:6px 12px;display:inline-block}"
+    "kbd{border:1px solid #aaa;border-bottom-width:3px;border-radius:4px;padding:0 5px;background:#fafafa}")
+TASTEN_HILFE = ("<p class='keys'>Tastatur: <kbd>Tab</kbd> nächstes Wort, <kbd>Umschalt</kbd>+<kbd>Tab</kbd> voriges Wort, "
+    "<kbd>0</kbd> bisher anhören, <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> … Fassungen von links nach rechts anhören, "
+    "<kbd>Enter</kbd> die zuletzt angehörte Fassung auswählen.</p>")
+
 def seite(woerter, dateien=()):
     rows = datei_zeilen(dateien)
     for slug, t in woerter:
@@ -145,8 +183,9 @@ def seite(woerter, dateien=()):
         cells = []
         nf = os.path.join(AUSWAHL, slug, "namen.json")            # Beschriftung geliehener Fassungen
         namen = json.load(open(nf, encoding="utf-8")) if os.path.exists(nf) else {}
-        for v in range(0, 25):
+        for v in range(0, 40):
             if v > 4 and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")): continue
+            if v and slug in NEU_AB and v < NEU_AB[slug]: continue
             d = f"../web/audio/silben/{slug}-" if v == 0 else f"auswahl/{slug}/{v}-"
             if v and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")):
                 cells.append(f"<td class='x'>{v}: –</td>"); continue
@@ -159,9 +198,9 @@ def seite(woerter, dateien=()):
             "body{font-family:Segoe UI,sans-serif;margin:20px;background:#fdf6e3}table{border-collapse:collapse}"
             "td,th{border:1px solid #e0d4b4;padding:6px 10px;text-align:left;vertical-align:top}th{font-size:18px}"
             "button{font:inherit;padding:3px 8px;margin:2px;border-radius:6px;border:1px solid #c9b98f;background:#fff;cursor:pointer}"
-            "button.on{background:#ffe066}td.x{color:#aaa}#out{width:100%;font:16px monospace;margin-top:10px}</style>"
+            "button.on{background:#ffe066}td.x{color:#aaa}#out{width:100%;font:16px monospace;margin-top:10px}" + TASTEN_CSS + "</style>"
             "<h1>Silben auswählen</h1><p>▶ spielt alle Silben einer Fassung, die Silben-Knöpfe einzeln. "
-            "Die beste Fassung ankreuzen (bisher = nichts ändern), dann unten den Text kopieren und Claude schicken.</p>"
+            "Die beste Fassung ankreuzen (bisher = nichts ändern), dann unten den Text kopieren und Claude schicken.</p>" + TASTEN_HILFE +
             "<table>" + "".join(rows) + "</table><textarea id='out' rows='3' readonly></textarea>"
             "<button id='copy'>Auswahl kopieren</button><script>"
             "let cur=null;function play(l,b){if(cur)cur.pause();document.querySelectorAll('.on').forEach(x=>x.classList.remove('on'));"
@@ -172,7 +211,7 @@ def seite(woerter, dateien=()):
             ".filter(r=>r.value!=='0').map(r=>r.name+'='+r.value).join(' ')||'(nichts geändert)';}"
             "document.querySelectorAll('input').forEach(r=>r.onchange=upd);upd();"
             "document.getElementById('copy').onclick=()=>{const o=document.getElementById('out');o.select();"
-            "navigator.clipboard.writeText(o.value).catch(()=>document.execCommand('copy'));};</script>")
+            "navigator.clipboard.writeText(o.value).catch(()=>document.execCommand('copy'));};" + TASTEN_JS + "</script>")
     open(os.path.join(se.ST, "silben-auswahl.html"), "w", encoding="utf-8").write(page)
 
 
@@ -185,7 +224,13 @@ def main():
     ap.add_argument("--sprich", nargs="*", default=[])
     ap.add_argument("--vorschlaege", default="", help="ElevenLabs-Vorschlaege.txt des Aussprache-Prüfers")
     ap.add_argument("--ids", nargs="*", default=[], help="nur diese ids (z. B. wort/apfel) aus --vorschlaege")
+    ap.add_argument("--nur-seite", action="store_true", help="--vorschlaege: schon erzeugte Fassungen nur auf die Seite setzen")
+    ap.add_argument("--hilfe", default="", help="HILFE-Zeilen (Prüfer-Bericht) für Runde 5")
     a = ap.parse_args()
+    if a.hilfe:
+        for z in open(a.hilfe, encoding="utf-8"):
+            m = re.match(r'\s*HILFE: "(\w+)": \{(\d+): "([^"]+)"\}', z)
+            if m: HILFE5.setdefault(m.group(1), {})[int(m.group(2))] = m.group(3)
     for x in a.sprich:
         w, s_ = x.split("=", 1)
         SPRICH[w.lower()] = " – ".join(p.strip() for p in s_.split("-"))     # "Wek-ker" -> "Wek – ker"
@@ -243,10 +288,10 @@ def main():
         key = open(se.KEYFILE, encoding="utf-8-sig").read().strip()
         vor = {}
         for z in open(a.vorschlaege, encoding="utf-8"):
-            m = re.match(r"((?:laut|name|wort)/\w+) = (.+)$", z.strip())
+            m = re.match(r"((?:laut|name|wort|satz)/\w+) = (.+)$", z.strip())
             if m and (not a.ids or m.group(1) in a.ids): vor.setdefault(m.group(1), []).append(m.group(2))
         used = 0
-        for i, kand in vor.items():
+        for i, kand in ({} if a.nur_seite else vor).items():
             d = datei_ordner(i); os.makedirs(d, exist_ok=True)
             tj = {}
             for v, t in enumerate(kand, 1):
@@ -262,7 +307,7 @@ def main():
 
     slugs = []
     for w in a.woerter:
-        k = w.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+        k = re.sub(r"[^a-z]", "", w.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss"))
         if k not in texte: sys.exit(f"Wort nicht gefunden: {w}")
         slugs.append(k)
     key = open(se.KEYFILE, encoding="utf-8-sig").read().strip()
@@ -273,9 +318,9 @@ def main():
         nonlocal used
         t = texte[slug]; n = len(teile_text(t)[1])
         d = os.path.join(AUSWAHL, slug); os.makedirs(d, exist_ok=True)
-        liste = {1: fassungen, 2: fassungen2, 3: fassungen3, 4: fassungen4}[a.runde](slug, t)
+        liste = {1: fassungen, 2: fassungen2, 3: fassungen3, 4: fassungen4, 5: fassungen5}[a.runde](slug, t)
         erste = 4 * a.runde - 3
-        if a.runde == 4:                                          # nach den geliehenen Fassungen
+        if a.runde >= 4:                                          # nach den geliehenen Fassungen
             erste = max([12] + [int(f.split("-")[0]) for f in os.listdir(d) if f.endswith("-1.wav")]) + 1
         for v, (text, hinten) in enumerate(liste, erste):
             for versuch in range(3):
@@ -292,6 +337,10 @@ def main():
             for k, (s0, e0) in enumerate(teile, 1): se.wav_schreiben(a_, s0, e0, os.path.join(d, f"{v}-{k}.wav"))
         print("fertig:", slug, flush=True)
 
+    if a.runde == 5:
+        for slug in slugs:
+            d = os.path.join(AUSWAHL, slug)
+            NEU_AB[slug] = max([12] + [int(f.split("-")[0]) for f in os.listdir(d) if f.endswith("-1.wav")]) + 1 if os.path.isdir(d) else 13
     with concurrent.futures.ThreadPoolExecutor(4) as ex: list(ex.map(eine, slugs))
     print(f"{used} Zeichen verbraucht.")
     if fehl: print("nicht sauber getrennt:", ", ".join(fehl))
