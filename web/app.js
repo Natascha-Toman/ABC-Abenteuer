@@ -455,7 +455,8 @@ function speakFix(t) { return SPEAK_FIX.reduce((x, [re, to]) => x.replace(re, to
 // ganze Sätze, Satzteile, einzelne Wörter und Buchstaben (als Laut "l" oder Name "el").
 // Was keine Tondatei hat, spricht die Windows-Stimme – so funktioniert alles auch ohne Dateien.
 const AU = window.AUDIO || {};
-const AU_SET = { laut: new Set(AU.laut || []), name: new Set(AU.name || []), wort: new Set(AU.wort || []) };
+const AU_SET = { laut: new Set(AU.laut || []), name: new Set(AU.name || []), wort: new Set(AU.wort || []), lautwav: new Set(AU.lautwav || []) };
+const lautPath = k => `audio/laut/${k}.${AU_SET.lautwav.has(k) ? "wav" : "mp3"}`;   // ausgewählte Laute als WAV (z. B. „o“)
 const auKey = t => String(t).toLowerCase().replace(/[^a-zäöüß0-9]+/g, " ").trim();
 function satzClip(t) { const id = AU.satz && AU.satz[auKey(t)]; return id ? `audio/satz/${id}.mp3` : null; }
 function wortClip(t) {
@@ -465,7 +466,7 @@ function wortClip(t) {
 // Buchstabe: zum Lesenlernen als Laut ("l", "k"), auf Wunsch als Name ("el", "ka") – Einstellung "Buchstaben sprechen als"
 function letterClip(L) {
   const k = slugW(L);
-  if (S.letterVoice !== "name" && AU_SET.laut.has(k)) return `audio/laut/${k}.mp3`;
+  if (S.letterVoice !== "name" && AU_SET.laut.has(k)) return lautPath(k);
   if (AU_SET.name.has(k)) return `audio/name/${k}.mp3`;
   return null;
 }
@@ -550,7 +551,7 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
 // Buchstabe deutlich: erst der Laut, kurze Pause, dann der Name ("Hör gut zu! Der Buchstabe macht so: … Und er heißt: …")
 function sayLautName(L, vorher = "") {
   const k = slugW(L);
-  const laut = AU_SET.laut.has(k) ? { clip: `audio/laut/${k}.mp3`, text: L } : { tts: L };
+  const laut = AU_SET.laut.has(k) ? { clip: lautPath(k), text: L } : { tts: L };
   const name = AU_SET.name.has(k) ? { clip: `audio/name/${k}.mp3`, text: L } : { tts: LETTER_NAMES[L] || L };
   const vokal = "AEIOUÄÖÜ".includes(L);               // Selbstlaut: Name = Laut, nicht wiederholen
   const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör gut zu! Der Buchstabe macht so:"), { pause: 250 }, laut,

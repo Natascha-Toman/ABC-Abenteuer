@@ -172,6 +172,9 @@ def manifest():
     """web\\audio\\audio.js: welche Tondateien vorhanden sind (nur die, die es wirklich gibt)"""
     done = json.load(open(DONE, encoding="utf-8")) if os.path.exists(DONE) else {}
     m = {"laut": [], "name": [], "wort": [], "silben": {}, "satz": {}}
+    # Laute, die als WAV ausgewählt wurden (z. B. das „O“ aus „Oma“) – das Programm spielt dann die WAV-Datei
+    ld = os.path.join(AUDIO, "laut")
+    m["lautwav"] = sorted(f[:-4] for f in os.listdir(ld) if f.endswith(".wav")) if os.path.isdir(ld) else []
     for i, info in sorted(done.items()):
         if not vorhanden(i, info["text"]): continue
         kind, name = i.split("/", 1)
@@ -182,7 +185,7 @@ def manifest():
     with open(os.path.join(AUDIO, "audio.js"), "w", encoding="utf-8", newline="\n") as f:
         f.write("// Erzeugt von stimmen-erzeugen.py – vorhandene Tondateien (Stimme: ElevenLabs)\n")
         f.write("window.AUDIO = " + json.dumps(m, ensure_ascii=False, separators=(",", ":")) + ";\n")
-    return sum(len(v) for v in m.values())
+    return sum(len(v) for k, v in m.items() if k != "lautwav")
 
 
 def anhoerseite(jobs, orig):

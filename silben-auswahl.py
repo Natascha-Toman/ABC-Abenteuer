@@ -146,9 +146,10 @@ def datei_zeilen(ids):
         cells = [f"<td><label><input type='radio' name='{i}' value='0' checked> bisher</label><br>"
                  f"<button class='all' data-f='../web/audio/{i}.mp3'>▶</button></td>"]
         for v, t in sorted(texte.items(), key=lambda x: int(x[0])):
+            ext = "wav" if os.path.exists(os.path.join(d, f"{v}.wav")) else "mp3"
             shown = re.sub(r'<phoneme alphabet="ipa" ph="([^"]+)">([^<]*)</phoneme>', r"\2 [\1]", t)
             cells.append(f"<td><label><input type='radio' name='{i}' value='{v}'> {v}</label> <small>{html.escape(shown)}</small><br>"
-                         f"<button class='all' data-f='auswahl/_dateien/{i.replace('/', '_')}/{v}.mp3'>▶</button></td>")
+                         f"<button class='all' data-f='auswahl/_dateien/{i.replace('/', '_')}/{v}.{ext}'>▶</button></td>")
         rows.append(f"<tr><th>{i}</th>{''.join(cells)}</tr>")
     return rows
 
@@ -242,6 +243,10 @@ def main():
         for x in a.uebernehmen:
             slug, v = x.split("="); v = int(v)
             if v == 0: continue
+            wav = os.path.join(datei_ordner(slug), f"{v}.wav") if "/" in slug else ""
+            if wav and os.path.exists(wav):              # Laut aus einer Silbe (WAV): neben die mp3 legen, das Programm nimmt die WAV
+                shutil.copy(wav, os.path.join(se.AUDIO, slug + ".wav"))
+                print("übernommen (WAV):", slug, v); continue
             if "/" in slug:                              # Laut/Name/Wort: mp3 + Zeile in texte-anpassen.txt
                 t = json.load(open(os.path.join(datei_ordner(slug), "texte.json"), encoding="utf-8"))[str(v)]
                 shutil.copy(os.path.join(datei_ordner(slug), f"{v}.mp3"), os.path.join(se.AUDIO, slug + ".mp3"))
