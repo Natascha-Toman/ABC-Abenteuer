@@ -612,3 +612,6 @@ body.dark .slot.filled, body.dark .sylrow { color: #fff; }
 body.dark .start-hint, body.dark #start .version, body.dark #stickerView .svart { color: #c2cae3; }
 body.dark .bowl { border-color: #c2cae3; }
 body.dark .mixlabel { color: #fff; }
+/* Dunkel + Lupe: der Balken oben wird beim Hinschauen dunkelblau statt weiß */
+body.dark.lens:not(.eye-paused) .screen.active .topbar, body.dark.lens:not(.eye-paused) #talk.show .topbar {
+  background: rgba(20,31,60,.95); box-shadow: 0 calc(1 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.45), inset 0 calc(-.3 * var(--u)) 0 rgba(255,255,255,.18); }

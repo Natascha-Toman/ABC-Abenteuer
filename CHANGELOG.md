@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.14 – 22.11.2026
+
+**Verbessert**
+- Dunkler Hintergrund mit Lupe: der vergrößerte Balken oben wird beim Hinschauen dunkelblau statt weiß.
+
 ## 4.13 – 22.11.2026
 
 **Verbessert**
