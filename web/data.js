@@ -125,6 +125,15 @@ const PICS = {
 const svgV = (vb, body) => `<svg viewBox="${vb}" width="1em" height="1em" style="vertical-align:-0.12em">${body}</svg>`;
 const SKIN = "#FFCA28";
 Object.assign(PICS, {
+  // Milch: Glas (Noto) und daneben ein Milchpäckchen
+  milch: svgV("0 0 100 100", `
+    <path d="M58 30 L67 17 L88 17 L97 30 L97 93 Q97 97 93 97 L62 97 Q58 97 58 93 Z" fill="#FFFFFF" stroke="#90CAF9" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M67 17 L88 17 L88 11 L67 11 Z" fill="#BBDEFB" stroke="#90CAF9" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M78 30 L97 30 L97 93 Q97 97 93 97 L78 97 Z" fill="#E3F2FD"/>
+    <path d="M59.5 50 L95.5 50 L95.5 78 L59.5 78 Z" fill="#42A5F5"/><path d="M78 50 L95.5 50 L95.5 78 L78 78 Z" fill="#1E88E5"/>
+    <path d="M68.5 55 Q74 62 74 67 Q74 72.5 68.5 72.5 Q63 72.5 63 67 Q63 62 68.5 55 Z" fill="#FFFFFF"/>
+    <path d="M58 30 L97 30" stroke="#90CAF9" stroke-width="2"/>
+    <image href="emoji/1f95b.svg" x="-14" y="8" width="88" height="96"/>`),
   jause: svgV("0 0 100 100", `
     <rect x="73" y="22" width="14" height="9" rx="2.5" fill="#E53935"/><rect x="76" y="18" width="8" height="5" rx="2" fill="#C62828"/>
     <path d="M71 34 Q71 29 76 29 L84 29 Q89 29 89 34 L90 88 Q90 94 84 94 L76 94 Q70 94 70 88 Z" fill="#4FC3F7"/>
@@ -433,7 +442,7 @@ const WORDS = [
   // M
   { w: "Maus",      g: "die", e: "🐭", s: "Maus", lg: true },
   { w: "Mond",      g: "der", e: "🌙", s: "Mond", lg: true },
-  { w: "Milch",     g: "die", e: "🥛", s: "Milch" },
+  { w: "Milch",     g: "die", e: PICS.milch, s: "Milch" },
   { w: "Mais",      g: "der", e: "🌽", s: "Mais", lg: true },
   { w: "Mantel",    g: "der", e: "🧥", s: "Man-tel", lg: true },
   { w: "Melone",    g: "die", e: "🍉", s: "Me-lo-ne", lg: true },

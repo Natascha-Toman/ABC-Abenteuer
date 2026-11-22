@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.14", APP_DATE = "22.11.2026";
+const APP_VERSION = "4.15", APP_DATE = "22.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -618,7 +618,9 @@ function playClip(src) {
   return new Promise(res => {
     const a = new Audio(src);
     a.volume = vol01();
-    a.playbackRate = Math.max(.6, Math.min(1.5, (S.rate || .85) / .85));   // Sprechtempo der Einstellungen
+    // immer in Originalgeschwindigkeit: Strecken/Stauchen (Sprechtempo) lässt kurze Aufnahmen knistern und ruckeln.
+    // Das Sprechtempo gilt nur für die Kinderstimme (Windows-Stimme der Mitteil-Tafel).
+    a.playbackRate = 1;
     SylAudio.cur = a;
     let done = false, guard = setTimeout(() => fin(true), 15000);
     const fin = ok => { if (done) return; done = true; clearTimeout(guard); if (SylAudio.cur === a) SylAudio.cur = null; res(ok); };

@@ -2,6 +2,17 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.15 – 22.11.2026
+
+**Behoben**
+- 22 nach Gehör ausgewählte Sätze (z. B. „wie Brille“, „wie Hai“, „wie Ring“, „wie Wal“) wurden nicht
+  gefunden und kamen mit der Windows-Stimme – Suchschlüssel repariert (auch im Auswahl-Skript).
+- Knistern und Ruckeln der Tondateien: Emils Aufnahmen laufen immer in Originalgeschwindigkeit
+  (das Sprechtempo gilt nur für die Kinderstimme der Mitteil-Tafel).
+
+**Verbessert**
+- Milch: Glas mit Milchpäckchen daneben.
+
 ## 4.14 – 22.11.2026
 
 **Verbessert**

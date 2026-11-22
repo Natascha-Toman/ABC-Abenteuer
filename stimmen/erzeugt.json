@@ -3601,7 +3601,7 @@
 },
 "satz/afe94e7119": {
 "text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈbʁɪlə\">Brille</phoneme>.",
-"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈbʁɪlə\">Brille</phoneme>.",
+"text_orig": "wie Brille.",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/7ec33419e0": {
@@ -3736,7 +3736,7 @@
 },
 "satz/f358ead14f": {
 "text": "die <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme>",
-"text_orig": "die <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme>",
+"text_orig": "die Creme",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/d4d702ae8f": {
@@ -4011,7 +4011,7 @@
 },
 "satz/dc69f006d9": {
 "text": "der <phoneme alphabet=\"ipa\" ph=\"ˈeːzəl\">Esel</phoneme>",
-"text_orig": "der <phoneme alphabet=\"ipa\" ph=\"ˈeːzəl\">Esel</phoneme>",
+"text_orig": "der Esel",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/9b544a620f": {
@@ -4361,7 +4361,7 @@
 },
 "satz/e5947e3b02": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"diː\">die</phoneme> <phoneme alphabet=\"ipa\" ph=\"ɡiːˈtaʁə\">Gitarre</phoneme>",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"diː\">die</phoneme> <phoneme alphabet=\"ipa\" ph=\"ɡiːˈtaʁə\">Gitarre</phoneme>",
+"text_orig": "die Gitarre",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/4f330d6d0b": {
@@ -4676,7 +4676,7 @@
 },
 "satz/3262f92410": {
 "text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈhaɪ\">Hai</phoneme>.",
-"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈhaɪ\">Hai</phoneme>.",
+"text_orig": "wie Hai.",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/2900e3cb7e": {
@@ -4736,7 +4736,7 @@
 },
 "satz/9d52448a0a": {
 "text": "das <phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme>",
-"text_orig": "das <phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme>",
+"text_orig": "das Iglu",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/18a69c198c": {
@@ -4971,7 +4971,7 @@
 },
 "satz/6001f19fd5": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"dɛʁ\">der</phoneme> <phoneme alphabet=\"ipa\" ph=\"ˈkɛːzə\">Käse</phoneme>",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"dɛʁ\">der</phoneme> <phoneme alphabet=\"ipa\" ph=\"ˈkɛːzə\">Käse</phoneme>",
+"text_orig": "der Käse",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/1496c63f21": {
@@ -5046,7 +5046,7 @@
 },
 "satz/b1fc193329": {
 "text": "die <phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme>",
-"text_orig": "die <phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme>",
+"text_orig": "die Kerze",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/a6e78c632c": {
@@ -6231,7 +6231,7 @@
 },
 "satz/9a5a8edf1f": {
 "text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈʁɪŋ\">Ring</phoneme>.",
-"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈʁɪŋ\">Ring</phoneme>.",
+"text_orig": "wie Ring.",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/57d6482a66": {
@@ -6891,7 +6891,7 @@
 },
 "satz/90d7004925": {
 "text": "der <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>",
-"text_orig": "der <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>",
+"text_orig": "der Wal",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/ae59c57d29": {
@@ -6906,12 +6906,12 @@
 },
 "satz/96d1e4ea77": {
 "text": "wie <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
-"text_orig": "wie <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
+"text_orig": "wie Wal.",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/90706c9ecb": {
 "text": "Da steht <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
-"text_orig": "Da steht <phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme>.",
+"text_orig": "Da steht Wal.",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/e459815ae2": {
@@ -7861,7 +7861,7 @@
 },
 "satz/c0f4650e49": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Brot",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Brot",
+"text_orig": "Katze und Brot",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/bcddef683a": {
@@ -7881,7 +7881,7 @@
 },
 "satz/275040345b": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Hut",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkatsə\">Katze</phoneme> und Hut",
+"text_orig": "Katze und Hut",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/43ee506bf6": {
@@ -9956,7 +9956,7 @@
 },
 "satz/70e88e0473": {
 "text": "Das ist der <phoneme alphabet=\"ipa\" ph=\"ˈapfəl\">Apfel</phoneme>!",
-"text_orig": "Das ist der <phoneme alphabet=\"ipa\" ph=\"ˈapfəl\">Apfel</phoneme>!",
+"text_orig": "Das ist der Apfel!",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/3aab0156f8": {
@@ -18636,7 +18636,7 @@
 },
 "satz/313fae9ec1": {
 "text": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme> geschrieben!",
-"text_orig": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkreːm\">Creme</phoneme> geschrieben!",
+"text_orig": "Du hast Creme geschrieben!",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/7c22d2a8b8": {
@@ -19176,7 +19176,7 @@
 },
 "satz/c46642c4c5": {
 "text": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> geschrieben!",
-"text_orig": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> geschrieben!",
+"text_orig": "Du hast Fee geschrieben!",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/ba2382dd54": {
@@ -19191,7 +19191,7 @@
 },
 "satz/802815c8e0": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> fängt mit",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈfeː\">Fee</phoneme> fängt mit",
+"text_orig": "Fee fängt mit",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/f24860bc71": {
@@ -19851,7 +19851,7 @@
 },
 "satz/10fd329cf1": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme> fängt mit",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈɪɡluː\">Iglu</phoneme> fängt mit",
+"text_orig": "Iglu fängt mit",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/7009e7311a": {
@@ -20096,7 +20096,7 @@
 },
 "satz/9004b69c4c": {
 "text": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkuː\">Kuh</phoneme> geschrieben!",
-"text_orig": "Du hast <phoneme alphabet=\"ipa\" ph=\"ˈkuː\">Kuh</phoneme> geschrieben!",
+"text_orig": "Du hast Kuh geschrieben!",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/9e3720c843": {
@@ -20231,7 +20231,7 @@
 },
 "satz/1f0f9e804a": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme> fängt mit",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈkɛʁtsə\">Kerze</phoneme> fängt mit",
+"text_orig": "Kerze fängt mit",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/bfe0878a93": {
@@ -22451,7 +22451,7 @@
 },
 "satz/8ec3f15c46": {
 "text": "<phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme> fängt mit",
-"text_orig": "<phoneme alphabet=\"ipa\" ph=\"ˈvaːl\">Wal</phoneme> fängt mit",
+"text_orig": "Wal fängt mit",
 "modell": "eleven_v4 (Auswahl 1)"
 },
 "satz/465a059bb7": {

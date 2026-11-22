@@ -254,7 +254,9 @@ def main():
                 zeilen = open(ta, encoding="utf-8").read().splitlines() if os.path.exists(ta) else []
                 zeilen = [z for z in zeilen if z.split("=", 1)[0].strip() != slug] + [f"{slug} = {t}"]
                 open(ta, "w", encoding="utf-8", newline="\n").write("\n".join(zeilen) + "\n")
-                done[slug] = {"text": t, "text_orig": t, "modell": f"eleven_v4 (Auswahl {v})"}
+                # Schlüssel im Programm (text_orig) behalten – sonst findet das Programm z. B. „wie Brille.“ nicht mehr
+                orig = done.get(slug, {}).get("text_orig") or re.sub(r"<phoneme[^>]*>([^<]*)</phoneme>", r"\1", t)
+                done[slug] = {"text": t, "text_orig": orig, "modell": f"eleven_v4 (Auswahl {v})"}
                 print("übernommen:", slug, v); continue
             t = texte[slug]; n = len(teile_text(t)[1])
             src = [os.path.join(AUSWAHL, slug, f"{v}-{k}.wav") for k in range(1, n + 1)]

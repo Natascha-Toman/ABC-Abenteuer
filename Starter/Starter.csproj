@@ -8,7 +8,7 @@
     <ApplicationIcon>eule.ico</ApplicationIcon>
     <LangVersion>latest</LangVersion>
     <Product>ABC-Abenteuer</Product>
-    <Version>4.14.0</Version>
+    <Version>4.15.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Authors>Natascha Toman</Authors>
     <Copyright>Idee und Umsetzung: Natascha Toman, selbst UK-Nutzerin (umgesetzt mithilfe von KI)</Copyright>
