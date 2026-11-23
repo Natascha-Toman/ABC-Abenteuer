@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.23 – 23.11.2026
+
+**Behoben**
+- Lernstand: die Quote auf dem farbigen Feld ist im dunklen Modus wieder lesbar (dunkle, fette Schrift).
+
 ## 4.22 – 23.11.2026
 
 **Verbessert**

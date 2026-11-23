@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.22", APP_DATE = "23.11.2026";
+const APP_VERSION = "4.23", APP_DATE = "23.11.2026";
 const SETTINGS_VERSION = 7;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -2798,7 +2798,7 @@ function renderStats() {
   const rows = Object.keys(stats).sort().map(L => {
     const s = stats[L], tot = s.r + s.w, pct = tot ? Math.round(100 * s.r / tot) : 0;
     const col = pct >= 80 ? "#d9f7e4" : pct >= 50 ? "#fff1c9" : "#ffe3e2";
-    return `<tr><td><b>${L}</b></td><td>${s.r}</td><td>${s.w}</td><td style="background:${col}">${pct} %</td></tr>`;
+    return `<tr><td><b>${L}</b></td><td>${s.r}</td><td>${s.w}</td><td class="quote" style="background:${col}">${pct} %</td></tr>`;
   }).join("");
   $("#stats").innerHTML = rows
     ? `<table><tr><th>Buchstabe</th><th>auf Anhieb richtig</th><th>mit Fehler</th><th>Quote</th></tr>${rows}</table>
