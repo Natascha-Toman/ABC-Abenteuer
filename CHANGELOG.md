@@ -2,6 +2,15 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.22 – 23.11.2026
+
+**Verbessert**
+- Einstellungen neu geordnet: neue Bereiche „🎨 Darstellung“ (Dunkler Hintergrund, Schrift, Silben farbig,
+  Grafikbeschleunigung) und „🎲 Einzelne Spiele“ (Silben klatschen, Ballon-Tempo); Stimme des Kindes und
+  Sprechtempo jetzt unter „💬 Mitteil-Tafel“; „Ton & Sprache“ heißt „Ton & Emils Stimme“. Anleitung angepasst.
+- Lupe im hellen Modus: der Balken oben sieht aus wie im dunklen Modus (Schatten, feine Unterkante), nur hell.
+- Dunkler Modus: schwarze Zeichen auf Knöpfen der Einstellungen (✔ ✖ ➕) hell.
+
 ## 4.21 – 23.11.2026
 
 **Verbessert**

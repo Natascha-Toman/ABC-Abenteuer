@@ -620,5 +620,8 @@ body.dark #talk .title, body.dark #talk .title.said { color: #f3f5ff; }
 body.dark #talk .title.said { color: #a9cdff; }
 body.dark #kbBig .bigtext { background: #1b2742; color: #f3f5ff; border: calc(.4 * var(--u)) solid rgba(255,255,255,.22); }
 body.dark #kbBig .bigtext .w.on { color: var(--ink); }
-/* Hell + Lupe: kein weißer Balken mehr – Titel und Leiste bleiben durchsichtig, nur die Knöpfe werden größer */
-body.lens:not(.dark) .screen.active .topbar, body.lens:not(.dark) #talk.show .topbar { background: transparent; box-shadow: none; }
+/* Hell + Lupe: Balken wie im dunklen Modus (Schatten, feine Unterkante), nur hell */
+body.lens:not(.dark):not(.eye-paused) .screen.active .topbar, body.lens:not(.dark):not(.eye-paused) #talk.show .topbar {
+  background: rgba(255,252,242,.96); box-shadow: 0 calc(1 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.18), inset 0 calc(-.3 * var(--u)) 0 rgba(0,0,0,.08); }
+/* Dunkel: schwarze Zeichen auf den Knöpfen der Einstellungen (✔ ✖ ➕) hell */
+body.dark #settings img.emo[src*="2714"], body.dark #settings img.emo[src*="2716"], body.dark #settings img.emo[src*="2795"] { filter: invert(1); }

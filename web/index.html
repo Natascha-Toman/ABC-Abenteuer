@@ -218,38 +218,37 @@
     <label><span>Blickpunkt anzeigen (oranger Kreis – zum Prüfen der Kalibrierung)</span><input type="checkbox" id="setDot"></label>
     <label><span>Mauszeiger ausblenden</span><input type="checkbox" id="setHideCursor"></label>
 
-    <div class="nativeonly">
-      <label><span>Ohne Grafikbeschleunigung starten (nur falls das Bild flackert – wirkt beim nächsten Start)</span><input type="checkbox" id="setNoGpu"></label>
-    </div>
-
-    <h3>🔊 Ton & Sprache</h3>
+    <h3>🔊 Ton & Emils Stimme</h3>
+    <div class="note">Emil, die Eule, spricht mit fest eingestellten Aufnahmen. Die Stimme des Kindes wird unter „💬 Mitteil-Tafel“ gewählt.</div>
     <label><span>Ton aus (Spiele stumm)</span><input type="checkbox" id="setMuted"></label>
     <label><span>Lautstärke: <b id="valVolume"></b></span><input type="range" id="setVolume" min="10" max="100" step="5"></label>
     <div class="note">Schnell umschalten: Lautsprecher 🔊/🔇 oben im Menü und im Spiel, oder Taste <b>F8</b>. Die Mitteil-Tafel 💬 spricht immer – auch wenn der Ton aus ist.</div>
     <label><span>Buchstaben sprechen als</span><select id="setLetterVoice"><option value="laut">Laut – „l“, „m“, „k“ (zum Lesenlernen)</option><option value="name">Buchstabenname – „el“, „em“, „ka“</option></select></label>
-    <label><span>Stimme des Kindes (Mitteil-Tafel 💬)</span><select id="setVoice"></select> <button id="btnTestVoice">▶ Stimme testen</button></label>
-    <div class="note">Emil, die Eule, hat eine fest eingestellte Stimme, die eine möglichst klare und deutliche Aussprache nachahmt – zum Lesen- und Schreibenlernen.
-    Hier wählen Sie die <b>Stimme des Kindes</b>: Sie spricht nur in der Mitteil-Tafel 💬, wenn das Kind etwas sagen möchte.
-    🔊 = Stimmen der Windows-Sprachausgabe (z. B. die Stimmen des Tobii-Geräts, sofern für Windows freigegeben). Keine „Multilingual“-Stimme wählen.</div>
-    <label><span>Sprechtempo der Kinderstimme: <b id="valRate"></b></span><input type="range" id="setRate" min="0.5" max="1.3" step="0.05"></label>
     <label><span>Felder vorlesen, sobald der Blick oder die Maus darauf ruht</span><input type="checkbox" id="setHoverSay"></label>
     <label><span>Geräusche (Jubel, Plopp …)</span><input type="checkbox" id="setSfx"></label>
+
+    <h3>🎨 Darstellung</h3>
+    <label><span>Dunkler Hintergrund (dunkelblau – blendet weniger)</span><input type="checkbox" id="setDark"></label>
+    <label><span>Schrift</span><select id="setCase"><option value="upper">GROSSBUCHSTABEN</option><option value="mixed">Groß und klein (Maus)</option><option value="lower">nur klein (maus)</option></select></label>
+    <label><span>Silben farbig markieren (beim Lesen)</span><input type="checkbox" id="setSylColor"></label>
+    <div class="nativeonly">
+      <label><span>Ohne Grafikbeschleunigung starten (nur falls das Bild flackert – wirkt beim nächsten Start)</span><input type="checkbox" id="setNoGpu"></label>
+    </div>
 
     <h3>🎯 Aufgaben & Stufen</h3>
     <label><span>Nach der Lösung</span><select id="setManualNext"><option value="0">automatisch weiter</option><option value="1">„Weiter“-Knopf anklicken</option></select></label>
     <div class="note">Mit „Weiter“-Knopf bleibt das Ergebnis stehen, bis das Kind (oder Sie) auf ➡️ Weiter klickt.</div>
-    <label><span>Ballon-Tempo</span><select id="setBalloonSpeed"><option value="0.4">sehr langsam</option><option value="0.65">langsam</option><option value="1">normal</option><option value="1.4">schnell</option></select></label>
     <label><span>Aufgaben pro Runde (bis zum Sticker)</span><select id="setRound"><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></label>
-    <label><span>Dunkler Hintergrund (dunkelblau – blendet weniger)</span><input type="checkbox" id="setDark"></label>
-    <label><span>Schrift</span><select id="setCase"><option value="upper">GROSSBUCHSTABEN</option><option value="mixed">Groß und klein (Maus)</option><option value="lower">nur klein (maus)</option></select></label>
-    <label><span>Silben farbig markieren (beim Lesen)</span><input type="checkbox" id="setSylColor"></label>
-    <label><span>Silben klatschen: Wort in Silben vorsagen und vorklatschen</span><input type="checkbox" id="setSylHelp"></label>
-    <div class="note">Ausgeschaltet fragt Emil nur „Wie viele Silben hat …?“ – das Kind spricht und klatscht selbst (gilt für alle Stufen). Umschalten auch im Spiel mit dem kleinen 👏-Knopf oben. Nach der richtigen Antwort werden die Silben weiterhin gezeigt und geklatscht.</div>
     <label><span>Alle Stufen sofort freischalten</span><input type="checkbox" id="setAllLevels"></label>
     <label><span>Runden bis zur nächsten Stufe</span><select id="setUnlock"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
     <div class="note">Wer eine Stufe so oft mit höchstens 2 Fehlern schafft, schaltet die nächste Stufe frei (⭐ → ⭐⭐ → ⭐⭐⭐). Standard: 3.</div>
     <div id="levelInfo"></div>
     <p><button id="btnResetLevels">Freischaltungen zurücksetzen</button></p>
+
+    <h3>🎲 Einzelne Spiele</h3>
+    <label><span>Silben klatschen: Wort in Silben vorsagen und vorklatschen</span><input type="checkbox" id="setSylHelp"></label>
+    <div class="note">Ausgeschaltet fragt Emil nur „Wie viele Silben hat …?“ – das Kind spricht und klatscht selbst (gilt für alle Stufen). Umschalten auch im Spiel mit dem kleinen 👏-Knopf oben. Nach der richtigen Antwort werden die Silben weiterhin gezeigt und geklatscht.</div>
+    <label><span>Ballon-Tempo</span><select id="setBalloonSpeed"><option value="0.4">sehr langsam</option><option value="0.65">langsam</option><option value="1">normal</option><option value="1.4">schnell</option></select></label>
 
     <h3>🔤 Buchstaben, die geübt werden</h3>
     <div class="letterbtns">
@@ -270,6 +269,11 @@
     <label><span>Tastatur der Mitteil-Tafel (Knopf ⌨️ oben)</span><select id="setTalkKb"><option value="abc">ABC – Buchstaben in Alphabet-Reihenfolge</option><option value="qwertz">QWERTZ – wie auf der Computer-Tastatur</option></select></label>
     <label><span>Beim Schreiben vorlesen</span><select id="setKbSpeak"><option value="both">jeden Buchstaben und jedes fertige Wort</option><option value="letters">nur Buchstaben</option><option value="words">jedes Wort</option><option value="sentence">nur fertiger Satz (bei . oder ?)</option><option value="none">nichts – nur den ganzen Text („Vorlesen“)</option></select></label>
     <div class="note">Mit der Tastatur schreibt das Kind selbst, was es sagen möchte; 🔊 liest es vor. Umschalten geht auch direkt auf der Tastatur (Taste „ABC“ / „QWERTZ“). Die Tafel merkt sich, ob zuletzt die Bilder oder die Tastatur offen waren.<br><b>Wortvorschläge</b> über der Tastatur: Grundwortschatz und passende Folgewörter (z. B. „ich“ → „möchte“, „habe“ …). Jeder vorgelesene Text wird dazugelernt (pro Profil). <button id="btnLearnReset" type="button">Gelernte Wörter vergessen</button></div>
+    <label><span>Stimme des Kindes (Mitteil-Tafel 💬)</span><select id="setVoice"></select> <button id="btnTestVoice">▶ Stimme testen</button></label>
+    <div class="note">Emil, die Eule, hat eine fest eingestellte Stimme, die eine möglichst klare und deutliche Aussprache nachahmt – zum Lesen- und Schreibenlernen.
+    Hier wählen Sie die <b>Stimme des Kindes</b>: Sie spricht nur in der Mitteil-Tafel 💬, wenn das Kind etwas sagen möchte.
+    🔊 = Stimmen der Windows-Sprachausgabe (z. B. die Stimmen des Tobii-Geräts, sofern für Windows freigegeben). Keine „Multilingual“-Stimme wählen.</div>
+    <label><span>Sprechtempo der Kinderstimme: <b id="valRate"></b></span><input type="range" id="setRate" min="0.5" max="1.3" step="0.05"></label>
 
     <h3>📊 Lernstand</h3>
     <div id="stats"></div>
