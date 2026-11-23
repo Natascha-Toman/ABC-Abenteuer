@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.19 – 23.11.2026
+
+**Verbessert**
+- Laut n: schlichtes, etwas länger gezogenes /n/ ohne Hauch (WAV).
+- Silben von Palme neu ausgewählt.
+
 ## 4.18 – 23.11.2026
 
 **Verbessert**
