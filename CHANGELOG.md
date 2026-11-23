@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.20 – 23.11.2026
+
+**Verbessert**
+- Palme: „me“ mit dezent hörbarem e.
+
 ## 4.19 – 23.11.2026
 
 **Verbessert**
