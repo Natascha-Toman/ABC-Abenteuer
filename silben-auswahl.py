@@ -184,7 +184,7 @@ def seite(woerter, dateien=()):
         cells = []
         nf = os.path.join(AUSWAHL, slug, "namen.json")            # Beschriftung geliehener Fassungen
         namen = json.load(open(nf, encoding="utf-8")) if os.path.exists(nf) else {}
-        for v in range(0, 40):
+        for v in range(0, 100):
             if v > 4 and not os.path.exists(os.path.join(AUSWAHL, slug, f"{v}-1.wav")): continue
             if v and slug in NEU_AB and v < NEU_AB[slug]: continue
             d = f"../web/audio/silben/{slug}-" if v == 0 else f"auswahl/{slug}/{v}-"
