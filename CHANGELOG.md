@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.17 – 23.11.2026
+
+**Verbessert**
+- Dunkler Hintergrund in der Mitteil-Tafel: Schrift oben hell (auch nach dem Sagen), großes
+  Textfeld der Tastatur dunkel mit dezentem Rand und heller Schrift.
+
 ## 4.16 – 22.11.2026
 
 **Verbessert**

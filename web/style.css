@@ -615,3 +615,8 @@ body.dark .mixlabel { color: #fff; }
 /* Dunkel + Lupe: der Balken oben wird beim Hinschauen dunkelblau statt weiß */
 body.dark.lens:not(.eye-paused) .screen.active .topbar, body.dark.lens:not(.eye-paused) #talk.show .topbar {
   background: rgba(20,31,60,.95); box-shadow: 0 calc(1 * var(--u)) calc(3 * var(--u)) rgba(0,0,0,.45), inset 0 calc(-.3 * var(--u)) 0 rgba(255,255,255,.18); }
+/* Dunkel: Mitteil-Tafel – Schrift oben hell (auch nach dem Sagen), großes Textfeld dunkel mit dezentem Rand */
+body.dark #talk .title, body.dark #talk .title.said { color: #f3f5ff; }
+body.dark #talk .title.said { color: #a9cdff; }
+body.dark #kbBig .bigtext { background: #1b2742; color: #f3f5ff; border: calc(.4 * var(--u)) solid rgba(255,255,255,.22); }
+body.dark #kbBig .bigtext .w.on { color: var(--ink); }
