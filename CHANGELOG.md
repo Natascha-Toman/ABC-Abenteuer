@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.21 – 23.11.2026
+
+**Verbessert**
+- Lupe im hellen Modus: kein weißer Balken mehr hinter Titel und Knöpfen – nur die Knöpfe werden größer.
+
 ## 4.20 – 23.11.2026
 
 **Verbessert**
