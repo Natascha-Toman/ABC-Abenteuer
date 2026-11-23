@@ -2,6 +2,11 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.18 – 23.11.2026
+
+**Verbessert**
+- Silben von Ameise, Tomate und Pinguin neu ausgewählt.
+
 ## 4.17 – 23.11.2026
 
 **Verbessert**
