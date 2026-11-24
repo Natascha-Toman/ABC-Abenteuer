@@ -627,3 +627,7 @@ body.lens:not(.dark):not(.eye-paused) .screen.active .topbar, body.lens:not(.dar
 body.dark #settings img.emo[src*="2714"], body.dark #settings img.emo[src*="2716"], body.dark #settings img.emo[src*="2795"] { filter: invert(1); }
 /* Lernstand: Quote auf farbigem Feld immer dunkel und fett (auch im dunklen Modus lesbar) */
 #settings td.quote { color: #2b2d42 !important; font-weight: 700; }
+/* Buchstaben entdecken: geübte Buchstaben gelb, nicht geübte (wenn nur bestimmte eingestellt sind) blasser */
+.lettergrid .opt.known { background: #fff1c9; }
+.lettergrid .opt.faded { background: rgba(255,255,255,.55); color: #aeb2c4; border-color: rgba(0,0,0,.05); box-shadow: none; }
+body.dark .lettergrid .opt.faded { background: rgba(255,255,255,.16); color: #9aa4c4; border-color: rgba(255,255,255,.08); }

@@ -2,6 +2,16 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.24 – 24.11.2026
+
+**Verbessert**
+- Standard-Schrift ist jetzt „Groß und klein“ (wer noch die alte Voreinstellung GROSS hatte, wird einmalig umgestellt).
+- Bei „Groß und klein“ zeigen die Spiele immer nur einen Buchstaben, passend zum Wort: Anfangsbuchstabe groß
+  („I“ wie Igel), Endbuchstabe klein („o“ wie Auto) – statt „Ii“. Ausnahmen: Buchstaben entdecken, Ballon-Jagd,
+  großer Sticker.
+- Kleines l mit Bogen unten (wie beim t), damit es nicht wie ein großes I aussieht – überall.
+- Buchstaben entdecken: sind nur bestimmte Buchstaben eingestellt, erscheinen die übrigen blasser (hell und dunkel).
+
 ## 4.23 – 23.11.2026
 
 **Behoben**

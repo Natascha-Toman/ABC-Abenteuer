@@ -97,14 +97,14 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.23", APP_DATE = "23.11.2026";
-const SETTINGS_VERSION = 7;
+const APP_VERSION = "4.24", APP_DATE = "24.11.2026";
+const SETTINGS_VERSION = 8;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
   dwell: false,   // Auswahl nur per Klick – das Verweilen übernimmt die Tobii-Software (Linksklick)
   dwellMs: 1200, dwellBigMs: 1800, dot: false, hideCursor: false, mouseGuard: true,
   voice: "", rate: 0.85, hoverSay: true, sfx: true, muted: false,
-  round: 5, letterCase: "upper", sylColor: true, sylHelp: true, dark: false, allLevels: false,
+  round: 5, letterCase: "mixed", sylColor: true, sylHelp: true, dark: false, allLevels: false,
   manualNext: false, balloonSpeed: 1, autoFull: true, eyeClickLock: "td", speechPause: true, lens: true,
   volume: 100, unlockRounds: 3,
   letters: DEFAULT_LETTERS.slice(), talk: DEFAULT_TALK, talkKb: "abc", talkKbOpen: false, kbSpeak: "both", letterVoice: "laut",
@@ -200,6 +200,8 @@ if ((SAVED.v || 1) < 6) S.eyeClickLock = "td";
 // v7: Mieder und Schaukel gehören nicht mehr zur voreingestellten Mitteil-Tafel
 if ((SAVED.v || 1) < 7 && typeof S.talk === "string")
   S.talk = S.talk.split(/\r?\n/).filter(l => !/^\s*\[(mieder_an|mieder_aus|schaukel)\]\s*;\s*(Mieder anziehen|Mieder ausziehen|Schaukeln)\s*;/.test(l)).join("\n");
+// v8: neuer Standard „Groß und klein“ – wer noch die alte Voreinstellung (GROSS) hatte, bekommt sie
+if ((SAVED.v || 1) < 8 && S.letterCase === "upper") S.letterCase = "mixed";
 sanitizeSettings(S);
 if ((SAVED.v || 1) < SETTINGS_VERSION) { S.v = SETTINGS_VERSION; save("settings", S); }
 let stats = cleanStats(load("stats", {}));
@@ -257,6 +259,10 @@ function glyphShift(t) {
 if (document.fonts) document.fonts.load("700 100px Andika").catch(() => {});
 function cgHTML(t, cls = "") { return `<span class="cg ${cls}" style="--cy:${glyphShift(t)}em">${esc(t)}</span>`; }
 const flH = L => cgHTML(fl(L));
+// Ein einzelner Buchstabe in der richtigen Schreibweise (bei „Groß und klein“ nicht „Ii“, sondern passend zum Wort):
+// Anfangsbuchstabe eines Nomens groß („I“ wie Igel), Endbuchstabe klein („o“ wie Auto)
+const flStart = L => cgHTML(S.letterCase === "lower" ? L.toLowerCase() : L.toUpperCase());
+const flEnd = L => cgHTML(S.letterCase === "upper" ? L.toUpperCase() : L.toLowerCase());
 function fc(L) { return S.letterCase === "upper" ? L.toUpperCase() : L.toLowerCase(); }
 const art = w => `${w.g} ${w.w}`;                       // "die Maus"
 const verb = (w, sg, pl) => w.pl ? pl : sg;              // "fängt" / "fangen"
@@ -1358,7 +1364,7 @@ function anlautPic2Letter(t, used, c) {
         <div class="bigpic">${w.e}</div>
         <div class="bigword" style="font-size:${u(9)}"><span id="aq" style="color:var(--orange)">?</span>${esc(word.slice(1))}</div></div>`,
     bubble: "Womit fängt das Wort an?", letter: L,
-    options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L })),
+    options: opts.map(x => ({ html: flStart(x), say: LN(x), correct: x === L })),
     speak: () => say(`Womit ${fv} ${art(w)} an?`),
     onWrong: () => `${pick(ENCOURAGE)} Hör genau: ${art(w)}.`,
     onRight: async () => { $("#aq").textContent = word[0]; await say(`${pick(PRAISE)} ${cap(art(w))} ${fv} mit dem Buchstaben ${LN(L)} an.`); },
@@ -1378,7 +1384,7 @@ function anlautLetter2Pic(t, used, c) {
   for (const x of pool) { if (others.length >= c.n - 1) break; if (!others.some(o => first(o) === first(x))) others.push(x); }
   const opts = shuffle([w, ...others]);
   return choiceTask(t, {
-    content: `<div class="bigletter">${flH(L)}</div>`,
+    content: `<div class="bigletter">${flStart(L)}</div>`,
     bubble: "Was fängt mit diesem Buchstaben an?", letter: L,
     options: opts.map(o => ({ html: o.e, cls: "pic", say: art(o), correct: o === w, w: o })),
     speak: () => say(`Was fängt mit dem Buchstaben ${LN(L)} an?`),
@@ -1403,7 +1409,7 @@ function anlautEnd(t, used, c) {
         <div class="bigpic">${w.e}</div>
         <div class="bigword" style="font-size:${u(9)}">${esc(word.slice(0, -1))}<span id="aq" style="color:var(--orange)">?</span></div></div>`,
     bubble: "Welcher Buchstabe fehlt am Ende?", letter: L,
-    options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L })),
+    options: opts.map(x => ({ html: flEnd(x), say: LN(x), correct: x === L })),
     speak: () => say(`Welcher Buchstabe fehlt am Ende? Womit ${hv} ${art(w)} auf?`),
     onWrong: () => `${pick(ENCOURAGE)} Hör genau: ${w.w}.`,
     onRight: async () => { $("#aq").textContent = word[word.length - 1]; await say(`${pick(PRAISE)} ${cap(art(w))} ${hv} mit dem Buchstaben ${LN(L)} auf.`); },
@@ -1419,7 +1425,7 @@ function taskHear(t, used) {
   return choiceTask(t, {
     content: c.pic ? `<div class="bigpic">${w.e}</div>` : "",
     bubble: "Wo ist der Buchstabe? Hör genau!", letter: L, nosay: true,
-    options: opts.map(x => ({ html: flH(x), say: LN(x), correct: x === L, L: x })),
+    options: opts.map(x => ({ html: flStart(x), say: LN(x), correct: x === L, L: x })),
     // Stufe 3 (ohne Bild): Laut und Name nacheinander, damit klar ist, welcher Buchstabe gemeint ist
     speak: () => c.pic ? say(`Wo ist der Buchstabe ${LN(L)}? ${LN(L)} wie ${w.w}.`)
                        : sayLautName(L, "Wo ist der Buchstabe?"),
@@ -1874,7 +1880,8 @@ function runExplore(t) {
     d.className = "gaze opt";
     d.innerHTML = flH(L);
     d.dataset.say = LN(L); d.dataset.noname = "1";
-    if (known.has(L)) d.style.background = "#fff1c9";
+    // nur bestimmte Buchstaben eingestellt: die geübten hervorheben, die anderen blasser
+    if (known.has(L)) d.classList.add("known"); else if (known.size < list.length) d.classList.add("faded");
     onSelect(d, () => openExplore(L));
     $("#lg").appendChild(d);
   });
@@ -1917,7 +1924,7 @@ function runMemory(t) {
     if (Ls.length < pairs) Ls = Ls.concat(shuffle(ALPHABET.filter(L => !Ls.includes(L) && anlautWords(L).length)).slice(0, pairs - Ls.length));
     Ls.forEach(L => {
       const w = pick(anlautWords(L));
-      cards.push({ key: L, L, w, html: flH(L), say: LN(L) });
+      cards.push({ key: L, L, w, html: flStart(L), say: LN(L) });
       cards.push({ key: L, L, w, html: w.e, say: art(w) });
     });
   }
