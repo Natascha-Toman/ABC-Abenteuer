@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.25", APP_DATE = "24.11.2026";
+const APP_VERSION = "4.26", APP_DATE = "24.11.2026";
 const SETTINGS_VERSION = 8;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -1823,7 +1823,7 @@ function taskWrite(t, used) {
       const d = document.createElement("div");
       d.className = "gaze opt";
       d.textContent = ch;
-      d.dataset.say = LN(ch);
+      d.dataset.say = LN(ch); d.dataset.noname = "1";   // nur Laut ODER Name – je nach Einstellung
       d._ch = ch;
       $("#tiles").appendChild(d);
       return d;
@@ -1843,13 +1843,13 @@ function taskWrite(t, used) {
         drawSlots();
         if (pos >= target.length) {
           busy = true; G.repeat = null;
-          await say(LN(d._ch));                     // auch den letzten Buchstaben vorlesen
+          await say(LN(d._ch), "talk", 1, { noName: true });   // auch den letzten Buchstaben vorlesen
           if (t !== G.token) return;
           SFX.success();
           stat(first(w), firstTry);
           await say(`${pick(PRAISE)} Du hast ${w.w} geschrieben!`);
           if (t === G.token) resolve(true);
-        } else say(LN(d._ch));
+        } else say(LN(d._ch), "talk", 1, { noName: true });
       } else {
         errs++; firstTry = false; G.errors++;
         d.classList.add("wrong");
@@ -1859,7 +1859,7 @@ function taskWrite(t, used) {
         const need = target[pos];
         if (errs >= 2) {
           tileEls.find(e => e._ch === need).classList.add("hint");
-          (async () => { await say("Wir brauchen jetzt den Buchstaben"); if (t === G.token && !busy) say(LN(need)); })();
+          (async () => { await say("Wir brauchen jetzt den Buchstaben"); if (t === G.token && !busy) say(LN(need), "talk", 1, { noName: true }); })();
         } else say(`Hör genau: ${w.w}. Was kommt jetzt?`, "talk", .85);
       }
     }));

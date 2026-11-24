@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.26 – 24.11.2026
+
+**Verbessert**
+- Wörter schreiben: Buchstaben werden je nach Einstellung nur als Laut oder nur als Buchstabenname gesagt
+  (ohne „Manchmal wird dieser Buchstabe aber auch … ausgesprochen“).
+
 ## 4.25 – 24.11.2026
 
 **Behoben**
