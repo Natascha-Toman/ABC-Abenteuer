@@ -16,9 +16,15 @@ Alle wichtigen Änderungen, die neueste Version steht oben.
 - Ballon-Jagd: nur in Stufe 1 verraten die Ballons beim Anschauen ihren Buchstaben.
 - Sticker-Album: der Knopf „Zurück zum Album“ ist auffällig orange.
 - Dunkler Hintergrund: leere Felder beim Silben-Puzzle deutlicher.
+- Zurück aus dem großen Sticker und aus „Buchstaben entdecken“: oranger Knopf mit gebogenem Pfeil –
+  deutlich anders als der blaue Pause-Knopf.
+- Dunkler Hintergrund: „Wer spielt?“ auf dem Startbildschirm hell.
+- Silbe „lat“ in Salat neu ausgewählt.
+- Anleitung und README mit neuen Bildern aller Bildschirme; README nennt die aktuelle Version 4.4.
 - Änderungsprotokoll übersichtlicher: pro Tag eine Version.
 
 **Behoben**
+- Der 👏-Knopf von „Silben klatschen“ erschien auch in der Stufenwahl anderer Spiele.
 - Wörter schreiben im dunklen Modus: die Striche der richtig gewählten Buchstaben werden wieder grün,
   der nächste Strich orange.
 
@@ -205,7 +211,7 @@ Alle wichtigen Änderungen, die neueste Version steht oben.
 **Behoben**
 - Der Beistrich (Komma) auf der Tastatur war unten abgeschnitten.
 
-## 2.1 – 15.11.2026
+## 2.5 – 15.11.2026
 
 **Neu**
 - Einstellungen → Buchstaben: Schnellauswahl mit Knöpfen „Alle auswählen“, „Alle abwählen“,
@@ -220,7 +226,7 @@ Alle wichtigen Änderungen, die neueste Version steht oben.
 - Sticker-Album: Die Sticker sind wieder größer, die Emojis werden nicht mehr abgeschnitten.
   Die Blätter-Knöpfe ▲ ▼ erscheinen wieder, wenn nicht alle Sticker auf eine Seite passen.
 - Beim „Wörter schreiben“ wird jetzt auch der letzte Buchstabe vorgelesen, danach kommt das Lob.
-- Die Download-Datei trägt die Versionsnummer im Namen (z. B. `ABC-Abenteuer-2.1.zip`).
+- Die Download-Datei trägt die Versionsnummer im Namen (z. B. `ABC-Abenteuer-2.5.zip`).
 - Das Warnfenster beim Abwählen von Buchstaben ist ersetzt durch einen Hinweis im Fenster.
 
 **Behoben**

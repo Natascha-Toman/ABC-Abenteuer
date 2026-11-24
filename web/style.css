@@ -640,3 +640,7 @@ body.dark .pzslot.next { border-color: var(--orange); }
 body.dark .pzslot .ghost { color: rgba(255,255,255,.6); }
 /* Sticker-Album: „Zurück zum Album“ (⬅️) auffällig orange – hell und dunkel */
 #album.svopen #btnAlbumHome { background: #ffc46b; border-color: #e8962e; box-shadow: 0 calc(.6 * var(--u)) 0 #d9862a; }
+/* Zurück aus „Buchstaben entdecken“: gleicher oranger Knopf mit gebogenem Pfeil wie im Sticker-Album */
+#exBack { background: #ffc46b; border-color: #e8962e; box-shadow: 0 calc(.6 * var(--u)) 0 #d9862a; }
+/* Startbildschirm im dunklen Modus: „Wer spielt?“ hell */
+body.dark #startProfiles .who { color: #f3f5ff; }

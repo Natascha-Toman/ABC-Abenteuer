@@ -56,5 +56,15 @@ $v = (Get-Item (Join-Path $files "ABC-Abenteuer.exe")).VersionInfo.ProductVersio
 $ver = [Version]$v
 $short = if ($ver.Build -gt 0) { "{0}.{1}.{2}" -f $ver.Major, $ver.Minor, $ver.Build } else { "{0}.{1}" -f $ver.Major, $ver.Minor }
 $zip = Join-Path (Split-Path $src -Parent) ("ABC-Abenteuer-{0}.zip" -f $short)
-Compress-Archive -Path $target -DestinationPath $zip -Force
+# Nur die noetigen Dateien einpacken (keine alten ZIP-Dateien oder Testreste aus dem Zielordner)
+$stage = Join-Path ([IO.Path]::GetTempPath()) ("abc-zip-" + [Guid]::NewGuid().ToString("N"))
+$pack = Join-Path $stage (Split-Path $target -Leaf)
+New-Item -ItemType Directory -Force $pack | Out-Null
+foreach ($f in "ABC-Abenteuer.exe", "Anleitung.html", "CHANGELOG.md", "LICENSE", "THIRD-PARTY-LICENSES.md", "files", "lizenzen") {
+    $p = Join-Path $target $f
+    if (Test-Path $p) { Copy-Item $p $pack -Recurse -Force }
+}
+Get-ChildItem $pack -Recurse -Include "selbsttest.txt", "_check*", "_bild*" | Remove-Item -Force
+Compress-Archive -Path $pack -DestinationPath $zip -Force
+Remove-Item $stage -Recurse -Force
 Write-Host ("Fertig: Version {0}, ZIP {1} ({2:N1} MB)" -f $v, (Split-Path $zip -Leaf), ((Get-Item $zip).Length / 1MB))

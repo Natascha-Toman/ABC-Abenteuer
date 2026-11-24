@@ -1195,6 +1195,7 @@ function openGame(id) {
 function showLevelSelect(id) {
   G.token++; G.game = id; stopSpeech(); hideOverlays();
   show("game");
+  updateSylHelpBtn();                                    // 👏-Knopf nur im Spiel Silben klatschen (nicht in der Stufenwahl anderer Spiele)
   setTitle(gameName(id));
   const max = maxLevel(id);
   $("#stage").innerHTML = `<div class="levels" id="lv"></div>`;
@@ -2523,9 +2524,11 @@ async function svClap() {
   setTimeout(() => svMark(-1), 500);
 }
 // Während ein Sticker groß gezeigt wird, führt der Knopf oben links (sonst 🏠) zurück zum Album
+// Zurück-Symbol (gebogener Pfeil) – deutlich anders als der blaue Pause-Knopf ⏸️
+const ICON_BACK = `<svg class="backico" viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:-0.12em"><path d="M34 36 H60 Q82 36 82 58 Q82 80 60 80 H38" fill="none" stroke="#6b3300" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 16 L20 36 L42 56" fill="none" stroke="#6b3300" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 function svHomeBtn(open) {
   const b = $("#btnAlbumHome");
-  b.textContent = open ? "⬅️" : "🏠";
+  if (open) b.innerHTML = ICON_BACK; else b.textContent = "🏠";
   b.dataset.say = open ? "Zurück zum Album" : "Zurück zum Menü";
   b.title = open ? "Zurück zum Album" : "Zurück zum Menü";
   $("#album").classList.toggle("svopen", open);

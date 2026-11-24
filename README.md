@@ -4,9 +4,9 @@
 
 ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder. Es wurde besonders mit Blick auf die Bedienung per Augensteuerung entwickelt, funktioniert aber genauso mit Maus und Touchscreen. Die Eule begleitet die Kinder durch die Übungen.
 
-## ⬇️ ABC-Abenteuer 2.5 herunterladen
+## ⬇️ ABC-Abenteuer 4.4 herunterladen
 
-### [Jetzt ABC-Abenteuer 2.5 für Windows herunterladen](https://github.com/Natascha-Toman/ABC-Abenteuer/releases/tag/v2.5.0)
+### [Jetzt ABC-Abenteuer 4.4 für Windows herunterladen](https://github.com/Natascha-Toman/ABC-Abenteuer/releases/tag/v4.4.0)
 
 **Kostenlos · Für Windows · Keine klassische Installation erforderlich**
 
@@ -20,12 +20,13 @@ ABC-Abenteuer ist ein kostenloses Lernprogramm für Kinder. Es wurde besonders m
 
 ## 🎮 Was kann ABC-Abenteuer?
 
-- **10 Lernspiele** rund um Buchstaben, Wörter, Sätze und Silben
+- **11 Lernspiele** rund um Buchstaben, Wörter, Sätze, Silben und Farben
 - **Drei Schwierigkeitsstufen** zum schrittweisen Üben
 - **Augensteuerung** mit einstellbarer Verweilzeit und großen Auswahlflächen
-- **Sprachausgabe** für Aufgaben und Rückmeldungen
+- **Natürliche Sprachausgabe**: Emil, die Eule, spricht Aufgaben, Rückmeldungen, Laute und Silben deutlich vor
 - **Mitteil-Tafel** für eigene Aussagen während des Spielens
 - **Kinderprofile** mit Lernfortschritt und Sticker-Album
+- **Dunkler Hintergrund** auf Wunsch (blendet weniger)
 - **Sichern und Wiederherstellen** der gespeicherten Daten
 - **Offline nutzbar** – keine Internetverbindung erforderlich
 
@@ -38,7 +39,7 @@ Buchstaben auswählen, kennenlernen und anhören.
 
 ![Buchstabenübersicht mit großen auswählbaren Buchstaben](bilder/buchstaben.jpg)
 
-### 🍎 Anfang und Ende
+### 🅰️ Anfang und Ende
 Den Anfangsbuchstaben eines Wortes erkennen und auswählen – und den Endbuchstaben.
 
 ![Anfangsbuchstaben-Aufgabe mit einem Nashorn und drei Antwortmöglichkeiten](bilder/anfangsbuchstaben.jpg)
@@ -46,7 +47,7 @@ Den Anfangsbuchstaben eines Wortes erkennen und auswählen – und den Endbuchst
 ### ✏️ Wörter schreiben
 Buchstaben in die richtige Reihenfolge bringen und Wörter zusammensetzen.
 
-![Wörter-schreiben-Spiel mit einer Ente und auswählbaren Buchstaben](bilder/woerter-schreiben.jpg)
+![Wörter-schreiben-Spiel mit einer Dose und auswählbaren Buchstaben](bilder/woerter-schreiben.jpg)
 
 ### 🧩 Silben-Puzzle
 Aus einzelnen Silben Schritt für Schritt ganze Wörter bilden.
