@@ -631,3 +631,6 @@ body.dark #settings img.emo[src*="2714"], body.dark #settings img.emo[src*="2716
 .lettergrid .opt.known { background: #fff1c9; }
 .lettergrid .opt.faded { background: rgba(255,255,255,.55); color: #aeb2c4; border-color: rgba(0,0,0,.05); box-shadow: none; }
 body.dark .lettergrid .opt.faded { background: rgba(255,255,255,.16); color: #9aa4c4; border-color: rgba(255,255,255,.08); }
+/* Dunkel: Striche der richtig gewählten Buchstaben grün, der nächste orange (wie im hellen Modus) */
+body.dark .slot.filled { border-color: var(--green); }
+body.dark .slot.next { border-color: var(--orange); }

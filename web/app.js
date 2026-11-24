@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.24", APP_DATE = "24.11.2026";
+const APP_VERSION = "4.25", APP_DATE = "24.11.2026";
 const SETTINGS_VERSION = 8;
 const DEFAULTS = {
   v: SETTINGS_VERSION,

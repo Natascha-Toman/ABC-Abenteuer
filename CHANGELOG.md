@@ -2,6 +2,12 @@
 
 Alle wichtigen Änderungen, die neueste Version steht oben.
 
+## 4.25 – 24.11.2026
+
+**Behoben**
+- Wörter schreiben im dunklen Modus: die Striche der richtig gewählten Buchstaben werden wieder grün,
+  der nächste Strich orange.
+
 ## 4.24 – 24.11.2026
 
 **Verbessert**
