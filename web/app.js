@@ -97,7 +97,7 @@ fit();
 //  Speicher & Einstellungen
 // ---------------------------------------------------------------------
 // Programmversion – bei größeren Änderungen erhöhen (erscheint auf dem Startbildschirm, in den Einstellungen und in der Anleitung)
-const APP_VERSION = "4.26", APP_DATE = "24.11.2026";
+const APP_VERSION = "4.4", APP_DATE = "24.11.2026";
 const SETTINGS_VERSION = 8;
 const DEFAULTS = {
   v: SETTINGS_VERSION,
@@ -1501,7 +1501,13 @@ async function taskSyll(t, used) {
       await sleep(200);
       await saySyllables(w, () => SFX.clap());
     },
-    onWrong: () => S.sylHelp ? "Hör noch einmal genau und klatsch mit." : "Versuch es noch einmal.",
+    // mit Vorsagen/Klatschen: nach der Ansage die Silben noch einmal vorklatschen
+    onWrong: () => S.sylHelp ? async () => {
+      await say("Hör noch einmal genau und klatsch mit.");
+      if (t !== G.token) return;
+      await sleep(200);
+      await saySyllables(w, () => SFX.clap());
+    } : "Versuch es noch einmal.",
     onRight: async () => {
       const el = $("#sylw");
       el.className = "sylrow";
@@ -2024,7 +2030,7 @@ function runBalloon(t) {
     el.className = "gaze balloon notyet";
     el.innerHTML = flH(ch);
     el.style.background = pick(BALLOON_COLORS);
-    el.dataset.say = LN(ch);
+    if (G.level === 1) el.dataset.say = LN(ch); else el.dataset.nosay = "1";   // nur in Stufe 1 verraten die Ballons ihren Buchstaben
     el.dataset.fast = "1";
     const b = { el, ch, x, y: fh + 10, ph: Math.random() * 6, alive: true };
     el.style.left = x + "px"; el.style.top = b.y + "px";

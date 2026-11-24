@@ -634,3 +634,9 @@ body.dark .lettergrid .opt.faded { background: rgba(255,255,255,.16); color: #9a
 /* Dunkel: Striche der richtig gewählten Buchstaben grün, der nächste orange (wie im hellen Modus) */
 body.dark .slot.filled { border-color: var(--green); }
 body.dark .slot.next { border-color: var(--orange); }
+/* Silben-Puzzle im dunklen Modus: leere Felder und Vorlage deutlicher */
+body.dark .pzslot:not(.filled) { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+body.dark .pzslot.next { border-color: var(--orange); }
+body.dark .pzslot .ghost { color: rgba(255,255,255,.6); }
+/* Sticker-Album: „Zurück zum Album“ (⬅️) auffällig orange – hell und dunkel */
+#album.svopen #btnAlbumHome { background: #ffc46b; border-color: #e8962e; box-shadow: 0 calc(.6 * var(--u)) 0 #d9862a; }
