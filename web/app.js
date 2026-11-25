@@ -463,6 +463,9 @@ function speakFix(t) { return SPEAK_FIX.reduce((x, [re, to]) => x.replace(re, to
 const AU = window.AUDIO || {};
 const AU_SET = { laut: new Set(AU.laut || []), name: new Set(AU.name || []), wort: new Set(AU.wort || []), lautwav: new Set(AU.lautwav || []) };
 const lautPath = k => `audio/laut/${k}.${AU_SET.lautwav.has(k) ? "wav" : "mp3"}`;   // ausgewählte Laute als WAV (z. B. „o“)
+// Buchstabennamen, die genauso klingen sollen wie der Laut (Wunsch: O überall als das klare „O“ des Lauts)
+const NAME_WIE_LAUT = new Set(["o"]);
+const namePath = k => NAME_WIE_LAUT.has(k) && AU_SET.laut.has(k) ? lautPath(k) : `audio/name/${k}.mp3`;
 const auKey = t => String(t).toLowerCase().replace(/[^a-zäöüß0-9]+/g, " ").trim();
 function satzClip(t) { const id = AU.satz && AU.satz[auKey(t)]; return id ? `audio/satz/${id}.mp3` : null; }
 function wortClip(t) {
@@ -473,7 +476,7 @@ function wortClip(t) {
 function letterClip(L) {
   const k = slugW(L);
   if (S.letterVoice !== "name" && AU_SET.laut.has(k)) return lautPath(k);
-  if (AU_SET.name.has(k)) return `audio/name/${k}.mp3`;
+  if (AU_SET.name.has(k)) return namePath(k);
   return null;
 }
 // Laute, die man leicht verwechselt (g/k/c/z, b/p, d/t, m/n, y, f/v): erst der Laut, dann der Name –
@@ -496,7 +499,7 @@ function speechParts(text, noName = false) {
   const chunk = c => { const p = satzClip(c) || wortClip(c); if (p) out.push({ clip: p, text: c }); else tts(c); };
   const explained = new Set();
   let explainL = null;                                 // Hinweis zum Namen erst ganz am Ende der Ansage
-  const nameClip = L => AU_SET.name.has(slugW(L)) ? { clip: `audio/name/${slugW(L)}.mp3`, text: LETTER_NAMES[L] || L } : null;
+  const nameClip = L => AU_SET.name.has(slugW(L)) ? { clip: namePath(slugW(L)), text: LETTER_NAMES[L] || L } : null;
   for (const sent of String(text).match(/[^.!?:]+[.!?:]*|[.!?:]+/g) || []) {
     const sc = satzClip(sent);
     if (sc) { out.push({ clip: sc, text: sent }); continue; }
@@ -558,7 +561,7 @@ function say(text, kind = "talk", rateF = 1, opts = {}) {
 function sayLautName(L, vorher = "") {
   const k = slugW(L);
   const laut = AU_SET.laut.has(k) ? { clip: lautPath(k), text: L } : { tts: L };
-  const name = AU_SET.name.has(k) ? { clip: `audio/name/${k}.mp3`, text: L } : { tts: LETTER_NAMES[L] || L };
+  const name = AU_SET.name.has(k) ? { clip: namePath(k), text: L } : { tts: LETTER_NAMES[L] || L };
   const vokal = "AEIOUÄÖÜ".includes(L);               // Selbstlaut: Name = Laut, nicht wiederholen
   const parts = [...(vorher ? speechParts(vorher) : []), ...speechParts("Hör gut zu! Der Buchstabe macht so:"), { pause: 250 }, laut,
                  ...(vokal ? [] : [{ pause: 900 }, ...speechParts("Und er heißt:"), { pause: 250 }, name])];
