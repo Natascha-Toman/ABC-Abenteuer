@@ -2439,7 +2439,9 @@ function kbBigSpeak() {
     let at = 0;
     spans.forEach((s, k) => { timers.push(setTimeout(() => { if (!real) mark(k); }, at * 1000)); at += (s.textContent.length + 1) / cps; });
   }, 350));
-  const p = kbSpeak(ci => { real = true; mark(byChar(ci)); });
+  // Wortgrenzen der Stimme nur nutzen, wenn sie zum Text passen – sonst weiter nach geschätzter Zeit markieren
+  const len = sentenceCase(Talk.typed.trim()).length;
+  const p = kbSpeak(ci => { if (!(ci >= 0 && ci < len)) return; real = true; mark(byChar(ci)); });
   Promise.resolve(p).then(() => { timers.forEach(clearTimeout); setTimeout(() => mark(-1), 400); });
 }
 function closeKbBig() { $("#kbBig").classList.remove("show"); stopSpeech(); }

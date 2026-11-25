@@ -596,9 +596,9 @@ namespace AbcAbenteuer
                 if (voiceNames.Contains(voice)) { try { tts.SelectVoice(voice); } catch (Exception ex) { Log.Error("Stimme wählen", ex); } }
                 tts.Rate = Math.Max(-10, Math.Min(10, (int)Math.Round((rate - 1) * 10)));
                 tts.Volume = Math.Max(0, Math.Min(100, volume));
-                var prompt = new PromptBuilder();
-                prompt.AppendText(text ?? "");
-                var p = new Prompt(prompt);
+                // reiner Text (kein SSML): dann beziehen sich die Wortpositionen (SpeakProgress) auf den Text selbst –
+                // die Oberfläche markiert damit im großen Textfenster das gerade gesprochene Wort
+                var p = new Prompt(text ?? "");
                 lock (pending) pending[p] = id;
                 tts.SpeakAsync(p);
             }
