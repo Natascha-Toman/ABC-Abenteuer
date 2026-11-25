@@ -644,3 +644,7 @@ body.dark .pzslot .ghost { color: rgba(255,255,255,.6); }
 #exBack { background: #ffc46b; border-color: #e8962e; box-shadow: 0 calc(.6 * var(--u)) 0 #d9862a; }
 /* Startbildschirm im dunklen Modus: „Wer spielt?“ hell */
 body.dark #startProfiles .who { color: #f3f5ff; }
+/* Mitteil-Tafel mit Lupe: der gesagte Satz bleibt lesbar – eine Zeile, etwas kleiner, „…“ wenn er nicht passt;
+   die vergrößerten Knöpfe rücken enger zusammen, damit mehr Platz für den Satz bleibt */
+body.lens:not(.eye-paused) #talk.show .topbar { gap: calc(3.2 * var(--w)); }
+body.lens:not(.eye-paused) #talk.show .topbar .title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; font-size: calc(4.6 * var(--u)); }
